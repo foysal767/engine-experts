@@ -2,7 +2,7 @@ import React from "react";
 
 const Banner = () => {
   return (
-    <div className="">
+    <div className="font-poppins">
       <div
         className="hero min-h-screen"
         style={{
