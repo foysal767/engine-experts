@@ -2,7 +2,7 @@ import React from "react";
 
 const PopularService = () => {
   return (
-    <div className="">
+    <div className="font-poppins">
         <h2 className="text-5xl font-bold text-center my-5">Our Popular Services</h2>
       <div data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="2000" className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 place-items-center">
         <div className="card card-compact w-96 bg-gray-600 p-2 shadow-xl rounded-md">
