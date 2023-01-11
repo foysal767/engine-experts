@@ -29,9 +29,9 @@ const Navbar = () => {
                     {menuItems}
                 </ul>
             </div>
-            {/* <div className="navbar-end">
-                <a className="btn">Get started</a>
-            </div> */}
+            <div className="navbar-end">
+                <Link className="btn">Get started</Link>
+            </div>
         </div>
     );
 };
