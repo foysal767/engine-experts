@@ -1,5 +1,6 @@
 import React from 'react';
 import Banner from './Banner/Banner';
+import BrandSection from './BrandSection/BrandSection';
 import CustomerReviews from './CustomerReviews/CustomerReviews';
 import DiscountSection from './DiscountSection/DiscountSection';
 import GetService from './GetService/GetService';
@@ -13,6 +14,7 @@ const Home = () => {
             <PopularService></PopularService>
             <GetService></GetService>
             <CustomerReviews></CustomerReviews>
+            <BrandSection></BrandSection>
         </main>
     );
 };
