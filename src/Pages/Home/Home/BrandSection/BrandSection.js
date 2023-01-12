@@ -11,8 +11,8 @@ import brand8 from '../../../../assets/brand-8.png';
 const BrandSection = () => {
     return (
         <div className='mt-12 text-white client-wrap mb-24'>
-            <h1 className='text-center text-5xl font-semibold' >Our Clients</h1>
-            <hr/>
+            <h1 className='text-center font-poppins text-5xl font-semibold' >Our Clients</h1>
+            <br />
             <div className='client-in'>
                 <ul className='grid grid-cols-2 justify-items-center md:grid-cols-4 lg:grid-cols-7  mx-auto'>
                     <li>
