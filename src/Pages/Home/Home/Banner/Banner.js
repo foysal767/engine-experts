@@ -9,7 +9,7 @@ const Banner = () => {
           backgroundImage: `url("https://i.ibb.co/sQ0PXpy/360-F-308445331-ZZinys-Rse5x-OZac-NTno-Qq-G24-TAy7ft-Z5.jpg")`,
         }}
       >
-        <div className="hero-overlay bg-opacity-60"></div>
+        <div className="hero-overlay bg-opacity-60 hover:bg-opacity-80"></div>
         <div className="hero-content text-neutral-content">
           <div className="lg:mr-96">
             <h1 className="mb-5 lg:text-5xl text-3xl font-bold">
