@@ -10,7 +10,7 @@ const DiscountSection = () => {
         data-aos="fade-right"
         data-aos-easing="ease-out-cubic"
         data-aos-duration="2000"
-        className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 place-items-center"
+        className="grid font-poppins lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 place-items-center"
       >
         <div className="card card-compact w-96 bg-gray-600 p-2 shadow-xl rounded-md">
           <figure>
