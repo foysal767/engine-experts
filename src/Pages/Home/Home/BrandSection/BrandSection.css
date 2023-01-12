@@ -18,8 +18,8 @@
 .client-in ul{
     padding: 0;
     margin: 0;
-    display: flex;
-    justify-content: space-evenly;
+    /* display: flex;
+    justify-content: space-evenly; */
 
 }
 .client-in ul li{
