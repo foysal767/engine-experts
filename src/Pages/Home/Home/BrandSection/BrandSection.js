@@ -14,7 +14,7 @@ const BrandSection = () => {
             <h1 className='text-center text-5xl font-semibold' >Our Clients</h1>
             <hr/>
             <div className='client-in'>
-                <ul>
+                <ul className='grid grid-cols-2 justify-items-center md:grid-cols-4 lg:grid-cols-7  mx-auto'>
                     <li>
                         <img src={brand1} alt="brand-1" />
                     </li>
