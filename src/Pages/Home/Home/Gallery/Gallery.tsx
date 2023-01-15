@@ -8,7 +8,7 @@ const Gallery = () => {
         className="grid lg:grid-cols-2 md:grid-cols-1 gap-3 place-items-center my-10 bg-gray-400 p-10"
         data-aos="fade-up"
         data-aos-easing="ease-out-cubic"
-        data-aos-duration="3000"
+        data-aos-duration="1000"
       >
         <div>
           <img
