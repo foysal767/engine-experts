@@ -1,6 +1,24 @@
 .footer{
     background-color: #161921;
 }
+.title{
+    position: relative;
+    cursor: pointer;
+}
+.title:after{
+    content: '';
+    position: absolute;
+    background-color: #E81C2E;
+    height: 3px;
+    width: 0;
+    left: 0;
+    transition: .8s;
+    bottom: -7px;
+    cursor: pointer;
+}
+.title:hover:after{
+    width: 100%;
+}
 .button{
     display: inline-flex;
     flex-shrink: 0;
@@ -16,4 +34,24 @@
     color: #fff;
     font-size: bold;
     border-radius: 6px;
+}
+.buttons{
+    display: inline-flex;
+    flex-shrink: 0;
+    cursor: pointer;
+    user-select: none;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    border-color: transparent;
+    background-color: #E81C2E;
+    text-align: center;
+    padding: 10px 35px;
+    color: #fff;
+    font-size: bold;
+    border-radius: 6px;
+    width: 100%;
+}
+.fill-current:hover{
+    color: #E81C2E;
 }

@@ -8,18 +8,18 @@ const Footer = () => {
     <footer className="mt-10 font-poppins">
       <footer className="footer p-10  ">
         <div>
-          <span className="title uppercase font-bold text-xl text-white">About Company</span>
-          <p>EngineExpert’s mission is to enable premium quality  <br /> care for your luxury car service at affordable pricing . <br /> We ensure real-time updates for complete car care <br /> needs with a fair and transparent pricing mechanism.</p>
+          <span className="title uppercase font-bold text-xl  text-white">About Company</span>
+          <p className=" pt-4">EngineExpert’s mission is to enable premium quality  <br /> care for your luxury car service at affordable pricing . <br /> We ensure real-time updates for complete car care <br /> needs with a fair and transparent pricing mechanism.</p>
           <div className=" mt-5">
             <h1 className="text-lg text-white uppercase font-bold">We are available</h1>
             <p>Mon-Sat: 9.00 am to 6.30 pm</p>
           </div>
           <button type="submit" className="button uppercase font-bold mt-6">Contact us</button>
         </div>
-        {/* company footer section */}
+        {/* quick footer section */}
         <div>
-          <span className="uppercase font-bold text-xl text-white">Quick Link</span>
-          <div className=" flex items-center ">
+          <span className="title uppercase font-bold text-xl text-white">Quick Link</span>
+          <div className=" flex items-center pt-4">
             <FaArrowRight /> <Link to='/' className=" pl-2 link link-hover text-white">
               About Company
             </Link>
@@ -51,31 +51,17 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Rcent Posts */}
+        {/* Newsletter */}
 
         <div>
-          <span className="uppercase font-bold text-xl text-white">Recent Posts</span>
-          <a href="##" className="link link-hover text-white">
-            Terms of use
-          </a>
-          <a href="##" className="link link-hover text-white">
-            Privacy policy
-          </a>
-          <a href="##" className="link link-hover text-white">
-            Cookie policy
-          </a>
-        </div>
-        <div>
-          <span className="uppercase font-bold text-xl text-white">Legal</span>
-          <a href="##" className="link link-hover text-white">
-            Terms of use
-          </a>
-          <a href="##" className="link link-hover text-white">
-            Privacy policy
-          </a>
-          <a href="##" className="link link-hover text-white">
-            Cookie policy
-          </a>
+          <span className="title uppercase font-bold text-xl text-white">Newsletter</span>
+          <div className="pt-4">
+            <p >Please enter your email and subscribe to us <br /> to know updates about our products.</p>
+            <form action="">
+              <input type="email" name="email" id="" placeholder="Email Address" className="w-full mt-7 py-5 pr-16 pl-4 rounded-md " required/><br /><br />
+              <button type="submit" className="buttons">Subscribe</button>
+            </form>
+          </div>
         </div>
       </footer>
       <footer className="footer px-10 py-4 border-t bg-base-200 text-base-content border-base-300">
