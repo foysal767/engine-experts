@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   margin:0px 25px;
+  scroll-behavior: smooth;
   font-family: 'Poppins', sans-serif;
 }
 

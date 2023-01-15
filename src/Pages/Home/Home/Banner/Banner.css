@@ -1,0 +1,44 @@
+.rotation{
+    transform: rotate(0deg);
+    transform-origin: center;
+    animation: rotate 5s infinite linear;
+}
+@keyframes rotate {
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+}
+.getbtn{
+    clip-path: polygon(20px 0,100% 0,100% calc(100% - 20px),calc(100% - 20px) 100%,0 100%,0 20px);
+    padding: 16px 60px;
+    background-color: #E81C2E;
+}
+.getbtn::after{
+    content: '';
+    position: absolute;
+    top: -110%;
+    left: -210%;
+    width: 400%;
+    height: 150%;
+    opacity: 0;
+    transform: rotate(30deg);
+    background: rgba(255,255,255,.25);
+    background: linear-gradient(to right,rgba(255,255,255,.25) 0%,rgba(255,255,255,.13) 77%,rgba(255,255,255,.5) 92%,#fff 100%);
+}
+.getbtn:hover{
+    color: #fff;
+    background-color: initial;
+    clip-path: polygon(0 0,100% 0,100% calc(100% - 20px),100% 100%,0 100%,0 20px);
+    border: 2px solid #E81C2E;
+}
+/* .getbtn:hover .getbtn::after{
+      content: '';
+    position: absolute;
+    top: -110%;
+    left: -210%;
+    width: 400%;
+    height: 150%;
+    opacity: 0;
+    transform: rotate(30deg);
+    background: rgba(255,255,255,.25);
+    background: linear-gradient(to right,rgba(255,255,255,.25) 0%,rgba(255,255,255,.13) 77%,rgba(255,255,255,.5) 92%,#fff 100%);
+} */
