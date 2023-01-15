@@ -2,7 +2,7 @@ import React from "react";
 
 const DiscountSection = () => {
   return (
-    <section>
+    <section className="w-10/12 mx-auto">
       <h2 className="font-poppins text-center text-5xl font-bold my-14">
         Discount for our customer
       </h2>
@@ -12,7 +12,7 @@ const DiscountSection = () => {
         data-aos-duration="2000"
         className="grid font-poppins lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 place-items-center"
       >
-        <div className="card card-compact w-96 bg-gray-600 p-2 shadow-xl rounded-md">
+        <div className="card card-compact w-full bg-gray-600 p-2 shadow-xl rounded-md">
           <figure>
             <img
               src="https://i.ibb.co/cXPtdv9/muscular-car-service-worker-repairing-vehicle-146671-19605.webp"
@@ -37,7 +37,7 @@ const DiscountSection = () => {
             <p className="text-orange-600">Expires on 12 feb 2023.</p>
           </div>
         </div>
-        <div className="card card-compact w-96 bg-gray-600 p-2 shadow-xl rounded-md">
+        <div className="card card-compact w-full bg-gray-600 p-2 shadow-xl rounded-md">
           <figure>
             <img
               src="https://i.ibb.co/cXPtdv9/muscular-car-service-worker-repairing-vehicle-146671-19605.webp"
@@ -62,7 +62,7 @@ const DiscountSection = () => {
             <p className="text-orange-600">Expires on 22 feb 2023.</p>
           </div>
         </div>
-        <div className="card card-compact w-96 bg-gray-600 p-2 shadow-xl rounded-md">
+        <div className="card card-compact w-full bg-gray-600 p-2 shadow-xl rounded-md">
         <figure>
             <img
               src="https://i.ibb.co/cXPtdv9/muscular-car-service-worker-repairing-vehicle-146671-19605.webp"
