@@ -6,7 +6,7 @@ const Banner = () => {
       <div
         className="hero min-h-screen"
         style={{
-          backgroundImage: `url("https://i.ibb.co/sQ0PXpy/360-F-308445331-ZZinys-Rse5x-OZac-NTno-Qq-G24-TAy7ft-Z5.jpg")`,
+          backgroundImage: `url("https://i.ibb.co/sQ0PXpy/360-F-308445331-ZZinys-Rse5x-OZac-NTno-Qq-G24-TAy7ft-Z5.jpg")`
         }}
       >
         <div className="hero-overlay bg-opacity-60 hover:bg-opacity-80"></div>
