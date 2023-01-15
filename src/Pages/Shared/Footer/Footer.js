@@ -1,48 +1,79 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import './Footer.css';
+import { FaArrowRight } from "react-icons/fa";
 
 const Footer = () => {
   return (
     <footer className="mt-10 font-poppins">
-      <footer className="footer p-10 bg-base-200 text-base-content">
+      <footer className="footer p-10  ">
         <div>
-          <span className="footer-title">Services</span>
-          <a href="##" className="link link-hover">
-            Branding
-          </a>
-          <a href="##" className="link link-hover">
-            Design
-          </a>
-          <a href="##" className="link link-hover">
-            Marketing
-          </a>
-          <a href="##" className="link link-hover">
-            Advertisement
-          </a>
+          <span className="title uppercase font-bold text-xl text-white">About Company</span>
+          <p>EngineExpert’s mission is to enable premium quality  <br /> care for your luxury car service at affordable pricing . <br /> We ensure real-time updates for complete car care <br /> needs with a fair and transparent pricing mechanism.</p>
+          <div className=" mt-5">
+            <h1 className="text-lg text-white uppercase font-bold">We are available</h1>
+            <p>Mon-Sat: 9.00 am to 6.30 pm</p>
+          </div>
+          <button type="submit" className="button uppercase font-bold mt-6">Contact us</button>
         </div>
+        {/* company footer section */}
         <div>
-          <span className="footer-title">Company</span>
-          <a href="##" className="link link-hover">
-            About us
-          </a>
-          <a href="##" className="link link-hover">
-            Contact
-          </a>
-          <a href="##" className="link link-hover">
-            Jobs
-          </a>
-          <a href="##" className="link link-hover">
-            Press kit
-          </a>
+          <span className="uppercase font-bold text-xl text-white">Quick Link</span>
+          <div className=" flex items-center ">
+            <FaArrowRight /> <Link to='/' className=" pl-2 link link-hover text-white">
+              About Company
+            </Link>
+          </div>
+          <div className=" flex items-center ">
+            <FaArrowRight /> <Link to='/' className=" pl-2 link link-hover text-white">
+              Work Gallery
+            </Link>
+          </div>
+          <div className=" flex items-center ">
+            <FaArrowRight /> <Link to='/' className=" pl-2 link link-hover text-white">
+              Our Services
+            </Link>
+          </div>
+          <div className=" flex items-center ">
+            <FaArrowRight /> <Link to='/' className=" pl-2 link link-hover text-white">
+              Our Team
+            </Link>
+          </div>
+          <div className=" flex items-center ">
+            <FaArrowRight /> <Link to='/' className=" pl-2 link link-hover text-white">
+              Latest Blog
+            </Link>
+          </div>
+          <div className=" flex items-center ">
+            <FaArrowRight /> <Link to='/' className=" pl-2 link link-hover text-white">
+              Contact Us
+            </Link>
+          </div>
         </div>
+
+        {/* Rcent Posts */}
+
         <div>
-          <span className="footer-title">Legal</span>
-          <a href="##" className="link link-hover">
+          <span className="uppercase font-bold text-xl text-white">Recent Posts</span>
+          <a href="##" className="link link-hover text-white">
             Terms of use
           </a>
-          <a href="##" className="link link-hover">
+          <a href="##" className="link link-hover text-white">
             Privacy policy
           </a>
-          <a href="##" className="link link-hover">
+          <a href="##" className="link link-hover text-white">
+            Cookie policy
+          </a>
+        </div>
+        <div>
+          <span className="uppercase font-bold text-xl text-white">Legal</span>
+          <a href="##" className="link link-hover text-white">
+            Terms of use
+          </a>
+          <a href="##" className="link link-hover text-white">
+            Privacy policy
+          </a>
+          <a href="##" className="link link-hover text-white">
             Cookie policy
           </a>
         </div>

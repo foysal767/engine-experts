@@ -18,8 +18,6 @@
 .client-in ul{
     padding: 0;
     margin: 0;
-    /* display: flex;
-    justify-content: space-evenly; */
 
 }
 .client-in ul li{
@@ -33,9 +31,48 @@
     transition: .5s;
     box-shadow: 0px 0px 0px -7px #fff;
     padding: 10px;
-    /* border: 2px solid white; */
+    border: 0.1px solid gray;
+    border-radius: 5px;
     
 }
+
+.client-in ul li::before{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    border-left: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    transition: all .8s ease;
+}
+.client-in ul li::after{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    right: 0;
+    top: 0;
+    box-sizing: border-box;
+    border-top: 3px solid transparent;
+    border-right: 3px solid transparent;
+    transition: all .8s ease;
+}
+
+.client-in ul li:hover::after,.client-in ul li:hover::before{
+    width: 100%;
+    height: 100%;
+    border-color: #E81C2E;
+}
+
+
+
+/* .client-in ul li:hover{
+    border: 2px solid #E81C2E;
+
+} */
 .client-in ul li img{
     width: 100%;
     height: 100%;
