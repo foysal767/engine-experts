@@ -83,8 +83,4 @@
 }
 
 
-/* hover section */
-.client-in ul li:hover img:nth-child(1){
-    transform: translate(10px);
-    transition: .5s;
- }
+

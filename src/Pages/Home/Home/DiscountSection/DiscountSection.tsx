@@ -2,7 +2,7 @@ import React from "react";
 
 const DiscountSection = () => {
   return (
-    <section>
+    <section className="w-full">
       <h2 className="font-poppins text-center text-5xl font-bold my-14">
         Discount for our customer
       </h2>
@@ -10,9 +10,9 @@ const DiscountSection = () => {
         data-aos="fade-right"
         data-aos-easing="ease-out-cubic"
         data-aos-duration="2000"
-        className="grid font-poppins lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 place-items-center"
+        className="w-full grid font-poppins lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 place-items-center"
       >
-        <div className="card card-compact w-96 bg-gray-600 p-2 shadow-xl rounded-md">
+        <div className="card card-compact bg-gray-600 p-2 shadow-xl rounded-md">
           <figure>
             <img
               src="https://i.ibb.co/cXPtdv9/muscular-car-service-worker-repairing-vehicle-146671-19605.webp"
@@ -37,7 +37,9 @@ const DiscountSection = () => {
             <p className="text-orange-600">Expires on 12 feb 2023.</p>
           </div>
         </div>
-        <div className="card card-compact w-96 bg-gray-600 p-2 shadow-xl rounded-md">
+
+
+        <div className="card card-compact bg-gray-600 p-2 shadow-xl rounded-md">
           <figure>
             <img
               src="https://i.ibb.co/cXPtdv9/muscular-car-service-worker-repairing-vehicle-146671-19605.webp"
@@ -62,7 +64,9 @@ const DiscountSection = () => {
             <p className="text-orange-600">Expires on 22 feb 2023.</p>
           </div>
         </div>
-        <div className="card card-compact w-96 bg-gray-600 p-2 shadow-xl rounded-md">
+
+
+        <div className="card card-compact bg-gray-600 p-2 shadow-xl rounded-md">
         <figure>
             <img
               src="https://i.ibb.co/cXPtdv9/muscular-car-service-worker-repairing-vehicle-146671-19605.webp"
@@ -71,7 +75,7 @@ const DiscountSection = () => {
           </figure>
           <div className="card-body">
             <h2 className="text-xl font-bold">
-              Up to 20% on New tires <br/> service
+              Up to 20% on New tires service
             </h2>
             <div className="flex justify-between">
               <div className="text-base font-bold">
