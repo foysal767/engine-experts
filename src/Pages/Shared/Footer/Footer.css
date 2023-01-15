@@ -1,0 +1,19 @@
+.footer{
+    background-color: #161921;
+}
+.button{
+    display: inline-flex;
+    flex-shrink: 0;
+    cursor: pointer;
+    user-select: none;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    border-color: transparent;
+    background-color: #E81C2E;
+    text-align: center;
+    padding: 10px 35px;
+    color: #fff;
+    font-size: bold;
+    border-radius: 6px;
+}

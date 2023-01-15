@@ -13,8 +13,8 @@ const BrandSection = () => {
         <div className='mt-12 text-white client-wrap mb-24'>
             <h1 className='text-center font-poppins text-5xl font-semibold' >Our Clients</h1>
             <br />
-            <div className='client-in'>
-                <ul className='grid grid-cols-2 justify-items-center md:grid-cols-4 lg:grid-cols-7  mx-auto'>
+            <div className='client-in mt-10'>
+                <ul className='grid grid-cols-2 justify-items-center md:grid-cols-4 lg:grid-cols-7  mx-auto gap-3'>
                     <li>
                         <img src={brand1} alt="brand-1" />
                     </li>
