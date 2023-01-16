@@ -3,7 +3,7 @@ import './Banner.css';
 
 const Banner = () => {
   return (
-    <section className="w-full h-screen relative overflow-hidden">
+    <section className="w-full h-screen relative overflow-hidden text-start">
       <div className="w-full h-full absolute top-0">
         <img
           className="absolute top-[52%] right-[27.8%] rotation  z-10 hidden lg:block"
@@ -29,9 +29,9 @@ const Banner = () => {
 
         <div className="w-full h-full absolute top-0 bg-black opacity-50 lg:hidden block"></div>
 
-        <div className="h-full lg:w-[30%] w-full absolute top-0 left-0 flex flex-col items-center justify-center">
-          <h1 className="text-5xl">
-            Maintenace and <br /> repair service
+        <div className="h-full lg:w-[40%] w-full absolute top-0 left-0 flex flex-col items-center justify-center">
+          <h1 className="text-7xl leading-[65px] font-semibold mb-6">
+          A genuine solution to vehicle problems
           </h1>
           <button className="getbtn">Get Service</button>
         </div>
