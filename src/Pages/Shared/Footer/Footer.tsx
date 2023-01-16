@@ -5,14 +5,14 @@ import { FaArrowRight } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="mt-10 font-poppins">
+    <footer className="mt-10 font-poppins w-full " >
       <footer className="footer p-10  ">
         <div>
           <span className="title uppercase font-bold text-xl  text-white">About Company</span>
-          <p className=" pt-4">EngineExpert’s mission is to enable premium quality  <br /> care for your luxury car service at affordable pricing . <br /> We ensure real-time updates for complete car care <br /> needs with a fair and transparent pricing mechanism.</p>
+          <p className=" pt-4 text-left">EngineExpert’s mission is to enable premium quality  <br /> care for your luxury car service at affordable pricing . <br /> We ensure real-time updates for complete car care <br /> needs with a fair and transparent pricing mechanism.</p>
           <div className=" mt-5">
-            <h1 className="text-lg text-white uppercase font-bold">We are available</h1>
-            <p>Mon-Sat: 9.00 am to 6.30 pm</p>
+            <h1 className="text-lg text-white uppercase font-bold text-left">We are available</h1>
+            <p className="text-left">Mon-Sat: 9.00 am to 6.30 pm</p>
           </div>
           <button type="submit" className="button uppercase font-bold mt-6">Contact us</button>
         </div>
@@ -45,7 +45,7 @@ const Footer = () => {
             </Link>
           </div>
           <div className=" flex items-center ">
-            <FaArrowRight /> <Link to='/' className=" pl-2 link link-hover text-white">
+            <FaArrowRight /> <Link to='/contactUs' className=" pl-2 link link-hover text-white">
               Contact Us
             </Link>
           </div>
@@ -56,7 +56,7 @@ const Footer = () => {
         <div>
           <span className="title uppercase font-bold text-xl text-white">Newsletter</span>
           <div className="pt-4">
-            <p >Please enter your email and subscribe to us <br /> to know updates about our products.</p>
+            <p className="text-left">Please enter your email and subscribe to us <br /> to know updates about our products.</p>
             <form action="">
               <input type="email" name="email" id="" placeholder="Email Address" className="w-full mt-7 py-5 pr-16 pl-4 rounded-md " required/><br /><br />
               <button type="submit" className="buttons">Subscribe</button>
