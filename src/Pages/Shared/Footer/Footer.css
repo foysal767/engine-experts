@@ -58,3 +58,12 @@
 .fill-current:hover{
     color: #E81C2E;
 }
+.car{
+    color: #E81C2E;
+    font-size: 35px;
+   
+    border: 100%;
+}
+span{
+    border-color: 5px solid #fff;
+}
