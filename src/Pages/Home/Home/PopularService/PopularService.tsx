@@ -1,5 +1,7 @@
 import React from "react";
-import { AiFillStar } from 'react-icons/ai';
+import { AiFillStar } from "react-icons/ai";
+import { BsFillHeartFill } from "react-icons/bs";
+import "./PopularService.css";
 
 const PopularService = () => {
   return (
@@ -7,13 +9,27 @@ const PopularService = () => {
       <h2 className="text-5xl font-bold text-center my-14">
         Our Popular Services
       </h2>
-      <div
+
+      <div className="box">
+        <img className=""
+          src="https://angfuzsoft.com/wordpress/mechon/wp-content/uploads/2022/06/img-5-1-1.jpg"
+          alt=""
+        />
+        <div className="box-item text-red-600">
+          <div className="item">
+            <BsFillHeartFill></BsFillHeartFill>
+            <BsFillHeartFill></BsFillHeartFill>
+            <BsFillHeartFill></BsFillHeartFill>
+          </div>
+        </div>
+      </div>
+      {/* <div
         data-aos="slide-up"
         data-aos-easing="ease-out-cubic"
         data-aos-duration="1000"
         className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 place-items-center"
       >
-        <div className="card card-compact w-96 bg-gray-600 p-2 shadow-xl rounded-full py-14">
+        <div className="card card-compact w-96 bg-gray-900 p-2 shadow-xl rounded-md py-14">
           <figure>
             <img
               className="w-3/4"
@@ -72,7 +88,7 @@ const PopularService = () => {
             <AiFillStar></AiFillStar>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
