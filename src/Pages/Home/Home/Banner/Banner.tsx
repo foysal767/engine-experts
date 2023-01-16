@@ -13,7 +13,7 @@ const Banner = () => {
 
         <div className="lg:w-[60%] w-full lg:h-full h-[70%] absolute lg:top-0 top-24 right-0 overflow-hidden bg-transparent">
           <img
-            className="absolute h-full w-full -z-10"
+            className="absolute h-full w-full"
             src="assets/final1[84].png"
             alt=""
           />
@@ -21,7 +21,7 @@ const Banner = () => {
 
         <div className="lg:w-[60%] w-full lg:h-full h-[70%] absolute top-24 lg:top-0 right-0 overflow-hidden bg-transparent hover:hidden">
           <img
-            className="absolute  h-full w-full -z-10"
+            className="absolute  h-full w-full"
             src="assets/slider-bg-005.png"
             alt=""
           />
