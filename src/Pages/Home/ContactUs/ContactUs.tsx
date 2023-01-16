@@ -7,7 +7,7 @@ const ContactUs = () => {
     return (
         <div>
             <div className='contact'>
-                <div className=" h-auto" style={{ backgroundImage: `url("assets/contact/contact.jpg")`, backgroundSize: `cover` }}>
+                <div className=" h-auto" style={{ backgroundImage: `url("assets/contact/contact.jpg")`, backgroundRepeat:`no-repeat`, backgroundSize: `cover`}}>
 
                     <div className="  ">
                         <div className="max-w-md">
