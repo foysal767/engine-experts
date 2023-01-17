@@ -33,7 +33,7 @@ const Navbar = () => {
                     </li>
                     <li>
                         <Link
-                            to="/service"
+                            to="/services"
 
                             className="font-medium tracking-wide  transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
