@@ -1,0 +1,9 @@
+[
+    {
+        "service-name": "xyz name for service",
+        "details": "details for this service",
+        "image": "image link for service",
+        "price": "price of this service",
+        "company-name": "company name for this service"
+    }
+]
