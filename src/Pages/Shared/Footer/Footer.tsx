@@ -3,17 +3,18 @@ import { Link } from "react-router-dom";
 import './Footer.css';
 import { FaArrowRight, FaCarAlt } from "react-icons/fa";
 import ScrollToTop from "react-scroll-up";
-// import ScrollToTop from "react-scroll-to-top";
+
 
 const Footer = () => {
   return (
     <div>
-      
+
       {/* scrollbar */}
-      
-      <ScrollToTop showUnder={160}>
-        <span>
-          <FaCarAlt className="car" />
+
+
+      <ScrollToTop showUnder={160}  >
+        <span >
+          <FaCarAlt className="car " />
         </span>
       </ScrollToTop>
 

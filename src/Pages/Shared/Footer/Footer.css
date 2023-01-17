@@ -1,5 +1,5 @@
 .footer{
-    background-color: #161921;
+    background-color: #272935;
     background-image:url(https://i.ibb.co/DpCw46p/pngwing-com.png); 
      background-repeat: no-repeat;
 
@@ -61,9 +61,11 @@
 .car{
     color: #E81C2E;
     font-size: 35px;
-   
     border: 100%;
+    /* scroll-margin-top:calc(smooth); */
+    
 }
+
 span{
     border-color: 5px solid #fff;
 }
