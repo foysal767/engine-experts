@@ -1,10 +1,10 @@
 /* .card-item{
     visibility: hidden;
 } */
-.overlay{
+.overlays{
     transition: all .5s;
 }
-.maincard:hover .overlay{
+.maincard:hover .overlays{
     left: 0px;
     transition: all .5s;
 }
