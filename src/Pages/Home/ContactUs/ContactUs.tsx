@@ -38,7 +38,7 @@ const ContactUs = () => {
                             <div className='contact-box-info'>
                                 <p className='contact-box-text text-white'>Call Us 24/7</p>
                                 <h5 className='font-bold text-white'>
-                                    <a href="tel:+5842521453">+5842521453</a>
+                                    <a href="tel:+8801863901163">+8801863901163</a>
                                 </h5>
                             </div>
                         </div>
@@ -55,7 +55,7 @@ const ContactUs = () => {
                             <div className='contact-box-info text-left'>
                                 <p className='contact-box-text text-white text-left'>MAke A Quote</p>
                                 <h5 className='font-bold text-white'>
-                                    <a href="mailto:hridoyhalder91@gmail.com">hridoyhalder91@gmail.com</a>
+                                    <a href="mailto:engineexperties@gmail.com">engineexperties@gmail.com</a>
                                 </h5>
                             </div>
                         </div>

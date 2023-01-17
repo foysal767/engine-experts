@@ -20,7 +20,7 @@ const PopularService = () => {
                 alt=""
                 className="w-[70%] h-[70%]"
               />
-              <div className="w-full h-[65%] absolute left-[102%] top-0 p-5 py-12 text-4xl flex flex-col gap-3 items-end overlay">
+              <div className="w-full h-[65%] absolute left-[102%] top-0 p-5 py-12 text-4xl flex flex-col gap-3 items-end overlays">
                 <BsFillHeartFill className="bg-[#D16527] p-2 text-center cursor-pointer"></BsFillHeartFill>
                 <label htmlFor="my-modal-3">
                   <AiFillEye className="bg-[#D16527] p-2 text-center cursor-pointer"></AiFillEye>
@@ -47,7 +47,7 @@ const PopularService = () => {
                 alt=""
                 className="w-[70%] h-[70%]"
               />
-              <div className="w-full h-[65%] absolute left-[102%] top-0 p-5 py-12 text-4xl flex flex-col gap-3 items-end overlay">
+              <div className="w-full h-[65%] absolute left-[102%] top-0 p-5 py-12 text-4xl flex flex-col gap-3 items-end overlays">
                 <BsFillHeartFill className="bg-[#D16527] p-2 text-center"></BsFillHeartFill>
                 <AiFillEye className="bg-[#D16527] p-2 text-center"></AiFillEye>
                 {/* <BsFillHeartFill className="bg-[#D16527] p-2 text-center"></BsFillHeartFill> */}
@@ -71,7 +71,7 @@ const PopularService = () => {
                 alt=""
                 className="w-[70%] h-[70%]"
               />
-              <div className="w-full h-[65%] absolute left-[102%] top-0 p-5 py-12 text-4xl flex flex-col gap-3 items-end overlay">
+              <div className="w-full h-[65%] absolute left-[102%] top-0 p-5 py-12 text-4xl flex flex-col gap-3 items-end overlays">
                 <BsFillHeartFill className="bg-[#D16527] p-2 text-center"></BsFillHeartFill>
                 <AiFillEye className="bg-[#D16527] p-2 text-center"></AiFillEye>
                 {/* <BsFillHeartFill className="bg-[#D16527] p-2 text-center"></BsFillHeartFill> */}
@@ -95,7 +95,7 @@ const PopularService = () => {
                 alt=""
                 className="w-[70%] h-[70%]"
               />
-              <div className="w-full h-[65%] absolute left-[102%] top-0 p-5 py-12 text-4xl flex flex-col gap-3 items-end overlay">
+              <div className="w-full h-[65%] absolute left-[102%] top-0 p-5 py-12 text-4xl flex flex-col gap-3 items-end overlays">
                 <BsFillHeartFill className="bg-[#D16527] p-2 text-center"></BsFillHeartFill>
                 <AiFillEye className="bg-[#D16527] p-2 text-center"></AiFillEye>
                 {/* <BsFillHeartFill className="bg-[#D16527] p-2 text-center"></BsFillHeartFill> */}
