@@ -21,7 +21,7 @@ const Services = () => {
             <p className="">Our Services</p>
             <h2 className="mb-2 text-3xl font-bold">Service 1</h2>
             <div className="card-actions">
-              <Link to='/allservices' className="btn bg-[#E81C2E] border-none hover:bg-black transition-all duration-500 w-full">Details</Link>
+              <Link to='/servicedetails' className="btn bg-[#E81C2E] border-none hover:bg-black transition-all duration-500 w-full">Details</Link>
             </div>
           </div>
         </div>

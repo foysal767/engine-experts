@@ -6,11 +6,13 @@ import AdminDashboard from "../Pages/AdminDashboard/AdminDashboard";
 import AllOrders from "../Pages/AdminDashboard/AllOrders/AllOrders";
 import AllService from "../Pages/AdminDashboard/AllService/AllService";
 import AllUsers from "../Pages/AdminDashboard/AllUsers/AllUsers";
+import AllServices from "../Pages/ServiceDetails/ServiceDetails";
 import ContactUs from "../Pages/Home/ContactUs/ContactUs";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
 import Services from "../Pages/Services/Services";
 import SignUp from "../Pages/SignUp/SignUp";
+import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +35,14 @@ const router = createBrowserRouter([
         path: "/contactUs",
         element: <ContactUs></ContactUs>,
       },
+      {
+        path: '/services',
+        element: <Services></Services>
+      },
+      {
+        path: "/servicedetails",
+        element: <ServiceDetails></ServiceDetails>
+      }
     ],
   },
   {
