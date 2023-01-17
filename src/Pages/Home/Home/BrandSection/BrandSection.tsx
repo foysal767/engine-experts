@@ -16,7 +16,7 @@ const BrandSection = () => {
         </h1>
         <br />
         <div className="client-in mt-10">
-          <ul className="grid grid-cols-2 justify-items-center md:grid-cols-4 lg:grid-cols-7  mx-auto gap-3">
+          <ul className="grid grid-cols-2 justify-items-center md:grid-cols-4 lg:grid-cols-7 mx-auto gap-3">
             <li>
               <img src="assets/brand-1.png" alt="brand-1" />
             </li>
