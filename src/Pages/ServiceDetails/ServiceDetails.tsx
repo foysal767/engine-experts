@@ -3,7 +3,7 @@ import Sidebar from "../Sidebar/Sidebar";
 import { RiServiceFill } from "react-icons/ri";
 import { TfiHandPointRight } from "react-icons/tfi";
 
-const AllServices = () => {
+const ServiceDetails = () => {
   return (
     <section>
       {/* background for service */}
@@ -109,4 +109,4 @@ const AllServices = () => {
   );
 };
 
-export default AllServices;
+export default ServiceDetails;
