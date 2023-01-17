@@ -33,34 +33,35 @@ const router = createBrowserRouter([
         path: "/contactUs",
         element: <ContactUs></ContactUs>,
       },
+      {
+        path: "/dashboard",
+        element: <AdminDashboard></AdminDashboard>,
+        children: [
+          {
+            path: "/dashboard/addservice",
+            element: <AddService></AddService>,
+          },
+          {
+            path: "/dashboard/allorders",
+            element: <AllOrders></AllOrders>,
+          },
+          {
+            path: "/dashboard/addcampaign",
+            element: <AddCampaign></AddCampaign>,
+          },
+          {
+            path: "/dashboard/alluser",
+            element: <AllUsers></AllUsers>,
+          },
+          {
+            path: "/dashboard/allservice",
+            element: <AllService></AllService>,
+          },
+        ],
+      },
     ],
   },
-  {
-    path: "/dashboard",
-    element: <AdminDashboard></AdminDashboard>,
-    children: [
-      {
-        path: "/dashboard/addservice",
-        element: <AddService></AddService>,
-      },
-      {
-        path: "/dashboard/allorders",
-        element: <AllOrders></AllOrders>,
-      },
-      {
-        path: "/dashboard/addcampaign",
-        element: <AddCampaign></AddCampaign>,
-      },
-      {
-        path: "/dashboard/alluser",
-        element: <AllUsers></AllUsers>,
-      },
-      {
-        path: "/dashboard/allservice",
-        element: <AllService></AllService>,
-      },
-    ],
-  },
+  
 ]);
 
 export default router;
