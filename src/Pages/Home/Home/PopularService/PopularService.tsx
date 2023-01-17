@@ -1,95 +1,97 @@
-import React from "react";
-import { AiFillStar } from "react-icons/ai";
 import { BsFillHeartFill } from "react-icons/bs";
 import "./PopularService.css";
 
 const PopularService = () => {
   return (
-    <div className="font-poppins">
-      <h2 className="text-5xl font-bold text-center my-14">
-        Our Popular Services
-      </h2>
+    <section className="w-full lg:h-[85vh] p-5 bg-[#161616] mt-10">
+      <h1 className="text-4xl font-semibold mb-5">Popular service section</h1>
+      <div className="lg:h-[88%] w-full grid lg:grid-cols-4 gap-3  items-center">
+        {/* Card one start form here */}
 
-      <div className="box">
-        <img className=""
-          src="https://angfuzsoft.com/wordpress/mechon/wp-content/uploads/2022/06/img-5-1-1.jpg"
-          alt=""
-        />
-        <div className="box-item text-red-600">
-          <div className="item">
-            <BsFillHeartFill></BsFillHeartFill>
-            <BsFillHeartFill></BsFillHeartFill>
-            <BsFillHeartFill></BsFillHeartFill>
+        <div className=" h-[440px] text-start relative overflow-hidden shadow-2xl  mb-3 lg:mb-0 maincard">
+          <div className="h-[65%] w-full bg-[#121212] grid place-items-center">
+            <img src="assets/product.png" alt="" className="w-[70%] h-[70%]" />
+            <div className="w-full h-[65%] absolute left-[102%] top-0 p-5 py-12 text-4xl flex flex-col gap-3 items-end overlay">
+              <BsFillHeartFill className="bg-[#D16527] p-2 text-center"></BsFillHeartFill>
+              <BsFillHeartFill className="bg-[#D16527] p-2 text-center"></BsFillHeartFill>
+              <BsFillHeartFill className="bg-[#D16527] p-2 text-center"></BsFillHeartFill>
+            </div>
+          </div>
+
+          <div className="mx-2 mt-5 text-2xl flex flex-col gap-3">
+            <h1>Silent Block 10-75mm</h1>
+            <h2>HSP</h2>
+            <h1 className="w-full flex justify-between">
+              <span>$20.00</span>
+              <span>ADD TO CART</span>
+            </h1>
+          </div>
+        </div>
+
+        {/* Card two start form here */}
+        <div className=" h-[440px] text-start relative overflow-hidden shadow-2xl mb-3 lg:mb-0 maincard">
+          <div className="h-[65%] w-full bg-[#121212] grid place-items-center">
+            <img src="assets/product.png" alt="" className="w-[70%] h-[70%]" />
+            <div className="w-full h-[65%] absolute left-[102%] top-0 p-5 py-12 text-4xl flex flex-col gap-3 items-end overlay">
+              <BsFillHeartFill className="bg-[#D16527] p-2 text-center"></BsFillHeartFill>
+              <BsFillHeartFill className="bg-[#D16527] p-2 text-center"></BsFillHeartFill>
+              <BsFillHeartFill className="bg-[#D16527] p-2 text-center"></BsFillHeartFill>
+            </div>
+          </div>
+
+          <div className="mx-2 mt-5 text-2xl flex flex-col gap-3">
+            <h1>Silent Block 10-75mm</h1>
+            <h2>HSP</h2>
+            <h1 className="w-full flex justify-between">
+              <span>$20.00</span>
+              <span>ADD TO CART</span>
+            </h1>
+          </div>
+        </div>
+
+        {/* Card three start form here */}
+        <div className=" h-[440px] text-start relative overflow-hidden shadow-2xl mb-3 lg:mb-0 maincard">
+          <div className="h-[65%] w-full bg-[#121212] grid place-items-center">
+            <img src="assets/product.png" alt="" className="w-[70%] h-[70%]" />
+            <div className="w-full h-[65%] absolute left-[102%] top-0 p-5 py-12 text-4xl flex flex-col gap-3 items-end overlay">
+              <BsFillHeartFill className="bg-[#D16527] p-2 text-center"></BsFillHeartFill>
+              <BsFillHeartFill className="bg-[#D16527] p-2 text-center"></BsFillHeartFill>
+              <BsFillHeartFill className="bg-[#D16527] p-2 text-center"></BsFillHeartFill>
+            </div>
+          </div>
+
+          <div className="mx-2 mt-5 text-2xl flex flex-col gap-3">
+            <h1>Silent Block 10-75mm</h1>
+            <h2>HSP</h2>
+            <h1 className="w-full flex justify-between">
+              <span>$20.00</span>
+              <span>ADD TO CART</span>
+            </h1>
+          </div>
+        </div>
+
+        {/* Card three start form here */}
+        <div className=" h-[440px] text-start relative overflow-hidden shadow-2xl mb-3 lg:mb-0 maincard">
+          <div className="h-[65%] w-full bg-[#121212] grid place-items-center">
+            <img src="assets/product.png" alt="" className="w-[70%] h-[70%]" />
+            <div className="w-full h-[65%] absolute left-[102%] top-0 p-5 py-12 text-4xl flex flex-col gap-3 items-end overlay">
+              <BsFillHeartFill className="bg-[#D16527] p-2 text-center"></BsFillHeartFill>
+              <BsFillHeartFill className="bg-[#D16527] p-2 text-center"></BsFillHeartFill>
+              <BsFillHeartFill className="bg-[#D16527] p-2 text-center"></BsFillHeartFill>
+            </div>
+          </div>
+
+          <div className="mx-2 mt-5 text-2xl flex flex-col gap-3">
+            <h1>Silent Block 10-75mm</h1>
+            <h2>HSP</h2>
+            <h1 className="w-full flex justify-between">
+              <span>$20.00</span>
+              <span>ADD TO CART</span>
+            </h1>
           </div>
         </div>
       </div>
-      {/* <div
-        data-aos="slide-up"
-        data-aos-easing="ease-out-cubic"
-        data-aos-duration="1000"
-        className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 place-items-center"
-      >
-        <div className="card card-compact w-96 bg-gray-900 p-2 shadow-xl rounded-md py-14">
-          <figure>
-            <img
-              className="w-3/4"
-              src="https://i.ibb.co/cXPtdv9/muscular-car-service-worker-repairing-vehicle-146671-19605.webp"
-              alt="Shoes"
-            />
-          </figure>
-          <div className="card-body">
-            <h2 className="text-xl font-bold text-center">Engine tune-up</h2>
-            <div className="mx-auto text-orange-500 flex">
-              <AiFillStar></AiFillStar>
-              <AiFillStar></AiFillStar>
-              <AiFillStar></AiFillStar>
-              <AiFillStar></AiFillStar>
-              <AiFillStar></AiFillStar>
-            </div>
-          </div>
-        </div>
-        <div className="card card-compact w-96 bg-gray-600 p-2 shadow-xl rounded-full py-12">
-          <figure>
-            <img
-              className="w-3/4"
-              src="https://s25180.pcdn.co/wp-content/uploads/2016/09/iStock_64263241_SMALL.jpg"
-              alt="Shoes"
-            />
-          </figure>
-          <div className="card-body">
-            <h2 className="text-xl font-bold text-center">
-              Replace air filter
-            </h2>
-            <div className="mx-auto text-orange-500 flex">
-              <AiFillStar></AiFillStar>
-              <AiFillStar></AiFillStar>
-              <AiFillStar></AiFillStar>
-              <AiFillStar></AiFillStar>
-              <AiFillStar></AiFillStar>
-            </div>
-          </div>
-        </div>
-        <div className="card card-compact w-96 bg-gray-600 p-2 shadow-xl rounded-full py-12">
-          <figure>
-            <img
-              className="w-3/4 rounded-none"
-              src="https://www.peruzzimazda.com/static/dealer-11863/Mechanic_Fixing_Tire_Close_Up.jpg"
-              alt="Shoes"
-            />
-          </figure>
-          <div className="card-body">
-            <h2 className="text-xl font-bold text-center">New tires</h2>
-          </div>
-          <div className="mx-auto text-orange-500 flex">
-            <AiFillStar></AiFillStar>
-            <AiFillStar></AiFillStar>
-            <AiFillStar></AiFillStar>
-            <AiFillStar></AiFillStar>
-            <AiFillStar></AiFillStar>
-          </div>
-        </div>
-      </div> */}
-    </div>
+    </section>
   );
 };
 
