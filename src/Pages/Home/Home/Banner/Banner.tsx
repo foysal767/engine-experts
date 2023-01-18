@@ -35,7 +35,7 @@ const Banner = () => {
           <p className="text-xl">
             Engine experts is one of the leading units speciliazing in providing
             car service and give a new look to your cars. Also specialize in
-            modifying cars
+            modifying cars. we are the experts.
           </p>
           <button className="getbtn">Get Service</button>
         </div>
