@@ -23,7 +23,7 @@ const AdminDashboard = () => {
               <button className="p-2 border text-2xl w-full">Add Service</button>
             </Link>
 
-            <Link to={"/dashboard/allorders"}>
+            <Link to={"/dashboard"}>
               <button className="p-2 border text-2xl w-full">All Orders</button>
             </Link>
 
