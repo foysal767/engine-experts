@@ -1,4 +1,5 @@
 import React from 'react';
+import Services from '../../Services/Services';
 import Banner from './Banner/Banner';
 import BrandSection from './BrandSection/BrandSection';
 import CustomerReviews from './CustomerReviews/CustomerReviews';
@@ -14,6 +15,7 @@ const Home = () => {
             <Banner></Banner>
             <DiscountSection></DiscountSection>
             <PopularService></PopularService>
+            <Services></Services>
             <Gallery></Gallery>
             <OurTeam></OurTeam>
             {/* <GetService></GetService> */}
