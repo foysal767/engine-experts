@@ -1,10 +1,10 @@
 import React from "react";
-import './Gallery.css'
+import './AllEngineServices.css';
 
-const Gallery = () => {
+const AllEngineServices = () => {
   return (
-    <section className="my-24">
-        <h1 className="font-poppins text-center text-5xl font-bold my-14">Service Gallery</h1>
+    <section className="mt-36">
+        <h1 className="font-poppins text-center text-5xl font-bold mb-12">All Engine Service</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         
         <div className=" bg-gray-300 rounded-lg">
@@ -82,4 +82,4 @@ const Gallery = () => {
   );
 };
 
-export default Gallery;
+export default AllEngineServices;

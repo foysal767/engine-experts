@@ -3,8 +3,8 @@ import './Services.css';
 
 const Services = () => {
   return (
-    <section className="mb-20 mt-10 px-4 md:px-8 lg:px-12">
-      <h1 className="text-5xl font-bold font-poppins mb-16">Services that we Offer</h1>
+    <section className="mb-20 px-4 md:px-8 lg:px-12 mt-36">
+      <h1 className="text-4xl font-bold font-poppins mb-12">Services that we Offer</h1>
       <div className="mt-9 row grid md:grid-cols-1 lg:grid-cols-3 font-poppins">
 
         {/* content-1 */}

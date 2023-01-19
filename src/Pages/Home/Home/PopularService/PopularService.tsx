@@ -5,8 +5,8 @@ import "./PopularService.css";
 
 const PopularService = () => {
   return (
-    <section className="w-full lg:px-12">
-      <h2 className="font-poppins text-center text-5xl font-bold">
+    <section className="w-full mt-36">
+      <h2 className="font-poppins text-center text-3xl font-bold">
         Popular Services
       </h2>
       <div className="w-full lg:h-[85vh] p-5 mt-10">
