@@ -1,6 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const AllOrders = () => {
+<<<<<<< HEAD
     return (
         <section className='flex-1'>
             <div className='user-Info mt-4'>
@@ -67,6 +68,13 @@ const AllOrders = () => {
             </div>
         </section>
     );
+=======
+  return (
+    <div className="flex-1 border">
+      this is all orders page
+    </div>
+  );
+>>>>>>> c54d614f7ff56dd52273559877af27efa72aa36c
 };
 
 export default AllOrders;
