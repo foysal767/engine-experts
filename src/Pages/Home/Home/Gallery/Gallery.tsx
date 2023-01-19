@@ -21,7 +21,7 @@ const Gallery = () => {
 
         <div className=" bg-gray-300 rounded-lg">
           <img className="rounded-lg p-1 relative" src="/assets/image-gallery/Denting-&-Painting.jpg" alt="" />
-          <span className="text-2xl text-white font-bold top-24 left-6 absolute cursor-pointer">Denting & Painting</span>
+          <span className="text-2xl text-white font-bold top-24 left-6 absolute cursor-pointer">Denting & Painting Service</span>
         </div>
 
 
