@@ -13,6 +13,7 @@ import Login from "../Pages/Login/Login";
 import Services from "../Pages/Services/Services";
 import SignUp from "../Pages/SignUp/SignUp";
 import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
+import AboutUs from "../Pages/Home/Home/AboutUs/AboutUs";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
         path: 'serviceDetails',
         element: <ServiceDetails></ServiceDetails>
       },
+      {
+        path: '/about-us',
+        element: <AboutUs></AboutUs>
+      }
     ],
   },
   {

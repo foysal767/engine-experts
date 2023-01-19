@@ -12,7 +12,7 @@ const Navbar = () => {
         // .catch(err => console.log(err));
     }
     return (
-        <div className="px-4 z-index-0 py-5 font-poppins bg-black mx-auto sm:max-w-xl md:max-w-full lg:w-full md:px-24 lg:px-8">
+        <div className="px-4 z-index-0 py-5 font-poppins  mx-auto sm:max-w-xl md:max-w-full lg:w-full md:px-24 lg:px-8">
             <div className="relative flex items-center justify-between">
                 <Link
                     to="/"
@@ -51,7 +51,7 @@ const Navbar = () => {
                     </li>
                     <li>
                         <Link
-                            to="/about"
+                            to="/about-us"
 
                             className="font-medium tracking-wide  transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >

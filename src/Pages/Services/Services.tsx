@@ -15,7 +15,7 @@ const Services = () => {
           <div className="subcontent-1 mb-5 shadow-2xl rounded-md">
             <div className="content-info flex md:flex-col md:text-center md:gap-7 lg:flex-row lg:text-end lg:gap-0 text-end items-center ">
               <div>
-                <h1 className="text-xl font-bold">Body Color</h1>
+                <h1 className="text-xl services-header font-bold">Body Color</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
               </div>
               <div className="car-parts- pl-5" >
@@ -29,7 +29,7 @@ const Services = () => {
 
             <div className="content-info flex md:flex-col md:text-center md:gap-7 lg:flex-row lg:text-end lg:gap-0 text-end items-center ">
               <div>
-                <h1 className="text-xl text-white font-bold">Glass Change</h1>
+                <h1 className="text-xl services-header text-white font-bold">Glass Change</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
               </div>
               <div className="car-parts-1 pl-5" >
@@ -44,7 +44,7 @@ const Services = () => {
 
             <div className="content-info flex md:flex-col md:text-center md:gap-7 lg:flex-row lg:text-end lg:gap-0 text-end items-center ">
               <div>
-                <h1 className="text-xl text-white font-bold">Air Condition Repair</h1>
+                <h1 className="text-xl services-header text-white font-bold">Air Condition Repair</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
               </div>
               <div className="car-parts-1 pl-5" >
@@ -69,7 +69,7 @@ const Services = () => {
           <div className=" subcontent-4 mb-5 shadow-2xl rounded-md">
             <div className="content-info flex md:flex-col md:text-center md:gap-7 lg:flex-row-reverse lg:text-start lg:gap-5 text-start  items-center ">
               <div>
-                <h1 className="text-xl text-white font-bold">Tires Repair</h1>
+                <h1 className="text-xl services-header text-white font-bold">Tires Repair</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
               </div>
               <div className="car-parts-1 pl-5" >
@@ -83,7 +83,7 @@ const Services = () => {
 
             <div className="content-info flex md:flex-col md:text-center md:gap-7 lg:flex-row-reverse lg:text-start lg:gap-5 text-start items-center ">
               <div>
-                <h1 className="text-xl text-white font-bold">Engine Lock</h1>
+                <h1 className="text-xl services-header text-white font-bold">Engine Lock</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
               </div>
               <div className="car-parts-1 pl-5" >
@@ -98,7 +98,7 @@ const Services = () => {
 
             <div className="content-info flex md:flex-col md:text-center md:gap-7 lg:flex-row-reverse lg:text-start lg:gap-5 text-start items-center ">
               <div>
-                <h1 className="text-xl font-bold">Pure Diagnostic</h1>
+                <h1 className="text-xl services-header font-bold">Pure Diagnostic</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
               </div>
               <div className="car-parts-1 pl-5" >
