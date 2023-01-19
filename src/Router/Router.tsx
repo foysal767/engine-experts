@@ -38,38 +38,38 @@ const router = createBrowserRouter([
         element: <ContactUs></ContactUs>,
       },
       {
-        path: '/services',
-        element: <Services></Services>
+        path: "/services",
+        element: <Services></Services>,
       },
       {
-        path: 'serviceDetails',
-        element: <ServiceDetails></ServiceDetails>
-      },
-    ],
-  },
-  {
-    path: "/dashboard",
-    element: <AdminDashboard></AdminDashboard>,
-    children: [
-      {
-        path: "/dashboard/addservice",
-        element: <AddService></AddService>,
+        path: "/serviceDetails",
+        element: <ServiceDetails></ServiceDetails>,
       },
       {
-        path: "/dashboard/allorders",
-        element: <AllOrders></AllOrders>,
-      },
-      {
-        path: "/dashboard/addcampaign",
-        element: <AddCampaign></AddCampaign>,
-      },
-      {
-        path: "/dashboard/alluser",
-        element: <AllUsers></AllUsers>,
-      },
-      {
-        path: "/dashboard/allservice",
-        element: <AllService></AllService>,
+        path: "/dashboard",
+        element: <AdminDashboard></AdminDashboard>,
+        children: [
+          {
+            path: "/dashboard/addservice",
+            element: <AddService></AddService>,
+          },
+          {
+            path: "/dashboard",
+            element: <AllOrders></AllOrders>,
+          },
+          {
+            path: "/dashboard/addcampaign",
+            element: <AddCampaign></AddCampaign>,
+          },
+          {
+            path: "/dashboard/alluser",
+            element: <AllUsers></AllUsers>,
+          },
+          {
+            path: "/dashboard/allservice",
+            element: <AllService></AllService>,
+          },
+        ],
       },
     ],
   },

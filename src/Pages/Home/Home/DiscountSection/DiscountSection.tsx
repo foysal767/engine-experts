@@ -1,91 +1,66 @@
-import React from "react";
-
 const DiscountSection = () => {
   return (
-    <section>
-      <h2 className="font-poppins text-center text-5xl font-bold my-14">
+    <section className="w-full px-4 md:px-8 lg:px-12 mb-20">
+      <h2 className="font-poppins text-center text-5xl font-bold mb-6">
         Discount for our customer
       </h2>
       <div
         data-aos="slide-up"
         data-aos-easing="linear"
         data-aos-duration="1000"
-        className="w-full grid font-poppins lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 place-items-center"
+        className="w-full grid font-poppins lg:grid-cols-3 md:grid-cols-2  gap-3 place-items-center"
       >
-        <div className="card card-compact w-96 bg-gray-600 p-2 shadow-xl rounded-md">
-          <figure>
-            <img
-              src="https://i.ibb.co/cXPtdv9/muscular-car-service-worker-repairing-vehicle-146671-19605.webp"
-              alt="Shoes"
-            />
-          </figure>
-          <div className="card-body">
-            <h2 className="text-xl font-bold">
-              Up to 10% on Engine tune-up service
+        <div className="h-[250px] w-full relative">
+          <img src="assets/car-washing.png" alt="" className="w-full h-full" />
+          <div className="w-full h-full absolute top-0 bg-black opacity-40"></div>
+          <div className="w-full absolute bottom-5 flex flex-col text-start pl-7">
+            <h1 className="text-red-600 text-sm">Limited time offer</h1>
+            <h2 className="text-white text-3xl font-semibold">
+              Car Washing Service
             </h2>
-            <div className="flex justify-between">
-              <div className="text-base font-bold">
-                <h3>
-                  Regular Price: $<span>150</span>
-                </h3>
-                <h3>
-                  Discount Price: $<span>135</span>
-                </h3>
-              </div>
-              <button className="btn btn-success">Purchase Now</button>
-            </div>
-            <p className="text-orange-600">Expires on 12 feb 2023.</p>
           </div>
+          <div className="text-3xl rounded-full h-[70px] w-[70px] grid place-items-center bg-red-600 absolute top-5 right-5 z-10">
+            <h1 className="font-semibold m-0">
+              50<span className="text-sm">%</span>
+            </h1>
+          </div>
+          <div className="text-3xl rounded-full h-[70px] w-[70px] grid place-items-center bg-red-300 absolute top-6 right-4"></div>
         </div>
-        <div className="card card-compact w-96 bg-gray-600 p-2 shadow-xl rounded-md">
-          <figure>
-            <img
-              src="https://i.ibb.co/cXPtdv9/muscular-car-service-worker-repairing-vehicle-146671-19605.webp"
-              alt="Shoes"
-            />
-          </figure>
-          <div className="card-body">
-            <h2 className="text-xl font-bold">
-              Up to 15% on Replace air filter service
+
+        <div className="h-[250px] w-full relative">
+          <img src="assets/tire-change.png" alt="" className="w-full h-full" />
+          <div className="w-full h-full absolute top-0 bg-black opacity-40"></div>
+          <div className="w-full absolute bottom-5 flex flex-col text-start pl-7">
+            <h1 className="text-red-600 text-sm">Limited time offer</h1>
+            <h2 className="text-white text-3xl font-semibold">
+              Performance upgrade
             </h2>
-            <div className="flex justify-between">
-              <div className="text-base font-bold">
-                <h3>
-                  Regular Price: $<span>250</span>
-                </h3>
-                <h3>
-                  Discount Price: $<span>212</span>
-                </h3>
-              </div>
-              <button className="btn btn-success">Purchase Now</button>
-            </div>
-            <p className="text-orange-600">Expires on 22 feb 2023.</p>
           </div>
+          <div className="text-3xl rounded-full h-[70px] w-[70px] grid place-items-center bg-red-600 absolute top-5 right-5 z-10">
+            <h1 className="font-semibold m-0">
+              50<span className="text-sm">%</span>
+            </h1>
+          </div>
+          <div className="text-3xl rounded-full h-[70px] w-[70px] grid place-items-center bg-red-300 absolute top-6 right-4"></div>
         </div>
-        <div className="card card-compact w-96 bg-gray-600 p-2 shadow-xl rounded-md">
-        <figure>
-            <img
-              src="https://i.ibb.co/cXPtdv9/muscular-car-service-worker-repairing-vehicle-146671-19605.webp"
-              alt="Shoes"
-            />
-          </figure>
-          <div className="card-body">
-            <h2 className="text-xl font-bold">
-              Up to 20% on New tires service
+
+
+
+        <div className="h-[250px] w-full relative">
+          <img src="assets/engine repair.png" alt="" className="w-full h-full" />
+          <div className="w-full h-full absolute top-0 bg-black opacity-40"></div>
+          <div className="w-full absolute bottom-5 flex flex-col text-start pl-7">
+            <h1 className="text-red-600 text-sm">Limited time offer</h1>
+            <h2 className="text-white text-3xl font-semibold">
+              Car Washing Service
             </h2>
-            <div className="flex justify-between">
-              <div className="text-base font-bold">
-                <h3>
-                  Regular Price: $<span>120</span>
-                </h3>
-                <h3>
-                  Discount Price: $<span>96</span>
-                </h3>
-              </div>
-              <button className="btn btn-success">Purchase Now</button>
-            </div>
-            <p className="text-orange-600">Expires on 12 feb 2023.</p>
           </div>
+          <div className="text-3xl rounded-full h-[70px] w-[70px] grid place-items-center bg-red-600 absolute top-5 right-5 z-10">
+            <h1 className="font-semibold m-0">
+              50<span className="text-sm">%</span>
+            </h1>
+          </div>
+          <div className="text-3xl rounded-full h-[70px] w-[70px] grid place-items-center bg-red-300 absolute top-6 right-4"></div>
         </div>
       </div>
     </section>

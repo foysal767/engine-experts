@@ -8,6 +8,7 @@ import Gallery from './Gallery/Gallery';
 import GetService from './GetService/GetService';
 import OurTeam from './OurTeam/OurTeam';
 import PopularService from './PopularService/PopularService';
+import Video from './Video/Video';
 
 const Home = () => {
     return (
@@ -16,7 +17,8 @@ const Home = () => {
             <DiscountSection></DiscountSection>
             <PopularService></PopularService>
             <Services></Services>
-            <Gallery></Gallery>
+            <Video></Video>
+            {/* <Gallery></Gallery> */}
             <OurTeam></OurTeam>
             {/* <GetService></GetService> */}
             <CustomerReviews></CustomerReviews>
