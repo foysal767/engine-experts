@@ -16,8 +16,8 @@ const AdminDashboard = () => {
             </h1>
           </div>
         </div>
-        <section className="lg:flex gap-5">
-          <div className="lg:w-[25%] border flex flex-col gap-4 p-5">
+        <section className="lg:flex gap-5 px-4 md:px-8 lg:px-12">
+          <div className="lg:w-[25%] flex flex-col gap-4 p-5">
             
             <Link to={"/dashboard/addservice"}>
               <button className="p-2 border text-2xl w-full">Add Service</button>
