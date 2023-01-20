@@ -16,6 +16,7 @@ import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
 
 import AuthRoute from "../Context/AuthRoute/AuthRoute";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import Appointment from "../Pages/Appointment/Appointment";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "/contactUs",
         element: <ContactUs></ContactUs>,
+      },
+      {
+        path: "/appointment",
+        element: <Appointment></Appointment>
       },
       {
         path: "/services",

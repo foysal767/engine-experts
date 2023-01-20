@@ -1,6 +1,4 @@
 
-import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-
 import React, { useContext, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
