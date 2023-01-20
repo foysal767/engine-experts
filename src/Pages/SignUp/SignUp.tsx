@@ -1,52 +1,58 @@
-
-import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import { FcGoogle } from 'react-icons/fc';
 // import swal from "sweetalert";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
 type Inputs = {
   email: string,
   password: string,
+  name: string,
 };
 
-
-const Login = () => {
-  const { signIn, googleSignIn } = useContext(AuthContext);
+const SignUp = () => {
+  const { createUser } = useContext(AuthContext);
   const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
-  const [loginError, setLoginError] = useState("");
   const navigate = useNavigate();
-  
   const onSubmit: SubmitHandler<Inputs> = data => {
-    signIn(data.email, data.password, navigate)
-  }
-
-  const googleLogin  = () =>{
-    googleSignIn(navigate)
+    createUser(data.email, data.password, navigate)
   }
 
   return (
     <div className="h-[800px] flex justify-center">
       <div className="w-96 p-7">
-        <h2 className="text-2xl font-bold text-center">Login</h2>
+        <h2 className="text-2xl font-bold text-center">Sign Up</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="form-control w-full max-w-xs">
+            <label className="label">
+              {" "}
+              <span className="label-text">Name</span>
+            </label>
+            <input
+              type="text"
+              {...register("name", {
+                required: "Name is Required",
+              })}
+              className="input input-bordered w-full max-w-xs"
+            />
+            {errors.name && (
+              <p className="text-red-500">{errors.name.message}</p>
+            )}
+          </div>
           <div className="form-control w-full max-w-xs">
             <label className="label">
               {" "}
               <span className="label-text">Email</span>
             </label>
             <input
-              type="text"
+              type="email"
               {...register("email", {
-                required: "Email Address is required",
+                required: true,
               })}
               className="input input-bordered w-full max-w-xs"
             />
             {errors.email && (
-              <p className="text-red-600">{errors.email?.message}</p>
+              <p className="text-red-500">{errors.email.message}</p>
             )}
           </div>
           <div className="form-control w-full max-w-xs">
@@ -60,39 +66,31 @@ const Login = () => {
                 required: "Password is required",
                 minLength: {
                   value: 6,
-                  message: "Password must be 6 characters or longer",
+                  message: "Password must be 6 characters long",
                 },
               })}
               className="input input-bordered w-full max-w-xs"
             />
-            <label className="label">
-              {" "}
-              <span className="label-text">Forget Password?</span>
-            </label>
             {errors.password && (
-              <p className="text-red-600">{errors.password?.message}</p>
+              <p className="text-red-500">{errors.password.message}</p>
             )}
           </div>
           <input
-            className="btn btn-primary w-full"
-            value="Login"
+            className="btn btn-primary w-full mt-4"
+            value="Sign Up"
             type="submit"
           />
-          <div>
-            {loginError && <p className="text-red-600">{loginError}</p>}
-          </div>
+          {/* {signUpError && <p className="text-red-600">{signUpError}</p>} */}
         </form>
         <p className="mt-3">
-          New to Engine Experts?{" "}
-          <Link className="text-orange-500" to="/signup">
-            Create new Account
+          Already have an account{" "}
+          <Link className="text-orange-500" to="/login">
+            Please Login
           </Link>
         </p>
-        <div className="divider">OR</div>
-        <button onClick={googleLogin} className="btn btn-outline w-full"><FcGoogle className="text-2xl mx-2"></FcGoogle> CONTINUE WITH GOOGLE</button>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default SignUp;

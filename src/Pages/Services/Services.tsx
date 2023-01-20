@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import './Services.css';
 
 const Services = () => {
   return (
-    <section className="mb-20 mt-10 px-4 md:px-8 lg:px-12">
-      <h1 className="text-5xl font-bold font-poppins mb-16">Services that we Offer</h1>
+    <section className="mb-20 mt-10 px-4 md:px-8 lg:px-12 lg:mb-32">
+      <h1 className="text-5xl font-bold font-poppins mb-12">Services that we Offer</h1>
       <div className="mt-9 row grid md:grid-cols-1 lg:grid-cols-3 font-poppins">
 
         {/* content-1 */}
@@ -14,10 +15,12 @@ const Services = () => {
           {/* subContent-1 */}
           <div className="subcontent-1 mb-5 shadow-2xl rounded-md">
             <div className="content-info flex md:flex-col md:text-center md:gap-7 lg:flex-row lg:text-end lg:gap-0 text-end items-center ">
-              <div>
-                <h1 className="text-xl font-bold">Body Color</h1>
+
+              <Link to={'/servicedetails/Performance Upgrade'}><div>
+                <h1 className="text-xl font-bold">Performance Upgrade</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-              </div>
+              </div></Link>
+
               <div className="car-parts- pl-5" >
                 <img src="assets/car-parts/car-parts-1.png" alt="" className="w-20 " />
               </div>

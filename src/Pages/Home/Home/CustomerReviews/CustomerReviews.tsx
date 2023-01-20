@@ -2,8 +2,8 @@ import React from 'react';
 
 const CustomerReviews = () => {
     return (
-        <div>
-            <h3 className="mt-10 font-poppins font-bold text-center text-5xl">Customer Reviews</h3>
+        <div className='lg:mb-32'>
+            <h3 className="mt-10 font-poppins font-bold text-center text-5xl lg:mb-12">Customer Reviews</h3>
             {/* Show Customer Reviews */}
             <div className='grid sm:grid-cols-3 gap-7 mx-12 mt-10 font-poppins'>
                 <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 bg-gray-600 dark:text-gray-100">
