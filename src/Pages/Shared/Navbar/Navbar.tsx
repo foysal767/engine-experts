@@ -1,14 +1,17 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 import "./Navbar.css";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const navigate = useNavigate()
+  console.log(user);
+
+  const handleLogOut = () => {
+    logOut(navigate);
+  }
+  
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const handleLogout = () => {
-    logOut().then();
-    // .catch(err => console.log(err));
-  };
   return (
     <nav className="px-4 z-index-0 py-5 font-poppins bg-black w-full md:px-8 lg:px-12">
       <div className="relative flex items-center justify-between">
@@ -59,7 +62,7 @@ const Navbar = () => {
                 />
               </span>
               <button
-                onClick={handleLogout}
+                onClick={handleLogOut}
                 className="font-medium tracking-wide ml-10  px-2  rounded py-2  text-white transition-colors duration-200 "
               >
                 Log Out
@@ -166,7 +169,7 @@ const Navbar = () => {
                           />
                         </span>
                         <button
-                          onClick={handleLogout}
+                          onClick={handleLogOut}
                           className="font-medium tracking-wide ml-10  hover:bg-black  px-2  rounded py-2  text-white transition-colors duration-200 "
                         >
                           Log Out
