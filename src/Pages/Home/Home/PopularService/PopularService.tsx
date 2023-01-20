@@ -5,11 +5,11 @@ import "./PopularService.css";
 
 const PopularService = () => {
   return (
-    <section className="w-full lg:px-12">
-      <h2 className="font-poppins text-center text-5xl font-bold">
+    <section className="w-full lg:px-12 lg:mb-30">
+      <h2 className="font-poppins text-center text-5xl font-bold lg:mb-12">
         Popular Services
       </h2>
-      <div className="w-full lg:h-[85vh] p-5 mt-10">
+      <div className="w-full lg:h-[85vh] p-5">
         <div className="lg:h-[88%] w-full grid lg:grid-cols-4 md:grid-cols-2 gap-3 items-center">
           {/* Card one start form here */}
 

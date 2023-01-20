@@ -13,6 +13,8 @@ import Login from "../Pages/Login/Login";
 import Services from "../Pages/Services/Services";
 import SignUp from "../Pages/SignUp/SignUp";
 import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
+
+import AuthRoute from "../Context/AuthRoute/AuthRoute";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
