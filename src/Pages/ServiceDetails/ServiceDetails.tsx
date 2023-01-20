@@ -1,46 +1,72 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { RiServiceFill } from "react-icons/ri";
 import { useParams } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
+interface usedata {
+  name: string;
+  image: any;
+  details: string;
+  price: string;
+  _id: string;
+  Totalreviews: string;
+  reviews: [];
+}
+interface reviewtype {
+  email: string;
+  feedback: string;
+  map: any;
+}
 const ServiceDetails = () => {
-
   const { id } = useParams();
-  const [details, setDetails] = useState({});
-  // 
+  const [details, setDetails] = useState<usedata>();
+  const [loading, setLoading] = useState<boolean>(true);
+  const [reviews, setReviews] = useState<reviewtype>();
+  const { user } = useContext(AuthContext);
 
-  // useEffect(()=>{
-
-  //   fetch(`http://localhost:5000/servicedetails?id=${id}`)
-  //   .then(res=> res.json())
-  //   .then(data=>{
-  //     if(data.success){
-  //       setDetails(data.data);
-  //       console.log(data.data.name);
-  //     }
-  //   });
-  // },[id]);
-
-  useEffect(()=>{
+  useEffect(() => {
+    setLoading(true);
     const getDetail = async () => {
       const res = await fetch(
-        `http://localhost:5000/servicedetails?id=${id}`
+        `https://engine-experts-server-phi.vercel.app/servicedetails?id=${id}`
       );
       const data = await res.json();
       setDetails(data.data);
+      setReviews(data.data.reviews);
+      setLoading(false);
     };
     getDetail();
-  },[id]);
-
-  console.log('inside details',details);
-  // const { name, image, detail, price } = details;
-
+  }, [id, loading]);
 
   const giveFeedBack = (event: any) => {
     event.preventDefault();
     const feedback = event.target.feedback.value;
     const rating = event.target.rating.value;
-    console.log(feedback, rating);
-    event.target.reset();
+    // console.log(feedback, rating, user.email, details?.name, details?._id);
+    const feedbackObject = {
+      email: user?.email || "User not found",
+      feedback,
+      rating,
+    };
+    fetch(
+      `https://engine-experts-server-phi.vercel.app/servicedetails?id=${details?._id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(feedbackObject),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          toast.success("Thanks for your feedback");
+          setLoading(!loading);
+          event.target.reset();
+        }
+      });
   };
 
   return (
@@ -54,14 +80,14 @@ const ServiceDetails = () => {
         />
         <div className="">
           <h2 className="flex font-poppins text-5xl mt-20 ml-10 font-bold absolute top-0 left-0">
-            arif___
+            {details?.name}___
             <RiServiceFill className="text-[#E81C2E]"></RiServiceFill>
           </h2>
         </div>
       </div>
       {/* end there */}
 
-      <div className="flex gap-10 w-full px-4 md:px-8 lg:px-12">
+      <div className="lg:flex gap-10 w-full px-4 md:px-8 lg:px-12">
         <div className="border w-full flex flex-col gap-8 lg:w-[30%] p-2 bg-[#212121]">
           <div className="flex flex-col gap-3 bg-[#272935]">
             <h1 className="text-center text-4xl mb-5">All Services</h1>
@@ -113,14 +139,12 @@ const ServiceDetails = () => {
         <div className="border flex-1 flex flex-col gap-5 text-xl">
           <div className="w-full h-[400px] overflow-hidden">
             <img
-              src=""
+              src={details?.image}
               alt=""
               className="w-full h-full hover:scale-110 transition-all duration-700"
             />
           </div>
-          <h1 className="text-start px-2">
-            details
-          </h1>
+          <h1 className="text-start px-2">{details?.details}</h1>
 
           {/* --------------Ul Li section-------------------- */}
           <div className="flex justify-between gap-3 w-full px-8">
@@ -238,6 +262,7 @@ const ServiceDetails = () => {
                   Submit
                 </button>
               </form>
+              <h1>Total Reviews: {details?.Totalreviews}</h1>
             </div>
           </div>
         </div>
@@ -246,123 +271,52 @@ const ServiceDetails = () => {
       <div className="mt-24 text-start px-12">
         <h1 className="text-5xl font-semibold">Recent Review and Rating</h1>
         <div className="grid sm:grid-cols-3 gap-7 mx-12 mt-10 font-poppins">
-          <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 bg-gray-600 dark:text-gray-100">
-            <div className="flex justify-between p-4">
-              <div className="flex space-x-4">
-                <div>
-                  <img
-                    src="https://source.unsplash.com/100x100/?portrait"
-                    alt=""
-                    className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
-                  />
-                </div>
-                <div>
-                  <h4 className="font-bold">Leroy Jenkins</h4>
-                  <span className="text-xs dark:text-gray-400">2 days ago</span>
-                </div>
-              </div>
-              <div className="flex items-center space-x-2 dark:text-yellow-500">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 512 512"
-                  className="w-5 h-5 fill-current"
+          
+            {/* @ts-ignore */}
+            {reviews?.map((review, i) => {
+              return (
+                <div
+                  key={i}
+                  className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 bg-gray-600 dark:text-gray-100"
                 >
-                  <path d="M494,198.671a40.536,40.536,0,0,0-32.174-27.592L345.917,152.242,292.185,47.828a40.7,40.7,0,0,0-72.37,0L166.083,152.242,50.176,171.079a40.7,40.7,0,0,0-22.364,68.827l82.7,83.368-17.9,116.055a40.672,40.672,0,0,0,58.548,42.538L256,428.977l104.843,52.89a40.69,40.69,0,0,0,58.548-42.538l-17.9-116.055,82.7-83.368A40.538,40.538,0,0,0,494,198.671Zm-32.53,18.7L367.4,312.2l20.364,132.01a8.671,8.671,0,0,1-12.509,9.088L256,393.136,136.744,453.3a8.671,8.671,0,0,1-12.509-9.088L144.6,312.2,50.531,217.37a8.7,8.7,0,0,1,4.778-14.706L187.15,181.238,248.269,62.471a8.694,8.694,0,0,1,15.462,0L324.85,181.238l131.841,21.426A8.7,8.7,0,0,1,461.469,217.37Z"></path>
-                </svg>
-                <span className="text-xl font-bold">4.5</span>
-              </div>
-            </div>
-            <div className="p-4 space-y-2 text-sm dark:text-gray-400">
-              <p>
-                Vivamus sit amet turpis leo. Praesent varius eleifend elit, eu
-                dictum lectus consequat vitae. Etiam ut dolor id justo fringilla
-                finibus.
-              </p>
-              <p>
-                Donec eget ultricies diam, eu molestie arcu. Etiam nec lacus eu
-                mauris cursus venenatis. Maecenas gravida urna vitae accumsan
-                feugiat. Vestibulum commodo, ante sit urna purus rutrum sem.
-              </p>
-            </div>
-          </div>
-          <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 bg-gray-600 dark:text-gray-100">
-            <div className="flex justify-between p-4">
-              <div className="flex space-x-4">
-                <div>
-                  <img
-                    src="https://source.unsplash.com/100x100/?portrait"
-                    alt=""
-                    className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
-                  />
+                  <div className="flex justify-between p-4">
+                    <div className="flex space-x-4">
+                      <div>
+                        <img
+                          src="https://source.unsplash.com/100x100/?portrait"
+                          alt=""
+                          className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
+                        />
+                      </div>
+                      <div>
+                        <h4 className="">{review?.email}</h4>
+                        <span className="text-xs dark:text-gray-400">
+                          2 days ago
+                        </span>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-2 dark:text-yellow-500">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512"
+                        className="w-5 h-5 fill-current"
+                      >
+                        <path d="M494,198.671a40.536,40.536,0,0,0-32.174-27.592L345.917,152.242,292.185,47.828a40.7,40.7,0,0,0-72.37,0L166.083,152.242,50.176,171.079a40.7,40.7,0,0,0-22.364,68.827l82.7,83.368-17.9,116.055a40.672,40.672,0,0,0,58.548,42.538L256,428.977l104.843,52.89a40.69,40.69,0,0,0,58.548-42.538l-17.9-116.055,82.7-83.368A40.538,40.538,0,0,0,494,198.671Zm-32.53,18.7L367.4,312.2l20.364,132.01a8.671,8.671,0,0,1-12.509,9.088L256,393.136,136.744,453.3a8.671,8.671,0,0,1-12.509-9.088L144.6,312.2,50.531,217.37a8.7,8.7,0,0,1,4.778-14.706L187.15,181.238,248.269,62.471a8.694,8.694,0,0,1,15.462,0L324.85,181.238l131.841,21.426A8.7,8.7,0,0,1,461.469,217.37Z"></path>
+                      </svg>
+                      <span className="text-xl font-bold">4.5</span>
+                    </div>
+                  </div>
+                  <div className="p-4 space-y-2 text-sm dark:text-gray-400">
+                    <p>
+                      Vivamus sit amet turpis leo. Praesent varius eleifend
+                      elit, eu dictum lectus consequat vitae. Etiam ut dolor id
+                      justo fringilla finibus.
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-bold">Leroy Jenkins</h4>
-                  <span className="text-xs dark:text-gray-400">2 days ago</span>
-                </div>
-              </div>
-              <div className="flex items-center space-x-2 dark:text-yellow-500">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 512 512"
-                  className="w-5 h-5 fill-current"
-                >
-                  <path d="M494,198.671a40.536,40.536,0,0,0-32.174-27.592L345.917,152.242,292.185,47.828a40.7,40.7,0,0,0-72.37,0L166.083,152.242,50.176,171.079a40.7,40.7,0,0,0-22.364,68.827l82.7,83.368-17.9,116.055a40.672,40.672,0,0,0,58.548,42.538L256,428.977l104.843,52.89a40.69,40.69,0,0,0,58.548-42.538l-17.9-116.055,82.7-83.368A40.538,40.538,0,0,0,494,198.671Zm-32.53,18.7L367.4,312.2l20.364,132.01a8.671,8.671,0,0,1-12.509,9.088L256,393.136,136.744,453.3a8.671,8.671,0,0,1-12.509-9.088L144.6,312.2,50.531,217.37a8.7,8.7,0,0,1,4.778-14.706L187.15,181.238,248.269,62.471a8.694,8.694,0,0,1,15.462,0L324.85,181.238l131.841,21.426A8.7,8.7,0,0,1,461.469,217.37Z"></path>
-                </svg>
-                <span className="text-xl font-bold">4.5</span>
-              </div>
-            </div>
-            <div className="p-4 space-y-2 text-sm dark:text-gray-400">
-              <p>
-                Vivamus sit amet turpis leo. Praesent varius eleifend elit, eu
-                dictum lectus consequat vitae. Etiam ut dolor id justo fringilla
-                finibus.
-              </p>
-              <p>
-                Donec eget ultricies diam, eu molestie arcu. Etiam nec lacus eu
-                mauris cursus venenatis. Maecenas gravida urna vitae accumsan
-                feugiat. Vestibulum commodo, ante sit urna purus rutrum sem.
-              </p>
-            </div>
-          </div>
-          <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 bg-gray-600 dark:text-gray-100">
-            <div className="flex justify-between p-4">
-              <div className="flex space-x-4">
-                <div>
-                  <img
-                    src="https://source.unsplash.com/100x100/?portrait"
-                    alt=""
-                    className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
-                  />
-                </div>
-                <div>
-                  <h4 className="font-bold">Leroy Jenkins</h4>
-                  <span className="text-xs dark:text-gray-400">2 days ago</span>
-                </div>
-              </div>
-              <div className="flex items-center space-x-2 dark:text-yellow-500">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 512 512"
-                  className="w-5 h-5 fill-current"
-                >
-                  <path d="M494,198.671a40.536,40.536,0,0,0-32.174-27.592L345.917,152.242,292.185,47.828a40.7,40.7,0,0,0-72.37,0L166.083,152.242,50.176,171.079a40.7,40.7,0,0,0-22.364,68.827l82.7,83.368-17.9,116.055a40.672,40.672,0,0,0,58.548,42.538L256,428.977l104.843,52.89a40.69,40.69,0,0,0,58.548-42.538l-17.9-116.055,82.7-83.368A40.538,40.538,0,0,0,494,198.671Zm-32.53,18.7L367.4,312.2l20.364,132.01a8.671,8.671,0,0,1-12.509,9.088L256,393.136,136.744,453.3a8.671,8.671,0,0,1-12.509-9.088L144.6,312.2,50.531,217.37a8.7,8.7,0,0,1,4.778-14.706L187.15,181.238,248.269,62.471a8.694,8.694,0,0,1,15.462,0L324.85,181.238l131.841,21.426A8.7,8.7,0,0,1,461.469,217.37Z"></path>
-                </svg>
-                <span className="text-xl font-bold">4.5</span>
-              </div>
-            </div>
-            <div className="p-4 space-y-2 text-sm dark:text-gray-400">
-              <p>
-                Vivamus sit amet turpis leo. Praesent varius eleifend elit, eu
-                dictum lectus consequat vitae. Etiam ut dolor id justo fringilla
-                finibus.
-              </p>
-              <p>
-                Donec eget ultricies diam, eu molestie arcu. Etiam nec lacus eu
-                mauris cursus venenatis. Maecenas gravida urna vitae accumsan
-                feugiat. Vestibulum commodo, ante sit urna purus rutrum sem.
-              </p>
-            </div>
-          </div>
+              );
+            })}
+          
         </div>
       </div>
     </section>

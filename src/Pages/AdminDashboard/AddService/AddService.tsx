@@ -14,9 +14,10 @@ const AddService = () => {
       details,
       image,
       reviews: [],
+      Totalreviews: 0,
     };
 
-    fetch("http://localhost:5000/addservice", {
+    fetch("https://engine-experts-server-phi.vercel.app/addservice", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -56,8 +57,7 @@ const AddService = () => {
             placeholder="Image Link"
             required
           />
-          
-          
+
           <button className="w-full mt-2 py-2 text-2xl bg-blue-500 rounded">
             Add Service
           </button>
