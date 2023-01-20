@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 import "./Navbar.css";
 const Navbar = () => {
-  const { user, logOut } = useContext(AuthContext);
+  // const { user, logOut } = useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const handleLogout = () => {
-    logOut()
-      .then()
-    .catch(err => console.log(err));
-  }
+  // const handleLogout = () => {
+  //   logOut()
+  //     .then()
+  //   // .catch(err => console.log(err));
+  // }
   return (
     <div className="px-4 z-index-0 py-5 font-poppins bg-black mx-auto sm:max-w-xl md:max-w-full lg:w-full md:px-24 lg:px-8">
       <div className="relative flex items-center justify-between">
@@ -65,12 +65,12 @@ const Navbar = () => {
               Dashboard
             </Link>
           </li>
-          {
+          {/* {
             user?.uid ?
               <div className='flex justify-center items-center'>
                 <span className=""><img src={user?.photoURL} title={user?.displayName} className=" ml-5 h-10 sm:h2 rounded-full" alt="" /></span>
                 <button
-                  onClick={handleLogout}
+                  // onClick={handleLogout}
                   className="font-medium tracking-wide ml-10  hover:bg-white hover:text-black px-2  rounded py-2  text-white transition-colors duration-200 "
                 >
                   Log Out
@@ -83,7 +83,7 @@ const Navbar = () => {
               >
                 Log in
               </Link>
-          }
+          } */}
         </ul>
         <div className="lg:hidden z-index-0">
           <button
@@ -165,7 +165,7 @@ const Navbar = () => {
                         About Us
                       </Link>
                     </li>
-                    {
+                    {/* {
                       user?.uid ?
                         <div className='flex justify-center items-center'>
                           <span className=""><img src={user?.photoURL} title={user?.displayName} className=" ml-5 h-10 sm:h2 rounded-full" alt="" /></span>
@@ -184,7 +184,7 @@ const Navbar = () => {
                         >
                           Log in
                         </Link>
-                    }
+                    } */}
                   </ul>
                 </nav>
               </div>

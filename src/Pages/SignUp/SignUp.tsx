@@ -3,7 +3,7 @@ import { toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 const SignUp = () => {
-    const { createUser, updateUserProfile, verifyEmail } = useContext(AuthContext);
+    // const { createUser, updateUserProfile, verifyEmail } = useContext(AuthContext);
     const [error, setError] = useState('');
 
     const handleSubmit = (event:any)=> {
@@ -14,37 +14,37 @@ const SignUp = () => {
       const password:any = form.password.value;
       //  console.log(name, photoURL, email, password);
   
-      createUser(email, password)
-        .then((result:any) => {
-          const user = result.user;
-          console.log(user);
-          setError('');
-          form.reset();
-          handleUpdateUserProfile(name, email, password);
-          handleEmailVerification();
-          toast.success('Please verify your email before login')
-        })
-        .catch((error:any) => {
-          console.error(error)
-          setError(error.message)
-        });
+    //   createUser(email, password)
+    //     .then((result:any) => {
+    //       const user = result.user;
+    //       console.log(user);
+    //       setError('');
+    //       form.reset();
+    //     //   handleUpdateUserProfile(name, email, password);
+    //       handleEmailVerification();
+    //       toast.success('Please verify your email before login')
+    //     })
+    //     .catch((error:any) => {
+    //       console.error(error)
+    //       setError(error.message)
+    //     });
     }
   
-    const handleUpdateUserProfile = (name, photoURL) => {
-      const profile = {
-        displayName: name,
-        photoURL: photoURL
-      }
-      updateUserProfile(profile)
-        .then(() => { })
-        .catch((error:any) => console.error(error));
-    }
+    // const handleUpdateUserProfile = (name, photoURL) => {
+    //   const profile = {
+    //     displayName: name,
+    //     photoURL: photoURL
+    //   }
+    //   updateUserProfile(profile)
+    //     .then(() => { })
+    //     .catch((error:any) => console.error(error));
+    // }
   
-    const handleEmailVerification = () => {
-      verifyEmail()
-        .then(() => { })
-        .catch((error:any) => console.error(error));
-    }
+    // const handleEmailVerification = () => {
+    //   verifyEmail()
+    //     .then(() => { })
+    //     .catch((error:any) => console.error(error));
+    // }
     return (
         <section className="bg-base-200 font-poppins dark:bg-gray-900">
         <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
