@@ -37,7 +37,7 @@ const Banner = () => {
             car service and give a new look to your cars. Also specialize in
             modifying cars.
           </p>
-          <button className="getbtn">Get Service</button>
+          <button className="getbtn mr-40 mt-6">Get Service</button>
         </div>
       </div>
     </section>
