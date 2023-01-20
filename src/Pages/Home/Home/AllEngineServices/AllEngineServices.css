@@ -4,3 +4,13 @@
     transition: 1.4s;
 }
 
+.hide {
+    display: none;
+}
+
+.myDiv:hover + .hide {
+    display: block;
+    color: white;
+    font-weight: 600;
+}
+

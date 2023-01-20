@@ -1,12 +1,14 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
+// import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
+import { UserProvider } from "../../../Context/UserContex/UserContex";
 import "./Navbar.css";
 const Navbar = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user } = useContext(UserProvider);
+  console.log(user)
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const handleLogout = () => {
-    logOut().then();
+    // logOut().then();
     // .catch(err => console.log(err));
   };
   return (
@@ -48,7 +50,7 @@ const Navbar = () => {
               About Us
             </Link>
           </li>
-          {user?.uid ? (
+          {user?.uid ? 
             <div className="flex justify-center items-center">
               <span className="">
                 <img
@@ -65,7 +67,7 @@ const Navbar = () => {
                 Log Out
               </button>
             </div>
-          ) : (
+           : (
             <Link
               to="/login"
               className="font-medium tracking-wide transition-colors duration-200"
