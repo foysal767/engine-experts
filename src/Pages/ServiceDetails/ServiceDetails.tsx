@@ -19,7 +19,7 @@ const ServiceDetails = () => {
           alt="service-bg"
         />
         <div className="">
-          <h2 className="flex font-poppins text-5xl my-28 ml-10 font-bold absolute top-0 left-0">
+          <h2 className="flex font-poppins text-5xl mt-20 ml-10 font-bold absolute top-0 left-0">
             Service Center___
             <RiServiceFill className="text-[#E81C2E]"></RiServiceFill>
           </h2>

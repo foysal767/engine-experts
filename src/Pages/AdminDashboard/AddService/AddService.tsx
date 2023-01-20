@@ -33,29 +33,35 @@ const AddService = () => {
       <form onSubmit={addService} className="grid lg:grid-cols-2 gap-4">
         <div className="w-full flex flex-col gap-4">
           <input
-            className="bg-white px-3 rounded-sm text-black text-xl py-2"
+            className="bg-gray-600 px-3 rounded-sm text-black text-xl py-2"
             type="text"
             name="name"
+            placeholder="Service Name"
+            required
           />
           <input
-            className="bg-white px-3 rounded-sm text-black text-xl py-2"
+            className="bg-gray-600 px-3 rounded-sm text-black text-xl py-2"
             type="text"
             name="price"
+            placeholder="Price"
+            required
           />
           <input
-            className="bg-white rounded text-black text-xl py-2 w-full border"
+            className="bg-gray-600 rounded text-black text-xl py-2 w-full border"
             type="file"
             name="image"
             id="image"
           />
-          <button className="w-full py-2 text-2xl bg-blue-500 rounded">
+          <button className="w-full mt-2 py-2 text-2xl bg-blue-500 rounded">
             Add Service
           </button>
         </div>
         <div>
           <textarea
-            className="w-full h-full bg-white text-black text-xl p-2"
+            className="w-full h-full bg-gray-600 text-black text-xl p-2"
             name="details"
+            placeholder="Service Description"
+            required
             cols={30}
             rows={10}
           ></textarea>

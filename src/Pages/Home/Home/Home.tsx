@@ -18,7 +18,7 @@ const Home = () => {
             <PopularService></PopularService>
             <Services></Services>
             <Video></Video>
-            {/* <Gallery></Gallery> */}
+            <Gallery></Gallery>
             <OurTeam></OurTeam>
             {/* <GetService></GetService> */}
             <CustomerReviews></CustomerReviews>

@@ -18,7 +18,7 @@ const PopularService = () => {
               <img
                 src="assets/engine repair.png"
                 alt=""
-                className="w-full h-full"
+                className="w-full h-full opacity-70"
               />
               <div className="w-full h-[65%] absolute left-[102%] top-0 p-5 py-12 text-4xl flex flex-col gap-3 items-end overlays">
                 <BsFillHeartFill className="bg-[#D16527] p-2 text-center cursor-pointer"></BsFillHeartFill>
@@ -42,7 +42,7 @@ const PopularService = () => {
               <img
                 src="assets/tire-change.png"
                 alt=""
-                className="w-full h-full"
+                className="w-full h-full opacity-70"
               />
               <div className="w-full h-[65%] absolute left-[102%] top-0 p-5 py-12 text-4xl flex flex-col gap-3 items-end overlays">
                 <BsFillHeartFill className="bg-[#D16527] p-2 text-center"></BsFillHeartFill>
@@ -63,7 +63,7 @@ const PopularService = () => {
               <img
                 src="assets/engine repair.png"
                 alt=""
-                className="w-full h-full"
+                className="w-full h-full opacity-70"
               />
               <div className="w-full h-[65%] absolute left-[102%] top-0 p-5 py-12 text-4xl flex flex-col gap-3 items-end overlays">
                 <BsFillHeartFill className="bg-[#D16527] p-2 text-center"></BsFillHeartFill>
@@ -84,7 +84,7 @@ const PopularService = () => {
               <img
                 src="assets/tire-change.png"
                 alt=""
-                className="w-full h-full"
+                className="w-full h-full opacity-70"
               />
               <div className="w-full h-[65%] absolute left-[102%] top-0 p-5 py-12 text-4xl flex flex-col gap-3 items-end overlays">
                 <BsFillHeartFill className="bg-[#D16527] p-2 text-center"></BsFillHeartFill>
