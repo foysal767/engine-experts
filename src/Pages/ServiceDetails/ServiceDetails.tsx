@@ -1,12 +1,17 @@
-import React from "react";
-import Sidebar from "../Sidebar/Sidebar";
 import { RiServiceFill } from "react-icons/ri";
-import { TfiHandPointRight } from "react-icons/tfi";
 
 const ServiceDetails = () => {
+  const giveFeedBack = (event: any) => {
+    event.preventDefault();
+    const feedback = event.target.feedback.value;
+    const rating = event.target.rating.value;
+    console.log(feedback, rating);
+    event.target.reset();
+  };
+
   return (
     <section className="">
-      {/* background for service */}
+      {/* banner for service */}
       <div className="relative overflow-hidden">
         <img
           className="opacity-40"
@@ -33,6 +38,8 @@ const ServiceDetails = () => {
             <button className="w-full p-2 text-2xl border">Service 1</button>
             <button className="w-full p-2 text-2xl border">Service 1</button>
           </div>
+
+          {/* -------------Get Service---------- */}
           <div className="border py-8 px-10 text-start flex flex-col gap-3">
             <h1 className="text-3xl">GET SERVICE</h1>
             <div>
@@ -45,6 +52,8 @@ const ServiceDetails = () => {
               Get Service
             </button>
           </div>
+
+          {/* ------------Conact us Section------------ */}
           <div className="border py-8 px-10 text-start flex flex-col gap-3">
             <h1 className="text-3xl">Contact US</h1>
             <div>
@@ -54,16 +63,19 @@ const ServiceDetails = () => {
             <h1>engine-experts@gmail.com</h1>
           </div>
 
+          {/* -----------------Adress Section------------------- */}
           <div className="border py-8 px-10 text-start flex flex-col gap-3">
             <h1 className="text-3xl">Address</h1>
             <div>
-              <h2 className="text-2xl">19 Frisk Drive, Middletown,nj,</h2>
-              <h2 className="text-2xl">3348 United States</h2>
+              <h2 className="text-xl">19 Frisk Drive, Middletown,nj,</h2>
+              <h2 className="text-xl">3348 United States</h2>
             </div>
             <h1>31 S Division Street, Montour,ia,</h1>
             <h1>50133 United States</h1>
           </div>
         </div>
+
+        {/* -----------------Secvice Image-------------------- */}
         <div className="border flex-1 flex flex-col gap-5 text-xl">
           <div className="w-full h-[400px] overflow-hidden">
             <img
@@ -84,6 +96,8 @@ const ServiceDetails = () => {
             luctus accumsan tortor posuere ac ut. Sed tempus urna et pharetra
             pharetra massa massa ultricies.
           </h1>
+
+          {/* --------------Ul Li section-------------------- */}
           <div className="flex justify-between gap-3 w-full px-8">
             <ul className="flex flex-col gap-3">
               <li>This is the Service 1</li>
@@ -104,6 +118,8 @@ const ServiceDetails = () => {
               <li>This is the Service 1</li>
             </ul>
           </div>
+
+          {/* ----------------Table starts from here------------ */}
           <div className="w-full px-3">
             <h1 className="text-4xl text-start mb-4">
               Detailing Services Price list
@@ -167,6 +183,37 @@ const ServiceDetails = () => {
               egestas dui id ornare. Tellus mauris a diam maecenas sed enim ut.
               Egestas tellus rutrum tellus pellentesque eu.
             </h1>
+            {/* ------Feedback section starts here---------------------- */}
+            <div className="w-full mt-4">
+              <h1 className="text-4xl font-semibold text-start mb-4">
+                Give Your feedback here
+              </h1>
+              <form
+                onSubmit={giveFeedBack}
+                className="w-full p-3 text-start rounded-md"
+              >
+                <div className="w-full flex  items-center gap-3">
+                  <textarea
+                    name="feedback"
+                    cols={12}
+                    rows={1}
+                    placeholder="Comment Your feedback here"
+                    className=" p-3 h-[60px] m-0"
+                  ></textarea>
+                  <select name="rating" className="h-[60px] text-xl rounded">
+                    <option value="Good">Good</option>
+                    <option value="Excellent">Excellent</option>
+                    <option value="As Well">As Well</option>
+                  </select>
+                </div>
+                <button
+                  type="submit"
+                  className="px-3 py-2 bg-rose-500 rounded mt-4"
+                >
+                  Submit
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
