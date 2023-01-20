@@ -1,12 +1,38 @@
-import React from "react";
-import Sidebar from "../Sidebar/Sidebar";
+import { useEffect, useState } from "react";
 import { RiServiceFill } from "react-icons/ri";
-import { TfiHandPointRight } from "react-icons/tfi";
+import { useParams } from "react-router-dom";
 
 const ServiceDetails = () => {
+
+  const { id } = useParams();
+  const [details, setDetails] = useState({});
+  // const {name, image, details, price} = details;
+
+  useEffect(()=>{
+
+    fetch(`http://localhost:5000/servicedetails?id=${id}`)
+    .then(res=> res.json())
+    .then(data=>{
+      if(data.success){
+        setDetails(data.data);
+        console.log(data.data.name);
+      }
+    });
+  },[id]);
+  console.log('inside details',details);
+
+
+  const giveFeedBack = (event: any) => {
+    event.preventDefault();
+    const feedback = event.target.feedback.value;
+    const rating = event.target.rating.value;
+    console.log(feedback, rating);
+    event.target.reset();
+  };
+
   return (
     <section className="">
-      {/* background for service */}
+      {/* banner for service */}
       <div className="relative overflow-hidden">
         <img
           className="opacity-40"
@@ -15,7 +41,7 @@ const ServiceDetails = () => {
         />
         <div className="">
           <h2 className="flex font-poppins text-5xl mt-20 ml-10 font-bold absolute top-0 left-0">
-            Service Center___
+            name___
             <RiServiceFill className="text-[#E81C2E]"></RiServiceFill>
           </h2>
         </div>
@@ -33,6 +59,8 @@ const ServiceDetails = () => {
             <button className="w-full p-2 text-2xl border">Service 1</button>
             <button className="w-full p-2 text-2xl border">Service 1</button>
           </div>
+
+          {/* -------------Get Service---------- */}
           <div className="border py-8 px-10 text-start flex flex-col gap-3">
             <h1 className="text-3xl">GET SERVICE</h1>
             <div>
@@ -45,6 +73,8 @@ const ServiceDetails = () => {
               Get Service
             </button>
           </div>
+
+          {/* ------------Conact us Section------------ */}
           <div className="border py-8 px-10 text-start flex flex-col gap-3">
             <h1 className="text-3xl">Contact US</h1>
             <div>
@@ -54,36 +84,32 @@ const ServiceDetails = () => {
             <h1>engine-experts@gmail.com</h1>
           </div>
 
+          {/* -----------------Adress Section------------------- */}
           <div className="border py-8 px-10 text-start flex flex-col gap-3">
             <h1 className="text-3xl">Address</h1>
             <div>
-              <h2 className="text-2xl">19 Frisk Drive, Middletown,nj,</h2>
-              <h2 className="text-2xl">3348 United States</h2>
+              <h2 className="text-xl">19 Frisk Drive, Middletown,nj,</h2>
+              <h2 className="text-xl">3348 United States</h2>
             </div>
             <h1>31 S Division Street, Montour,ia,</h1>
             <h1>50133 United States</h1>
           </div>
         </div>
+
+        {/* -----------------Secvice Image-------------------- */}
         <div className="border flex-1 flex flex-col gap-5 text-xl">
           <div className="w-full h-[400px] overflow-hidden">
             <img
-              src="assets/tire-change.png"
+              src=""
               alt=""
               className="w-full h-full hover:scale-110 transition-all duration-700"
             />
           </div>
           <h1 className="text-start px-2">
-            Sed lectus vestibulum mattis ullamcorper. Ante in nibh mauris
-            cursus. Ipsum dolor sit amet consectetur adipiscing elit duis
-            tristique sollicitudin. Nulla posuere sollicitudin aliquam ultrices
-            sagittis. Cursus risus at ultrices mi tempus imperdiet. Ultricies mi
-            quis hendrerit dolor magna eget est lorem. Sodales ut etiam sit amet
-            nisl purus in mollis. Ultrices neque ornare aenean euismod elementum
-            nisi quis. Vel turpis nunc eget lorem dolor sed viverra. Orci nulla
-            pellentesque dignissim enim sit amet venenatis urna. Porttitor lacus
-            luctus accumsan tortor posuere ac ut. Sed tempus urna et pharetra
-            pharetra massa massa ultricies.
+            details
           </h1>
+
+          {/* --------------Ul Li section-------------------- */}
           <div className="flex justify-between gap-3 w-full px-8">
             <ul className="flex flex-col gap-3">
               <li>This is the Service 1</li>
@@ -104,6 +130,8 @@ const ServiceDetails = () => {
               <li>This is the Service 1</li>
             </ul>
           </div>
+
+          {/* ----------------Table starts from here------------ */}
           <div className="w-full px-3">
             <h1 className="text-4xl text-start mb-4">
               Detailing Services Price list
@@ -167,6 +195,37 @@ const ServiceDetails = () => {
               egestas dui id ornare. Tellus mauris a diam maecenas sed enim ut.
               Egestas tellus rutrum tellus pellentesque eu.
             </h1>
+            {/* ------Feedback section starts here---------------------- */}
+            <div className="w-full mt-4">
+              <h1 className="text-4xl font-semibold text-start mb-4">
+                Give Your feedback here
+              </h1>
+              <form
+                onSubmit={giveFeedBack}
+                className="w-full p-3 text-start rounded-md"
+              >
+                <div className="w-full flex  items-center gap-3">
+                  <textarea
+                    name="feedback"
+                    cols={12}
+                    rows={1}
+                    placeholder="Comment Your feedback here"
+                    className=" p-3 h-[60px] m-0"
+                  ></textarea>
+                  <select name="rating" className="h-[60px] text-xl rounded">
+                    <option value="Good">Good</option>
+                    <option value="Excellent">Excellent</option>
+                    <option value="As Well">As Well</option>
+                  </select>
+                </div>
+                <button
+                  type="submit"
+                  className="px-3 py-2 bg-rose-500 rounded mt-4"
+                >
+                  Submit
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
