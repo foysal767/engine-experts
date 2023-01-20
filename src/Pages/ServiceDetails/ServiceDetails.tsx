@@ -6,20 +6,33 @@ const ServiceDetails = () => {
 
   const { id } = useParams();
   const [details, setDetails] = useState({});
-  // const {name, image, details, price} = details;
+  // 
+
+  // useEffect(()=>{
+
+  //   fetch(`http://localhost:5000/servicedetails?id=${id}`)
+  //   .then(res=> res.json())
+  //   .then(data=>{
+  //     if(data.success){
+  //       setDetails(data.data);
+  //       console.log(data.data.name);
+  //     }
+  //   });
+  // },[id]);
 
   useEffect(()=>{
-
-    fetch(`http://localhost:5000/servicedetails?id=${id}`)
-    .then(res=> res.json())
-    .then(data=>{
-      if(data.success){
-        setDetails(data.data);
-        console.log(data.data.name);
-      }
-    });
+    const getDetail = async () => {
+      const res = await fetch(
+        `http://localhost:5000/servicedetails?id=${id}`
+      );
+      const data = await res.json();
+      setDetails(data.data);
+    };
+    getDetail();
   },[id]);
+
   console.log('inside details',details);
+  // const { name, image, detail, price } = details;
 
 
   const giveFeedBack = (event: any) => {
@@ -36,12 +49,12 @@ const ServiceDetails = () => {
       <div className="relative overflow-hidden">
         <img
           className="opacity-40"
-          src="assets/services-bg.jpg"
+          src="/assets/services-bg.jpg"
           alt="service-bg"
         />
         <div className="">
           <h2 className="flex font-poppins text-5xl mt-20 ml-10 font-bold absolute top-0 left-0">
-            name___
+            arif___
             <RiServiceFill className="text-[#E81C2E]"></RiServiceFill>
           </h2>
         </div>
