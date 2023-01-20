@@ -22,7 +22,7 @@ function App() {
   return (
     <div className="App">
       {/* <button className='absolute bottom-5 right-5 rounded-full '>Top</button> */}
-      <RouterProvider router={router}></RouterProvider>
+      <RouterProvider router={router}/>
       <Toaster position="top-left" reverseOrder={true} />
     </div>
   );
