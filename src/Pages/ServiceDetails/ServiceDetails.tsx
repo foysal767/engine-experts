@@ -1,6 +1,27 @@
+import { useEffect, useState } from "react";
 import { RiServiceFill } from "react-icons/ri";
+import { useParams } from "react-router-dom";
 
 const ServiceDetails = () => {
+
+  const { id } = useParams();
+  const [details, setDetails] = useState({});
+  // const {name, image, details, price} = details;
+
+  useEffect(()=>{
+
+    fetch(`http://localhost:5000/servicedetails?id=${id}`)
+    .then(res=> res.json())
+    .then(data=>{
+      if(data.success){
+        setDetails(data.data);
+        console.log(data.data.name);
+      }
+    });
+  },[id]);
+  console.log('inside details',details);
+
+
   const giveFeedBack = (event: any) => {
     event.preventDefault();
     const feedback = event.target.feedback.value;
@@ -20,7 +41,7 @@ const ServiceDetails = () => {
         />
         <div className="">
           <h2 className="flex font-poppins text-5xl mt-20 ml-10 font-bold absolute top-0 left-0">
-            Service Center___
+            name___
             <RiServiceFill className="text-[#E81C2E]"></RiServiceFill>
           </h2>
         </div>
@@ -79,22 +100,13 @@ const ServiceDetails = () => {
         <div className="border flex-1 flex flex-col gap-5 text-xl">
           <div className="w-full h-[400px] overflow-hidden">
             <img
-              src="assets/tire-change.png"
+              src=""
               alt=""
               className="w-full h-full hover:scale-110 transition-all duration-700"
             />
           </div>
           <h1 className="text-start px-2">
-            Sed lectus vestibulum mattis ullamcorper. Ante in nibh mauris
-            cursus. Ipsum dolor sit amet consectetur adipiscing elit duis
-            tristique sollicitudin. Nulla posuere sollicitudin aliquam ultrices
-            sagittis. Cursus risus at ultrices mi tempus imperdiet. Ultricies mi
-            quis hendrerit dolor magna eget est lorem. Sodales ut etiam sit amet
-            nisl purus in mollis. Ultrices neque ornare aenean euismod elementum
-            nisi quis. Vel turpis nunc eget lorem dolor sed viverra. Orci nulla
-            pellentesque dignissim enim sit amet venenatis urna. Porttitor lacus
-            luctus accumsan tortor posuere ac ut. Sed tempus urna et pharetra
-            pharetra massa massa ultricies.
+            details
           </h1>
 
           {/* --------------Ul Li section-------------------- */}

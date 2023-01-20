@@ -6,11 +6,13 @@ const AddService = () => {
     const name = event.target.name.value;
     const price = event.target.price.value;
     const details = event.target.details.value;
+    const image = event.target.image.value;
 
     const product = {
       name,
       price,
       details,
+      image,
       reviews: [],
     };
 
@@ -24,6 +26,7 @@ const AddService = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
+          event.target.reset();
           toast.success("successfully added service");
         }
       });
@@ -47,11 +50,14 @@ const AddService = () => {
             required
           />
           <input
-            className="bg-gray-600 rounded text-black text-xl py-2 w-full border"
-            type="file"
+            className="bg-gray-600 px-3 rounded-sm text-black text-xl py-2"
+            type="url"
             name="image"
-            id="image"
+            placeholder="Image Link"
+            required
           />
+          
+          
           <button className="w-full mt-2 py-2 text-2xl bg-blue-500 rounded">
             Add Service
           </button>

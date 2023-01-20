@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import './Services.css';
 
 const Services = () => {
@@ -14,10 +15,12 @@ const Services = () => {
           {/* subContent-1 */}
           <div className="subcontent-1 mb-5 shadow-2xl rounded-md">
             <div className="content-info flex md:flex-col md:text-center md:gap-7 lg:flex-row lg:text-end lg:gap-0 text-end items-center ">
-              <div>
-                <h1 className="text-xl font-bold">Body Color</h1>
+
+              <Link to={'/servicedetails/Performance Upgrade'}><div>
+                <h1 className="text-xl font-bold">Performance Upgrade</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-              </div>
+              </div></Link>
+
               <div className="car-parts- pl-5" >
                 <img src="assets/car-parts/car-parts-1.png" alt="" className="w-20 " />
               </div>
