@@ -9,7 +9,6 @@ const Banner = () => {
           src="assets/circle4[90].png"
           alt=""
         />
-
         <div className="lg:w-[60%] w-full grid place-items-center lg:h-full h-[70%] absolute lg:top-0 top-24 right-0 overflow-hidden bg-transparent">
           <img
             className="absolute h-full w-full md:w-[90%]"
