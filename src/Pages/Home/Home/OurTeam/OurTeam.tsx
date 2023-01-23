@@ -1,199 +1,126 @@
-import React from "react";
 import { FaFacebook, FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa";
-import './OurTeam.css';
+import "./OurTeam.css";
 
 const OurTeam = () => {
   return (
-    <div className="font-poppins">
-      <h1 className="font-poppins text-center text-5xl font-bold my-14">Our Team</h1>
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 place-items-center ">
-
-        <div className="card card-compact w-96  bg-gray-600 p-2 shadow-xl rounded-md">
-          <div className="image_wrapper">
-            <div className="w-full">
-              <figure>
-                <img className="image"
-                  src="assets/team/faysal.png"
-                  alt="Shoes"
-                />
-              </figure>
-            </div>
-            <div className="overlay overlay_5 gap-8">
-              <a href="https://www.facebook.com/mohammadfoysal.uddin.9?mibextid=ZbWKwL" className="icons">
-                <FaFacebook className="icon"></FaFacebook>
-              </a>
-              <a href="" className="icons">
-                <FaTwitter className="icon"></FaTwitter>
-              </a>
-              <a href="https://github.com/foysal767" className="icons">
-                <FaGithub className="icon"></FaGithub >
-              </a>
-              <a href="" className="icons">
-                <FaLinkedinIn className="icon"></FaLinkedinIn>
-              </a>
-
+    <section className="font-poppins w-full lg:px-20 md:px-8 px-4">
+      <h1 className="font-poppins text-center text-5xl font-bold my-14">
+        Our Team
+      </h1>
+      <div className="w-full grid lg:grid-cols-3 md:grid-cols-2 gap-3">
+        {/* first card start */}
+        <div className="w-full h-[440px] p-1 shadow-xl image_wrapper">
+          <div className="w-full h-[80%] relative">
+            <img src="assets/team/arif.jpg" alt="" className="w-full h-full" />
+            <div className="w-full h-full absolute top-0 bg-[#E81C2E] overlay_5  opacity-50"></div>
+            <div className="w-full h-full absolute top-0 flex justify-center items-center gap-3 text-3xl overlay_5">
+              <FaFacebook></FaFacebook>
+              <FaGithub></FaGithub>
+              <FaLinkedinIn></FaLinkedinIn>
+              <FaTwitter></FaTwitter>
             </div>
           </div>
-          <div className="card-body">
-            <h2 className="text-xl font-bold text-white">Mohammad Foysal Uddin</h2>
-            <p className="text-white">Director</p>
+          <div className="text-start px-4 mt-4">
+            <h1 className="text-2xl font-semibold">Ariful islam</h1>
+            <h2>Engine Experts</h2>
           </div>
         </div>
 
-        <div className="card card-compact w-96  bg-gray-600 p-2 shadow-xl rounded-md">
-          <div className="image_wrapper">
-            <figure>
-              <img className="image"
-                src="https://i.ibb.co/mcFz0dM/IMG-20221009-2232asd49-2.jpg"
-                alt="javed"
-              />
-            </figure>
-            <div className="overlay overlay_5 gap-8">
-              <a href="#" className="icons">
-                <FaFacebook className="icon"></FaFacebook>
-              </a>
-              <a href="" className="icons">
-                <FaTwitter className="icon"></FaTwitter>
-              </a>
-              <a href="https://github.com/foysal767" className="icons">
-                <FaGithub className="icon"></FaGithub >
-              </a>
-              <a href="" className="icons">
-                <FaLinkedinIn className="icon"></FaLinkedinIn>
-              </a>
-
+        {/* first card start */}
+        <div className="w-full h-[440px] p-1 shadow-xl image_wrapper">
+          <div className="w-full h-[80%] relative">
+            <img
+              src="assets/team/faysal.png"
+              alt=""
+              className="w-full h-full"
+            />
+            <div className="w-full h-full absolute top-0 bg-gray-700 overlay_5  opacity-30"></div>
+            <div className="w-full h-full absolute top-0 flex justify-center items-center gap-3 text-3xl overlay_5 text-[#E81C2E]">
+              <FaFacebook></FaFacebook>
+              <FaGithub></FaGithub>
+              <FaLinkedinIn></FaLinkedinIn>
+              <FaTwitter></FaTwitter>
             </div>
           </div>
-          <div className="card-body">
-            <h2 className="text-xl font-bold text-white">Muhammad Jabed</h2>
-            <p className="text-white">Engine experts</p>
+          <div className="text-start px-4 mt-4">
+            <h1 className="text-2xl font-semibold">Faysal Uddin</h1>
+            <h2>Team Leder</h2>
           </div>
         </div>
 
-        <div className="card card-compact w-96  bg-gray-600 p-2 shadow-xl rounded-md">
-          <div className="image_wrapper">
-            <figure>
-              <img className="image"
-                src="assets/team/arif.jpg"
-                alt="arif"
-              />
-            </figure>
-            <div className="overlay overlay_5 gap-8">
-              <a href="#" className="icons">
-                <FaFacebook className="icon"></FaFacebook>
-              </a>
-              <a href="" className="icons">
-                <FaTwitter className="icon"></FaTwitter>
-              </a>
-              <a href="https://github.com/foysal767" className="icons">
-                <FaGithub className="icon"></FaGithub >
-              </a>
-              <a href="" className="icons">
-                <FaLinkedinIn className="icon"></FaLinkedinIn>
-              </a>
-
+        {/* first card start */}
+        <div className="w-full h-[440px] p-1 shadow-xl image_wrapper">
+          <div className="w-full h-[80%] relative">
+            <img src="assets/team/arif.jpg" alt="" className="w-full h-full" />
+            <div className="w-full h-full absolute top-0 bg-gray-700 overlay_5  opacity-30"></div>
+            <div className="w-full h-full absolute top-0 flex justify-center items-center gap-3 text-3xl overlay_5">
+              <FaFacebook></FaFacebook>
+              <FaGithub></FaGithub>
+              <FaLinkedinIn></FaLinkedinIn>
+              <FaTwitter></FaTwitter>
             </div>
           </div>
-          <div className="card-body">
-            <h2 className="text-xl font-bold text-white">Ariful Islam</h2>
-            <p className="text-white">CEO</p>
+          <div className="text-start px-4 mt-4">
+            <h1 className="text-2xl font-semibold">Ariful islam</h1>
+            <h2>Engine Experts</h2>
           </div>
         </div>
 
-        <div className="card card-compact w-96  bg-gray-600 p-2 shadow-xl rounded-md">
-          <div className="image_wrapper">
-            <figure>
-              <img className="image"
-                src="https://i.ibb.co/mcFz0dM/IMG-20221009-2232asd49-2.jpg"
-                alt="Shoes"
-              />
-            </figure>
-            <div className="overlay overlay_5 gap-8">
-              <a href="#" className="icons">
-                <FaFacebook className="icon"></FaFacebook>
-              </a>
-              <a href="" className="icons">
-                <FaTwitter className="icon"></FaTwitter>
-              </a>
-              <a href="https://github.com/foysal767" className="icons">
-                <FaGithub className="icon"></FaGithub >
-              </a>
-              <a href="https://www.linkedin.com/in/mohammad-foysal-uddin/" className="icons">
-                <FaLinkedinIn className="icon"></FaLinkedinIn>
-              </a>
-
+        {/* first card start */}
+        <div className="w-full h-[440px] p-1 shadow-xl image_wrapper">
+          <div className="w-full h-[80%] relative">
+            <img src="assets/team/arif.jpg" alt="" className="w-full h-full" />
+            <div className="w-full h-full absolute top-0 bg-gray-700 overlay_5  opacity-30"></div>
+            <div className="w-full h-full absolute top-0 flex justify-center items-center gap-3 text-3xl overlay_5">
+              <FaFacebook></FaFacebook>
+              <FaGithub></FaGithub>
+              <FaLinkedinIn></FaLinkedinIn>
+              <FaTwitter></FaTwitter>
             </div>
           </div>
-          <div className="card-body">
-            <h2 className="text-xl font-bold text-white">Muhammad Jabed</h2>
-            <p className="text-white">Engine experts</p>
+          <div className="text-start px-4 mt-4">
+            <h1 className="text-2xl font-semibold">Ariful islam</h1>
+            <h2>Engine Experts</h2>
           </div>
         </div>
 
-        <div className="card card-compact w-96  bg-gray-600 p-2 shadow-xl rounded-md">
-          <div className="image_wrapper">
-            <figure>
-              <img className="image"
-                src="https://i.ibb.co/mcFz0dM/IMG-20221009-2232asd49-2.jpg"
-                alt="Shoes"
-              />
-            </figure>
-            <div className="overlay overlay_5 gap-8">
-              <a href="#" className="icons">
-                <FaFacebook className="icon"></FaFacebook>
-              </a>
-              <a href="" className="icons">
-                <FaTwitter className="icon"></FaTwitter>
-              </a>
-              <a href="https://github.com/foysal767" className="icons">
-                <FaGithub className="icon"></FaGithub >
-              </a>
-              <a href="" className="icons">
-                <FaLinkedinIn className="icon"></FaLinkedinIn>
-              </a>
-
+        {/* first card start */}
+        <div className="w-full h-[440px] p-1 shadow-xl image_wrapper">
+          <div className="w-full h-[80%] relative">
+            <img src="assets/team/arif.jpg" alt="" className="w-full h-full" />
+            <div className="w-full h-full absolute top-0 bg-gray-700 overlay_5  opacity-30"></div>
+            <div className="w-full h-full absolute top-0 flex justify-center items-center gap-3 text-3xl overlay_5">
+              <FaFacebook></FaFacebook>
+              <FaGithub></FaGithub>
+              <FaLinkedinIn></FaLinkedinIn>
+              <FaTwitter></FaTwitter>
             </div>
           </div>
-          <div className="card-body">
-            <h2 className="text-xl font-bold text-white">Muhammad Jabed</h2>
-            <p className="text-white">Engine experts</p>
+          <div className="text-start px-4 mt-4">
+            <h1 className="text-2xl font-semibold">Ariful islam</h1>
+            <h2>Engine Experts</h2>
           </div>
         </div>
 
-        <div className="card card-compact w-96  bg-gray-600 p-2 shadow-xl rounded-md">
-          <div className="image_wrapper">
-            <div>
-              <figure>
-                <img className="image"
-                  src="https://i.ibb.co/mcFz0dM/IMG-20221009-2232asd49-2.jpg"
-                  alt="Shoes"
-                />
-              </figure>
-            </div>
-            <div className="overlay overlay_5 gap-8">
-              <a href="#" className="icons">
-                <FaFacebook className="icon"></FaFacebook>
-              </a>
-              <a href="" className="icons">
-                <FaTwitter className="icon"></FaTwitter>
-              </a>
-              <a href="https://github.com/foysal767" className="icons">
-                <FaGithub className="icon"></FaGithub >
-              </a>
-              <a href="" className="icons">
-                <FaLinkedinIn className="icon"></FaLinkedinIn>
-              </a>
-
+        {/* first card start */}
+        <div className="w-full h-[440px] p-1 shadow-xl image_wrapper">
+          <div className="w-full h-[80%] relative">
+            <img src="assets/team/arif.jpg" alt="" className="w-full h-full" />
+            <div className="w-full h-full absolute top-0 bg-gray-700 overlay_5  opacity-30"></div>
+            <div className="w-full h-full absolute top-0 flex justify-center items-center gap-3 text-3xl overlay_5">
+              <FaFacebook></FaFacebook>
+              <FaGithub></FaGithub>
+              <FaLinkedinIn></FaLinkedinIn>
+              <FaTwitter></FaTwitter>
             </div>
           </div>
-          <div className="card-body">
-            <h2 className="text-xl font-bold text-white">Muhammad Jabed</h2>
-            <p className="text-white">Engine experts</p>
+          <div className="text-start px-4 mt-4">
+            <h1 className="text-2xl font-semibold">Ariful islam</h1>
+            <h2>Engine Experts</h2>
           </div>
         </div>
-
       </div>
-    </div>
+    </section>
   );
 };
 

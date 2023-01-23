@@ -11,9 +11,13 @@
     padding: 50px;
     box-shadow: rgba(235, 235, 242, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
+<<<<<<< HEAD
 .services-header:hover{
+=======
+/* .text-xl:hover{
+>>>>>>> edf2e7afd2ac706058cebdc2696e147b83787138
     color: #E81C2E;
-}
+} */
 
 .subcontent-1:hover, .subcontent-2:hover, .subcontent-3:hover{
     border-right: 3px solid #E81C2E !important;

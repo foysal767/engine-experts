@@ -13,12 +13,17 @@ import Login from "../Pages/Login/Login";
 import Services from "../Pages/Services/Services";
 import SignUp from "../Pages/SignUp/SignUp";
 import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
+<<<<<<< HEAD
 import AboutUs from "../Pages/Home/Home/AboutUs/AboutUs";
+=======
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+>>>>>>> edf2e7afd2ac706058cebdc2696e147b83787138
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -37,10 +42,11 @@ const router = createBrowserRouter([
         element: <ContactUs></ContactUs>,
       },
       {
-        path: '/services',
-        element: <Services></Services>
+        path: "/services",
+        element: <Services></Services>,
       },
       {
+<<<<<<< HEAD
         path: 'serviceDetails',
         element: <ServiceDetails></ServiceDetails>
       },
@@ -57,22 +63,36 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/addservice",
         element: <AddService></AddService>,
+=======
+        path: "/serviceDetails",
+        element: <ServiceDetails></ServiceDetails>,
+>>>>>>> edf2e7afd2ac706058cebdc2696e147b83787138
       },
       {
-        path: "/dashboard/allorders",
-        element: <AllOrders></AllOrders>,
-      },
-      {
-        path: "/dashboard/addcampaign",
-        element: <AddCampaign></AddCampaign>,
-      },
-      {
-        path: "/dashboard/alluser",
-        element: <AllUsers></AllUsers>,
-      },
-      {
-        path: "/dashboard/allservice",
-        element: <AllService></AllService>,
+        path: "/dashboard",
+        element: <AdminDashboard></AdminDashboard>,
+        children: [
+          {
+            path: "/dashboard/addservice",
+            element: <AddService></AddService>,
+          },
+          {
+            path: "/dashboard",
+            element: <AllOrders></AllOrders>,
+          },
+          {
+            path: "/dashboard/addcampaign",
+            element: <AddCampaign></AddCampaign>,
+          },
+          {
+            path: "/dashboard/alluser",
+            element: <AllUsers></AllUsers>,
+          },
+          {
+            path: "/dashboard/allservice",
+            element: <AllService></AllService>,
+          },
+        ],
       },
     ],
   },
