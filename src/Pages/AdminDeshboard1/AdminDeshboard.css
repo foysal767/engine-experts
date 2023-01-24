@@ -1,0 +1,16 @@
+.adminbanner {
+  clip-path: ellipse(88% 60% at 52% 30%);
+  background-image: linear-gradient(90deg, #4d7084e7, #204458);
+}
+.droping {
+  display: none;
+  top: 0px;
+  left: 0px;
+  opacity: 50%;
+}
+
+.maincard:hover .droping {
+  display: flex;
+  top: 32px;
+  left: 0px;
+}

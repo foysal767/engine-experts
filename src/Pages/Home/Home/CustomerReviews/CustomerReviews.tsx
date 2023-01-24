@@ -1,16 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
 
-import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper";
+import { Autoplay, Navigation, Pagination } from "swiper";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
+import "swiper/css/autoplay";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import "swiper/css/autoplay";
 
 const CustomerReviews = () => {
   const { data: reviews = [], isLoading } = useQuery({

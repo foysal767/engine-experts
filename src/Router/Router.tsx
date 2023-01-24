@@ -14,6 +14,7 @@ import SignUp from "../Pages/SignUp/SignUp";
 import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Appointment from "../Pages/Appointment/Appointment";
+import AdminDeshboard1 from "../Pages/AdminDeshboard1/AdminDeshboard1";
 
 const router = createBrowserRouter([
   {
@@ -77,6 +78,10 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: '/dashboard1',
+    element:<AdminDeshboard1></AdminDeshboard1>
+  }
 ]);
 
 export default router;
