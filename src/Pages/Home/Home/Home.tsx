@@ -18,7 +18,11 @@ const Home = () => {
             <Services></Services>
             <AllEngineServices></AllEngineServices>
             <Video></Video>
+<<<<<<< HEAD
             <PopularService></PopularService>
+=======
+            {/* <Gallery></Gallery> */}
+>>>>>>> 8d652c9372d1031012412378664552c3f1b10361
             <OurTeam></OurTeam>
             {/* <GetService></GetService> */}
             <CustomerReviews></CustomerReviews>

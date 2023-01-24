@@ -1,7 +1,12 @@
 const DiscountSection = () => {
   return (
+<<<<<<< HEAD
     <section className="w-full px-4 md:px-8 lg:px-12 mt-36">
       <h2 className="font-poppins text-center text-5xl font-bold mb-12">
+=======
+    <section className="w-full px-4 md:px-8 lg:px-12 lg:mb-32">
+      <h2 className="font-poppins text-center text-5xl font-bold lg:mb-12">
+>>>>>>> 8d652c9372d1031012412378664552c3f1b10361
         Discount for our customer
       </h2>
       <div

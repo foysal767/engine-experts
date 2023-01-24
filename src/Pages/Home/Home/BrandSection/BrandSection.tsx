@@ -10,8 +10,8 @@ import  './BrandSection.css';
 
 const BrandSection = () => {
     return (
-      <div className="mt-12 text-white client-wrap mb-24">
-        <h1 className="text-center font-poppins text-5xl font-semibold">
+      <div className="mt-12 text-white client-wrap lg:mb-32">
+        <h1 className="text-center font-poppins text-5xl font-semibold lg:mb-12">
           Our Clients
         </h1>
         <br />
