@@ -15,6 +15,7 @@ import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Appointment from "../Pages/Appointment/Appointment";
 import AdminDeshboard1 from "../Pages/AdminDeshboard1/AdminDeshboard1";
+import Booking from "../Pages/Booking/Booking";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/contactUs",
         element: <ContactUs></ContactUs>,
+      },
+      {
+        path: "/booking",
+        element: <Booking></Booking>
       },
       {
         path: "/appointment",
