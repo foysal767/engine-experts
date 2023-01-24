@@ -8,7 +8,9 @@ const PopularService = () => {
   const { data: popular = [], isLoading } = useQuery({
     queryKey: ["popular"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/popular");
+      const res = await fetch(
+        "https://engine-experts-server-phi.vercel.app/popular"
+      );
       const data = await res.json();
       return data.data;
     },
