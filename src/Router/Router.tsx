@@ -6,7 +6,12 @@ import AdminDashboard from "../Pages/AdminDashboard/AdminDashboard"
 import AllOrders from "../Pages/AdminDashboard/AllOrders/AllOrders"
 import AllService from "../Pages/AdminDashboard/AllService/AllService"
 import AllUsers from "../Pages/AdminDashboard/AllUsers/AllUsers"
+import AddCampaign1 from "../Pages/AdminDeshboard1/AddCampaign/AddCampaign1"
+import AddService1 from "../Pages/AdminDeshboard1/AddService/AddService1"
 import AdminDeshboard1 from "../Pages/AdminDeshboard1/AdminDeshboard1"
+import AllOrders1 from "../Pages/AdminDeshboard1/AllOrders/AllOrders1"
+import AllService1 from "../Pages/AdminDeshboard1/AllService/AllService1"
+import AllUsers1 from "../Pages/AdminDeshboard1/AllUsers/AllUsers1"
 import Appointment from "../Pages/Appointment/Appointment"
 import Booking from "../Pages/Booking/Booking"
 import ErrorPage from "../Pages/ErrorPage/ErrorPage"
@@ -91,6 +96,28 @@ const router = createBrowserRouter([
   {
     path: "/dashboard1",
     element: <AdminDeshboard1></AdminDeshboard1>,
+    children: [
+      {
+        path: "/dashboard1/addservice1",
+        element: <AddService1></AddService1>,
+      },
+      {
+        path: "/dashboard1/allservice1",
+        element: <AllService1></AllService1>,
+      },
+      {
+        path: "/dashboard1/allusers1",
+        element: <AllUsers1></AllUsers1>,
+      },
+      {
+        path: "/dashboard1/addcampaign1",
+        element: <AddCampaign1></AddCampaign1>,
+      },
+      {
+        path: "/dashboard1/allorders1",
+        element: <AllOrders1></AllOrders1>,
+      },
+    ],
   },
 ])
 
