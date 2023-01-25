@@ -4,9 +4,10 @@ import Banner from './Banner/Banner';
 import BrandSection from './BrandSection/BrandSection';
 import CustomerReviews from './CustomerReviews/CustomerReviews';
 import DiscountSection from './DiscountSection/DiscountSection';
-import Gallery from './Gallery/Gallery';
-import GetService from './GetService/GetService';
-import OurTeam from './OurTeam/OurTeam';
+import GetInTouch from './GetInTouch/GetInTouch';
+// import Gallery from './Gallery/Gallery';
+// import GetService from './GetService/GetService';
+// import OurTeam from './OurTeam/OurTeam';
 import PopularService from './PopularService/PopularService';
 import Video from './Video/Video';
 
@@ -18,9 +19,10 @@ const Home = () => {
             <PopularService></PopularService>
             <Services></Services>
             <Video></Video>
-            {/* <Gallery></Gallery> */}
+            {/* <Gallery></Gallery> /}
             <OurTeam></OurTeam>
-            {/* <GetService></GetService> */}
+            {/ <GetService></GetService> */}
+            <GetInTouch></GetInTouch>
             <CustomerReviews></CustomerReviews>
             <BrandSection></BrandSection>
         </main>
