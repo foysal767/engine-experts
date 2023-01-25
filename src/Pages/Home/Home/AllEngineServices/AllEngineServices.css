@@ -1,0 +1,16 @@
+.bg-gray-300:hover {
+    transform: scale(1.08);
+    box-shadow: 2px 6px 5px black;
+    transition: 1.4s;
+}
+
+.hide {
+    display: none;
+}
+
+.myDiv:hover + .hide {
+    display: block;
+    color: white;
+    font-weight: 600;
+}
+
