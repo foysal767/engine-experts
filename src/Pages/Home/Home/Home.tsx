@@ -1,12 +1,15 @@
 import React from 'react';
 import Services from '../../Services/Services';
+import WorkingEnvironment from '../WorkingEnvironment/WorkingEnvironment';
 import Banner from './Banner/Banner';
-import BrandSection from './BrandSection/BrandSection';
+import Brand from './BrandSection/Brand';
+// import BrandSection from './BrandSection/BrandSection';
 import CustomerReviews from './CustomerReviews/CustomerReviews';
 import DiscountSection from './DiscountSection/DiscountSection';
-import Gallery from './Gallery/Gallery';
-import GetService from './GetService/GetService';
-import OurTeam from './OurTeam/OurTeam';
+import GetInTouch from './GetInTouch/GetInTouch';
+// import Gallery from './Gallery/Gallery';
+// import GetService from './GetService/GetService';
+// import OurTeam from './OurTeam/OurTeam';
 import PopularService from './PopularService/PopularService';
 import Video from './Video/Video';
 
@@ -18,11 +21,14 @@ const Home = () => {
             <PopularService></PopularService>
             <Services></Services>
             <Video></Video>
-            {/* <Gallery></Gallery> */}
+            <WorkingEnvironment></WorkingEnvironment>
+            {/* <Gallery></Gallery> /}
             <OurTeam></OurTeam>
-            {/* <GetService></GetService> */}
+            {/ <GetService></GetService> */}
+            <GetInTouch></GetInTouch>
             <CustomerReviews></CustomerReviews>
-            <BrandSection></BrandSection>
+            <Brand></Brand>
+            {/* <BrandSection></BrandSection> */}
         </main>
     );
 };

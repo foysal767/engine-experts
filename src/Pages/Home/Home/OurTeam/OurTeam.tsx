@@ -69,7 +69,7 @@ const OurTeam = () => {
         </div>
 
         {/* first card start */}
-        <div className="w-full h-[440px] p-1 shadow-xl image_wrapper">
+        <div className="w-full h-[500px] p-1 shadow-xl image_wrapper">
           <div className="w-full h-[80%] relative">
             <img
               src="assets/team/hridoy.jpg"
@@ -86,13 +86,13 @@ const OurTeam = () => {
             </div>
           </div>
           <div className="text-start px-4 mt-4">
-            <h1 className="text-2xl font-semibold">Ariful islam</h1>
+            <h1 className="text-2xl font-semibold">Nazrul Islam</h1>
             <h2>Engine Experts</h2>
           </div>
         </div>
 
         {/* first card start */}
-        <div className="w-full h-[440px] p-1 shadow-xl image_wrapper">
+        <div className="w-full h-[500px] p-1 shadow-xl image_wrapper">
           <div className="w-full h-[80%] relative">
             <img src="assets/team/fahim.jpg" alt="" className="w-full h-full" />
             <div className="w-full h-full absolute top-0 bg-gray-700 overlay_5  opacity-30"></div>
@@ -104,13 +104,13 @@ const OurTeam = () => {
             </div>
           </div>
           <div className="text-start px-4 mt-4">
-            <h1 className="text-2xl font-semibold">Ariful islam</h1>
+            <h1 className="text-2xl font-semibold">Jabed Ullah</h1>
             <h2>Engine Experts</h2>
           </div>
         </div>
 
         {/* first card start */}
-        <div className="w-full h-[440px] p-1 shadow-xl image_wrapper">
+        <div className="w-full h-[500px] p-1 shadow-xl image_wrapper">
           <div className="w-full h-[80%] relative">
             <img
               src="assets/team/nazrul.jpg"
@@ -126,7 +126,7 @@ const OurTeam = () => {
             </div>
           </div>
           <div className="text-start px-4 mt-4">
-            <h1 className="text-2xl font-semibold">Ariful islam</h1>
+            <h1 className="text-2xl font-semibold">Hridoy Halder</h1>
             <h2>Engine Experts</h2>
           </div>
         </div>
