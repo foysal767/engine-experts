@@ -15,13 +15,8 @@ const PopularService = () => {
     },
   });
   return (
-<<<<<<< HEAD
-    <section className="w-full mt-36">
-      <h2 className="font-poppins text-center text-3xl font-bold">
-=======
     <section className="w-full lg:px-12 lg:mb-30">
       <h2 className="font-poppins text-center text-5xl font-bold lg:mb-12">
->>>>>>> 8d652c9372d1031012412378664552c3f1b10361
         Popular Services
       </h2>
       <div className="w-full lg:h-[85vh] p-5">

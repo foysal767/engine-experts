@@ -1,21 +1,22 @@
-import { createBrowserRouter } from "react-router-dom";
-import Main from "../layout/Main/Main";
-import AddCampaign from "../Pages/AdminDashboard/AddCampaign/AddCampaign";
-import AddService from "../Pages/AdminDashboard/AddService/AddService";
-import AdminDashboard from "../Pages/AdminDashboard/AdminDashboard";
-import AllOrders from "../Pages/AdminDashboard/AllOrders/AllOrders";
-import AllService from "../Pages/AdminDashboard/AllService/AllService";
-import AllUsers from "../Pages/AdminDashboard/AllUsers/AllUsers";
-import ContactUs from "../Pages/Home/ContactUs/ContactUs";
-import Home from "../Pages/Home/Home/Home";
-import Login from "../Pages/Login/Login";
-import Services from "../Pages/Services/Services";
-import SignUp from "../Pages/SignUp/SignUp";
-import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
-import ErrorPage from "../Pages/ErrorPage/ErrorPage";
-import Appointment from "../Pages/Appointment/Appointment";
-import AdminDeshboard1 from "../Pages/AdminDeshboard1/AdminDeshboard1";
-import Booking from "../Pages/Booking/Booking";
+import { createBrowserRouter } from "react-router-dom"
+import Main from "../layout/Main/Main"
+import AddCampaign from "../Pages/AdminDashboard/AddCampaign/AddCampaign"
+import AddService from "../Pages/AdminDashboard/AddService/AddService"
+import AdminDashboard from "../Pages/AdminDashboard/AdminDashboard"
+import AllOrders from "../Pages/AdminDashboard/AllOrders/AllOrders"
+import AllService from "../Pages/AdminDashboard/AllService/AllService"
+import AllUsers from "../Pages/AdminDashboard/AllUsers/AllUsers"
+import AdminDeshboard1 from "../Pages/AdminDeshboard1/AdminDeshboard1"
+import Appointment from "../Pages/Appointment/Appointment"
+import Booking from "../Pages/Booking/Booking"
+import ErrorPage from "../Pages/ErrorPage/ErrorPage"
+import ContactForm from "../Pages/Home/ContactForm/ContactForm"
+import ContactUs from "../Pages/Home/ContactUs/ContactUs"
+import Home from "../Pages/Home/Home/Home"
+import Login from "../Pages/Login/Login"
+import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails"
+import Services from "../Pages/Services/Services"
+import SignUp from "../Pages/SignUp/SignUp"
 
 const router = createBrowserRouter([
   {
@@ -40,8 +41,12 @@ const router = createBrowserRouter([
         element: <ContactUs></ContactUs>,
       },
       {
+        path: "/contactform",
+        element: <ContactForm></ContactForm>,
+      },
+      {
         path: "/booking",
-        element: <Booking></Booking>
+        element: <Booking></Booking>,
       },
       {
         path: "/appointment",
@@ -84,9 +89,9 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: '/dashboard1',
-    element:<AdminDeshboard1></AdminDeshboard1>
-  }
-]);
+    path: "/dashboard1",
+    element: <AdminDeshboard1></AdminDeshboard1>,
+  },
+])
 
-export default router;
+export default router
