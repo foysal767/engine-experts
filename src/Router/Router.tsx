@@ -12,20 +12,10 @@ import Login from "../Pages/Login/Login";
 import Services from "../Pages/Services/Services";
 import SignUp from "../Pages/SignUp/SignUp";
 import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
-
-import AboutUs from "../Pages/Home/Home/AboutUs/AboutUs";
-
-import ErrorPage from "../Pages/ErrorPage/ErrorPage";
-
-
-import AuthRoute from "../Context/AuthRoute/AuthRoute";
-import ErrorPage from "../Pages/ErrorPage/ErrorPage";
-import Appointment from "../Pages/Appointment/Appointment";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Appointment from "../Pages/Appointment/Appointment";
 import AdminDeshboard1 from "../Pages/AdminDeshboard1/AdminDeshboard1";
 import Booking from "../Pages/Booking/Booking";
-
 
 const router = createBrowserRouter([
   {
@@ -62,26 +52,6 @@ const router = createBrowserRouter([
         element: <Services></Services>,
       },
       {
-
-        path: 'serviceDetails',
-        element: <ServiceDetails></ServiceDetails>
-      },
-      {
-        path: '/about-us',
-        element: <AboutUs></AboutUs>
-      }
-    ],
-  },
-  {
-    path: "/dashboard",
-    element: <AdminDashboard></AdminDashboard>,
-    children: [
-      {
-        path: "/dashboard/addservice",
-        element: <AddService></AddService>,
-
-        path: "/serviceDetails",
-
         path: "/serviceDetails/:id",
         element: <ServiceDetails></ServiceDetails>,
       },
@@ -118,6 +88,5 @@ const router = createBrowserRouter([
     element:<AdminDeshboard1></AdminDeshboard1>
   }
 ]);
-
 
 export default router;
