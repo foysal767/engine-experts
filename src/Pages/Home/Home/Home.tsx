@@ -1,6 +1,8 @@
 import React from 'react';
 import Services from '../../Services/Services';
+import WorkingEnvironment from '../WorkingEnvironment/WorkingEnvironment';
 import Banner from './Banner/Banner';
+import Brand from './BrandSection/Brand';
 import BrandSection from './BrandSection/BrandSection';
 import CustomerReviews from './CustomerReviews/CustomerReviews';
 import DiscountSection from './DiscountSection/DiscountSection';
@@ -18,11 +20,13 @@ const Home = () => {
             <PopularService></PopularService>
             <Services></Services>
             <Video></Video>
+            <WorkingEnvironment></WorkingEnvironment>
             {/* <Gallery></Gallery> */}
             <OurTeam></OurTeam>
             {/* <GetService></GetService> */}
             <CustomerReviews></CustomerReviews>
-            <BrandSection></BrandSection>
+            <Brand></Brand>
+            {/* <BrandSection></BrandSection> */}
         </main>
     );
 };
