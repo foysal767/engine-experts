@@ -14,10 +14,17 @@ import Services from "../Pages/Services/Services";
 import SignUp from "../Pages/SignUp/SignUp";
 import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import AboutUs from "../Pages/Home/Home/AboutUs/AboutUs";
 =======
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 >>>>>>> edf2e7afd2ac706058cebdc2696e147b83787138
+=======
+
+import AuthRoute from "../Context/AuthRoute/AuthRoute";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import Appointment from "../Pages/Appointment/Appointment";
+>>>>>>> 27f7659a59c42d50ad9516de2d40ae4b55f9a0e8
 
 const router = createBrowserRouter([
   {
@@ -42,10 +49,15 @@ const router = createBrowserRouter([
         element: <ContactUs></ContactUs>,
       },
       {
+        path: "/appointment",
+        element: <Appointment></Appointment>
+      },
+      {
         path: "/services",
         element: <Services></Services>,
       },
       {
+<<<<<<< HEAD
 <<<<<<< HEAD
         path: 'serviceDetails',
         element: <ServiceDetails></ServiceDetails>
@@ -65,6 +77,9 @@ const router = createBrowserRouter([
         element: <AddService></AddService>,
 =======
         path: "/serviceDetails",
+=======
+        path: "/serviceDetails/:id",
+>>>>>>> 27f7659a59c42d50ad9516de2d40ae4b55f9a0e8
         element: <ServiceDetails></ServiceDetails>,
 >>>>>>> edf2e7afd2ac706058cebdc2696e147b83787138
       },

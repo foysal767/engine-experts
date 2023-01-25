@@ -1,8 +1,8 @@
 import './Video.css';
 const Video = () => {
     return (
-      <section className="w-full lg:h-[300px] mb-20">
-        <h1 className="text-5xl font-semibold text-center mb-5">
+      <section className="w-full lg:h-[300px] lg:mb-32">
+        <h1 className="text-5xl font-semibold text-center lg:mb-12">
           Our Working Environment
         </h1>
         <video

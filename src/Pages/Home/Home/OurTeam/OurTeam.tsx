@@ -3,8 +3,8 @@ import "./OurTeam.css";
 
 const OurTeam = () => {
   return (
-    <section className="font-poppins w-full lg:px-20 md:px-8 px-4">
-      <h1 className="font-poppins text-center text-5xl font-bold my-14">
+    <section className="font-poppins w-full lg:px-20 md:px-8 px-4 lg:mb-32 lg:mt-40">
+      <h1 className="font-poppins text-center text-5xl font-bold lg:mb-12">
         Our Team
       </h1>
       <div className="w-full grid lg:grid-cols-3 md:grid-cols-2 gap-3">
@@ -12,7 +12,7 @@ const OurTeam = () => {
         <div className="w-full h-[440px] p-1 shadow-xl image_wrapper">
           <div className="w-full h-[80%] relative">
             <img src="assets/team/arif.jpg" alt="" className="w-full h-full" />
-            <div className="w-full h-full absolute top-0 bg-[#E81C2E] overlay_5  opacity-50"></div>
+            <div className="w-full h-full absolute top-0 bg-gray-700 overlay_5  opacity-50"></div>
             <div className="w-full h-full absolute top-0 flex justify-center items-center gap-3 text-3xl overlay_5">
               <FaFacebook></FaFacebook>
               <FaGithub></FaGithub>
@@ -35,7 +35,7 @@ const OurTeam = () => {
               className="w-full h-full"
             />
             <div className="w-full h-full absolute top-0 bg-gray-700 overlay_5  opacity-30"></div>
-            <div className="w-full h-full absolute top-0 flex justify-center items-center gap-3 text-3xl overlay_5 text-[#E81C2E]">
+            <div className="w-full h-full absolute top-0 flex justify-center items-center gap-3 text-3xl overlay_5 ">
               <FaFacebook></FaFacebook>
               <FaGithub></FaGithub>
               <FaLinkedinIn></FaLinkedinIn>
@@ -51,7 +51,7 @@ const OurTeam = () => {
         {/* first card start */}
         <div className="w-full h-[440px] p-1 shadow-xl image_wrapper">
           <div className="w-full h-[80%] relative">
-            <img src="assets/team/arif.jpg" alt="" className="w-full h-full" />
+            <img src="assets/team/javed.jpg" alt="" className="w-full h-full" />
             <div className="w-full h-full absolute top-0 bg-gray-700 overlay_5  opacity-30"></div>
             <div className="w-full h-full absolute top-0 flex justify-center items-center gap-3 text-3xl overlay_5">
               <FaFacebook></FaFacebook>
@@ -69,7 +69,11 @@ const OurTeam = () => {
         {/* first card start */}
         <div className="w-full h-[440px] p-1 shadow-xl image_wrapper">
           <div className="w-full h-[80%] relative">
-            <img src="assets/team/arif.jpg" alt="" className="w-full h-full" />
+            <img
+              src="assets/team/hridoy.jpg"
+              alt=""
+              className="w-full h-full"
+            />
             <div className="w-full h-full absolute top-0 bg-gray-700 overlay_5  opacity-30"></div>
             <div className="w-full h-full absolute top-0 flex justify-center items-center gap-3 text-3xl overlay_5">
               <FaFacebook></FaFacebook>
@@ -87,7 +91,7 @@ const OurTeam = () => {
         {/* first card start */}
         <div className="w-full h-[440px] p-1 shadow-xl image_wrapper">
           <div className="w-full h-[80%] relative">
-            <img src="assets/team/arif.jpg" alt="" className="w-full h-full" />
+            <img src="assets/team/fahim.jpg" alt="" className="w-full h-full" />
             <div className="w-full h-full absolute top-0 bg-gray-700 overlay_5  opacity-30"></div>
             <div className="w-full h-full absolute top-0 flex justify-center items-center gap-3 text-3xl overlay_5">
               <FaFacebook></FaFacebook>
@@ -105,7 +109,11 @@ const OurTeam = () => {
         {/* first card start */}
         <div className="w-full h-[440px] p-1 shadow-xl image_wrapper">
           <div className="w-full h-[80%] relative">
-            <img src="assets/team/arif.jpg" alt="" className="w-full h-full" />
+            <img
+              src="assets/team/nazrul.jpg"
+              alt=""
+              className="w-full h-full"
+            />
             <div className="w-full h-full absolute top-0 bg-gray-700 overlay_5  opacity-30"></div>
             <div className="w-full h-full absolute top-0 flex justify-center items-center gap-3 text-3xl overlay_5">
               <FaFacebook></FaFacebook>

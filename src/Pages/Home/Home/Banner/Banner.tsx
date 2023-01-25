@@ -9,7 +9,6 @@ const Banner = () => {
           src="assets/circle4[90].png"
           alt=""
         />
-
         <div className="lg:w-[60%] w-full grid place-items-center lg:h-full h-[70%] absolute lg:top-0 top-24 right-0 overflow-hidden bg-transparent">
           <img
             className="absolute h-full w-full md:w-[90%]"
@@ -37,7 +36,7 @@ const Banner = () => {
             car service and give a new look to your cars. Also specialize in
             modifying cars.
           </p>
-          <button className="getbtn">Get Service</button>
+          <button className="getbtn mr-40 mt-6">Get Service</button>
         </div>
       </div>
     </section>
