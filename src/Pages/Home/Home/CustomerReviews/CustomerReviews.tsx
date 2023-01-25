@@ -1,12 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
 
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import { Autoplay, Navigation, Pagination } from "swiper";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
+import "swiper/css/autoplay";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
@@ -15,7 +15,9 @@ const CustomerReviews = () => {
   const { data: reviews = [], isLoading } = useQuery({
     queryKey: ["reviews"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/reviews");
+      const res = await fetch(
+        "https://engine-experts-server-phi.vercel.app/reviews"
+      );
       const data = await res.json();
       return data.data;
     },
@@ -27,20 +29,27 @@ const CustomerReviews = () => {
       </div>
     );
   }
+
+  // const swiper = new Swiper(".swiper", {
+  //   autoplay: {
+  //     delay: 5000,
+  //   },
+  // });
+
   return (
     <div className="lg:mb-32">
       <h3 className="mt-10 font-poppins font-bold text-center text-5xl lg:mb-12">
         Customer Reviews
       </h3>
       <Swiper
-        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={50}
         slidesPerView={3}
-        navigation
-        pagination={{ clickable: true }}
-        scrollbar={{ draggable: true }}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log("slide change")}
+        // pagination={{ clickable: true }}
+        loop={true}
+        autoplay={{
+          delay: 5000,
+        }}
       >
         {reviews?.map((review: any, i: any) => (
           <SwiperSlide>

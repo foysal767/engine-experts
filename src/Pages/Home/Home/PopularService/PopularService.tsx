@@ -1,14 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
-import { BsFillHeartFill } from "react-icons/bs";
 import { AiFillEye } from "react-icons/ai";
-import { BsFillStarFill } from "react-icons/bs";
+import { BsFillHeartFill, BsFillStarFill } from "react-icons/bs";
 import "./PopularService.css";
 
 const PopularService = () => {
   const { data: popular = [], isLoading } = useQuery({
     queryKey: ["popular"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/popular");
+      const res = await fetch(
+        "https://engine-experts-server-phi.vercel.app/popular"
+      );
       const data = await res.json();
       return data.data;
     },
