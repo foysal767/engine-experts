@@ -2,7 +2,7 @@ import { FaPhone, FaRegEdit, FaRegPaperPlane } from "react-icons/fa";
 
 const GetInTouch = () => {
   return (
-    <section className="px-4 md:px-8 lg:px-12">
+    <section className="px-4 md:px-8 lg:px-12 mb-32">
       <h1 className="text-[#383232] text-[4vw] font-bold font-poppins mb-12">
         Get In Touch Our Experts
       </h1>
@@ -37,7 +37,7 @@ const GetInTouch = () => {
             </p>
           </div>
           <div>
-            <h5 className='ftext-xl text-amber-300 font-bold'>
+            <h5 className="ftext-xl text-amber-300 font-bold">
               <a href="tel:+8801863901163">+8801863901163</a>
             </h5>
           </div>
