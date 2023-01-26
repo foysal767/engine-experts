@@ -3,7 +3,7 @@ import { VscDebugBreakpointData } from "react-icons/vsc";
 
 const WorkingEnvironment = () => {
   return (
-    <section className="px-4 md:px-12 lg:px-12">
+    <section className="px-4 md:px-12 lg:px-12 mb-32">
       <div className="mt-10">
         <div className="lg:flex justify-center">
           <img
@@ -29,8 +29,7 @@ const WorkingEnvironment = () => {
                 <p>CONVENIENT LOCATION</p>
               </span>
               <span className="flex items-center space-x-1">
-                <VscDebugBreakpointData></VscDebugBreakpointData>{" "}
-                <p>SHUTTLE</p>
+                <VscDebugBreakpointData></VscDebugBreakpointData> <p>SHUTTLE</p>
               </span>
             </div>
           </div>
@@ -41,9 +40,11 @@ const WorkingEnvironment = () => {
               RUBBING, WAXING AND POLISHING
             </h2>
             <p className="text-left mt-3">
-              Our technicians have undergone the most extensive and stringent<br />
-              car detail training program. And the only car that matters is yours<br /> because we
-              will detail it to your complete satisfaction.
+              Our technicians have undergone the most extensive and stringent
+              <br />
+              car detail training program. And the only car that matters is
+              yours
+              <br /> because we will detail it to your complete satisfaction.
             </p>
           </div>
           <img

@@ -1,9 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 
-
 const PopularService = () => {
-
   const { data: popular = [], isLoading } = useQuery({
     queryKey: ["popular"],
     queryFn: async () => {
@@ -23,9 +21,6 @@ const PopularService = () => {
   }
   return (
     <section className="w-full px-4 md:px-8 lg:px-12">
-      <h2 className="font-poppins text-center text-5xl font-bold mb-10">
-        Popular Services
-      </h2>
       <div className="bg-gradient-to-r from-black via-gray-800 to-gray-500 rounded-md p-6 w-full lg:h-[350px] grid place-items-center">
         <div className="lg:flex lg:justify-around items-center md:justify-center w-full lg:h-full">
           <div className="lg:w-[30%] w-full lg:h-full flex flex-col justify-center gap-3 p-6">

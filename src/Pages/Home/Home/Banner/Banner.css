@@ -24,6 +24,9 @@
     background: rgba(255,255,255,.25);
     background: linear-gradient(to right,rgba(255,255,255,.25) 0%,rgba(255,255,255,.13) 77%,rgba(255,255,255,.5) 92%,#fff 100%);
 }
+/* .banner-bg {
+    background-image: linear-gradient(to left, #000000, #ff0000);
+} */
 /* .getbtn:hover{
     color: #fff;
     background-color: initial;
