@@ -1,28 +1,32 @@
-import React, { useContext } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
+import { Link, useNavigate } from "react-router-dom";
 // import swal from "sweetalert";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
 type Inputs = {
-  email: string,
-  password: string,
-  name: string,
+  email: string;
+  password: string;
+  name: string;
 };
 
 const SignUp = () => {
   const { createUser, googleSignIn } = useContext(AuthContext);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
   const navigate = useNavigate();
+
+  
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     createUser(data.email, data.password, navigate);
   };
 
+  
 
   const googleLogin = () => {
     googleSignIn(navigate);
@@ -65,8 +69,8 @@ const SignUp = () => {
                 })}
                 className="w-full h-[50px] rounded bg-white px-2 text-black"
               />
-              {errors.email && (
-                <p className="text-red-600">{errors.email?.message}</p>
+              {errors.name && (
+                <p className="text-red-600">{errors.name?.message}</p>
               )}
             </div>
             <div className="w-full">
@@ -108,7 +112,7 @@ const SignUp = () => {
             </div>
             <div className="w-full grid lg:grid-cols-2 gap-3">
               <input
-                className="w-full h-[50px] rounded bg-blue-400"
+                className="w-full h-[50px] rounded bg-blue-400 cursor-pointer"
                 value="Sign Up"
                 type="submit"
               />
