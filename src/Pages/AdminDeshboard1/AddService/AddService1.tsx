@@ -1,10 +1,41 @@
+import { toast } from "react-hot-toast";
+
 const AddService1 = () => {
+  const addService = (e: any) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const price = e.target.price.value;
+    const details = e.target.details.value;
+    const image = e.target.image.value;
+    const addingService = {
+      name,
+      price,
+      details,
+      image,
+      reviews: [],
+      Totalreviews: 0,
+    };
+    fetch("https://engine-experts-server-phi.vercel.app/addservice", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(addingService),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          toast.success("Successfully Added Service!");
+          e.target.reset();
+        }
+      });
+  };
   return (
     <section className="w-full lg:w-[80%] md:w-[80%] mx-auto px-4 md:px-8 lg:px-12 bg-[#EBF2F4] pb-10">
       <h1 className="text-2xl font-serif text-start mb-6">
         Add Your Desired service
       </h1>
-      <form className="flex flex-col gap-4 w-full">
+      <form className="flex flex-col gap-4 w-full" onSubmit={addService}>
         <div className="w-full grid lg:grid-cols-2 gap-4">
           <input
             className="border bg-white text-xl w-full h-[53px] rounded px-2"
