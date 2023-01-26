@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { RiServiceFill } from "react-icons/ri";
-import { Link, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
 interface usedata {
@@ -144,7 +144,7 @@ const ServiceDetails = () => {
               </h2>
             </div>
             <span className=" font-bold text-2xl">Price: {details?.price}</span>
-            <button className="text-2xl font-semibold btn btn-error text-white py-2">
+            <button className="text-2xl font-semibold btn bg-[#E81C2E] text-white py-2">
               Get Service
             </button>
           </div>

@@ -37,9 +37,9 @@ const GetInTouch = () => {
             </p>
           </div>
           <div>
-            <span className="text-xl text-amber-300 font-bold">
-              +88-017-22-262041
-            </span>
+            <h5 className='ftext-xl text-amber-300 font-bold'>
+              <a href="tel:+8801863901163">+8801863901163</a>
+            </h5>
           </div>
         </div>
 
