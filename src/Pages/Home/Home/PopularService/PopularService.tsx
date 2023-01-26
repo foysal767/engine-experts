@@ -12,6 +12,13 @@ const PopularService = () => {
       return data.data;
     },
   });
+  if (isLoading) {
+    return (
+      <div className="grid place-items-center w-full h-screen">
+        <span className="loader"></span>
+      </div>
+    );
+  }
   return (
     <section className="px-4 md:px-8 lg:px-12">
       <h2 className="font-poppins text-center text-5xl font-bold my-12">
@@ -34,15 +41,12 @@ const PopularService = () => {
           <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 gap-4 h-full w-full py-6">
             {popular?.map((service: any) => (
               <div className="w-full h-full relative">
-                <img
-                  className="w-full h-full"
-                  src={service?.image}
-                  alt=""
-                />
-                <div className="w-full h-full absolute top-0 bg-black opacity-40">
-                </div>
+                <img className="w-full h-full" src={service?.image} alt="" />
+                <div className="w-full h-full absolute top-0 bg-black opacity-40"></div>
                 <div className="w-full h-full absolute top-0 flex items-end p-3">
-                  <h1 className="text-2xl text-start font-poppins font-semibold">{service?.name}</h1>
+                  <h1 className="text-2xl text-start font-poppins font-semibold">
+                    {service?.name}
+                  </h1>
                 </div>
               </div>
             ))}
