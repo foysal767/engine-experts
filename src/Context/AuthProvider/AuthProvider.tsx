@@ -23,16 +23,48 @@ type childrenType = {
 
 const AuthProvider = ({children}: childrenType) => {
     const [user, setUser] = useState<React.SetStateAction<{}>>({});
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
 
-    const createUser = (email: string, password: string, navigate: any, getUser:any) => {
+
+
+    const createUser = (email: string, password: string, navigate: any) => {
         setLoading(true)
        createUserWithEmailAndPassword(auth, email, password)
        .then( result => {
         const user = result.user;
            setUser(user);
-           getUser(user)
-        navigate('/')
+           const createdUser = {
+               name: user.displayName,
+               email: user.email
+           }
+           fetch("http://localhost:5000/users", {
+             method: "POST",
+             headers: {
+               "content-type": "application/json",
+             },
+             body: JSON.stringify(createdUser),
+           })
+             .then((res) => res.json())
+               .then((data) => {
+                   if (data.success) {
+                       fetch("http://localhost:5000/jwt", {
+                           method: "POST",
+                           headers: {
+                               "content-type":"application/json"
+                           },
+                           body:JSON.stringify({email:user.email})
+                       })
+                           .then(res => res.json())
+                           .then(data => {
+                               if (data.success) {
+                                   localStorage.setItem("access-token", data.token)
+                                   toast.success("successfully crated user");
+                                   navigate("/");
+                                   setLoading(false)
+                           }
+                       })
+                    }
+             });
        })
        .catch( err => console.log(err))
     }
@@ -43,7 +75,8 @@ const AuthProvider = ({children}: childrenType) => {
         .then( result => {
          const user = result.user;
          setUser(user);
-         navigate('/')
+            navigate('/')
+            setLoading(false)
         })
         .catch( err => console.log(err))
      }
@@ -55,6 +88,7 @@ const AuthProvider = ({children}: childrenType) => {
             const user = res.user;
             setUser(user);
             navigate('/')
+            setLoading(false)
         })
     }
 
@@ -64,6 +98,7 @@ const AuthProvider = ({children}: childrenType) => {
         .then(() => {
             toast.success("User logged out successfully")
             navigate('/')
+            setLoading(false)
         })
         .catch(err => console.log(err));
     }
@@ -71,10 +106,11 @@ const AuthProvider = ({children}: childrenType) => {
 
     useEffect( () =>{
         const unsubscribe = onAuthStateChanged(auth, currentUser =>{
-            if(currentUser !== null){
-                setUser(() => currentUser);
+            
+                setUser(()=>currentUser);
+                console.log(currentUser,'state',user)
                 setLoading(false)
-            }
+            
         });
 
         return () => unsubscribe();
