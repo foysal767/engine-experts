@@ -33,25 +33,17 @@ const Login = () => {
     <section className="">
       <div className="mx-auto bg-[url('https://autohive-html.themetags.com/assets/img/shapes/texture-bg.png')] py-24 relative upper-section">
         <div className="grid grid-cols-2 absolute w-full top-0">
-          <img
-            src="https://autohive-html.themetags.com/assets/img/shapes/tire-print-left.png"
-            alt=""
-            className="tyre"
-          />
-          <img
-            src="https://autohive-html.themetags.com/assets/img/shapes/tire-print-right.png"
-            alt=""
-            className="tyre"
-          />
+          <img src="/assets/tire-left.png" alt="" className="tyre" />
+          <img src="/assets/tire-right.png" alt="" className="tyre" />
         </div>
         <div className="absolute top-0 grid place-items-center w-full h-full">
           <h2 className="text-2xl font-bold text-center ">Login</h2>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 mb-14 h-screen px-4 md:px-8 lg:px-12">
-        <div className="text-center mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 mb-14 h-screen px-4 md:px-8 lg:px-12 justify-center">
+        <div className="text-center mx-auto h-full w-full">
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="form-control w-full max-w-xs">
+            <div className="form-control w-full">
               <label className="label">
                 {" "}
                 <span className="label-text">Email</span>
@@ -106,11 +98,8 @@ const Login = () => {
             </Link>
           </p>
         </div>
-        <div>
-          <img
-            src="https://autohive-html.themetags.com/assets/img/login-illustration.png"
-            alt=""
-          />
+        <div className="h-full w-full">
+          <img src="/assets/login image.png" alt="" className="h-full w-full" />
         </div>
       </div>
     </section>
