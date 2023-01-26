@@ -1,19 +1,10 @@
-// import { useQuery } from "@tanstack/react-query";
-// import { AiFillEye } from "react-icons/ai";
-// import { BsFillHeartFill, BsFillStarFill } from "react-icons/bs";
-// import "./PopularService.css";
+import { useQuery } from "@tanstack/react-query";
+import { AiFillEye } from "react-icons/ai";
+import { BsFillHeartFill, BsFillStarFill } from "react-icons/bs";
+import "./PopularService.css";
 
 // const PopularService = () => {
-//   const { data: popular = [], isLoading } = useQuery({
-//     queryKey: ["popular"],
-//     queryFn: async () => {
-//       const res = await fetch(
-//         "https://engine-experts-server-phi.vercel.app/popular"
-//       );
-//       const data = await res.json();
-//       return data.data;
-//     },
-//   });
+
 //   return (
 //     <section className="w-full lg:px-12 lg:mb-30">
 //       <h2 className="font-poppins text-center text-5xl font-bold lg:mb-12">
@@ -98,29 +89,50 @@
 
 // export default PopularService;
 
-
-
-
-import React from 'react';
+import React from "react";
 
 const PopularService = () => {
+  const { data: popular = [], isLoading } = useQuery({
+    queryKey: ["popular"],
+    queryFn: async () => {
+      const res = await fetch(
+        "https://engine-experts-server-phi.vercel.app/popular"
+      );
+      const data = await res.json();
+      return data.data;
+    },
+  });
   return (
-    <section className='px-4 md:px-12 lg:px-12'>
-      <h2 className="font-poppins text-center text-5xl font-bold my-12">Popular Services</h2>
-      <div className='bg-gradient-to-r from-black via-gray-800 to-gray-500 rounded-md py-12 px-6'>
-          <div className='lg:flex lg:justify-around items-center md:justify-center'>
-            <div>
-              <h2 className='lg:text-left text-4xl font-bold font-poppins'>Best Services</h2>
-              <p className='lg:text-left mt-5'>This service are popular for our customer <br/>so that they review it.</p>
-              <button className='btn bg-red-600 border-none lg:mr-40 my-5'>Get All Service</button>
-            </div>
-            <div className='grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 gap-4'>
-              <img className='w-[200px] h-[170px] mx-auto' src="/assets/service-1.1.jpg" alt="" />
-              <img className='w-[200px] h-[170px] mx-auto' src="/assets/service-1.1.jpg" alt="" />
-              <img className='w-[200px] h-[170px] mx-auto' src="/assets/service-1.1.jpg" alt="" />
-              <img className='w-[200px] h-[170px] mx-auto' src="/assets/service-1.1.jpg" alt="" />
-            </div>
+    <section className="px-4 md:px-8 lg:px-12">
+      <h2 className="font-poppins text-center text-5xl font-bold my-12">
+        Popular Services
+      </h2>
+      <div className="bg-gradient-to-r from-black via-gray-800 to-gray-500 rounded-md p-6 w-full lg:h-[350px] grid place-items-center">
+        <div className="lg:flex lg:justify-around items-center md:justify-center w-full h-full">
+          <div className="lg:w-[30%] h-full flex flex-col justify-cenetr p-6">
+            <h2 className="lg:text-left text-4xl font-bold font-poppins">
+              Best Services
+            </h2>
+            <p className="lg:text-left mt-5">
+              This service are popular for our customer <br />
+              so that they review it.
+            </p>
+            <button className="btn bg-red-600 border-none lg:mr-40 my-5">
+              Get All Service
+            </button>
           </div>
+          <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 gap-4">
+            {popular?.map((service: any) => (
+              <div className="w-full h-full">
+                <img
+                  className="w-full h-full mx-auto"
+                  src={service?.image}
+                  alt=""
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
