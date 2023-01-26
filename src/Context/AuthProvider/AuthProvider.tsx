@@ -25,12 +25,13 @@ const AuthProvider = ({children}: childrenType) => {
     const [user, setUser] = useState<React.SetStateAction<{}>>({});
     const [loading, setLoading] = useState(false);
 
-    const createUser = (email: string, password: string, navigate: any) => {
+    const createUser = (email: string, password: string, navigate: any, getUser:any) => {
         setLoading(true)
        createUserWithEmailAndPassword(auth, email, password)
        .then( result => {
         const user = result.user;
-        setUser(user);
+           setUser(user);
+           getUser(user)
         navigate('/')
        })
        .catch( err => console.log(err))
