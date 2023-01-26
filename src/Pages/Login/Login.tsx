@@ -41,9 +41,9 @@ const Login = () => {
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 mb-14 h-screen px-4 md:px-8 lg:px-12 justify-center">
-        <div className="text-center mx-auto h-full w-full">
+        <div className="text-center mx-auto h-full w-10/12">
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="form-control w-full">
+            <div className="form-control">
               <label className="label">
                 {" "}
                 <span className="label-text">Email</span>
@@ -59,7 +59,7 @@ const Login = () => {
                 <p className="text-red-600">{errors.email?.message}</p>
               )}
             </div>
-            <div className="form-control w-full max-w-xs">
+            <div className="form-control">
               <label className="label">
                 {" "}
                 <span className="label-text">Password</span>
@@ -88,7 +88,7 @@ const Login = () => {
               {loginError && <p className="text-red-600">{loginError}</p>}
             </div>
           </form>
-          <button onClick={googleLogin} className="btn btn-outline w-full mt-6">
+          <button onClick={googleLogin} className="btn btn-outline mt-6">
             <FcGoogle className="text-2xl mx-2"></FcGoogle> CONTINUE WITH GOOGLE
           </button>
           <p className="mt-3">
@@ -98,8 +98,8 @@ const Login = () => {
             </Link>
           </p>
         </div>
-        <div className="h-full w-full">
-          <img src="/assets/login image.png" alt="" className="h-full w-full" />
+        <div className="h-full w-10/12">
+          <img src="/assets/login image.png" alt="" className="h-full" />
         </div>
       </div>
     </section>

@@ -5,21 +5,29 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
 type Inputs = {
-  email: string,
-  password: string,
-  name: string,
+  email: string;
+  password: string;
+  name: string;
 };
 
 const SignUp = () => {
   const { createUser } = useContext(AuthContext);
-  const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Inputs>();
   const navigate = useNavigate();
-  const onSubmit: SubmitHandler<Inputs> = data => {
-    createUser(data.email, data.password, navigate)
-  }
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    createUser(data.email, data.password, navigate);
+  };
 
   return (
     <div className="h-[800px] flex justify-center">
+      <div className="grid grid-cols-2 absolute w-full top-0">
+        <img src="/assets/tire-left.png" alt="" className="tyre" />
+        <img src="/assets/tire-right.png" alt="" className="tyre" />
+      </div>
       <div className="w-96 p-7">
         <h2 className="text-2xl font-bold text-center">Sign Up</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
