@@ -12,32 +12,21 @@ type Inputs = {
 };
 
 const SignUp = () => {
-  const [result, setResult] = useState("");
   const { createUser, googleSignIn } = useContext(AuthContext);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
   const navigate = useNavigate();
-  const onSubmit: SubmitHandler<Inputs> = (data, getUser) => {
-    createUser(data.email, data.password, navigate, getUser);
+
+  
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    createUser(data.email, data.password, navigate);
   };
-////foysal bhai
-  const getUser = (value: any) => {
-    fetch("http://localhost:5000/users", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(value),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setResult(data.data);
-      });
-    return result;
-  };
+
+  
 
   const googleLogin = () => {
     googleSignIn(navigate);
@@ -80,8 +69,8 @@ const SignUp = () => {
                 })}
                 className="w-full h-[50px] rounded bg-white px-2 text-black"
               />
-              {errors.email && (
-                <p className="text-red-600">{errors.email?.message}</p>
+              {errors.name && (
+                <p className="text-red-600">{errors.name?.message}</p>
               )}
             </div>
             <div className="w-full">
@@ -123,7 +112,7 @@ const SignUp = () => {
             </div>
             <div className="w-full grid lg:grid-cols-2 gap-3">
               <input
-                className="w-full h-[50px] rounded bg-blue-400"
+                className="w-full h-[50px] rounded bg-blue-400 cursor-pointer"
                 value="Sign Up"
                 type="submit"
               />

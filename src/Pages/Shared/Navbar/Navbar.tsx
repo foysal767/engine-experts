@@ -7,6 +7,7 @@ import './Navbar.css';
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
+  console.log(user)
 
   const handleLogOut = () => {
         logOut(navigate);
@@ -29,11 +30,9 @@ const Navbar = () => {
         <Link to="/dashboard1">Dashboard</Link>
       </li>
       {user?.uid ? (
-        <>
-          <li>
-            <Link to={'/login'} onClick={handleLogOut}>Logout</Link>
-          </li>
-        </>
+        <li onClick={handleLogOut}>
+          <button>Logout</button>
+        </li>
       ) : (
         <li>
           <Link to="/login">Login</Link>
