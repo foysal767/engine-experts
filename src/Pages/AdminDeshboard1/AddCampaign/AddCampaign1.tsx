@@ -9,24 +9,43 @@ const AddCampaign1 = () => {
           Add New Campaign
         </button>
       </div>
-      <div className="w-full border border-red-500 grid lg:grid-cols-5 justify-between items-center gap-3 px-4 mb-5">
-        <input className="bg-white" type="text" name="campname" placeholder="Campaign Name" />
-        <select className="h-[50px] rounded px-3 bg-white" name="product" placeholder="Select Product">
+      <div className="w-full border grid lg:grid-cols-5 justify-between items-center gap-3 mb-5">
+        <input
+          className="bg-white w-full h-[53px] rounded px-2"
+          type="text"
+          name="campname"
+          placeholder="Campaign Name"
+        />
+        <select
+          className="h-[50px] rounded px-3 bg-white"
+          name="product"
+          placeholder="Select Product"
+        >
           <option value="Product1">Product</option>
           <option value="Product2">Product1</option>
           <option value="Product3">Product2</option>
         </select>
-        <input className="bg-white" type="text" name="originalprice" placeholder="Original Price" />
-        <input className="bg-white" type="text" name="discountprice" placeholder="Discount Price" />
+        <input
+          className="bg-white w-full h-[53px] rounded px-2"
+          type="text"
+          name="originalprice"
+          placeholder="Original Price"
+        />
+        <input
+          className="bg-white w-full h-[53px] rounded px-2"
+          type="text"
+          name="discountprice"
+          placeholder="Discount Price"
+        />
         <button
-          className="w-[180px] h-[50px] rounded bg-blue-500 text-xl"
+          className="w-full h-[53px] rounded bg-blue-500 text-xl"
           type="submit"
         >
           Add
         </button>
       </div>
 
-      <div className="border border-red-500 flex flex-col gap-3 p-3">
+      <div className="border flex flex-col gap-3 p-3">
         <div className="flex justify-between items-center">
           <h2 className="text-xl font-poppins text-start mb-4">
             Campaign: Sprint Campaign
