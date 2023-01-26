@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
+import { Link, useNavigate } from "react-router-dom";
 // import swal from "sweetalert";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
@@ -12,6 +12,7 @@ type Inputs = {
 };
 
 const SignUp = () => {
+  const [result, setResult] = useState("");
   const { createUser, googleSignIn } = useContext(AuthContext);
   const {
     register,
@@ -19,8 +20,23 @@ const SignUp = () => {
     formState: { errors },
   } = useForm<Inputs>();
   const navigate = useNavigate();
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    createUser(data.email, data.password, navigate);
+  const onSubmit: SubmitHandler<Inputs> = (data, getUser) => {
+    createUser(data.email, data.password, navigate, getUser);
+  };
+////foysal bhai
+  const getUser = (value: any) => {
+    fetch("http://localhost:5000/users", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(value),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setResult(data.data);
+      });
+    return result;
   };
 
   const googleLogin = () => {
