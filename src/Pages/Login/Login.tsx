@@ -37,15 +37,24 @@ const Login = () => {
           <img src="/assets/tire-right.png" alt="" className="tyre" />
         </div>
         <div className="absolute top-0 grid place-items-center w-full h-full">
-          <h2 className="text-2xl font-bold text-center ">Login</h2>
+          <h2 className="text-4xl font-bold text-center ">Login</h2>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 mb-14 h-screen px-4 md:px-8 lg:px-12 justify-center">
-        <div className="text-center mx-auto h-full w-10/12">
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="form-control">
+      <div className="grid lg:grid-cols-2 mb-14 lg:h-screen px-4 md:px-8 lg:px-12">
+        <div className="h-full w-full grid place-items-center">
+          <img
+            src="/assets/login image.png"
+            alt=""
+            className="h-[80%] w-[80%]"
+          />
+        </div>
+        <div className="grid place-items-center h-full w-full">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="lg:w-[80%] mx-auto"
+          >
+            <div className="w-full">
               <label className="label">
-                {" "}
                 <span className="label-text">Email</span>
               </label>
               <input
@@ -53,15 +62,14 @@ const Login = () => {
                 {...register("email", {
                   required: "Email Address is required",
                 })}
-                className="input input-bordered w-full max-w-xs"
+                className="w-full h-[50px] rounded bg-white px-2 text-black"
               />
               {errors.email && (
                 <p className="text-red-600">{errors.email?.message}</p>
               )}
             </div>
-            <div className="form-control">
+            <div className="w-full">
               <label className="label">
-                {" "}
                 <span className="label-text">Password</span>
               </label>
               <input
@@ -73,33 +81,37 @@ const Login = () => {
                     message: "Password must be 6 characters or longer",
                   },
                 })}
-                className="input input-bordered w-full max-w-xs"
+                className="w-full h-[50px] bg-white rounded text-black px-2"
               />
               <label className="label">
-                {" "}
                 <span className="label-text">Forget Password?</span>
               </label>
               {errors.password && (
                 <p className="text-red-600">{errors.password?.message}</p>
               )}
             </div>
-            <div>
-              <input className="btn btn-primary" value="Login" type="submit" />
-              {loginError && <p className="text-red-600">{loginError}</p>}
+            <div className="w-full grid lg:grid-cols-2 gap-3">
+              <input
+                className="w-full h-[50px] rounded bg-blue-400"
+                value="Login"
+                type="submit"
+              />
+              <button
+                onClick={googleLogin}
+                className="w-full h-[50px] rounded border flex items-center"
+              >
+                <FcGoogle className="text-2xl mx-2"></FcGoogle> CONTINUE WITH
+                GOOGLE
+              </button>
             </div>
+            {loginError && <p className="text-red-600">{loginError}</p>}
+            <p className="mt-3">
+              New to Engine Experts?
+              <Link className="text-orange-500" to="/signup">
+                Create new Account
+              </Link>
+            </p>
           </form>
-          <button onClick={googleLogin} className="btn btn-outline mt-6">
-            <FcGoogle className="text-2xl mx-2"></FcGoogle> CONTINUE WITH GOOGLE
-          </button>
-          <p className="mt-3">
-            New to Engine Experts?{" "}
-            <Link className="text-orange-500" to="/signup">
-              Create new Account
-            </Link>
-          </p>
-        </div>
-        <div className="h-full w-10/12">
-          <img src="/assets/login image.png" alt="" className="h-full" />
         </div>
       </div>
     </section>
