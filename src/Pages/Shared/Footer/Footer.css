@@ -22,7 +22,7 @@
 .title:hover:after{
     width: 100%;
 }
-.button{
+/* .button{
     display: inline-flex;
     flex-shrink: 0;
     cursor: pointer;
@@ -54,7 +54,7 @@
     font-size: bold;
     border-radius: 6px;
     width: 100%;
-}
+} */
 .fill-current:hover{
     color: #E81C2E;
 }

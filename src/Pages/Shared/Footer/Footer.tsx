@@ -27,7 +27,7 @@ const Footer = () => {
               <h1 className="text-lg text-white uppercase font-bold text-left">We are available</h1>
               <p className="text-left">Mon-Sat: 9.00 am to 6.30 pm</p>
             </div>
-            <button type="submit" className="button uppercase font-bold mt-6">Contact us</button>
+            <button type="submit" className="btn btn-error text-white uppercase font-bold mt-6"><Link to='/contactUs'>Contact us</Link></button>
           </div>
           {/* quick footer section */}
           <div>
@@ -72,7 +72,7 @@ const Footer = () => {
               <p className="text-left">Please enter your email and subscribe to us <br /> to know updates about our products.</p>
               <form action="">
                 <input type="email" name="email" id="" placeholder="Email Address" className="w-full mt-7 py-5 pr-16 pl-4 rounded-md " required /><br /><br />
-                <button type="submit" className="buttons">Subscribe</button>
+                <button type="submit" className="btn btn-error w-full text-white">Subscribe</button>
               </form>
             </div>
           </div>
