@@ -16,7 +16,7 @@ const GetInTouch = () => {
             </p>
           </div>
           <div>
-            <button className="btn bg-red-400 px-8 py-1 rounded-lg mt-2 text-white">
+            <button className="btn bg-[#E81C2E] px-8 py-1 rounded-lg mt-2 text-white">
               Chat Now
             </button>
           </div>
@@ -33,9 +33,9 @@ const GetInTouch = () => {
             </p>
           </div>
           <div>
-            <span className="text-xl text-amber-300 font-bold">
-              +88-017-22-262041
-            </span>
+            <h5 className='ftext-xl text-amber-300 font-bold'>
+              <a href="tel:+8801863901163">+8801863901163</a>
+            </h5>
           </div>
         </div>
         <div className="rightTouch flex flex-col justify-center items-center gap-4">

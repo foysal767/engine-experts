@@ -112,7 +112,7 @@ const PopularService = () => {
             <div>
               <h2 className='lg:text-left text-4xl font-bold font-poppins'>Best Services</h2>
               <p className='lg:text-left mt-5'>This service are popular for our customer <br/>so that they review it.</p>
-              <button className='btn bg-red-600 border-none lg:mr-40 my-5'>Get All Service</button>
+              <button className='btn bg-[#E81C2E] text-white border-none lg:mr-40 my-5'>Get All Service</button>
             </div>
             <div className='grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 gap-4'>
               <img className='w-[200px] h-[170px] mx-auto' src="/assets/service-1.1.jpg" alt="" />
