@@ -1,11 +1,5 @@
 import { createBrowserRouter } from "react-router-dom"
 import Main from "../layout/Main/Main"
-import AddCampaign from "../Pages/AdminDashboard/AddCampaign/AddCampaign"
-import AddService from "../Pages/AdminDashboard/AddService/AddService"
-import AdminDashboard from "../Pages/AdminDashboard/AdminDashboard"
-import AllOrders from "../Pages/AdminDashboard/AllOrders/AllOrders"
-import AllService from "../Pages/AdminDashboard/AllService/AllService"
-import AllUsers from "../Pages/AdminDashboard/AllUsers/AllUsers"
 import AddCampaign1 from "../Pages/AdminDeshboard1/AddCampaign/AddCampaign1"
 import AddService1 from "../Pages/AdminDeshboard1/AddService/AddService1"
 import AdminDeshboard1 from "../Pages/AdminDeshboard1/AdminDeshboard1"
@@ -64,33 +58,7 @@ const router = createBrowserRouter([
       {
         path: "/serviceDetails/:id",
         element: <ServiceDetails></ServiceDetails>,
-      },
-      {
-        path: "/dashboard",
-        element: <AdminDashboard></AdminDashboard>,
-        children: [
-          {
-            path: "/dashboard/addservice",
-            element: <AddService></AddService>,
-          },
-          {
-            path: "/dashboard",
-            element: <AllOrders></AllOrders>,
-          },
-          {
-            path: "/dashboard/addcampaign",
-            element: <AddCampaign></AddCampaign>,
-          },
-          {
-            path: "/dashboard/alluser",
-            element: <AllUsers></AllUsers>,
-          },
-          {
-            path: "/dashboard/allservice",
-            element: <AllService></AllService>,
-          },
-        ],
-      },
+      }
     ],
   },
   {
@@ -102,7 +70,7 @@ const router = createBrowserRouter([
         element: <AddService1></AddService1>,
       },
       {
-        path: "/dashboard1/allservice1",
+        path: "/dashboard1",
         element: <AllService1></AllService1>,
       },
       {
