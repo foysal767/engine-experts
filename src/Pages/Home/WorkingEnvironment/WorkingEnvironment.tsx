@@ -4,18 +4,18 @@ import { VscDebugBreakpointData } from "react-icons/vsc";
 const WorkingEnvironment = () => {
   return (
     <section className="px-4 md:px-12 lg:px-12">
-      <div>
-        <div className="flex justify-center">
+      <div className="mt-10">
+        <div className="lg:flex justify-center">
           <img
-            className="w-[600px] h-[200px] opacity-60"
+            className="w-[650px] h-[300px] opacity-60"
             src="/assets/working.jpg"
             alt=""
           />
-          <div className="bg-black pr-24 pl-10 pt-8">
+          <div className="bg-black pr-32 pl-12 pt-8 text-left">
             <h2 className="text-xl font-poppins font-bold">
               CAR EXTERIOR CLEANING: BASIC DETAILING
             </h2>
-            <div className="grid grid-cols-2">
+            <div className="grid lg:grid-cols-2 md:grid-cols-1">
               <span className="flex items-center space-x-1 my-2">
                 <VscDebugBreakpointData></VscDebugBreakpointData>{" "}
                 <p>SAME DAY SERVICE</p>
@@ -30,13 +30,13 @@ const WorkingEnvironment = () => {
               </span>
               <span className="flex items-center space-x-1">
                 <VscDebugBreakpointData></VscDebugBreakpointData>{" "}
-                <p>COMPLIMENTARY SHUTTLE</p>
+                <p>SHUTTLE</p>
               </span>
             </div>
           </div>
         </div>
-        <div className="flex justify-center">
-          <div className="bg-black pr-36 pl-9 pt-8">
+        <div className="lg:flex justify-center">
+          <div className="bg-black pr-36 pl-4 pt-8">
             <h2 className="text-left text-xl font-poppins font-bold">
               RUBBING, WAXING AND POLISHING
             </h2>
@@ -47,7 +47,7 @@ const WorkingEnvironment = () => {
             </p>
           </div>
           <img
-            className="w-[600px] h-[200px] opacity-60"
+            className="w-[650px] h-[300px] opacity-60"
             src="/assets/working-2.jpg"
             alt=""
           />

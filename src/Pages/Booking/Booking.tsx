@@ -21,24 +21,24 @@ const Booking = () => {
         <div className="grid grid-cols-5 mx-auto items-center my-5">
           <span>
             <img
-              className="w-[80px] mx-auto"
+              className="lg:w-[80px] w-[50px] mx-auto"
               src="/assets/service-1.1.jpg"
               alt=""
             />
           </span>
           <span>
-            <h2 className="text-xl font-bold">Performance Upgrade</h2>
+            <h2 className="lg:text-xl text-sm font-bold">Performance Upgrade</h2>
           </span>
           <span>
-            <h2 className="text-xl font-bold">$100.00</h2>
+            <h2 className="lg:text-xl text-sm font-bold">$100</h2>
           </span>
           <span>
-            <label htmlFor="payment-modal" className="btn btn-success btn-sm">
+            <label htmlFor="payment-modal" className="btn btn-success lg:btn-sm btn-xs">
               Pay Now
             </label>
           </span>
           <span>
-            <button className="btn bg-red-600 btn-sm border-none">
+            <button className="btn bg-red-600 lg:btn-sm btn-xs border-none">
               Cancel
             </button>
           </span>
@@ -46,43 +46,51 @@ const Booking = () => {
         <div className="grid grid-cols-5 mx-auto items-center my-5">
           <span>
             <img
-              className="w-[80px] mx-auto"
+              className="lg:w-[80px] w-[50px] mx-auto"
               src="/assets/service-1.1.jpg"
               alt=""
             />
           </span>
           <span>
-            <h2 className="text-xl font-bold">Performance Upgrade</h2>
+            <h2 className="lg:text-xl text-sm font-bold">Performance Upgrade</h2>
           </span>
           <span>
-            <h2 className="text-xl font-bold">$100.00</h2>
+            <h2 className="lg:text-xl text-sm font-bold">$100</h2>
           </span>
           <span>
-            <button className="btn btn-disabled btn-sm">Paid</button>
+            <label htmlFor="payment-modal" className="btn btn-success lg:btn-sm btn-xs">
+              Pay Now
+            </label>
           </span>
           <span>
-            <button className="btn bg-red-600 btn-sm">Cancel</button>
+            <button className="btn bg-red-600 lg:btn-sm btn-xs border-none">
+              Cancel
+            </button>
           </span>
         </div>
         <div className="grid grid-cols-5 mx-auto items-center my-5">
           <span>
             <img
-              className="w-[80px] mx-auto"
+              className="lg:w-[80px] w-[50px] mx-auto"
               src="/assets/service-1.1.jpg"
               alt=""
             />
           </span>
           <span>
-            <h2 className="text-xl font-bold">Performance Upgrade</h2>
+            <h2 className="lg:text-xl text-sm font-bold">Performance Upgrade</h2>
           </span>
           <span>
-            <h2 className="text-xl font-bold">$100.00</h2>
+            <h2 className="lg:text-xl text-sm font-bold">$100</h2>
           </span>
           <span>
-            <button className="btn btn-success btn-sm">Pay Now</button>
+            <label htmlFor="payment-modal" className="btn btn-success lg:btn-sm btn-xs">
+              Pay Now
+            </label>
           </span>
           <span>
-            <button className="btn bg-red-600 btn-sm">Cancel</button>
+            <button className="btn bg-red-600 lg:btn-sm btn-xs border-none">
+              Cancel
+            </button>
           </span>
         </div>
       </div>
