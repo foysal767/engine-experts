@@ -6,6 +6,7 @@ import Brand from './BrandSection/Brand';
 // import BrandSection from './BrandSection/BrandSection';
 import CustomerReviews from './CustomerReviews/CustomerReviews';
 import DiscountSection from './DiscountSection/DiscountSection';
+import EngineExperties from './EnginrExperties/EngineExperties';
 import GetInTouch from './GetInTouch/GetInTouch';
 // import Gallery from './Gallery/Gallery';
 // import GetService from './GetService/GetService';
@@ -25,6 +26,7 @@ const Home = () => {
             {/* <Gallery></Gallery> /}
             <OurTeam></OurTeam>
             {/ <GetService></GetService> */}
+            <EngineExperties></EngineExperties>
             <GetInTouch></GetInTouch>
             <CustomerReviews></CustomerReviews>
             <Brand></Brand>
