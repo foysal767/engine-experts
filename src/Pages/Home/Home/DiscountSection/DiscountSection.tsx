@@ -1,17 +1,33 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { AiFillStar } from "react-icons/ai";
 
 const DiscountSection = () => {
-  const { data: discount = [], isLoading } = useQuery({
-    queryKey: ["discount"],
-    queryFn: async () => {
-      const res = await fetch("http://localhost:5000/campaign");
-      const data = await res.json();
-      console.log("camp", data.data[0].services);
-      return data?.data[0]?.services;
-    },
-  });
+  const [discount, setDiscount] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  // const { data: discount = [], isLoading } = useQuery({
+  //   queryKey: ["discount"],
+  //   queryFn: async () => {
+  //     const res = await fetch(
+  //       "https://engine-experts-server-phi.vercel.app/campaign"
+  //     );
+  //     const data = await res.json();
+  //     console.log("camp", data.data[0].services);
+  //     return data?.data[0]?.services;
+  //   },
+  // });
+
+  useEffect(() => {
+    setIsLoading(true);
+    fetch("https://engine-experts-server-phi.vercel.app/campaign")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setDiscount(data?.data[0]?.services);
+          setIsLoading(false);
+        }
+      });
+  }, []);
   if (isLoading) {
     return (
       <div className="grid place-items-center w-full h-screen">

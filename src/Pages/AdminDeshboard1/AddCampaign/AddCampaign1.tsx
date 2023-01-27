@@ -15,7 +15,9 @@ const AddCampaign1 = () => {
   const [selectedService, setSelectedService] = useState("");
   const [originalPrice, setOriginalPrice] = useState(0);
   useEffect(() => {
-    fetch(`http://localhost:5000/service?id=${selectedService}`)
+    fetch(
+      `https://engine-experts-server-phi.vercel.app/service?id=${selectedService}`
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
@@ -35,7 +37,7 @@ const AddCampaign1 = () => {
       service,
       discountprice,
     };
-    fetch("http://localhost:5000/campaign", {
+    fetch("https://engine-experts-server-phi.vercel.app/campaign", {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -55,7 +57,9 @@ const AddCampaign1 = () => {
   const { data: discount = [] } = useQuery({
     queryKey: ["discount"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/campaign");
+      const res = await fetch(
+        "https://engine-experts-server-phi.vercel.app/campaign"
+      );
       const data = await res.json();
       return data?.data[0];
     },
