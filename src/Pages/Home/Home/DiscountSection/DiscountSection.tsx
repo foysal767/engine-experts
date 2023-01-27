@@ -4,7 +4,7 @@ import { AiFillStar } from "react-icons/ai";
 const DiscountSection = () => {
   return (
     <section className="px-4 md:px-12 lg:px-12 mb-12">
-      <div className="mx-auto bg-black bg-[url('https://autohive-html.themetags.com/assets/img/shapes/texture-bg.png')] py-24 relative upper-section">
+      <div className="mx-auto bg-[url('https://autohive-html.themetags.com/assets/img/shapes/texture-bg.png')] py-24 relative upper-section ">
         <div className="grid grid-cols-2 absolute w-full top-0">
           <img src="/assets/tire-left.png" alt="" className="tyre" />
           <img src="/assets/tire-right.png" alt="" className="tyre" />
