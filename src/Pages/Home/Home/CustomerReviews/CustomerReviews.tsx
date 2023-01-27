@@ -4,11 +4,11 @@ import { Autoplay, Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
-import "swiper/css";
-import "swiper/css/autoplay";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
+import "swiper/css"
+import "swiper/css/autoplay"
+import "swiper/css/navigation"
+import "swiper/css/pagination"
+import "swiper/css/scrollbar"
 
 const CustomerReviews = () => {
   const [dWidth, setDWidth] = useState<number>(0);
@@ -20,17 +20,17 @@ const CustomerReviews = () => {
     queryFn: async () => {
       const res = await fetch(
         "https://engine-experts-server-phi.vercel.app/reviews"
-      );
-      const data = await res.json();
-      return data.data;
+      )
+      const data = await res.json()
+      return data.data
     },
-  });
+  })
   if (isLoading) {
     return (
       <div className="grid place-items-center w-full h-screen">
         <span className="loader"></span>
       </div>
-    );
+    )
   }
 
   return (
@@ -75,7 +75,7 @@ const CustomerReviews = () => {
         ))}
       </Swiper>
     </div>
-  );
-};
+  )
+}
 
-export default CustomerReviews;
+export default CustomerReviews
