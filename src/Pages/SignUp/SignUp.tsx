@@ -41,7 +41,7 @@ const SignUp = () => {
           <img src="/assets/tire-left.png" alt="" className="tyre" />
           <img src="/assets/tire-right.png" alt="" className="tyre" />
         </div>
-        <div className="absolute top-0 grid place-items-center w-full h-full">
+        <div className="absolute top-0 grid place-items-center w-full h-full bg-black opacity-70">
           <h2 className="text-4xl font-bold text-center ">Sign Up</h2>
         </div>
       </div>
@@ -104,7 +104,7 @@ const SignUp = () => {
                 className="w-full h-[50px] bg-white rounded text-black px-2"
               />
               <label className="label">
-                <span className="label-text">Forget Password?</span>
+                <span className="label-text text-black">Forget Password?</span>
               </label>
               {errors.password && (
                 <p className="text-red-600">{errors.password?.message}</p>

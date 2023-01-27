@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import PhotoView from "react-photo-view/dist/PhotoView";
 import { Link } from "react-router-dom";
 import "./Services.css";
 
@@ -23,7 +22,7 @@ const Services = () => {
   }
   return (
     <section className="mb-20 mt-20 px-4 md:px-8 lg:px-12 lg:mb-32">
-      <h1 className="text-5xl font-bold font-poppins mb-12">
+      <h1 className="text-5xl text-black font-bold font-poppins mb-12">
         Services that we Offer
       </h1>
       <div className="mt-9 mb-12 row grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 font-poppins">
