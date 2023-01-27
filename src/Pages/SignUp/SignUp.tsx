@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
+import "./SignUp.css"
 // import swal from "sweetalert";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
@@ -120,13 +121,13 @@ const SignUp = () => {
             </div>
             <div className="w-full grid lg:grid-cols-2 gap-3">
               <input
-                className="w-full h-[50px] rounded bg-blue-400 cursor-pointer font-semibold"
+                className="bg-red-500 rounded w-full h-[50px] cursor-pointer font-semibold"
                 value="Sign Up"
                 type="submit"
               />
               <button
                 onClick={googleLogin}
-                className="w-full h-[50px] rounded border flex items-center font-semibold text-black"
+                className="w-full h-[50px] hover:bg-black hover:text-white rounded border flex items-center font-semibold text-black"
               >
                 <FcGoogle className="text-2xl mx-2 "></FcGoogle> CONTINUE WITH
                 GOOGLE
