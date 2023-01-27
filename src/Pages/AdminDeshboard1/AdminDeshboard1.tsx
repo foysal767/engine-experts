@@ -4,10 +4,14 @@ import "./AdminDeshboard.css";
 const AdminDeshboard1 = () => {
   return (
     <main className="bg-[#EBF2F4] text-black">
-      <section className="w-full h-[80vh] relative mb-36">
+      <section className="w-full h-[80vh] relative mb-28">
         <div className="w-full h-[80vh] adminbanner absolute top-0"></div>
         <div className="absolute top-0 w-full h-[13vh] border-b-2 border-slate-400 px-4 md:px-8 lg:px-12 flex justify-between items-center">
-          <h1 className="text-4xl font-semibold text-white">Engine Experts</h1>
+          <Link to={"/"}>
+            <h1 className="text-4xl font-semibold text-white">
+              Engine Experts
+            </h1>
+          </Link>
           <h2 className="text-2xl text-white">LogOut</h2>
         </div>
         <div className="w-full absolute top-28">
@@ -28,7 +32,7 @@ const AdminDeshboard1 = () => {
           <div className="grid lg:grid-cols-4 gap-4 w-[80%] mx-auto mt-28">
             {/* Card one start from here */}
             <div className="maincard bg-[#DFF6E5] h-[180px] rounded-lg hover:-skew-y-12 relative transition duration-700">
-              <Link to={"/dashboard1/allservice1"}>
+              <Link to={"/dashboard1"}>
                 <div className="flex flex-col justify-between w-full h-full absolute top-0 left-0 z-10 bg-[#DFF6E5] rounded-lg p-8">
                   <div className="flex justify-between items-center">
                     <button className="w-12 h-12 rounded-full bg-gray-200 text-center">

@@ -1,35 +1,32 @@
-.car-parts-1 {
+/* .car-parts-1 {
     color: #E81C2E;
-}
-.subcontent-1, .subcontent-2, .subcontent-3{
+} */
+/* .subcontent-1, .subcontent-2, .subcontent-3{
     box-shadow: rgba(235, 235, 242, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     padding: 50px;
     cursor: pointer;
     transition: .5s;
-}
-.subcontent-4, .subcontent-5, .subcontent-6{
+} */
+/* .subcontent-4, .subcontent-5, .subcontent-6{
     padding: 50px;
     box-shadow: rgba(235, 235, 242, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-}
+} */
 /* .text-xl:hover{
     color: #E81C2E;
 } */
 
-.subcontent-1:hover, .subcontent-2:hover, .subcontent-3:hover{
+/* .subcontent-1:hover, .subcontent-2:hover, .subcontent-3:hover{
     border-right: 3px solid #E81C2E !important;
     cursor: pointer !important;
     transition: all .1s ease;
-}
+} */
 
 
-.subcontent-4:hover, .subcontent-5:hover, .subcontent-6:hover{
+/* .subcontent-4:hover, .subcontent-5:hover, .subcontent-6:hover{
     border-left: 3px solid #E81C2E !important;
     cursor: pointer !important;
     transition: all .1s ease;
-}
-.content-2 img{
+} */
+/* .content-2 img{
     display: inline-block;
-}
-.car-parts-1{
-    
-}
+} */

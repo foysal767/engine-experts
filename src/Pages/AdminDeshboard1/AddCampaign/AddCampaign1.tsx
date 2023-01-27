@@ -1,4 +1,63 @@
+import { useQuery } from "@tanstack/react-query";
+import { useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
 const AddCampaign1 = () => {
+  const { data: services = [], isLoading } = useQuery({
+    queryKey: ["services"],
+    queryFn: async () => {
+      const res = await fetch(
+        "https://engine-experts-server-phi.vercel.app/services"
+      );
+      const data = await res.json();
+      return data.data;
+    },
+  });
+  const [selectedService, setSelectedService] = useState("");
+  const [originalPrice, setOriginalPrice] = useState(0);
+  useEffect(() => {
+    fetch(`http://localhost:5000/service?id=${selectedService}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setOriginalPrice(data?.data?.price);
+        }
+      });
+  }, [selectedService]);
+
+  const handleAddCam = (e: any) => {
+    e.preventDefault();
+    const campname = e.target.campname.value;
+    const service = e.target.service.value;
+    const discountprice = e.target.discountprice.value;
+    const addCampService = {
+      campname,
+      service,
+      discountprice,
+    };
+    fetch("http://localhost:5000/campaign", {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(addCampService),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          toast.success("Add campaign Successfull");
+        } else {
+          toast.error(data.message)
+        }
+      });
+  };
+
+  if (isLoading) {
+    return (
+      <div className="grid place-items-center w-full h-screen">
+        <span className="loader"></span>
+      </div>
+    );
+  }
   return (
     <section className="w-full lg:w-[90%] md:w-[80%] mx-auto px-4 md:px-8 lg:px-12 bg-[#EBF2F4] pb-10">
       <div className="flex justify-between items-center px-4 mb-5">
@@ -9,24 +68,48 @@ const AddCampaign1 = () => {
           Add New Campaign
         </button>
       </div>
-      <div className="w-full border border-red-500 grid lg:grid-cols-5 justify-between items-center gap-3 px-4 mb-5">
-        <input className="bg-white" type="text" name="campname" placeholder="Campaign Name" />
-        <select className="h-[50px] rounded px-3 bg-white" name="product" placeholder="Select Product">
-          <option value="Product1">Product</option>
-          <option value="Product2">Product1</option>
-          <option value="Product3">Product2</option>
+      <form
+        className="w-full border grid lg:grid-cols-5 justify-between items-center gap-3 mb-5"
+        onSubmit={handleAddCam}
+      >
+        <input
+          className="bg-white w-full h-[53px] rounded px-2"
+          type="text"
+          name="campname"
+          placeholder="Campaign Name"
+        />
+        <select
+          className="h-[50px] rounded px-3 bg-white"
+          name="service"
+          placeholder="Select Service"
+          onClick={(e: any) => setSelectedService(e.target.value)}
+        >
+          {services?.map((service: any, i: any) => (
+            <option value={service?.name}>{service?.name}</option>
+          ))}
         </select>
-        <input className="bg-white" type="text" name="originalprice" placeholder="Original Price" />
-        <input className="bg-white" type="text" name="discountprice" placeholder="Discount Price" />
+        <input
+          className="bg-white w-full h-[53px] rounded px-2"
+          type="text"
+          name="originalprice"
+          placeholder="Original Price"
+          defaultValue={originalPrice}
+        />
+        <input
+          className="bg-white w-full h-[53px] rounded px-2"
+          type="text"
+          name="discountprice"
+          placeholder="Discount Price"
+        />
         <button
-          className="w-[180px] h-[50px] rounded bg-blue-500 text-xl"
+          className="w-full h-[53px] rounded bg-blue-500 text-xl"
           type="submit"
         >
           Add
         </button>
-      </div>
+      </form>
 
-      <div className="border border-red-500 flex flex-col gap-3 p-3">
+      <div className="border flex flex-col gap-3 p-3">
         <div className="flex justify-between items-center">
           <h2 className="text-xl font-poppins text-start mb-4">
             Campaign: Sprint Campaign

@@ -21,32 +21,41 @@ const Services = () => {
     );
   }
   return (
-    <section className="mb-20 mt-10 px-4 md:px-8 lg:px-12 lg:mb-32">
-      <h1 className="text-5xl font-bold font-poppins mb-12">
+    <section className="mb-20 mt-20 px-4 md:px-8 lg:px-12 lg:mb-32">
+      <h1 className="text-5xl font-bold font-poppins mb-12 text-[#383232]">
         Services that we Offer
       </h1>
-      <div className="mt-9 row grid grid-cols-1 md:grid-cols-2 gap-8 font-poppins">
+      <div className="mt-9 mb-12 row grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 font-poppins">
         {services.map((service: any) => (
-          <div className="content-1 text-white ">
-            {/* subContent-1 */}
-            <div className="subcontent-1 mb-5 shadow-2xl rounded-md">
-              <div className="content-info flex md:flex-col md:text-center md:gap-7 lg:flex-row lg:text-end lg:gap-0 text-end items-center ">
-                <Link to={`/servicedetails/${service?.name}`}>
-                  <div>
-                    <h1 className="text-xl font-bold">{service.name}</h1>
-                    <p>{service?.details.slice(0, 20)}</p>
-                  </div>
-                </Link>
-                <div className="car-parts- pl-5">
-                  <img src={service?.image} alt="" className="w-20 " />
-                </div>
+          <div>
+            <div className="card w-full h-[400px] bg-base-100 shadow-xl">
+              <div className="w-full h-[80%] overflow-hidden">
+                <figure>
+                  <img
+                    src={service?.image}
+                    alt=""
+                    className="w-full h-full rounded-xl hover:scale-110 transition-all duration-700"
+                  />
+                </figure>
+              </div>
+              <div className="card-body">
+                <h2 className="text-left pb-14">
+                  {service?.details.slice(0, 66)}......
+                </h2>
               </div>
             </div>
+            <Link to={`/servicedetails/${service?.name}`}>
+              <h4 className="bg-[#E81C2E] relative text-center py-4 px-3 my-0 mx-8 -mt-8 font-bold text-white">
+                {service?.name}
+              </h4>
+            </Link>
           </div>
         ))}
       </div>
-      <Link to={"/"} className="mt-8">
-        <button>All Services</button>
+      <Link to={"/"} className="mt-14">
+        <button className="btn bg-[#E81C2E] border-none text-white">
+          All Services
+        </button>
       </Link>
     </section>
   );

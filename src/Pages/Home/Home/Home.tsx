@@ -26,8 +26,8 @@ const Home = () => {
             {/* <Gallery></Gallery> /}
             <OurTeam></OurTeam>
             {/ <GetService></GetService> */}
-            <GetInTouch></GetInTouch>
             <EngineExperties></EngineExperties>
+            <GetInTouch></GetInTouch>
             <CustomerReviews></CustomerReviews>
             <Brand></Brand>
             {/* <BrandSection></BrandSection> */}

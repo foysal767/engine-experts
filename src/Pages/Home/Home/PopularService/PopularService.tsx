@@ -1,126 +1,54 @@
-// import { useQuery } from "@tanstack/react-query";
-// import { AiFillEye } from "react-icons/ai";
-// import { BsFillHeartFill, BsFillStarFill } from "react-icons/bs";
-// import "./PopularService.css";
-
-// const PopularService = () => {
-//   const { data: popular = [], isLoading } = useQuery({
-//     queryKey: ["popular"],
-//     queryFn: async () => {
-//       const res = await fetch(
-//         "https://engine-experts-server-phi.vercel.app/popular"
-//       );
-//       const data = await res.json();
-//       return data.data;
-//     },
-//   });
-//   return (
-//     <section className="w-full lg:px-12 lg:mb-30">
-//       <h2 className="font-poppins text-center text-5xl font-bold lg:mb-12">
-//         Popular Services
-//       </h2>
-//       <div className="w-full lg:h-[85vh] p-5">
-//         <div className="lg:h-[88%] w-full grid lg:grid-cols-4 md:grid-cols-2 gap-3 items-center">
-//           {/* Card one start form here */}
-
-//           {popular?.map((service: any) => (
-//             <div
-//               className=" h-[400px] text-start relative overflow-hidden shadow-2xl  mb-3 lg:mb-0 maincard"
-//               key={service?._id}
-//             >
-//               <div className="h-[75%] w-full bg-[#121212] grid place-items-center">
-//                 <img
-//                   src={service?.image}
-//                   alt=""
-//                   className="w-full h-full opacity-70"
-//                 />
-//                 <div className="w-full h-[65%] absolute left-[102%] top-0 p-5 py-12 text-4xl flex flex-col gap-3 items-end overlays">
-//                   <BsFillHeartFill className="bg-[#D16527] p-2 text-center cursor-pointer"></BsFillHeartFill>
-//                   <label htmlFor="my-modal-3">
-//                     <AiFillEye className="bg-[#D16527] p-2 text-center cursor-pointer"></AiFillEye>
-//                   </label>
-
-//                   {/* <BsFillHeartFill className="bg-[#D16527] p-2 text-center"></BsFillHeartFill> */}
-//                 </div>
-//               </div>
-
-//               <div className="mx-2 mt-5 text-2xl flex flex-col gap-3">
-//                 <h1>{service?.name}</h1>
-//                 <p className="text-sm">{service?.details?.slice(0, 10)}</p>
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-//         <input type="checkbox" id="my-modal-3" className="modal-toggle" />
-//         <div className="modal">
-//           <div className="modal-box relative max-w-5xl">
-//             <label
-//               htmlFor="my-modal-3"
-//               className="btn btn-sm btn-circle absolute right-2 top-2"
-//             >
-//               ✕
-//             </label>
-//             <div className="grid lg:grid-cols-2 md:grid-cols-2">
-//               <img
-//                 src="assets/engine repair.png"
-//                 alt=""
-//                 className="lg:w-3/4 mx-auto md:w-full md:my-auto"
-//               />
-//               <div className="text-left">
-//                 <h2 className="text-4xl font-extrabold mt-5 mb-3">
-//                   Silent Block 10-75mm
-//                 </h2>
-//                 <h2 className="text-4xl font-extrabold mb-5">HSP</h2>
-//                 <div className="flex mb-5 text-primary">
-//                   <BsFillStarFill className=""></BsFillStarFill>
-//                   <BsFillStarFill className="ml-2"></BsFillStarFill>
-//                   <BsFillStarFill className="ml-2"></BsFillStarFill>
-//                   <BsFillStarFill className="ml-2"></BsFillStarFill>
-//                   <BsFillStarFill className="ml-2"></BsFillStarFill>
-//                 </div>
-//                 <h2 className="text-xl font-bold">
-//                   Price: $<span>20.00</span>
-//                 </h2>
-//                 <p className="py-4">
-//                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
-//                   Commodi ducimus minima, ratione labore nam tempore animi
-//                   doloremque id sapiente aliquid.
-//                 </p>
-//                 <button className="btn btn-primary">Book Now</button>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default PopularService;
-
-
-
-
-import React from 'react';
+import { useQuery } from "@tanstack/react-query";
+import React from "react";
 
 const PopularService = () => {
+  const { data: popular = [], isLoading } = useQuery({
+    queryKey: ["popular"],
+    queryFn: async () => {
+      const res = await fetch(
+        "https://engine-experts-server-phi.vercel.app/popular"
+      );
+      const data = await res.json();
+      return data.data;
+    },
+  });
+  if (isLoading) {
+    return (
+      <div className="grid place-items-center w-full h-screen">
+        <span className="loader"></span>
+      </div>
+    );
+  }
   return (
-    <section className='px-4 md:px-12 lg:px-12'>
-      <h2 className="font-poppins text-center text-5xl font-bold my-12">Popular Services</h2>
-      <div className='bg-gradient-to-r from-black via-gray-800 to-gray-500 rounded-md py-12 px-6'>
-          <div className='lg:flex lg:justify-around items-center md:justify-center'>
-            <div>
-              <h2 className='lg:text-left text-4xl font-bold font-poppins'>Best Services</h2>
-              <p className='lg:text-left mt-5'>This service are popular for our customer <br/>so that they review it.</p>
-              <button className='btn bg-red-600 border-none lg:mr-40 my-5'>Get All Service</button>
-            </div>
-            <div className='grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 gap-4'>
-              <img className='w-[200px] h-[170px] mx-auto' src="/assets/service-1.1.jpg" alt="" />
-              <img className='w-[200px] h-[170px] mx-auto' src="/assets/service-1.1.jpg" alt="" />
-              <img className='w-[200px] h-[170px] mx-auto' src="/assets/service-1.1.jpg" alt="" />
-              <img className='w-[200px] h-[170px] mx-auto' src="/assets/service-1.1.jpg" alt="" />
-            </div>
+    <section className="w-full px-4 md:px-8 lg:px-12">
+      <div className="bg-gradient-to-r from-black via-gray-800 to-gray-500 rounded-md p-6 w-full lg:h-[350px] grid place-items-center">
+        <div className="lg:flex lg:justify-around items-center md:justify-center w-full lg:h-full">
+          <div className="lg:w-[30%] w-full lg:h-full flex flex-col justify-center gap-3 p-6">
+            <h2 className="lg:text-start text-3xl font-bold font-poppins">
+              Popular Services
+            </h2>
+            <p className="lg:text-start">
+              This service are popular for our customer <br />
+              so that they review it.
+            </p>
+            <button className="bg-red-600 py-2 rounded text-lg">
+              Get All Service
+            </button>
           </div>
+          <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 gap-4 h-full w-full py-6">
+            {popular?.map((service: any) => (
+              <div className="w-full h-full relative">
+                <img className="w-full h-full" src={service?.image} alt="" />
+                <div className="w-full h-full absolute top-0 bg-black opacity-40"></div>
+                <div className="w-full h-full absolute top-0 flex items-end p-3">
+                  <h1 className="text-2xl text-start font-poppins font-semibold">
+                    {service?.name}
+                  </h1>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
