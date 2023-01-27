@@ -1,4 +1,5 @@
 import { FaPhone, FaRegEdit, FaRegPaperPlane } from "react-icons/fa";
+import "./GetInTouch.css"
 
 const GetInTouch = () => {
   return (
@@ -8,8 +9,8 @@ const GetInTouch = () => {
       </h1>
       <div className="getInTouchWrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4  bg-[#000000] py-12">
         <div className="leftTouch flex flex-col justify-center items-center gap-4">
-          <div className="bg-amber-700 rounded-full w-16 h-16">
-            <FaRegEdit className="text-2xl left-6 top-5 relative"></FaRegEdit>
+          <div className="bg-[#E81C2E] p-5 rounded-full">
+            <FaRegEdit className="text-2xl"></FaRegEdit>
           </div>
           <div>
             <h2 className="text-2xl font-semibold">Service Help ?</h2>
@@ -19,15 +20,15 @@ const GetInTouch = () => {
             </p>
           </div>
           <div>
-            <button className="btn bg-red-400 px-8 py-1 rounded-lg text-white">
+            <button className="getbtn">
               Chat Now
             </button>
           </div>
         </div>
 
         <div className="middleTouch flex flex-col justify-center items-center gap-4">
-          <div className="bg-amber-700 rounded-full w-16 h-16">
-            <FaPhone className="text-2xl left-4 top-5 relative"></FaPhone>
+          <div className="bg-[#E81C2E] p-5 rounded-full">
+            <FaPhone className="text-2xl"></FaPhone>
           </div>
           <div>
             <h2 className="text-2xl font-semibold">Get In Touch</h2>
@@ -37,15 +38,15 @@ const GetInTouch = () => {
             </p>
           </div>
           <div>
-            <h5 className="ftext-xl text-amber-300 font-bold">
+            <h5 className="ftext-xl text-[#E81C2E] font-bold">
               <a href="tel:+8801863901163">+8801863901163</a>
             </h5>
           </div>
         </div>
 
         <div className="rightTouch flex flex-col justify-center items-center gap-4">
-          <div className="bg-amber-700 rounded-full w-16 h-16">
-            <FaRegPaperPlane className="text-2xl left-4 top-5 relative"></FaRegPaperPlane>
+          <div className="bg-[#E81C2E] p-5 rounded-full">
+            <FaRegPaperPlane className="text-2xl"></FaRegPaperPlane>
           </div>
           <div>
             <h2 className="text-2xl font-semibold">Subscribe Us</h2>
@@ -55,15 +56,15 @@ const GetInTouch = () => {
             </p>
           </div>
           <div className="flex items-center">
-            <div className="w-48 h-[40px]">
+            <div className="">
               <input
-                className="w-full h-full"
+                className="w-full py-2 px-2"
                 type="email"
                 placeholder="Enter Your Email"
               />
             </div>
             <div className="">
-              <button className=" bg-amber-600 px-4 py-2">Subscribe</button>
+              <button className=" bg-[#E81C2E] px-4 py-2">Subscribe</button>
             </div>
           </div>
         </div>
