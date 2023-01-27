@@ -46,28 +46,32 @@ const SignUp = () => {
         </div>
       </div>
       <div className="grid lg:grid-cols-2 mb-14 lg:h-screen px-4 md:px-8 lg:px-12">
-        <div className="h-full w-full grid place-items-center">
+        <div className="h-full w-full grid place-items-center ">
           <img
             src="/assets/login image.png"
             alt=""
             className="h-[80%] w-[80%]"
           />
         </div>
+        
         <div className="grid place-items-center h-full w-full">
+          
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="lg:w-[80%] mx-auto"
           >
             <div className="w-full">
               <label className="label">
-                <span className="label-text">Name</span>
+                <span className="label-text text-black text-xl">Name</span>
               </label>
               <input
                 type="text"
+                placeholder="Enter your name..."
                 {...register("name", {
                   required: "Name is required",
                 })}
                 className="w-full h-[50px] rounded bg-white px-2 text-black"
+                required
               />
               {errors.name && (
                 <p className="text-red-600">{errors.name?.message}</p>
@@ -75,14 +79,16 @@ const SignUp = () => {
             </div>
             <div className="w-full">
               <label className="label">
-                <span className="label-text">Email</span>
+                <span className="label-text text-black text-xl">Email</span>
               </label>
               <input
                 type="text"
+                placeholder="Enter your email..."
                 {...register("email", {
                   required: "Email Address is required",
                 })}
                 className="w-full h-[50px] rounded bg-white px-2 text-black"
+                required
               />
               {errors.email && (
                 <p className="text-red-600">{errors.email?.message}</p>
@@ -90,10 +96,11 @@ const SignUp = () => {
             </div>
             <div className="w-full">
               <label className="label">
-                <span className="label-text">Password</span>
+                <span className="label-text text-black text-xl">Password</span>
               </label>
               <input
                 type="password"
+                placeholder="Enter your password..."
                 {...register("password", {
                   required: "Password is required",
                   minLength: {
@@ -102,6 +109,7 @@ const SignUp = () => {
                   },
                 })}
                 className="w-full h-[50px] bg-white rounded text-black px-2"
+                required
               />
               <label className="label">
                 <span className="label-text text-black">Forget Password?</span>
@@ -112,21 +120,21 @@ const SignUp = () => {
             </div>
             <div className="w-full grid lg:grid-cols-2 gap-3">
               <input
-                className="w-full h-[50px] rounded bg-blue-400 cursor-pointer"
+                className="w-full h-[50px] rounded bg-blue-400 cursor-pointer font-semibold"
                 value="Sign Up"
                 type="submit"
               />
               <button
                 onClick={googleLogin}
-                className="w-full h-[50px] rounded border flex items-center"
+                className="w-full h-[50px] rounded border flex items-center font-semibold text-black"
               >
-                <FcGoogle className="text-2xl mx-2"></FcGoogle> CONTINUE WITH
+                <FcGoogle className="text-2xl mx-2 "></FcGoogle> CONTINUE WITH
                 GOOGLE
               </button>
             </div>
-            <p className="mt-3">
+            <p className="mt-3 text-black">
               Already have an account?
-              <Link className="text-orange-500" to="/login">
+              <Link className="text-orange-500 ml-2" to="/login">
                 Sign In
               </Link>
             </p>
