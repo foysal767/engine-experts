@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
+import "./PopularService.css"
 
 const PopularService = () => {
   const { data: popular = [], isLoading } = useQuery({
@@ -31,14 +32,14 @@ const PopularService = () => {
               This service are popular for our customer <br />
               so that they review it.
             </p>
-            <button className="bg-red-600 py-2 rounded text-lg">
+            <button className="getbtn">
               Get All Service
             </button>
           </div>
           <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 gap-4 h-full w-full py-6">
             {popular?.map((service: any) => (
               <div className="w-full h-full relative">
-                <img className="w-full h-full" src={service?.image} alt="" />
+                <img className="w-full h-full opacity-50" src={service?.image} alt="" />
                 <div className="w-full h-full absolute top-0 bg-black opacity-40"></div>
                 <div className="w-full h-full absolute top-0 flex items-end p-3">
                   <h1 className="text-2xl text-start font-poppins font-semibold">

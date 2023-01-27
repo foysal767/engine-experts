@@ -10,7 +10,7 @@ const DiscountSection = () => {
           <img src="/assets/tire-right.png" alt="" className="tyre" />
         </div>
         <div className="absolute top-0 place-items-center w-full h-full mt-5">
-          <h2 className="font-extrabold text-center text-black text-xl">
+          <h2 className="font-extrabold text-center text-xl">
             Hurry up! Discount up to 30%
           </h2>
           <div className="flex gap-x-5 justify-center mt-5">
