@@ -1,7 +1,24 @@
+import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { AiFillStar } from "react-icons/ai";
 
 const DiscountSection = () => {
+  const { data: discount = [], isLoading } = useQuery({
+    queryKey: ["discount"],
+    queryFn: async () => {
+      const res = await fetch("http://localhost:5000/campaign");
+      const data = await res.json();
+      console.log("camp", data.data[0].services);
+      return data?.data[0]?.services;
+    },
+  });
+  if (isLoading) {
+    return (
+      <div className="grid place-items-center w-full h-screen">
+        <span className="loader"></span>
+      </div>
+    );
+  }
   return (
     <section className="px-4 md:px-12 lg:px-12 mb-12">
       <div className="mx-auto bg-[url('https://autohive-html.themetags.com/assets/img/shapes/texture-bg.png')] py-24 relative upper-section ">
@@ -34,110 +51,34 @@ const DiscountSection = () => {
         </div>
       </div>
       <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4 mx-auto">
-        <div className="card w-full bg-white rounded-sm shadow-xl pb-2">
-          <p className="text-xs font-bold bg-red-600">-30%</p>
-          <figure className="pt-6">
-            <img
-              src="/assets/service-1.1.jpg"
-              alt="Shoes"
-              className="rounded-sm px-5"
-            />
-          </figure>
-          <div className="text-yellow-500 flex gap-x-0.5 ml-5 mt-3">
-            <AiFillStar></AiFillStar>
-            <AiFillStar></AiFillStar>
-            <AiFillStar></AiFillStar>
-            <AiFillStar></AiFillStar>
-            <AiFillStar></AiFillStar>
+        {discount?.map((service: any, i: any) => (
+          <div className="card w-full bg-white rounded-sm shadow-xl pb-2">
+            <p className="text-xs font-bold bg-red-600">-30%</p>
+            <figure className="pt-6 w-full h-[200px]">
+              <img
+                src={service?.image}
+                alt="Shoes"
+                className="rounded-sm px-5 w-full h-full"
+              />
+            </figure>
+            <div className="text-yellow-500 flex gap-x-0.5 ml-5 mt-3">
+              <AiFillStar></AiFillStar>
+              <AiFillStar></AiFillStar>
+              <AiFillStar></AiFillStar>
+              <AiFillStar></AiFillStar>
+              <AiFillStar></AiFillStar>
+            </div>
+            <div>
+              <h2 className="text-xl text-left ml-5 font-medium text-black">
+                {service?.name}
+              </h2>
+            </div>
+            <div className="flex gap-2 ml-5 font-medium text-sm">
+              <p className="text-black line-through">{service?.price}</p>
+              <p className="text-red-600">{service?.discountPrice}$</p>
+            </div>
           </div>
-          <div>
-            <h2 className="text-xl text-left ml-5 font-medium text-black">
-              Performance Upgrade
-            </h2>
-          </div>
-          <div className="flex gap-2 ml-5 font-medium text-sm">
-            <p className="text-black line-through">$120</p>
-            <p className="text-red-600">$90</p>
-          </div>
-        </div>
-        <div className="card w-full bg-white rounded-sm shadow-xl pb-2">
-          <p className="text-xs font-bold bg-red-600">-30%</p>
-          <figure className="pt-6">
-            <img
-              src="/assets/service-1.1.jpg"
-              alt="Shoes"
-              className="rounded-sm px-5"
-            />
-          </figure>
-          <div className="text-yellow-500 flex gap-x-0.5 ml-5 mt-3">
-            <AiFillStar></AiFillStar>
-            <AiFillStar></AiFillStar>
-            <AiFillStar></AiFillStar>
-            <AiFillStar></AiFillStar>
-            <AiFillStar></AiFillStar>
-          </div>
-          <div>
-            <h2 className="text-xl text-left ml-5 font-medium text-black">
-              Performance Upgrade
-            </h2>
-          </div>
-          <div className="flex gap-2 ml-5 font-medium text-sm">
-            <p className="text-black line-through">$120</p>
-            <p className="text-red-600">$90</p>
-          </div>
-        </div>
-        <div className="card w-full bg-white rounded-sm shadow-xl pb-2">
-          <p className="text-xs font-bold bg-red-600">-30%</p>
-          <figure className="pt-6">
-            <img
-              src="/assets/service-1.1.jpg"
-              alt="Shoes"
-              className="rounded-sm px-5"
-            />
-          </figure>
-          <div className="text-yellow-500 flex gap-x-0.5 ml-5 mt-3">
-            <AiFillStar></AiFillStar>
-            <AiFillStar></AiFillStar>
-            <AiFillStar></AiFillStar>
-            <AiFillStar></AiFillStar>
-            <AiFillStar></AiFillStar>
-          </div>
-          <div>
-            <h2 className="text-xl text-left ml-5 font-medium text-black">
-              Performance Upgrade
-            </h2>
-          </div>
-          <div className="flex gap-2 ml-5 font-medium text-sm">
-            <p className="text-black line-through">$120</p>
-            <p className="text-red-600">$90</p>
-          </div>
-        </div>
-        <div className="card w-full bg-white rounded-sm shadow-xl pb-2">
-          <p className="text-xs font-bold bg-red-600">-30%</p>
-          <figure className="pt-6">
-            <img
-              src="/assets/service-1.1.jpg"
-              alt="Shoes"
-              className="rounded-sm px-5"
-            />
-          </figure>
-          <div className="text-yellow-500 flex gap-x-0.5 ml-5 mt-3">
-            <AiFillStar></AiFillStar>
-            <AiFillStar></AiFillStar>
-            <AiFillStar></AiFillStar>
-            <AiFillStar></AiFillStar>
-            <AiFillStar></AiFillStar>
-          </div>
-          <div>
-            <h2 className="text-xl text-left ml-5 font-medium text-black">
-              Performance Upgrade
-            </h2>
-          </div>
-          <div className="flex gap-2 ml-5 font-medium text-sm">
-            <p className="text-black line-through">$120</p>
-            <p className="text-red-600">$90</p>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );

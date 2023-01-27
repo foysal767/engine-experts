@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Banner.css";
 
 const Banner = () => {
@@ -28,7 +29,7 @@ const Banner = () => {
         <div className="w-full h-full absolute top-0  bg-black opacity-10 lg:hidden block"></div>
 
         <div className="h-full lg:w-[40%] w-full absolute top-0 left-0 flex flex-col items-center justify-center">
-          <h1 className="text-[3vw] lg:leading-[70px] font-semibold mb-6 text-[#FFFFFF]">
+          <h1 className="text-[3vw] lg:leading-[50px] font-semibold mb-6 text-[#FFFFFF]">
             A genuine solution to vehicle problems
           </h1>
           <p className="md:text-xl text-lg">
@@ -36,7 +37,11 @@ const Banner = () => {
             car service and give a new look to your cars. Also specialize in
             modifying cars.
           </p>
-          <button className="getbtn mr-40 mt-6">Get Service</button>
+          <div className="w-full flex items-start">
+            <Link to="/services">
+              <button className="getbtn mt-6">Get Service</button>
+            </Link>
+          </div>
         </div>
       </div>
     </section>
