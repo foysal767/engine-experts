@@ -13,7 +13,7 @@ const AddCampaign1 = () => {
     },
   });
   const [selectedService, setSelectedService] = useState("");
-  const [originalPrice, setOriginalPrice] = useState(0);
+  const [originalPrice, setOriginalPrice] = useState();
   useEffect(() => {
     fetch(
       `https://engine-experts-server-phi.vercel.app/service?id=${selectedService}`
@@ -25,7 +25,7 @@ const AddCampaign1 = () => {
           console.log(originalPrice);
         }
       });
-  }, [selectedService]);
+  }, [selectedService, originalPrice]);
 
   const handleAddCam = (e: any) => {
     e.preventDefault();

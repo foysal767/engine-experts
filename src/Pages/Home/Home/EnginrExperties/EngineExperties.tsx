@@ -1,9 +1,9 @@
-import { FaServicestack, FaUser } from "react-icons/fa"
-import "./EngineExperties.css"
+import { FaServicestack, FaUser } from "react-icons/fa";
+import "./EngineExperties.css";
 
 const EngineExperties = () => {
   return (
-    <section className="w-full h-screen blog px-4 md:px-8 lg:px-12 my-20">
+    <section className="w-full h-screen blog px-4 md:px-8 lg:px-12">
       <div className="lg:w-[90%] mx-auto h-full relative">
         <h1 className="text-4xl font-bold text-left pt-6">Our Experties</h1>
 
@@ -80,10 +80,10 @@ const EngineExperties = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default EngineExperties
+export default EngineExperties;
 
 /**
  * <section className="px-10 my-20 bg-red-700">
