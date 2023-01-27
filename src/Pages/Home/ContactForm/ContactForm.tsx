@@ -41,7 +41,7 @@ const ContactForm = () => {
                 />
               </div>
             </div>
-            <div className="phoneService flex space-x-24">
+            <div className="phoneService flex space-x-24 my-4">
               <div className="inputPhone">
                 <div className="text-gray-900 font-bold text-left">
                   <label className="" htmlFor="phone">
@@ -74,7 +74,7 @@ const ContactForm = () => {
                 </label>
               </div>
               <textarea
-                className="bg-gray-100 mb-4"
+                className="bg-gray-100 mb-4 w-full"
                 placeholder="Your Message"
                 name="message"
                 id=""
