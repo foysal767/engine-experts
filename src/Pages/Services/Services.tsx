@@ -22,7 +22,7 @@ const Services = () => {
   }
   return (
     <section className="mb-20 mt-20 px-4 md:px-8 lg:px-12 lg:mb-32">
-      <h1 className="text-5xl text-black font-bold font-poppins mb-12">
+      <h1 className="text-5xl font-bold font-poppins mb-12 text-[#383232]">
         Services that we Offer
       </h1>
       <div className="mt-9 mb-12 row grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 font-poppins">
@@ -30,26 +30,32 @@ const Services = () => {
           <div>
             <div className="card w-full h-[400px] bg-base-100 shadow-xl">
               <div className="w-full h-[80%] overflow-hidden">
-
-                <figure><img src={service?.image} alt="" className="w-full h-full rounded-xl hover:scale-110 transition-all duration-700" /></figure>
-
+                <figure>
+                  <img
+                    src={service?.image}
+                    alt=""
+                    className="w-full h-full rounded-xl hover:scale-110 transition-all duration-700"
+                  />
+                </figure>
               </div>
               <div className="card-body">
-                <h2 className="text-left pb-14">{service?.details.slice(0, 66)}......</h2>
+                <h2 className="text-left pb-14">
+                  {service?.details.slice(0, 66)}......
+                </h2>
               </div>
-
             </div>
             <Link to={`/servicedetails/${service?.name}`}>
               <h4 className="bg-[#E81C2E] relative text-center py-4 px-3 my-0 mx-8 -mt-8 font-bold text-white">
                 {service?.name}
               </h4>
             </Link>
-
           </div>
         ))}
       </div>
       <Link to={"/"} className="mt-14">
-        <button className="btn bg-[#E81C2E] border-none text-white">All Services</button>
+        <button className="btn bg-[#E81C2E] border-none text-white">
+          All Services
+        </button>
       </Link>
     </section>
   );
