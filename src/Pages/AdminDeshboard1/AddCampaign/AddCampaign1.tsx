@@ -28,12 +28,10 @@ const AddCampaign1 = () => {
     e.preventDefault();
     const campname = e.target.campname.value;
     const service = e.target.service.value;
-    const originalprice = e.target.originalprice.value;
     const discountprice = e.target.discountprice.value;
     const addCampService = {
       campname,
       service,
-      originalprice,
       discountprice,
     };
     fetch("http://localhost:5000/campaign", {
@@ -47,6 +45,8 @@ const AddCampaign1 = () => {
       .then((data) => {
         if (data.success) {
           toast.success("Add campaign Successfull");
+        } else {
+          toast.error(data.message)
         }
       });
   };
