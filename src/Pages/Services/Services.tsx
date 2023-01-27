@@ -53,7 +53,7 @@ const Services = () => {
         ))}
       </div>
       <Link to={"/"} className="mt-14">
-        <button className="btn bg-[#E81C2E] border-none text-white">
+        <button className="getbtn">
           All Services
         </button>
       </Link>
