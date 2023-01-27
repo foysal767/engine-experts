@@ -11,7 +11,7 @@ const WorkingEnvironment = () => {
             src="/assets/working.jpg"
             alt=""
           />
-          <div className="bg-black pr-32 pl-12 pt-8 text-left">
+          <div className="bg-black pr-36 pl-12 pt-8 text-left">
             <h2 className="text-xl font-poppins font-bold">
               CAR EXTERIOR CLEANING: BASIC DETAILING
             </h2>
@@ -35,7 +35,7 @@ const WorkingEnvironment = () => {
           </div>
         </div>
         <div className="lg:flex justify-center">
-          <div className="bg-black pr-36 pl-4 pt-8">
+          <div className="bg-black pr-32 pl-5 pt-8">
             <h2 className="text-left text-xl font-poppins font-bold">
               RUBBING, WAXING AND POLISHING
             </h2>

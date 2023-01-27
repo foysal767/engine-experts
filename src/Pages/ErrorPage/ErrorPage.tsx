@@ -2,7 +2,6 @@ import React from "react";
 import { Link, useRouteError } from "react-router-dom";
 import errorCar from "./errorCar.json";
 import Lottie from "lottie-react";
-import { AiFillHome } from 'react-icons/ai';
 
 const ErrorPage = () => {
   const error = useRouteError();
