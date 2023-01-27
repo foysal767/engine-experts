@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { RiServiceFill } from "react-icons/ri";
-import {  useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
 interface usedata {
@@ -76,17 +76,17 @@ const ServiceDetails = () => {
 
       <div className="relative overflow-hidden">
         <img
-          className="opacity-40"
+          className="opacity-70"
           src="/assets/services-bg.jpg"
           alt="service-bg"
         />
         <div className="">
           <h2 className="flex font-poppins text-5xl mt-20 ml-10 font-bold absolute top-0 left-0">
             {details?.name}___
-            <RiServiceFill className="text-[#E81C2E]"></RiServiceFill>            
+            <RiServiceFill className="text-[#E81C2E]"></RiServiceFill>
           </h2>
 
-          
+
 
         </div>
       </div>
@@ -100,10 +100,27 @@ const ServiceDetails = () => {
             <img
               src={details?.image}
               alt=""
-              className="w-full h-full hover:scale-110 transition-all duration-700"
+              className="w-full h-full hover:scale-110 transition-all duration-700 rounded"
             />
           </div>
-          <h1 className="text-start px-2">{details?.details}</h1>
+          <h1 className="text-start text-black px-2">{details?.details}</h1>
+          <div className="w-full mt-4">
+            <h1 className="text-4xl text-black font-semibold  text-start">Give Your FeedBack Here</h1>
+            
+            {/* form/feedback */}
+            <form onSubmit={giveFeedBack} className="w-full p-3 text-start rounded-md outline-none mt-4 ">
+              <div className="w-full flex  items-center gap-3">
+                <textarea name="feedback"  cols={12} rows={1} placeholder="Comment your feedback here..." className="bg-black p-3 h-[60px] m-0 w-full rounded-md outline-none" required></textarea>
+                <select name="rating" id="" className="bg-black h-[60px] text-xl rounded outline-none">
+                  <option value="Good">Good</option>
+                  <option value="Excellent">Excellent</option>
+                  <option value="As Well">As Well</option>
+                </select>
+              </div>
+              <button type="submit" className="px-3 py-2 bg-[#E81C2E] rounded mt-4">Submit</button>
+            </form>
+          </div>
+
 
           {/* --------------Ul Li section-------------------- */}
           {/* <div className="flex justify-between gap-3 w-full px-8">
@@ -134,7 +151,7 @@ const ServiceDetails = () => {
         <div className=" w-full flex flex-col gap-8 lg:w-[30%] p-2 ">
 
           {/* -------------Get Service---------- */}
-          <div className="shadow-2xl py-8 px-10 text-start flex flex-col gap-3">
+          <div className="shadow-2xl rounded py-8 px-10 text-start bg-[black] flex flex-col gap-3">
 
             <h1 className="text-3xl">GET SERVICE</h1>
             <div>
@@ -144,13 +161,13 @@ const ServiceDetails = () => {
               </h2>
             </div>
             <span className=" font-bold text-2xl">Price: {details?.price}</span>
-            <button className="text-2xl font-semibold btn bg-[#E81C2E] text-white py-2">
+            <button className="text-2xl font-semibold btn outline-none border-none bg-[#E81C2E] text-white py-2">
               Get Service
             </button>
           </div>
 
           {/* ------------Conact us Section------------ */}
-          <div className="shadow-2xl py-8 px-10 text-start flex flex-col gap-3">
+          <div className="shadow-2xl py-8 px-10 text-start flex flex-col gap-3 bg-[black] rounded">
             <h1 className="text-3xl">Contact Us</h1>
             <div>
               <a href="tel:+8801863901163" className=" text-2xl">+8801863901163</a>
@@ -160,7 +177,7 @@ const ServiceDetails = () => {
           </div>
 
           {/* -----------------Adress Section------------------- */}
-          <div className="shadow-2xl py-8 px-10 text-start flex flex-col gap-3">
+          <div className="shadow-2xl py-8 px-10 text-start flex flex-col gap-3 bg-[black] rounded">
             <h1 className="text-3xl">Address</h1>
             <div>
               <h2 className="text-xl">19 Frisk Drive, Middletown,nj,</h2>
@@ -173,7 +190,7 @@ const ServiceDetails = () => {
       </div>
 
       <div className="mt-24 text-start lg:px-12 md:px-8 px-4">
-        <h1 className="text-4xl font-semibold">Recent Review and Rating</h1>
+        <h1 className="text-4xl text-black font-semibold">Recent Review and Rating</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 font-poppins w-full">
 
           {/* @ts-ignore */}
@@ -181,7 +198,7 @@ const ServiceDetails = () => {
             return (
               <div
                 key={i}
-                className="container flex flex-col gap-3 w-full p-6 rounded divide-gray-700 bg-gray-600 dark:text-gray-100"
+                className="container flex flex-col gap-3 w-full p-6 rounded divide-gray-700 bg-[black] dark:text-gray-100"
               >
                 <div className="w-full flex justify-between items-center gap-5">
                   <h1 className="text-start w-[60%] break-words">{review?.email}</h1>
