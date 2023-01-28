@@ -36,8 +36,8 @@ const DiscountSection = () => {
     );
   }
   return (
-    <section className="px-4 md:px-12 lg:px-12 mb-12">
-      <div className="mx-auto bg-black bg-[url('https://autohive-html.themetags.com/assets/img/shapes/texture-bg.png')] py-24 relative upper-section ">
+    <section className="w-full mb-6 lg:mb-28">
+      <div className="w-full bg-[#19191B] bg-[url('https://autohive-html.themetags.com/assets/img/shapes/texture-bg.png')] py-24 relative upper-section ">
         <div className="grid grid-cols-2 absolute w-full top-0">
           <img src="/assets/tire-left.png" alt="" className="tyre" />
           <img src="/assets/tire-right.png" alt="" className="tyre" />
@@ -66,7 +66,7 @@ const DiscountSection = () => {
           </div>
         </div>
       </div>
-      <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4 mx-auto">
+      <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4 mx-auto px-4 md:px-12 lg:px-12">
         {discount?.map((service: any, i: any) => (
           <div className="hover:scale-105 transition-all duration-700 card w-full bg-white rounded-sm shadow-xl pb-2">
             <p className="text-xs font-bold bg-red-600">-30%</p>

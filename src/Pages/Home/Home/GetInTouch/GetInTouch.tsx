@@ -1,12 +1,15 @@
 import { FaPhone, FaRegEdit, FaRegPaperPlane } from "react-icons/fa";
-import "./GetInTouch.css"
+import "./GetInTouch.css";
 
 const GetInTouch = () => {
   return (
-    <section className="px-4 md:px-8 lg:px-12 mb-32">
-      <h1 className="text-[#383232] text-[4vw] font-bold font-poppins mb-12">
+    <section className="mb-32">
+      <div className="w-full text-left pl-8">
+        <button className="getTouch mb-6">Get In Touch</button>
+      </div>
+      {/* <h1 className="text-[#383232] text-[4vw] font-bold font-poppins mb-12">
         Get In Touch Our Experts
-      </h1>
+      </h1> */}
       <div className="getInTouchWrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] py-12">
         <div className="leftTouch flex flex-col justify-center items-center gap-4">
           <div className="bg-[#E81C2E] p-5 rounded-full">
@@ -20,9 +23,7 @@ const GetInTouch = () => {
             </p>
           </div>
           <div>
-            <button className="getbtn">
-              Chat Now
-            </button>
+            <button className="getbtn">Chat Now</button>
           </div>
         </div>
 

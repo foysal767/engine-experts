@@ -3,7 +3,7 @@ import { VscDebugBreakpointData } from "react-icons/vsc";
 
 const WorkingEnvironment = () => {
   return (
-    <section className="px-4 md:px-12 lg:px-12 mb-32">
+    <section className="mb-6 lg:mb-28">
       <div className="mt-10">
         <div className="lg:flex justify-center">
           <img
