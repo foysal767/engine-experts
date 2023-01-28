@@ -1,9 +1,9 @@
-.footer{
+/* .footer{
     background-color: #272935;
     background-image:url(https://i.ibb.co/DpCw46p/pngwing-com.png); 
      background-repeat: no-repeat;
 
-}
+} */
 .title{
     position: relative;
     cursor: pointer;
@@ -56,15 +56,14 @@
     width: 100%;
 } */
 .fill-current:hover{
-    color: #E81C2E;
+    color: #00acee;
 }
-.car{
+/* .car{
     color: #E81C2E;
     font-size: 35px;
     border: 100%;
-    /* scroll-margin-top:calc(smooth); */
     
-}
+} */
 
 span{
     border-color: 5px solid #fff;
