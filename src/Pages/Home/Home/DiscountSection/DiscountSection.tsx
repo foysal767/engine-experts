@@ -68,7 +68,7 @@ const DiscountSection = () => {
       </div>
       <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4 mx-auto">
         {discount?.map((service: any, i: any) => (
-          <div className="card w-full bg-white rounded-sm shadow-xl pb-2">
+          <div className="hover:scale-105 transition-all duration-700 card w-full bg-white rounded-sm shadow-xl pb-2">
             <p className="text-xs font-bold bg-red-600">-30%</p>
             <figure className="pt-6 w-full h-[200px]">
               <img

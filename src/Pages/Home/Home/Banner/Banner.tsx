@@ -3,7 +3,7 @@ import "./Banner.css";
 
 const Banner = () => {
   return (
-    <section className="w-full lg:px-14 md:px-8 px-4 h-screen relative overflow-hidden text-start bg-[#272935]">
+    <section className="w-full lg:px-14 md:px-8 px-4 h-screen relative overflow-hidden text-start bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')]">
       <div className="w-full h-full absolute top-0">
         <img
           className="absolute top-[52%] right-[27.8%] rotation  z-10 hidden lg:block"

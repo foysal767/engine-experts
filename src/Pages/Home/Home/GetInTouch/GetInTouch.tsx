@@ -7,7 +7,7 @@ const GetInTouch = () => {
       <h1 className="text-[#383232] text-[4vw] font-bold font-poppins mb-12">
         Get In Touch Our Experts
       </h1>
-      <div className="getInTouchWrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4  bg-[#000000] py-12">
+      <div className="getInTouchWrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] py-12">
         <div className="leftTouch flex flex-col justify-center items-center gap-4">
           <div className="bg-[#E81C2E] p-5 rounded-full">
             <FaRegEdit className="text-2xl"></FaRegEdit>
