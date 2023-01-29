@@ -1,17 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Footer.css";
-import { FaArrowRight, FaCarAlt } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 import ScrollToTop from "react-scroll-up";
 
 const Footer = () => {
   return (
-    <div>
+    <div className="bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')]">
       {/* scrollbar */}
 
       <ScrollToTop showUnder={160}>
         <span>
-          <FaCarAlt className="car " />
+          <img className="w-[30px]" src="/assets/scroll-car.png" alt="" />
         </span>
       </ScrollToTop>
 
@@ -34,10 +34,10 @@ const Footer = () => {
               <p className="text-left">Mon-Sat: 9.00 am to 6.30 pm</p>
             </div>
             <button
-              type="submit"
-              className="btn bg-[#E81C2E] text-white uppercase font-bold mt-6"
+              // type="submit"
+              className="footerBtn text-white uppercase font-bold mt-6"
             >
-              <Link to="/contactUs">Contact us</Link>
+              <Link to="/contactform">Contact us</Link>
             </button>
           </div>
           {/* quick footer section */}
@@ -109,8 +109,8 @@ const Footer = () => {
                 <br />
                 <br />
                 <button
-                  type="submit"
-                  className="btn bg-[#E81C2E] w-full text-white"
+                  // type="submit"
+                  className="footerBtn w-full font-bold uppercase text-white"
                 >
                   Subscribe
                 </button>
@@ -118,7 +118,7 @@ const Footer = () => {
             </div>
           </div>
         </footer>
-        <footer className="footer px-10 py-4 border-t bg-base-200 text-base-content border-base-300">
+        <footer className="footer px-10 py-4 border-t bg-[#E81C2E] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] text-base-content border-base-300">
           <div className="items-center grid-flow-col">
             <svg
               width="24"

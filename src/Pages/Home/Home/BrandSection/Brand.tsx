@@ -4,7 +4,7 @@ const Brand = () => {
   return (
     <section className="px-4 md:px-12 lg:px-12">
       <div className="lg:flex lg:hover:border-l-4 transition-all duration-100 lg:hover:border-red-600">
-        <div className="bg-black lg:w-1/2 h-[250px] text-left">
+        <div className="bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] lg:w-1/2 h-[250px] text-left">
           <div className="lg:ml-20 lg:pt-14 ml-5 pt-5">
             <h2 className="text-2xl font-bold">Brand We Trust</h2>
             <p className="text-sm text-gray-400">We carry over 100 of the world's highest quality aumotive parts.</p>
