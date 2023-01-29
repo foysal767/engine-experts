@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import { RiServiceFill } from "react-icons/ri";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
+import "./ServiceDetails.css"
 
 interface usedata {
   name: string;
@@ -117,7 +118,7 @@ const ServiceDetails = () => {
                   <option value="As Well">As Well</option>
                 </select>
               </div>
-              <button type="submit" className="px-3 py-2 bg-[#E81C2E] rounded mt-4">Submit</button>
+              <button type="submit" className="btn border-none text-white bg-red-500 rounded-sm mt-4">Submit</button>
             </form>
           </div>
 
@@ -161,7 +162,7 @@ const ServiceDetails = () => {
               </h2>
             </div>
             <span className=" font-bold text-2xl">Price: {details?.price}</span>
-            <button className="text-2xl font-semibold btn outline-none border-none bg-[#E81C2E] text-white py-2">
+            <button className="getbtn text-2xl font-semibold text-white">
               Get Service
             </button>
           </div>

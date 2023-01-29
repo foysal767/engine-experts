@@ -1,0 +1,18 @@
+.getbtn{
+    clip-path: polygon(20px 0,100% 0,100% calc(100% - 20px),calc(100% - 20px) 100%,0 100%,0 20px);
+    padding: 16px 60px;
+    background-color: #E81C2E;
+}
+.getTouch {
+    width: 250px;
+    padding: 5px 10px 5px 5px;
+    font-size: 30px;
+    font-weight: 500;
+    text-align: start;
+    clip-path: polygon(0% 0%,
+        75% 0%,
+        100% 100%,
+        75% 100%,
+        0% 100%);
+    background-color: #E81C2E;
+}

@@ -96,13 +96,13 @@ const Login = () => {
             </div>
             <div className="w-full grid lg:grid-cols-2 gap-3">
               <input
-                className="w-full h-[50px] rounded bg-blue-400 cursor-pointer font-semibold"
+                className="bg-red-500 rounded w-full h-[50px] cursor-pointer font-semibold"
                 value="Login"
                 type="submit"
               />
               <button
                 onClick={googleLogin}
-                className="w-full h-[50px] rounded border flex items-center text-black font-semibold"
+                className="w-full h-[50px] hover:bg-black hover:text-white rounded border flex items-center text-black font-semibold"
               >
                 <FcGoogle className="text-2xl mx-2"></FcGoogle> CONTINUE WITH
                 GOOGLE
