@@ -1,64 +1,86 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import './Footer.css';
-import { FaArrowRight, FaCarAlt } from "react-icons/fa";
+import "./Footer.css";
+import { FaArrowRight } from "react-icons/fa";
 import ScrollToTop from "react-scroll-up";
-
 
 const Footer = () => {
   return (
-    <div>
-
+    <div className="bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')]">
       {/* scrollbar */}
 
-
-      <ScrollToTop showUnder={160}  >
-        <span >
-          <FaCarAlt className="car " />
+      <ScrollToTop showUnder={160}>
+        <span>
+          <img className="w-[30px]" src="/assets/scroll-car.png" alt="" />
         </span>
       </ScrollToTop>
 
-      <footer className="mt-10 font-poppins w-full " >
+      <footer className="mt-10 font-poppins w-full ">
         <footer className="footer p-10  ">
           <div>
-            <span className="title uppercase font-bold text-xl  text-white">About Company</span>
-            <p className=" pt-4 text-left">EngineExpert’s mission is to enable premium quality  <br /> care for your luxury car service at affordable pricing . <br /> We ensure real-time updates for complete car care <br /> needs with a fair and transparent pricing mechanism.</p>
+            <span className="title uppercase font-bold text-xl  text-white">
+              About Company
+            </span>
+            <p className=" pt-4 text-left">
+              EngineExpert’s mission is to enable premium quality <br /> care
+              for your luxury car service at affordable pricing . <br /> We
+              ensure real-time updates for complete car care <br /> needs with a
+              fair and transparent pricing mechanism.
+            </p>
             <div className=" mt-5">
-              <h1 className="text-lg text-white uppercase font-bold text-left">We are available</h1>
+              <h1 className="text-lg text-white uppercase font-bold text-left">
+                We are available
+              </h1>
               <p className="text-left">Mon-Sat: 9.00 am to 6.30 pm</p>
             </div>
-            <button type="submit" className="btn bg-[#E81C2E] text-white uppercase font-bold mt-6"><Link to='/contactUs'>Contact us</Link></button>
+            <button
+              type="submit"
+              className="btn bg-[#E81C2E] text-white uppercase font-bold mt-6"
+            >
+              <Link to="/contactform">Contact us</Link>
+            </button>
           </div>
           {/* quick footer section */}
           <div>
-            <span className="title uppercase font-bold text-xl text-white">Quick Link</span>
+            <span className="title uppercase font-bold text-xl text-white">
+              Quick Link
+            </span>
             <div className=" flex items-center pt-4">
-              <FaArrowRight /> <Link to='/' className=" pl-2 link link-hover text-white">
+              <FaArrowRight />{" "}
+              <Link to="/" className=" pl-2 link link-hover text-white">
                 About Company
               </Link>
             </div>
             <div className=" flex items-center ">
-              <FaArrowRight /> <Link to='/' className=" pl-2 link link-hover text-white">
+              <FaArrowRight />{" "}
+              <Link to="/" className=" pl-2 link link-hover text-white">
                 Work Gallery
               </Link>
             </div>
             <div className=" flex items-center ">
-              <FaArrowRight /> <Link to='/' className=" pl-2 link link-hover text-white">
+              <FaArrowRight />{" "}
+              <Link to="/" className=" pl-2 link link-hover text-white">
                 Our Services
               </Link>
             </div>
             <div className=" flex items-center ">
-              <FaArrowRight /> <Link to='/' className=" pl-2 link link-hover text-white">
+              <FaArrowRight />{" "}
+              <Link to="/" className=" pl-2 link link-hover text-white">
                 Our Team
               </Link>
             </div>
             <div className=" flex items-center ">
-              <FaArrowRight /> <Link to='/' className=" pl-2 link link-hover text-white">
+              <FaArrowRight />{" "}
+              <Link to="/" className=" pl-2 link link-hover text-white">
                 Latest Blog
               </Link>
             </div>
             <div className=" flex items-center ">
-              <FaArrowRight /> <Link to='/contactUs' className=" pl-2 link link-hover text-white">
+              <FaArrowRight />{" "}
+              <Link
+                to="/contactform"
+                className=" pl-2 link link-hover text-white"
+              >
                 Contact Us
               </Link>
             </div>
@@ -67,17 +89,36 @@ const Footer = () => {
           {/* Newsletter */}
 
           <div>
-            <span className="title uppercase font-bold text-xl text-white">Newsletter</span>
+            <span className="title uppercase font-bold text-xl text-white">
+              Newsletter
+            </span>
             <div className="pt-4">
-              <p className="text-left">Please enter your email and subscribe to us <br /> to know updates about our products.</p>
+              <p className="text-left">
+                Please enter your email and subscribe to us <br /> to know
+                updates about our products.
+              </p>
               <form action="">
-                <input type="email" name="email" id="" placeholder="Email Address" className="w-full mt-7 py-5 pr-16 pl-4 rounded-md " required /><br /><br />
-                <button type="submit" className="btn bg-[#E81C2E] w-full text-white">Subscribe</button>
+                <input
+                  type="email"
+                  name="email"
+                  id=""
+                  placeholder="Email Address"
+                  className="w-full mt-7 py-5 pr-16 pl-4 rounded-md "
+                  required
+                />
+                <br />
+                <br />
+                <button
+                  type="submit"
+                  className="btn bg-[#E81C2E] w-full text-white"
+                >
+                  Subscribe
+                </button>
               </form>
             </div>
           </div>
         </footer>
-        <footer className="footer px-10 py-4 border-t bg-base-200 text-base-content border-base-300">
+        <footer className="footer px-10 py-4 border-t bg-[#E81C2E] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] text-base-content border-base-300">
           <div className="items-center grid-flow-col">
             <svg
               width="24"

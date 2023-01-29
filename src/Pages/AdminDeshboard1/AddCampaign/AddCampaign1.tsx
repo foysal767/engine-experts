@@ -13,16 +13,19 @@ const AddCampaign1 = () => {
     },
   });
   const [selectedService, setSelectedService] = useState("");
-  const [originalPrice, setOriginalPrice] = useState(0);
+  const [originalPrice, setOriginalPrice] = useState();
   useEffect(() => {
-    fetch(`http://localhost:5000/service?id=${selectedService}`)
+    fetch(
+      `https://engine-experts-server-phi.vercel.app/service?id=${selectedService}`
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
           setOriginalPrice(data?.data?.price);
+          console.log(originalPrice);
         }
       });
-  }, [selectedService]);
+  }, [selectedService, originalPrice]);
 
   const handleAddCam = (e: any) => {
     e.preventDefault();
@@ -34,7 +37,7 @@ const AddCampaign1 = () => {
       service,
       discountprice,
     };
-    fetch("http://localhost:5000/campaign", {
+    fetch("https://engine-experts-server-phi.vercel.app/campaign", {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -46,11 +49,21 @@ const AddCampaign1 = () => {
         if (data.success) {
           toast.success("Add campaign Successfull");
         } else {
-          toast.error(data.message)
+          toast.error(data.message);
         }
       });
   };
 
+  const { data: discount = [] } = useQuery({
+    queryKey: ["discount"],
+    queryFn: async () => {
+      const res = await fetch(
+        "https://engine-experts-server-phi.vercel.app/campaign"
+      );
+      const data = await res.json();
+      return data?.data[0];
+    },
+  });
   if (isLoading) {
     return (
       <div className="grid place-items-center w-full h-screen">
@@ -112,10 +125,10 @@ const AddCampaign1 = () => {
       <div className="border flex flex-col gap-3 p-3">
         <div className="flex justify-between items-center">
           <h2 className="text-xl font-poppins text-start mb-4">
-            Campaign: Sprint Campaign
+            Campaign: {discount?.campaignName}
           </h2>
           <h2 className="text-xl font-poppins text-start mb-4">
-            Total Products: 3
+            Total Products: {discount?.services?.length}
           </h2>
           <button className="w-[150px] h-[40px] rounded bg-red-500 text-xl">
             Stop Campaign
@@ -131,29 +144,21 @@ const AddCampaign1 = () => {
           <h1>Delete</h1>
         </div>
         {/* card starts from here */}
-        <div className="flex gap-3 justify-between items-center px-4 py-2 text-xl bg-[#d9dee4] rounded border">
-          <h2>1.</h2>
-          <button className="w-[50px] h-[50px] rounded-full bg-gray-300">
-            Img
-          </button>
-          <h2>Service Name</h2>
-          <h2>1200</h2>
-          <h2>1000</h2>
-          <button className="bg-green-500 px-3 rounded-xl">Edit</button>
-          <button className="bg-red-500 px-3 rounded-xl">Delete</button>
-        </div>
-        {/* card starts from here */}
-        <div className="flex gap-3 justify-between items-center px-4 py-2 text-xl bg-[#d9dee4] rounded border">
-          <h2>2.</h2>
-          <button className="w-[50px] h-[50px] rounded-full bg-gray-300">
-            Img
-          </button>
-          <h2>Service Name</h2>
-          <h2>1200</h2>
-          <h2>1000</h2>
-          <button className="bg-green-500 px-3 rounded-xl">Edit</button>
-          <button className="bg-red-500 px-3 rounded-xl">Delete</button>
-        </div>
+        {discount?.services?.map((service: any, i: any) => (
+          <div className="flex gap-3 justify-between items-center px-4 py-2 text-xl bg-[#d9dee4] rounded border">
+            <h2>{i + 1}</h2>
+            <img
+              className="w-[50px] h-[50px] rounded-full bg-gray-300"
+              alt=""
+              src={service?.image}
+            />
+            <h2>{service?.name}</h2>
+            <h2>{service?.price}</h2>
+            <h2>{service?.discountPrice}</h2>
+            <button className="bg-green-500 px-3 rounded-xl">Edit</button>
+            <button className="bg-red-500 px-3 rounded-xl">Delete</button>
+          </div>
+        ))}
       </div>
     </section>
   );

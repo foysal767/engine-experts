@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
 
 const AllService1 = () => {
   const { data: services = [], isLoading } = useQuery({
@@ -24,9 +25,11 @@ const AllService1 = () => {
         <h1 className="text-2xl font-serif text-start mb-6">
           Total Available Services: 4
         </h1>
-        <button className="w-[100px] h-[50px] rounded bg-blue-400">
-          Add Service
-        </button>
+        <Link to="/dashboard1/addservice1">
+          <button className="w-[100px] h-[50px] rounded bg-blue-400">
+            Add Service
+          </button>
+        </Link>
       </div>
       <div className="flex flex-col gap-4">
         {services?.map((service: any, i: any) => (

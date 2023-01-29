@@ -21,8 +21,8 @@ const Services = () => {
     );
   }
   return (
-    <section className="mb-20 mt-20 px-4 md:px-8 lg:px-12 lg:mb-32">
-      <h1 className="text-5xl font-bold font-poppins mb-12 text-[#383232]">
+    <section className="mb-6 lg:mb-28 px-4 md:px-8 lg:px-12">
+      <h1 className="text-2xl lg:text-5xl font-bold font-poppins mb-12 text-[#383232]">
         Services that we Offer
       </h1>
       <div className="mt-9 mb-12 row grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 font-poppins">
@@ -52,10 +52,8 @@ const Services = () => {
           </div>
         ))}
       </div>
-      <Link to={"/"} className="mt-14">
-        <button className="getbtn">
-          All Services
-        </button>
+      <Link to={"/services"} className="mt-14">
+        <button className="getbtn">All Services</button>
       </Link>
     </section>
   );
