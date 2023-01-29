@@ -5,16 +5,19 @@ const AllOrders1 = () => {
         All orders Available here
       </h1>
       <div className="w-full flex flex-col gap-4">
-        <select className="w-[160px] h-[45px] bg-white rounded px-3" name="options">
+        <select
+          className="w-[160px] h-[45px] bg-white rounded px-3"
+          name="options"
+        >
           <option value="Active Orders" selected>
             Active Orders
           </option>
           <option value="Completed Orders">Completed Orders</option>
         </select>
         {/* card starts from here */}
-        <div className="flex gap-3 justify-between items-center px-4 py-3 text-xl bg-[#d9dee4] rounded border">
+        <div className="flex flex-col lg:flex-row gap-3 justify-between items-center px-4 py-3 text-xl bg-[#d9dee4] rounded border">
           <h2>1.</h2>
-          <button className="w-[50px] h-[50px] rounded-full bg-gray-300">
+          <button className="w-[50px] hidden lg:block h-[50px] rounded-full bg-gray-300">
             Img
           </button>
           <h2>Service Name</h2>
@@ -33,9 +36,9 @@ const AllOrders1 = () => {
           <button className="bg-red-500 px-3 rounded-xl">Delete</button>
         </div>
         {/* card starts from here */}
-        <div className="flex gap-3 justify-between items-center px-4 py-3 text-xl bg-[#d9dee4] rounded border">
-          <h2>2.</h2>
-          <button className="w-[50px] h-[50px] rounded-full bg-gray-300">
+        <div className="flex flex-col lg:flex-row gap-3 justify-between items-center px-4 py-3 text-xl bg-[#d9dee4] rounded border">
+          <h2>1.</h2>
+          <button className="w-[50px] hidden lg:block h-[50px] rounded-full bg-gray-300">
             Img
           </button>
           <h2>Service Name</h2>
