@@ -75,25 +75,22 @@ const ServiceDetails = () => {
 
       {/* banner for service */}
 
-      <div className="relative overflow-hidden">
+      <div className="relative lg:h-[200px] h-[100px] w-full">
         <img
-          className="opacity-70"
+          className="opacity-70 w-full h-full"
           src="/assets/services-bg.jpg"
           alt="service-bg"
         />
-        <div className="">
-          <h2 className="flex font-poppins text-5xl mt-20 ml-10 font-bold absolute top-0 left-0">
+        <div className="h-full w-full flex items-end absolute top-0 p-4 lg:p-10">
+          <h2 className="flex items-center font-poppins text-2xl lg:text-5xl font-bold ">
             {details?.name}___
             <RiServiceFill className="text-[#E81C2E]"></RiServiceFill>
           </h2>
-
-
-
         </div>
       </div>
       {/* end there */}
 
-      <div className="lg:flex gap-10 w-full px-4 md:px-8 lg:px-12 mt-32">
+      <div className="lg:flex gap-10 w-full px-4 md:px-8 lg:px-12 lg:mt-20 mt-10">
 
         {/* -----------------Secvice Image-------------------- */}
         <div className=" flex-1 flex flex-col gap-5 text-xl mt-">
@@ -109,8 +106,8 @@ const ServiceDetails = () => {
             <h1 className="text-4xl text-black font-semibold  text-start">Give Your FeedBack Here</h1>
             
             {/* form/feedback */}
-            <form onSubmit={giveFeedBack} className="w-full p-3 text-start rounded-md outline-none mt-4 ">
-              <div className="w-full flex  items-center gap-3">
+            <form onSubmit={giveFeedBack} className="w-full text-start rounded-md outline-none mt-4 ">
+              <div className="w-full lg:flex items-center gap-3">
                 <textarea name="feedback"  cols={12} rows={1} placeholder="Comment your feedback here..." className="bg-black p-3 h-[60px] m-0 w-full rounded-md outline-none" required></textarea>
                 <select name="rating" id="" className="bg-black h-[60px] text-xl rounded outline-none">
                   <option value="Good">Good</option>
@@ -149,7 +146,7 @@ const ServiceDetails = () => {
 
         </div>
 
-        <div className=" w-full flex flex-col gap-8 lg:w-[30%] p-2 ">
+        <div className=" w-full flex flex-col gap-8 lg:w-[30%] px-2 mt-7 lg:mt-0">
 
           {/* -------------Get Service---------- */}
           <div className="shadow-2xl rounded py-8 px-10 text-start bg-[black] flex flex-col gap-3">
