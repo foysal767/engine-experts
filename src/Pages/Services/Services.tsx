@@ -53,7 +53,7 @@ const Services = () => {
         ))}
       </div>
       <Link to={"/services"} className="mt-14">
-        <button className="getbtn">All Services</button>
+        <button className="servicesBtn">All Services</button>
       </Link>
     </section>
   );

@@ -34,8 +34,8 @@ const Footer = () => {
               <p className="text-left">Mon-Sat: 9.00 am to 6.30 pm</p>
             </div>
             <button
-              type="submit"
-              className="btn bg-[#E81C2E] text-white uppercase font-bold mt-6"
+              // type="submit"
+              className="footerBtn text-white uppercase font-bold mt-6"
             >
               <Link to="/contactform">Contact us</Link>
             </button>
@@ -109,8 +109,8 @@ const Footer = () => {
                 <br />
                 <br />
                 <button
-                  type="submit"
-                  className="btn bg-[#E81C2E] w-full text-white"
+                  // type="submit"
+                  className="footerBtn w-full font-bold uppercase text-white"
                 >
                   Subscribe
                 </button>

@@ -21,3 +21,12 @@
     background-position: 0% 50%;
   }
 }
+
+/* .navbar{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: rgba(0,0,0,0.3);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 20px 30px rgba(0,0,0,0.15);
+} */

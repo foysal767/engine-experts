@@ -4,6 +4,21 @@
      background-repeat: no-repeat;
 
 } */
+
+.footerBtn{
+    clip-path: polygon(20px 0,100% 0,100% calc(100% - 20px),calc(100% - 20px) 100%,0 100%,0 20px);
+    padding: 16px 60px;
+    background-color: #E81C2E;
+    border: 2px solid #E81C2E;
+}
+
+.footerBtn:hover{
+    color: #fff;
+    background-color: initial;
+    clip-path: polygon(0 0,100% 0,100% calc(100% - 20px),100% 100%,0 100%,0 20px);
+    border: 2px solid #E81C2E;
+}
+
 .title{
     position: relative;
     cursor: pointer;

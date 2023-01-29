@@ -23,7 +23,7 @@ const GetInTouch = () => {
             </p>
           </div>
           <div>
-            <button className="getbtn">Chat Now</button>
+            <button className="getBtn">Chat Now</button>
           </div>
         </div>
 
