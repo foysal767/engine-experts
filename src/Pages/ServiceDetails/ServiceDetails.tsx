@@ -162,9 +162,12 @@ const ServiceDetails = () => {
               </h2>
             </div>
             <span className=" font-bold text-2xl">Price: {details?.price}</span>
-            <button className="getbtn text-2xl font-semibold text-white">
+            <label
+              htmlFor="payment-modal"
+              className="getbtn text-2xl font-semibold text-white"
+            >
               Get Service
-            </button>
+            </label>
           </div>
 
           {/* ------------Conact us Section------------ */}
@@ -222,6 +225,63 @@ const ServiceDetails = () => {
             );
           })}
 
+        </div>
+      </div>
+      {/* Put this part before </body> tag */}
+      <input type="checkbox" id="payment-modal" className="modal-toggle" />
+      <div className="modal">
+        <div className="modal-box relative bg-white">
+          <label
+            htmlFor="payment-modal"
+            className="btn btn-sm btn-circle absolute right-2 top-2"
+          >
+            ✕
+          </label>
+          <h3 className="text-2xl font-bold text-black">Bookings For {details?.name}</h3>
+          <p className="text-black text-left">Full name</p>
+          <input
+            type="text"
+            placeholder="Full name"
+            className="input input-bordered w-full bg-white border border-black"
+          />
+          <p className="text-black text-left">Price</p>
+          <input
+            type="text"
+            defaultValue={details?.price}
+            className="input-bordered w-full rounded-md px-2 py-3 text-black bg-white border border-black"
+            disabled
+          />
+          <p className="text-black text-left">Phone Number</p>
+          <input
+            type="text"
+            placeholder="Mobile Number"
+            className="input input-bordered w-full text-black bg-white border border-black"
+          
+          />
+          <p className="text-black text-left">Model</p>
+          <input
+            type="text"
+            placeholder="Enter Your Car Model"
+            className="input input-bordered w-full text-black bg-white border border-black"
+          
+          />
+          <p className="text-black text-left">Location</p>
+          <input
+            type="text"
+            placeholder="Your Location"
+            className="input input-bordered w-full text-black bg-white border border-black"
+          
+          />
+          <p className="text-black text-left">Select Booking Date</p>
+          {/* <input className=" input-bordered w-full text-black px-2 py-3 rounded-md bg-white border border-black" type="date" placeholder="Booking Date" name="" id="dated" /> */}
+          <input className=" input-bordered w-full text-black px-2 py-3 rounded-md bg-white border border-black" placeholder="Booking Date" type="date" name="" id="" />
+          <form>
+            
+            
+            <button className="btn bg-[#E81C2E] text-white border-none w-full mt-3 rounded-full">
+              Book Now
+            </button>
+          </form>
         </div>
       </div>
     </section>
