@@ -37,8 +37,8 @@ const DiscountSection = () => {
   }
   return (
     <section className="w-full mb-6 lg:mb-28">
-      <div className="w-full bg-[#19191B] bg-[url('https://autohive-html.themetags.com/assets/img/shapes/texture-bg.png')] py-24 relative upper-section ">
-        <div className="grid grid-cols-2 absolute w-full top-0">
+      <div className="w-full bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] py-24 relative upper-section ">
+        <div className="hidden lg:grid grid-cols-2 absolute w-full top-0">
           <img src="/assets/tire-left.png" alt="" className="tyre" />
           <img src="/assets/tire-right.png" alt="" className="tyre" />
         </div>
