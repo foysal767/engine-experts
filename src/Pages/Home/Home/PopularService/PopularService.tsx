@@ -32,7 +32,7 @@ const PopularService = () => {
               This service are popular for our customer <br />
               so that they review it.
             </p>
-            <button className="getbtn">Get All Service</button>
+            <button className="popularBtn">Get All Service</button>
           </div>
           <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 gap-4 h-full w-full py-12">
             {popular?.map((service: any) => (

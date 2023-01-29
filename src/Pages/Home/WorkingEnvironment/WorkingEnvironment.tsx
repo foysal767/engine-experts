@@ -1,5 +1,6 @@
 import React from "react";
 import { VscDebugBreakpointData } from "react-icons/vsc";
+import "./WorkingEnvironment.css"
 
 const WorkingEnvironment = () => {
   return (
@@ -32,7 +33,7 @@ const WorkingEnvironment = () => {
                 <VscDebugBreakpointData></VscDebugBreakpointData> <p>SHUTTLE</p>
               </span>
             </div>
-            <button className="getbtn mt-7">Get more Info</button>
+            <button className="workBtn mt-7">Get more Info</button>
           </div>
         </div>
         <div className="lg:flex justify-center">
@@ -47,7 +48,7 @@ const WorkingEnvironment = () => {
               yours
               <br /> because we will detail it to your complete satisfaction.
             </p>
-            <button className="getbtn mt-7">Get more Info</button>
+            <button className="workBtn mt-7">Get more Info</button>
           </div>
           <img
             className="lg:w-1/2 w-full h-1/2"
