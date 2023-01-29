@@ -23,7 +23,7 @@ const AllUsers1 = () => {
       <h1 className="text-2xl font-serif text-start mb-6">
         Total Active Users: {users?.length}
       </h1>
-      <div className="w-full grid lg:grid-cols-3 gap-4">
+      <div className="w-full grid lg:grid-cols-3 gap-4 lg:px-3">
         {/* Single card starts from here */}
         {users?.map((user: any, i: any) => (
           <div className="border flex justify-between gap-2 p-5 text-start ">

@@ -21,9 +21,9 @@ const AllService1 = () => {
   }
   return (
     <section className="w-full lg:w-[80%] md:w-[80%] mx-auto px-4 md:px-8 lg:px-12 bg-[#EBF2F4] pb-10">
-      <div className="w-full flex justify-between items-center mb-5">
+      <div className="w-full lg:flex justify-between lg:items-center mb-5 text-start">
         <h1 className="text-2xl font-serif text-start mb-6">
-          Total Available Services: 4
+          Total Available Services: {services?.length}
         </h1>
         <Link to="/dashboard1/addservice1">
           <button className="w-[100px] h-[50px] rounded bg-blue-400">
@@ -33,17 +33,19 @@ const AllService1 = () => {
       </div>
       <div className="flex flex-col gap-4">
         {services?.map((service: any, i: any) => (
-          <div className="flex gap-3 justify-between items-center px-4 py-3 text-xl bg-[#d9dee4] rounded border">
+          <div className="flex flex-col lg:flex-row gap-3 justify-between items-center px-4 py-3 text-xl bg-[#d9dee4] rounded border text-center">
             <h2>{i + 1}.</h2>
             <img
-              className="w-[50px] h-[50px] rounded-full bg-gray-300"
+              className="w-[50px] hidden lg:block h-[50px] rounded-full bg-gray-300"
               src={service?.image}
               alt=""
             />
             <h2>{service?.name}</h2>
             <h2>{service?.price}</h2>
-            <button className="bg-green-500 px-3 rounded-xl">Edit</button>
-            <button className="bg-red-500 px-3 rounded-xl">Delete</button>
+            <div className="flex gap-3">
+              <button className="bg-green-500 px-3 rounded-xl">Edit</button>
+              <button className="bg-red-500 px-3 rounded-xl">Delete</button>
+            </div>
           </div>
         ))}
         {/* Card Starts from here */}
