@@ -18,13 +18,13 @@ const Navbar = () => {
         <Link to="/">Home</Link>
       </li>
       <li className="font-semibold hover:text-[#E81C2E]">
-        <Link to="/appointment">Appointment</Link>
-      </li>
-      <li className="font-semibold hover:text-[#E81C2E]">
         <Link to="/services">Services</Link>
       </li>
       <li className="hover:text-[#E81C2E] font-semibold">
         <Link to="/booking">My Booking</Link>
+      </li>
+      <li className="hover:text-[#E81C2E] font-semibold">
+        <Link to="/myreview">My Review</Link>
       </li>
       <li className="font-semibold hover:text-[#E81C2E]">
         <Link to="/dashboard1">Dashboard</Link>

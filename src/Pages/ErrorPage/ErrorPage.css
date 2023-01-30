@@ -1,11 +1,11 @@
-.signupBtn{
+.homeBtn{
     clip-path: polygon(20px 0,100% 0,100% calc(100% - 20px),calc(100% - 20px) 100%,0 100%,0 20px);
-    padding: 12px 60px;
+    padding: 12px 20px;
     background-color: #E81C2E;
     border: 2px solid #E81C2E;
 }
 
-.signupBtn:hover{
+.homeBtn:hover{
     color: black;
     background-color: initial;
     clip-path: polygon(0 0,100% 0,100% calc(100% - 20px),100% 100%,0 100%,0 20px);

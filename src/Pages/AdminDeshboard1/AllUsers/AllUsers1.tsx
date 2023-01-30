@@ -23,13 +23,11 @@ const AllUsers1 = () => {
       <h1 className="text-2xl font-serif text-start mb-6">
         Total Active Users: {users?.length}
       </h1>
-      <div className="w-full grid lg:grid-cols-3 gap-4 lg:px-3">
+      <div className="w-full grid lg:grid-cols-2 gap-4 lg:px-3">
         {/* Single card starts from here */}
         {users?.map((user: any, i: any) => (
           <div className="border flex justify-between gap-2 p-5 text-start ">
-            <button className="w-[90px] h-[90px] rounded-full bg-gray-400 ">
-              Image
-            </button>
+            <img src={user?.image} alt="" className="w-[90px] h-[90px] rounded-full bg-gray-400 "/>
             <div className="flex flex-col justify-between">
               <h1 className="text-start text-2xl">
                 {user?.name ? user?.name : "Name Not Found"}

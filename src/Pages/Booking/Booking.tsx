@@ -165,7 +165,7 @@ const Booking = () => {
                 <input
                   type="password"
                   placeholder="CVV"
-                  className="input input-bordered w-full mt-1 bg-white border border-black"
+                  className="input input-bordered w-full bg-white border border-black"
                 />
               </div>
             </div>
