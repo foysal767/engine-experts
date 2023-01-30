@@ -1,15 +1,16 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
-import "./SignUp.css"
-// import swal from "sweetalert";
+import "./SignUp.css";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
 type Inputs = {
   email: string;
   password: string;
   name: string;
+  photoURL: string;
+  role: string;
 };
 
 const SignUp = () => {
@@ -22,18 +23,30 @@ const SignUp = () => {
   } = useForm<Inputs>();
   const navigate = useNavigate();
 
-  
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    createUser(data.email, data.password, navigate);
-  };
+  const imageHostKey = process.env.REACT_APP_imgbb_key;
+  console.log(imageHostKey);
 
-  
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    const image = data.photoURL[0];
+    const formData = new FormData();
+    formData.append("image", image);
+    const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((imgData) => {
+        if (imgData.success) {
+          const imgUrl = imgData.data.url;
+          createUser(data.email, data.password, data.name, imgUrl, data.role, navigate);
+        }
+      });
+  };
 
   const googleLogin = () => {
     googleSignIn(navigate);
   };
-
-  //onSubmit={handleSubmit(onSubmit)}
 
   return (
     <section className="">
@@ -54,9 +67,8 @@ const SignUp = () => {
             className="h-[80%] w-[80%]"
           />
         </div>
-        
+
         <div className="grid place-items-center h-full w-full">
-          
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="lg:w-[80%] mx-auto"
@@ -72,7 +84,6 @@ const SignUp = () => {
                   required: "Name is required",
                 })}
                 className="w-full h-[50px] rounded bg-white px-2 text-black"
-                required
               />
               {errors.name && (
                 <p className="text-red-600">{errors.name?.message}</p>
@@ -89,10 +100,44 @@ const SignUp = () => {
                   required: "Email Address is required",
                 })}
                 className="w-full h-[50px] rounded bg-white px-2 text-black"
-                required
               />
               {errors.email && (
                 <p className="text-red-600">{errors.email?.message}</p>
+              )}
+            </div>
+
+            <div className="w-full">
+              <label className="label">
+                <span className="label-text text-black text-xl">Account type</span>
+              </label>
+              <select className="select select-bordered w-full bg-white text-black"
+              {...register("role", {
+                required: "role is required",
+              })}
+              >
+                <option>User</option>
+                <option>Seller</option>
+              </select>
+              {errors.role && (
+                <p className="text-red-600">{errors.role?.message}</p>
+              )}
+            </div>
+
+            <div className="w-full">
+              <label className="label">
+                <span className="label-text text-black text-xl">
+                  Upload Image
+                </span>
+              </label>
+              <input
+                type="file"
+                {...register("photoURL", {
+                  required: "photoURL is required",
+                })}
+                className="file-input file-input-bordered w-full bg-white text-black"
+              />
+              {errors.photoURL && (
+                <p className="text-red-600">{errors.photoURL?.message}</p>
               )}
             </div>
             <div className="w-full">
@@ -120,11 +165,9 @@ const SignUp = () => {
               )}
             </div>
             <div className="w-full grid lg:grid-cols-2 gap-3">
-              <input
-                className="bg-red-500 rounded w-full h-[50px] cursor-pointer font-semibold"
-                value="Sign Up"
-                type="submit"
-              />
+              <button className="signupBtn w-full font-semibold">
+                Sign Up
+              </button>
               <button
                 onClick={googleLogin}
                 className="w-full h-[50px] hover:bg-black hover:text-white rounded border flex items-center font-semibold text-black"

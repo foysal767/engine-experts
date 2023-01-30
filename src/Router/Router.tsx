@@ -6,13 +6,13 @@ import AdminDeshboard1 from "../Pages/AdminDeshboard1/AdminDeshboard1"
 import AllOrders1 from "../Pages/AdminDeshboard1/AllOrders/AllOrders1"
 import AllService1 from "../Pages/AdminDeshboard1/AllService/AllService1"
 import AllUsers1 from "../Pages/AdminDeshboard1/AllUsers/AllUsers1"
-import Appointment from "../Pages/Appointment/Appointment"
 import Booking from "../Pages/Booking/Booking"
 import ErrorPage from "../Pages/ErrorPage/ErrorPage"
 import ContactForm from "../Pages/Home/ContactForm/ContactForm"
 import ContactUs from "../Pages/Home/ContactUs/ContactUs"
 import Home from "../Pages/Home/Home/Home"
 import Login from "../Pages/Login/Login"
+import MyReview from "../Pages/MyReview/MyReview"
 import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails"
 import Services from "../Pages/Services/Services"
 import SignUp from "../Pages/SignUp/SignUp"
@@ -48,8 +48,8 @@ const router = createBrowserRouter([
         element: <Booking></Booking>,
       },
       {
-        path: "/appointment",
-        element: <Appointment></Appointment>,
+        path: "/myreview",
+        element: <MyReview></MyReview>
       },
       {
         path: "/services",
