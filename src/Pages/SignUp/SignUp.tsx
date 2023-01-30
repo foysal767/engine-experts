@@ -39,7 +39,14 @@ const SignUp = () => {
       .then((imgData) => {
         if (imgData.success) {
           const imgUrl = imgData.data.url;
-          createUser(data.email, data.password, data.name, imgUrl, data.role, navigate);
+          createUser(
+            data.email,
+            data.password,
+            data.name,
+            imgUrl,
+            data.role,
+            navigate
+          );
         }
       });
   };
@@ -108,12 +115,15 @@ const SignUp = () => {
 
             <div className="w-full">
               <label className="label">
-                <span className="label-text text-black text-xl">Account type</span>
+                <span className="label-text text-black text-xl">
+                  Account type
+                </span>
               </label>
-              <select className="select select-bordered w-full bg-white text-black"
-              {...register("role", {
-                required: "role is required",
-              })}
+              <select
+                className="select select-bordered w-full bg-white text-black text-xl font-normal"
+                {...register("role", {
+                  required: "role is required",
+                })}
               >
                 <option>User</option>
                 <option>Seller</option>
