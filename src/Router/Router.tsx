@@ -7,6 +7,7 @@ import AllOrders1 from "../Pages/AdminDeshboard1/AllOrders/AllOrders1";
 import AllService1 from "../Pages/AdminDeshboard1/AllService/AllService1";
 import AllUsers1 from "../Pages/AdminDeshboard1/AllUsers/AllUsers1";
 import Booking from "../Pages/Booking/Booking";
+import Payment from "../Pages/Booking/Payment";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import GoogleMaps from "../Pages/GoogleMaps/GoogleMaps";
 import ContactForm from "../Pages/Home/ContactForm/ContactForm";
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
         path: "/serviceDetails/:id",
         element: <ServiceDetails></ServiceDetails>,
       },
+      {
+        path: "/booking/payment",
+        element: <Payment></Payment>
+      }
     ],
   },
   {
