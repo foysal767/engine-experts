@@ -75,14 +75,14 @@ const ServiceDetails = () => {
 
       {/* banner for service */}
 
-      <div className="relative">
+      <div className="relative lg:h-[200px] h-[100px] w-full">
         <img
-          className="opacity-70 "
+          className="opacity-70 w-full h-full"
           src="/assets/services-bg.jpg"
           alt="service-bg"
         />
-        <div className="">
-          <h2 className="flex  font-poppins text-5xl mt-20 ml-10 font-bold absolute top-0 left-0 ">
+        <div className="h-full w-full flex items-end absolute top-0 p-4 lg:p-10">
+          <h2 className="flex items-center font-poppins text-2xl lg:text-5xl font-bold ">
             {details?.name}___
             <RiServiceFill className="text-[#E81C2E]"></RiServiceFill>
           </h2>
@@ -90,7 +90,7 @@ const ServiceDetails = () => {
       </div>
       {/* end there */}
 
-      <div className="lg:flex gap-10 w-full px-4 md:px-8 lg:px-12 mt-32 md:mt-12 sm:mt-6">
+      <div className="lg:flex gap-10 w-full px-4 md:px-8 lg:px-12 lg:mt-20 mt-10">
 
         {/* -----------------Secvice Image-------------------- */}
         <div className=" flex-1 flex flex-col gap-5 text-xl mt-">
@@ -106,9 +106,9 @@ const ServiceDetails = () => {
             <h1 className="text-4xl text-black font-semibold  text-start">Give Your FeedBack Here</h1>
             
             {/* form/feedback */}
-            <form onSubmit={giveFeedBack} className="w-full p-3 text-start rounded-md outline-none mt-4 ">
-              <div className="w-full flex  items-center gap-3">
-                <textarea name="feedback"  cols={12} rows={1} placeholder="Your feedback..." className="bg-black p-3 h-[60px] m-0 w-full  rounded-md outline-none" required></textarea>
+            <form onSubmit={giveFeedBack} className="w-full text-start rounded-md outline-none mt-4 ">
+              <div className="w-full lg:flex items-center gap-3">
+                <textarea name="feedback"  cols={12} rows={1} placeholder="Comment your feedback here..." className="bg-black p-3 h-[60px] m-0 w-full rounded-md outline-none" required></textarea>
                 <select name="rating" id="" className="bg-black h-[60px] text-xl rounded outline-none">
                   <option value="Good">Good</option>
                   <option value="Excellent">Excellent</option>
@@ -146,7 +146,7 @@ const ServiceDetails = () => {
 
         </div>
 
-        <div className=" w-full flex flex-col gap-8 lg:w-[30%] p-2 ">
+        <div className=" w-full flex flex-col gap-8 lg:w-[30%] px-2 mt-7 lg:mt-0">
 
           {/* -------------Get Service---------- */}
           <div className="shadow-2xl rounded py-8 px-10 text-start bg-[black] flex flex-col gap-3">
@@ -159,9 +159,12 @@ const ServiceDetails = () => {
               </h2>
             </div>
             <span className=" font-bold text-2xl">Price: {details?.price}</span>
-            <button className="getbtn text-2xl font-semibold text-white">
+            <label
+              htmlFor="payment-modal"
+              className="getbtn text-2xl font-semibold text-white"
+            >
               Get Service
-            </button>
+            </label>
           </div>
 
           {/* ------------Conact us Section------------ */}
@@ -219,6 +222,63 @@ const ServiceDetails = () => {
             );
           })}
 
+        </div>
+      </div>
+      {/* Put this part before </body> tag */}
+      <input type="checkbox" id="payment-modal" className="modal-toggle" />
+      <div className="modal">
+        <div className="modal-box relative bg-white">
+          <label
+            htmlFor="payment-modal"
+            className="btn btn-sm btn-circle absolute right-2 top-2"
+          >
+            ✕
+          </label>
+          <h3 className="text-2xl font-bold text-black">Bookings For {details?.name}</h3>
+          <p className="text-black text-left">Full name</p>
+          <input
+            type="text"
+            placeholder="Full name"
+            className="input input-bordered w-full bg-white border border-black"
+          />
+          <p className="text-black text-left">Price</p>
+          <input
+            type="text"
+            defaultValue={details?.price}
+            className="input-bordered w-full rounded-md px-2 py-3 text-black bg-white border border-black"
+            disabled
+          />
+          <p className="text-black text-left">Phone Number</p>
+          <input
+            type="text"
+            placeholder="Mobile Number"
+            className="input input-bordered w-full text-black bg-white border border-black"
+          
+          />
+          <p className="text-black text-left">Model</p>
+          <input
+            type="text"
+            placeholder="Enter Your Car Model"
+            className="input input-bordered w-full text-black bg-white border border-black"
+          
+          />
+          <p className="text-black text-left">Location</p>
+          <input
+            type="text"
+            placeholder="Your Location"
+            className="input input-bordered w-full text-black bg-white border border-black"
+          
+          />
+          <p className="text-black text-left">Select Booking Date</p>
+          {/* <input className=" input-bordered w-full text-black px-2 py-3 rounded-md bg-white border border-black" type="date" placeholder="Booking Date" name="" id="dated" /> */}
+          <input className=" input-bordered w-full text-black px-2 py-3 rounded-md bg-white border border-black" placeholder="Booking Date" type="date" name="" id="" />
+          <form>
+            
+            
+            <button className="btn bg-[#E81C2E] text-white border-none w-full mt-3 rounded-full">
+              Book Now
+            </button>
+          </form>
         </div>
       </div>
     </section>

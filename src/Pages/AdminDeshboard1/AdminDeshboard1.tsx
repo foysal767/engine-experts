@@ -3,33 +3,37 @@ import "./AdminDeshboard.css";
 
 const AdminDeshboard1 = () => {
   return (
-    <main className="bg-[#EBF2F4] text-black">
-      <section className="w-full h-[80vh] relative mb-28">
+    <main className="bg-[#EBF2F4] text-black w-full">
+      <section className="w-full h-[80vh] relative mb-8 lg:mb-28">
         <div className="w-full h-[80vh] adminbanner absolute top-0"></div>
-        <div className="absolute top-0 w-full h-[13vh] border-b-2 border-slate-400 px-4 md:px-8 lg:px-12 flex justify-between items-center">
+        <div className="absolute top-0 w-full h-[7vh] lg:h-[13vh] border-b-2 border-slate-400 px-4 md:px-8 lg:px-12 flex justify-between items-center">
           <Link to={"/"}>
-            <h1 className="text-4xl font-semibold text-white">
+            <h1 className="text-2xl lg:text-4xl font-semibold text-white">
               Engine Experts
             </h1>
           </Link>
           <h2 className="text-2xl text-white">LogOut</h2>
         </div>
-        <div className="w-full absolute top-28">
-          <div className="w-[80%] mx-auto flex justify-between items-center gap-4 mt-8">
+        <div className="w-full absolute top-24 lg:top-28">
+          <div className="w-full lg:w-[80%] mx-auto flex justify-between items-center gap-4 lg:mt-8 px-3 lg:px-0">
             <h1 className="text-start text-sm font-poppins text-slate-300">
-              Total Revenue <br /> <span className="text-3xl">2100$</span>
+              Total Revenue <br />
+              <span className="text-2xl lg:text-3xl">2100$</span>
             </h1>
             <h1 className="text-start text-sm font-poppins text-slate-300">
-              Total Revenue <br /> <span className="text-3xl">210$</span>
+              Total Revenue <br />
+              <span className="text-2xl lg:text-3xl">210$</span>
             </h1>
             <h1 className="text-start text-sm font-poppins text-slate-300">
-              Total Revenue <br /> <span className="text-3xl">1500$</span>
+              Total Revenue <br />
+              <span className="text-2xl lg:text-3xl">1500$</span>
             </h1>
             <h1 className="text-start text-sm font-poppins text-slate-300">
-              Total Revenue <br /> <span className="text-3xl">900$</span>
+              Total Revenue <br />
+              <span className="text-2xl lg:text-3xl">900$</span>
             </h1>
           </div>
-          <div className="grid lg:grid-cols-4 gap-4 w-[80%] mx-auto mt-28">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 w-[80%] mx-auto mt-16 lg:mt-28">
             {/* Card one start from here */}
             <div className="maincard bg-[#DFF6E5] h-[180px] rounded-lg hover:-skew-y-12 relative transition duration-700">
               <Link to={"/dashboard1"}>

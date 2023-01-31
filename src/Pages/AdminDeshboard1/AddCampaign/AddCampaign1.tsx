@@ -77,22 +77,22 @@ const AddCampaign1 = () => {
         <h1 className="text-2xl font-serif text-start mb-6">
           Campaigns are available here
         </h1>
-        <button className="w-[180px] h-[50px] rounded bg-blue-500 text-xl">
+        <button className="w-[180px] lg:h-[50px] rounded bg-blue-500 text-xl">
           Add New Campaign
         </button>
       </div>
       <form
-        className="w-full border grid lg:grid-cols-5 justify-between items-center gap-3 mb-5"
+        className="w-full grid lg:grid-cols-5 justify-between items-center gap-3 mb-5"
         onSubmit={handleAddCam}
       >
         <input
-          className="bg-white w-full h-[53px] rounded px-2"
+          className="bg-white w-[168%] lg:w-full  h-[53px] rounded px-2"
           type="text"
           name="campname"
           placeholder="Campaign Name"
         />
         <select
-          className="h-[50px] rounded px-3 bg-white"
+          className="h-[50px] w-[168%] lg:w-full rounded px-3 bg-white"
           name="service"
           placeholder="Select Service"
           onClick={(e: any) => setSelectedService(e.target.value)}
@@ -102,20 +102,20 @@ const AddCampaign1 = () => {
           ))}
         </select>
         <input
-          className="bg-white w-full h-[53px] rounded px-2"
+          className="bg-white w-[168%] lg:w-full h-[53px] rounded px-2"
           type="text"
           name="originalprice"
           placeholder="Original Price"
           defaultValue={originalPrice}
         />
         <input
-          className="bg-white w-full h-[53px] rounded px-2"
+          className="bg-white w-[168%] lg:w-full h-[53px] rounded px-2"
           type="text"
           name="discountprice"
           placeholder="Discount Price"
         />
         <button
-          className="w-full h-[53px] rounded bg-blue-500 text-xl"
+          className="w-[168%] lg:w-full h-[53px] rounded bg-blue-500 text-xl"
           type="submit"
         >
           Add
@@ -123,7 +123,7 @@ const AddCampaign1 = () => {
       </form>
 
       <div className="border flex flex-col gap-3 p-3">
-        <div className="flex justify-between items-center">
+        <div className="lg:flex justify-between items-center text-center">
           <h2 className="text-xl font-poppins text-start mb-4">
             Campaign: {discount?.campaignName}
           </h2>
@@ -145,18 +145,20 @@ const AddCampaign1 = () => {
         </div>
         {/* card starts from here */}
         {discount?.services?.map((service: any, i: any) => (
-          <div className="flex gap-3 justify-between items-center px-4 py-2 text-xl bg-[#d9dee4] rounded border">
+          <div className="flex flex-col lg:flex-row gap-3 justify-between items-center px-4 py-2 text-xl bg-[#d9dee4] rounded border">
             <h2>{i + 1}</h2>
             <img
-              className="w-[50px] h-[50px] rounded-full bg-gray-300"
+              className="w-[50px] h-[50px] hidden lg:block rounded-full bg-gray-300"
               alt=""
               src={service?.image}
             />
-            <h2>{service?.name}</h2>
+            <h2 className="text-start">{service?.name}</h2>
             <h2>{service?.price}</h2>
             <h2>{service?.discountPrice}</h2>
-            <button className="bg-green-500 px-3 rounded-xl">Edit</button>
-            <button className="bg-red-500 px-3 rounded-xl">Delete</button>
+            <div className="flex gap-3 items-center">
+              <button className="bg-green-500 px-3 rounded-xl lg:mb-2">Edit</button>
+              <button className="bg-red-500 px-3 rounded-xl">Delete</button>
+            </div>
           </div>
         ))}
       </div>

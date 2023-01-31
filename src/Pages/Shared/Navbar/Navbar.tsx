@@ -14,27 +14,27 @@ const Navbar = () => {
       }
   const menuItems = (
     <React.Fragment>
-      <li>
+      <li className="font-semibold hover:text-[#E81C2E]" >
         <Link to="/">Home</Link>
       </li>
-      <li>
-        <Link to="/appointment">Appointment</Link>
-      </li>
-      <li>
+      <li className="font-semibold hover:text-[#E81C2E]">
         <Link to="/services">Services</Link>
       </li>
-      <li>
+      <li className="hover:text-[#E81C2E] font-semibold">
         <Link to="/booking">My Booking</Link>
       </li>
-      <li>
+      <li className="hover:text-[#E81C2E] font-semibold">
+        <Link to="/myreview">My Review</Link>
+      </li>
+      <li className="font-semibold hover:text-[#E81C2E]">
         <Link to="/dashboard1">Dashboard</Link>
       </li>
       {user?.uid ? (
-        <li onClick={handleLogOut}>
+        <li className="font-semibold hover:text-[#E81C2E]" onClick={handleLogOut}>
           <button>Logout</button>
         </li>
       ) : (
-        <li>
+        <li className="font-semibold hover:text-[#E81C2E]">
           <Link to="/login">Login</Link>
         </li>
       )}
@@ -68,7 +68,7 @@ const Navbar = () => {
             {menuItems}
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost normal-case text-xl">
+        <Link to="/" className="btn btn-ghost font-semibold normal-case text-xl">
           <AiOutlineDeploymentUnit className="text-4xl mx-2 text-green-500"></AiOutlineDeploymentUnit> Engine Experts
         </Link>
       </div>

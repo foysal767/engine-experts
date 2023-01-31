@@ -19,9 +19,9 @@ const Booking = () => {
           <span>Service Name</span>
           <span>Price</span>
           <span>Payment</span>
-          <span></span>
+          <span>Cancel</span>
         </div>
-        <div className="grid grid-cols-5 mx-auto items-center my-5 bg-gray-200 rounded py-2">
+        <div className="grid grid-cols-5 gap-2 lg:gap-3 items-center my-5 bg-gray-200 rounded py-2 px-2 h-[80px]">
           <span>
             <img
               className="lg:w-[80px] w-[50px] mx-auto"
@@ -29,13 +29,13 @@ const Booking = () => {
               alt=""
             />
           </span>
-          <span>
-            <h2 className="lg:text-xl text-sm font-bold">
+          <span className="text-start">
+            <h2 className="lg:text-xl text-sm lg:font-bold break-words text-starts">
               Performance Upgrade
             </h2>
           </span>
           <span>
-            <h2 className="lg:text-xl text-sm font-bold">$100</h2>
+            <h2 className="lg:text-xl text-sm lg:font-bold">$100</h2>
           </span>
           <span>
             <label
@@ -51,7 +51,7 @@ const Booking = () => {
             </button>
           </span>
         </div>
-        <div className="grid grid-cols-5 mx-auto items-center my-5 bg-gray-200 rounded py-2">
+        <div className="grid grid-cols-5 gap-2 lg:gap-3 items-center my-5 bg-gray-200 rounded py-2 px-2 h-[80px]">
           <span>
             <img
               className="lg:w-[80px] w-[50px] mx-auto"
@@ -59,13 +59,13 @@ const Booking = () => {
               alt=""
             />
           </span>
-          <span>
-            <h2 className="lg:text-xl text-sm font-bold">
+          <span className="text-start">
+            <h2 className="lg:text-xl text-sm lg:font-bold break-words text-starts">
               Performance Upgrade
             </h2>
           </span>
           <span>
-            <h2 className="lg:text-xl text-sm font-bold">$100</h2>
+            <h2 className="lg:text-xl text-sm lg:font-bold">$100</h2>
           </span>
           <span>
             <Link to={'/booking/payment'}>
@@ -83,7 +83,7 @@ const Booking = () => {
             </button>
           </span>
         </div>
-        <div className="grid grid-cols-5 mx-auto items-center my-5 bg-gray-200 rounded py-2">
+        <div className="grid grid-cols-5 gap-2 lg:gap-3 items-center my-5 bg-gray-200 rounded py-2 px-2 h-[80px]">
           <span>
             <img
               className="lg:w-[80px] w-[50px] mx-auto"
@@ -91,13 +91,13 @@ const Booking = () => {
               alt=""
             />
           </span>
-          <span>
-            <h2 className="lg:text-xl text-sm font-bold">
+          <span className="text-start">
+            <h2 className="lg:text-xl text-sm lg:font-bold break-words text-starts">
               Performance Upgrade
             </h2>
           </span>
           <span>
-            <h2 className="lg:text-xl text-sm font-bold">$100</h2>
+            <h2 className="lg:text-xl text-sm lg:font-bold">$100</h2>
           </span>
           <span>
             <label
@@ -173,7 +173,7 @@ const Booking = () => {
                 <input
                   type="password"
                   placeholder="CVV"
-                  className="input input-bordered w-full mt-1 bg-white border border-black"
+                  className="input input-bordered w-full bg-white border border-black"
                 />
               </div>
             </div>
