@@ -4,6 +4,7 @@ import { RiServiceFill } from "react-icons/ri";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import "./ServiceDetails.css"
+import DatePicker from 'react-date-picker';
 
 interface usedata {
   name: string;
@@ -25,7 +26,20 @@ const ServiceDetails = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [reviews, setReviews] = useState<reviewtype>();
   const { user } = useContext(AuthContext);
+  const [value, onChange] = useState(new Date());
 
+  const handleBooking = (event: any) => {
+    event.preventDefault()
+    const form = event.target;
+    const name = form.name.value;
+    const price = form.price.value;
+    const number = form.number.value;
+    const model = form.model.value;
+    const location = form.location.value;
+    const date = form.date.value;
+    const formValue = { name, price, location, model, number, date };
+    console.log(formValue);
+  }
   useEffect(() => {
     setLoading(true);
     const getDetail = async () => {
@@ -104,11 +118,11 @@ const ServiceDetails = () => {
           <h1 className="text-start text-black px-2">{details?.details}</h1>
           <div className="w-full mt-4">
             <h1 className="text-4xl text-black font-semibold  text-start">Give Your FeedBack Here</h1>
-            
+
             {/* form/feedback */}
             <form onSubmit={giveFeedBack} className="w-full text-start rounded-md outline-none mt-4 ">
               <div className="w-full lg:flex items-center gap-3">
-                <textarea name="feedback"  cols={12} rows={1} placeholder="Comment your feedback here..." className="bg-black p-3 h-[60px] m-0 w-full rounded-md outline-none" required></textarea>
+                <textarea name="feedback" cols={12} rows={1} placeholder="Comment your feedback here..." className="bg-black p-3 h-[60px] m-0 w-full rounded-md outline-none" required></textarea>
                 <select name="rating" id="" className="bg-black h-[60px] text-xl rounded outline-none">
                   <option value="Good">Good</option>
                   <option value="Excellent">Excellent</option>
@@ -141,9 +155,7 @@ const ServiceDetails = () => {
               <li>This is the Service 1</li>
             </ul>
           </div> */}
-
           {/* ----------------Table starts from here------------ */}
-
         </div>
 
         <div className=" w-full flex flex-col gap-8 lg:w-[30%] px-2 mt-7 lg:mt-0">
@@ -161,7 +173,7 @@ const ServiceDetails = () => {
             <span className=" font-bold text-2xl">Price: {details?.price}</span>
             <label
               htmlFor="payment-modal"
-              className="getbtn text-2xl font-semibold text-white"
+              className="pt-2 pb-3 text-2xl font-semibold btn bg-[#E81C2E] text-white"
             >
               Get Service
             </label>
@@ -227,54 +239,60 @@ const ServiceDetails = () => {
       {/* Put this part before </body> tag */}
       <input type="checkbox" id="payment-modal" className="modal-toggle" />
       <div className="modal">
-        <div className="modal-box relative bg-white">
+        <div className="modal-box relative bg-white text-black">
           <label
             htmlFor="payment-modal"
             className="btn btn-sm btn-circle absolute right-2 top-2"
           >
             ✕
           </label>
-          <h3 className="text-2xl font-bold text-black">Bookings For {details?.name}</h3>
-          <p className="text-black text-left">Full name</p>
-          <input
-            type="text"
-            placeholder="Full name"
-            className="input input-bordered w-full bg-white border border-black"
-          />
-          <p className="text-black text-left">Price</p>
-          <input
-            type="text"
-            defaultValue={details?.price}
-            className="input-bordered w-full rounded-md px-2 py-3 text-black bg-white border border-black"
-            disabled
-          />
-          <p className="text-black text-left">Phone Number</p>
-          <input
-            type="text"
-            placeholder="Mobile Number"
-            className="input input-bordered w-full text-black bg-white border border-black"
-          
-          />
-          <p className="text-black text-left">Model</p>
-          <input
-            type="text"
-            placeholder="Enter Your Car Model"
-            className="input input-bordered w-full text-black bg-white border border-black"
-          
-          />
-          <p className="text-black text-left">Location</p>
-          <input
-            type="text"
-            placeholder="Your Location"
-            className="input input-bordered w-full text-black bg-white border border-black"
-          
-          />
-          <p className="text-black text-left">Select Booking Date</p>
-          {/* <input className=" input-bordered w-full text-black px-2 py-3 rounded-md bg-white border border-black" type="date" placeholder="Booking Date" name="" id="dated" /> */}
-          <input className=" input-bordered w-full text-black px-2 py-3 rounded-md bg-white border border-black" placeholder="Booking Date" type="date" name="" id="" />
-          <form>
-            
-            
+          <form onSubmit={handleBooking}>
+            <h3 className="text-2xl font-bold text-black">Bookings For {details?.name}</h3>
+            <p className="text-black text-left">Full Name</p>
+            <input
+              type="text"
+              placeholder="Full name"
+              name="name"
+              className="input input-bordered w-full bg-white border border-black"
+            />
+            <p className="text-black text-left">Price</p>
+            <input
+              type="text"
+              defaultValue={details?.price}
+              name='price'
+              className="input-bordered w-full rounded-md px-2 py-3 text-black bg-white border border-black"
+              disabled
+            />
+            <p className="text-black text-left">Phone Number</p>
+            <input
+              type="text"
+              placeholder="Mobile Number"
+              name="number"
+              className="input input-bordered w-full text-black bg-white border border-black"
+
+            />
+            <p className="text-black text-left">Model</p>
+            <input
+              type="text"
+              placeholder="Enter Your Car Model"
+              name="model"
+              className="input input-bordered w-full text-black bg-white border border-black"
+
+            />
+            <p className="text-black text-left">Location</p>
+            <input
+              type="text"
+              placeholder="Your Location"
+              name="location"
+              className="input input-bordered w-full text-black bg-white border border-black"
+
+            />
+
+            <p className="text-black text-left">Select Booking Date</p>
+            {/* <input className=" input-bordered w-full text-black px-2 py-3 rounded-md bg-white border border-black" type="date" placeholder="Booking Date" name="" id="dated" /> */}
+            <div className='w-full h-[53px] rounded-md px-2 py-3 border'>
+              <DatePicker name="date" className='w-full h-full border-0' onChange={onChange} value={value} />
+            </div>
             <button className="btn bg-[#E81C2E] text-white border-none w-full mt-3 rounded-full">
               Book Now
             </button>
