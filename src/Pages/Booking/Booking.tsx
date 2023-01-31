@@ -1,8 +1,11 @@
 import React from "react";
 import Lottie from "lottie-react";
 import hi from "./hi.json";
+import { Link } from "react-router-dom";
+
 
 const Booking = () => {
+
   return (
     <div className="text-[#383232] px-4 md:px-8 lg:px-12">
       <div className="flex items-center mt-2 justify-center ">
@@ -65,12 +68,14 @@ const Booking = () => {
             <h2 className="lg:text-xl text-sm font-bold">$100</h2>
           </span>
           <span>
-            <label
-              htmlFor="payment-modal"
-              className="btn btn-success lg:btn-sm btn-xs"
-            >
-              Pay Now
-            </label>
+            <Link to={'/booking/payment'}>
+              <label
+                htmlFor="payment-modal"
+                className="btn btn-success lg:btn-sm btn-xs"
+              >
+                Pay Now
+              </label>
+            </Link>
           </span>
           <span>
             <button className="btn bg-red-600 lg:btn-sm btn-xs border-none">
@@ -110,6 +115,7 @@ const Booking = () => {
         </div>
       </div>
       {/* Put this part before </body> tag */}
+      {/* payment modal */}
       <input type="checkbox" id="payment-modal" className="modal-toggle" />
       <div className="modal">
         <div className="modal-box relative bg-white">
@@ -144,8 +150,10 @@ const Booking = () => {
             placeholder="Address"
             className="input input-bordered w-full bg-white border border-black"
           />
-          <p className="text-black text-left">Card Number</p>
-          <form>
+
+          {/* Form */}
+          <form >
+            <p className="text-black text-left">Card Number</p>
             <input
               type="text"
               placeholder="Card number"

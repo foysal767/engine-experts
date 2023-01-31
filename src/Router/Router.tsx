@@ -8,6 +8,7 @@ import AllService1 from "../Pages/AdminDeshboard1/AllService/AllService1"
 import AllUsers1 from "../Pages/AdminDeshboard1/AllUsers/AllUsers1"
 import Appointment from "../Pages/Appointment/Appointment"
 import Booking from "../Pages/Booking/Booking"
+import Payment from "../Pages/Booking/Payment"
 import ErrorPage from "../Pages/ErrorPage/ErrorPage"
 import ContactForm from "../Pages/Home/ContactForm/ContactForm"
 import ContactUs from "../Pages/Home/ContactUs/ContactUs"
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
       {
         path: "/serviceDetails/:id",
         element: <ServiceDetails></ServiceDetails>,
+      },
+      {
+        path: "/booking/payment",
+        element: <Payment></Payment>
       }
     ],
   },
