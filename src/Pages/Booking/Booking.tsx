@@ -38,12 +38,14 @@ const Booking = () => {
             <h2 className="lg:text-xl text-sm lg:font-bold">$100</h2>
           </span>
           <span>
-            <label
-              htmlFor="payment-modal"
-              className="btn btn-success lg:btn-sm btn-xs"
-            >
-              Pay Now
-            </label>
+            <Link to={'/booking/payment'}>
+              <label
+                htmlFor="payment-modal"
+                className="btn btn-success lg:btn-sm btn-xs"
+              >
+                Pay Now
+              </label>
+            </Link>
           </span>
           <span>
             <button className="btn bg-red-600 lg:btn-sm btn-xs border-none">
@@ -100,12 +102,14 @@ const Booking = () => {
             <h2 className="lg:text-xl text-sm lg:font-bold">$100</h2>
           </span>
           <span>
-            <label
-              htmlFor="payment-modal"
-              className="btn btn-success lg:btn-sm btn-xs"
-            >
-              Pay Now
-            </label>
+            <Link to={'/booking/payment'}>
+              <label
+                htmlFor="payment-modal"
+                className="btn btn-success lg:btn-sm btn-xs"
+              >
+                Pay Now
+              </label>
+            </Link>
           </span>
           <span>
             <button className="btn bg-red-600 lg:btn-sm btn-xs border-none">
