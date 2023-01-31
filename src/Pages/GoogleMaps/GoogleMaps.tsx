@@ -2,7 +2,6 @@ import React from "react";
 import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
-import userEvent from "@testing-library/user-event";
 
 const markerIconUser = new L.Icon({
   iconUrl: require("../../assets/images/marker.png"),
