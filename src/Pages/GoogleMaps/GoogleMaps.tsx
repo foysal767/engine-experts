@@ -25,6 +25,7 @@ const users = [
     lang: 88.60114,
   },
   { role: "seller", lat: 24.894802, lang: 91.869034 },
+  { role: "user", lat: 23.70731, lang: 90.415482 },
   { role: "user", lat: 22.80979, lang: 89.56439 },
 ];
 
