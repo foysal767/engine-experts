@@ -28,6 +28,18 @@ const ServiceDetails = () => {
   const { user } = useContext(AuthContext);
   const [value, onChange] = useState(new Date());
 
+  const handleBooking = (event: any) => {
+    event.preventDefault()
+    const form = event.target;
+    const name = form.name.value;
+    const price = form.price.value;
+    const number = form.number.value;
+    const model = form.model.value;
+    const location = form.location.value;
+    const date = form.date.value;
+    const formValue = { name, price, location, model, number, date };
+    console.log(formValue);
+  }
   useEffect(() => {
     setLoading(true);
     const getDetail = async () => {
@@ -234,47 +246,53 @@ const ServiceDetails = () => {
           >
             ✕
           </label>
-          <h3 className="text-2xl font-bold text-black">Bookings For {details?.name}</h3>
-          <p className="text-black text-left">Full Name</p>
-          <input
-            type="text"
-            placeholder="Full name"
-            className="input input-bordered w-full bg-white border border-black"
-          />
-          <p className="text-black text-left">Price</p>
-          <input
-            type="text"
-            defaultValue={details?.price}
-            className="input-bordered w-full rounded-md px-2 py-3 text-black bg-white border border-black"
-            disabled
-          />
-          <p className="text-black text-left">Phone Number</p>
-          <input
-            type="text"
-            placeholder="Mobile Number"
-            className="input input-bordered w-full text-black bg-white border border-black"
+          <form onSubmit={handleBooking}>
+            <h3 className="text-2xl font-bold text-black">Bookings For {details?.name}</h3>
+            <p className="text-black text-left">Full Name</p>
+            <input
+              type="text"
+              placeholder="Full name"
+              name="name"
+              className="input input-bordered w-full bg-white border border-black"
+            />
+            <p className="text-black text-left">Price</p>
+            <input
+              type="text"
+              defaultValue={details?.price}
+              name='price'
+              className="input-bordered w-full rounded-md px-2 py-3 text-black bg-white border border-black"
+              disabled
+            />
+            <p className="text-black text-left">Phone Number</p>
+            <input
+              type="text"
+              placeholder="Mobile Number"
+              name="number"
+              className="input input-bordered w-full text-black bg-white border border-black"
 
-          />
-          <p className="text-black text-left">Model</p>
-          <input
-            type="text"
-            placeholder="Enter Your Car Model"
-            className="input input-bordered w-full text-black bg-white border border-black"
+            />
+            <p className="text-black text-left">Model</p>
+            <input
+              type="text"
+              placeholder="Enter Your Car Model"
+              name="model"
+              className="input input-bordered w-full text-black bg-white border border-black"
 
-          />
-          <p className="text-black text-left">Location</p>
-          <input
-            type="text"
-            placeholder="Your Location"
-            className="input input-bordered w-full text-black bg-white border border-black"
+            />
+            <p className="text-black text-left">Location</p>
+            <input
+              type="text"
+              placeholder="Your Location"
+              name="location"
+              className="input input-bordered w-full text-black bg-white border border-black"
 
-          />
-          <p className="text-black text-left">Select Booking Date</p>
-          {/* <input className=" input-bordered w-full text-black px-2 py-3 rounded-md bg-white border border-black" type="date" placeholder="Booking Date" name="" id="dated" /> */}
-          <div className='w-full h-[53px] rounded-md px-2 py-3 border'>
-            <DatePicker className='w-full h-full border-0' onChange={onChange} value={value} />
-          </div>
-          <form>
+            />
+
+            <p className="text-black text-left">Select Booking Date</p>
+            {/* <input className=" input-bordered w-full text-black px-2 py-3 rounded-md bg-white border border-black" type="date" placeholder="Booking Date" name="" id="dated" /> */}
+            <div className='w-full h-[53px] rounded-md px-2 py-3 border'>
+              <DatePicker name="date" className='w-full h-full border-0' onChange={onChange} value={value} />
+            </div>
             <button className="btn bg-[#E81C2E] text-white border-none w-full mt-3 rounded-full">
               Book Now
             </button>
