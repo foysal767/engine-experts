@@ -6,6 +6,8 @@ import AdminDeshboard1 from "../Pages/AdminDeshboard1/AdminDeshboard1";
 import AllOrders1 from "../Pages/AdminDeshboard1/AllOrders/AllOrders1";
 import AllService1 from "../Pages/AdminDeshboard1/AllService/AllService1";
 import AllUsers1 from "../Pages/AdminDeshboard1/AllUsers/AllUsers1";
+import SellerOrder from "../Pages/AdminDeshboard1/SellerOrders/SellerOrder";
+// import SellerOrder from "../Pages/AdminDeshboard1/SellerOrder/SellerOrder";
 import Booking from "../Pages/Booking/Booking";
 import Payment from "../Pages/Booking/Payment";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
@@ -67,8 +69,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/booking/payment",
-        element: <Payment></Payment>
-      }
+        element: <Payment></Payment>,
+      },
     ],
   },
   {
@@ -80,7 +82,7 @@ const router = createBrowserRouter([
         element: <AddService1></AddService1>,
       },
       {
-        path: "/dashboard1",
+        path: "/dashboard1/allservice1",
         element: <AllService1></AllService1>,
       },
       {
@@ -94,6 +96,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard1/allorders1",
         element: <AllOrders1></AllOrders1>,
+      },
+      {
+        path: "/dashboard1/sellerOrders",
+        element: <SellerOrder></SellerOrder>,
       },
     ],
   },

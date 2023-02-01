@@ -2,6 +2,7 @@ import React from "react";
 import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
+import { useState, useEffect } from "react";
 
 const markerIconUser = new L.Icon({
   iconUrl: require("../../assets/images/marker.png"),
@@ -11,24 +12,18 @@ const markerIconSeller = new L.Icon({
   iconUrl: require("../../assets/images/marker2.png"),
   iconSize: [40, 40],
 });
-const users = [
-  {
-    role: "user",
-    lat: 22.3419,
-    lang: 91.815536,
-  },
-  { role: "seller", lat: 23.777176, lang: 90.399452 },
-  {
-    role: "user",
-    lat: 24.374,
-    lang: 88.60114,
-  },
-  { role: "seller", lat: 24.894802, lang: 91.869034 },
-  { role: "user", lat: 23.70731, lang: 90.415482 },
-  { role: "user", lat: 22.80979, lang: 89.56439 },
-];
 
 const GoogleMaps = () => {
+  const [locations, setLocations] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/locations")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setLocations(data.data);
+        }
+      });
+  }, []);
   return (
     <div className="mb-12 lg:mb-16">
       <MapContainer
@@ -41,13 +36,13 @@ const GoogleMaps = () => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://api.maptiler.com/maps/basic-v2/256/{z}/{x}/{y}.png?key=DxUohVtzxrJHRdt35lzh"
         />
-        {users?.map((user: any, i: any) => (
+        {locations?.map((user: any, i: any) => (
           <Marker
-            position={[user?.lat, user?.lang]}
+            position={[user?.location?.lat, user?.location?.long]}
             icon={user?.role === "user" ? markerIconUser : markerIconSeller}
           >
             <Popup>
-              <h1 className="text-2xl">{user?.role}</h1>
+              <h1 className="text-2xl">{user?.email}</h1>
             </Popup>
           </Marker>
         ))}

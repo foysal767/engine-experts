@@ -1,7 +1,14 @@
+import { useContext } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 
 const AllService1 = () => {
+  const { isAdmin } = useContext(AuthContext);
+  const navigate = useNavigate();
+  if (!isAdmin) {
+    navigate("/");
+  }
   const { data: services = [], isLoading } = useQuery({
     queryKey: ["services"],
     queryFn: async () => {
