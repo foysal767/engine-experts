@@ -1,7 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 const AddCampaign1 = () => {
+  const { isAdmin } = useContext(AuthContext);
+  const navigate = useNavigate();
+  if (!isAdmin) {
+    navigate("/");
+  }
   const { data: services = [], isLoading } = useQuery({
     queryKey: ["services"],
     queryFn: async () => {
@@ -156,7 +163,9 @@ const AddCampaign1 = () => {
             <h2>{service?.price}</h2>
             <h2>{service?.discountPrice}</h2>
             <div className="flex gap-3 items-center">
-              <button className="bg-green-500 px-3 rounded-xl lg:mb-2">Edit</button>
+              <button className="bg-green-500 px-3 rounded-xl lg:mb-2">
+                Edit
+              </button>
               <button className="bg-red-500 px-3 rounded-xl">Delete</button>
             </div>
           </div>

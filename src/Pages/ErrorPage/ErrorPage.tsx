@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useRouteError } from "react-router-dom";
 import errorCar from "./errorCar.json";
 import Lottie from "lottie-react";
+import "./ErrorPage.css"
 
 const ErrorPage = () => {
   const error = useRouteError();
@@ -18,7 +19,7 @@ const ErrorPage = () => {
             {/* @ts-ignore */}
             {error.statusText || error.message}
           </p>
-          <p className="lg:text-3xl font-poppins mt-10 flex justify-center"><Link to={'/'}><span className="px-6 py-3 bg-red-300">Go to Home</span></Link></p>
+          <p className="lg:text-3xl font-poppins mt-10 flex justify-center"><Link to={'/'}><span className="homeBtn px-4 py-3 bg-red-300">Go to Home</span></Link></p>
         </div>
       )}
       <Lottie className="" animationData={errorCar} />

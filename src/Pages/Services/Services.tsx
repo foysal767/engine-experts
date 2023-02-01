@@ -26,8 +26,8 @@ const Services = () => {
         Services that we Offer
       </h1>
       <div className="mt-9 mb-12 row grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 font-poppins">
-        {services.map((service: any) => (
-          <div>
+        {services.map((service: any, i: any) => (
+          <div key={i}>
             <div className="card rounded-md w-full h-[400px] bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] shadow-xl">
               <div className="w-full h-[80%] overflow-hidden">
                 <figure className="w-full h-full">
