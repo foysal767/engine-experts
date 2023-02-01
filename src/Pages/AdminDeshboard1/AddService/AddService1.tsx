@@ -1,6 +1,15 @@
+import { useContext } from "react";
 import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 
 const AddService1 = () => {
+  const { isAdmin } = useContext(AuthContext);
+  const navigate = useNavigate();
+  if (!isAdmin) {
+    navigate("/");
+  }
+
   const addService = (e: any) => {
     e.preventDefault();
     const name = e.target.name.value;

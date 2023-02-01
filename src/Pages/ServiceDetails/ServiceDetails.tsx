@@ -4,9 +4,6 @@ import { RiServiceFill } from "react-icons/ri";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import "./ServiceDetails.css";
-import DatePicker from "react-date-picker";
-
-const API_KEY = "AIzaSyAjjRzdfWKzagPVRtCfdUyM-17X4pE5U_E";
 
 interface usedata {
   name: string;
@@ -23,36 +20,95 @@ interface reviewtype {
   map: any;
 }
 
+let userLocation = {
+  lat: 0,
+  long: 0,
+};
+
 const ServiceDetails = () => {
   const { id } = useParams();
   const [details, setDetails] = useState<usedata>();
   const [loading, setLoading] = useState<boolean>(true);
   const [reviews, setReviews] = useState<reviewtype>();
   const { user } = useContext(AuthContext);
-  const [value, onChange] = useState(new Date());
+  const [checked, setChecked] = useState(false);
+  // const [value, onChange] = useState(new Date());
+  // const [location, setLocation] = useState<object>(userLocation);
+  const getLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition, handleError);
+    } else {
+      toast.error("Location is not supported");
+    }
+  };
 
-  const getLatLong = async (location: string) => {
-    const res = await fetch(
-      `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(
-        location
-      )}&key=${API_KEY}`
-    );
-    const data = await res.json();
-    console.log(data);
+  // console.log('serviceDetails',user)
+
+  const showPosition = (position: any) => {
+    userLocation.lat = position.coords.latitude;
+    userLocation.long = position.coords.longitude;
+    console.log(userLocation);
+  };
+
+  const handleError = (error: any) => {
+    let errorStr;
+    switch (error.code) {
+      case error.PERMISSION_DENIED:
+        errorStr = "User denied the request for Geolocation.";
+        break;
+      case error.POSITION_UNAVAILABLE:
+        errorStr = "Location information is unavailable.";
+        break;
+      case error.TIMEOUT:
+        errorStr = "The request to get user location timed out.";
+        break;
+      case error.UNKNOWN_ERROR:
+        errorStr = "An unknown error occurred.";
+        break;
+      default:
+        errorStr = "An unknown error occurred.";
+    }
+    console.error("Error occurred: " + errorStr);
+    toast.error(errorStr);
   };
 
   const handleBooking = (event: any) => {
     event.preventDefault();
+
     const form = event.target;
-    const name = form.name.value;
     const price = form.price.value;
+    const email = form.email.value;
     const number = form.number.value;
     const model = form.model.value;
-    const location = form.location.value;
-    getLatLong(location);
     const date = form.date.value;
-    const formValue = { name, price, location, model, number, date };
-    console.log(formValue);
+    const formValue = {
+      serviceName: details?.name,
+      userEmail: email,
+      userImage: user?.photoURL,
+      price,
+      location: userLocation,
+      model,
+      number,
+      date,
+      payment: "unpaid",
+      seller: "",
+    };
+    fetch("https://engine-experts-server-phi.vercel.app/bookings", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(formValue),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          toast.success(data.message);
+        } else {
+          toast.error(data.message);
+        }
+      });
+    // console.log(formValue);
   };
   useEffect(() => {
     setLoading(true);
@@ -264,12 +320,14 @@ const ServiceDetails = () => {
             <h3 className="text-2xl font-bold text-black">
               Bookings For {details?.name}
             </h3>
-            <p className="text-black text-left">Full Name</p>
+            <p className="text-black text-left">Email</p>
             <input
-              type="text"
-              placeholder="Full name"
-              name="name"
-              className="input input-bordered w-full bg-white border border-black"
+              type="email"
+              // placeholder="Full name"
+              defaultValue={user?.email}
+              name="email"
+              disabled
+              className="h-[51px] px-2 rounded-md input-bordered w-full bg-white border border-black"
             />
             <p className="text-black text-left">Price</p>
             <input
@@ -284,6 +342,7 @@ const ServiceDetails = () => {
               type="text"
               placeholder="Mobile Number"
               name="number"
+              required
               className="input input-bordered w-full text-black bg-white border border-black"
             />
             <p className="text-black text-left">Model</p>
@@ -291,26 +350,38 @@ const ServiceDetails = () => {
               type="text"
               placeholder="Enter Your Car Model"
               name="model"
+              required
               className="input input-bordered w-full text-black bg-white border border-black"
             />
 
             <p className="text-black text-left">Select Booking Date</p>
-            {/* <input className=" input-bordered w-full text-black px-2 py-3 rounded-md bg-white border border-black" type="date" placeholder="Booking Date" name="" id="dated" /> */}
-            <div className="w-full h-[53px] rounded-md px-2 py-3 border">
+            <input
+              className=" input-bordered w-full text-black px-2 py-2 rounded-md bg-white border border-black"
+              type="date"
+              placeholder="Booking Date"
+              name="date"
+              required
+              id="dated"
+            />
+            {/* <div className="w-full h-[53px] rounded-md px-2 py-3 border">
               <DatePicker
                 name="date"
                 className="w-full h-full border-0"
                 onChange={onChange}
                 value={value}
               />
-            </div>
+            </div> */}
 
             <div className="w-full text-start px-2">
               <input
+                onClick={(e: any) => {
+                  setChecked(e.target.checked);
+                  getLocation();
+                }}
                 type="checkbox"
-                id="vehicle1"
+                id="locationAllow"
                 name="locationAllow"
-                value="Bike"
+                value="true"
                 className="mr-2"
               />
               <label htmlFor="locationAllow">
@@ -318,7 +389,13 @@ const ServiceDetails = () => {
               </label>
             </div>
 
-            <button className="btn bg-[#E81C2E] text-white border-none w-full mt-3 rounded-full">
+            <button
+              type="submit"
+              disabled={!checked ? true : false}
+              className={` ${checked ? "bg-red-500" : "bg-red-300"}  ${
+                checked ? "text-white" : "text-black"
+              } border-none w-full mt-3 rounded-full py-2 text-xl`}
+            >
               Book Now
             </button>
           </form>
