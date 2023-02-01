@@ -14,7 +14,9 @@ const AllUsers1 = () => {
   const { data: users = [], isLoading } = useQuery({
     queryKey: ["users", type],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/users?type=${type}`);
+      const res = await fetch(
+        `https://engine-experts-server-phi.vercel.app/users?type=${type}`
+      );
       const data = await res.json();
       return data.data;
     },
