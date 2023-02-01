@@ -2,7 +2,7 @@ import "./EngineExperties.css"
 
 const EngineExperties = () => {
   return (
-    <section className="h-[120vh] md:h-[65vh] lg:h-[85vh] blog mb-6 lg:mb-28 px-4 md:px-8 lg:px-12 bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] w-full grid place-items-center">
+    <section className="w-full h-[152vh] lg:h-[85vh] blog px-4 md:px-8 lg:px-12 mb-6 lg:mb-28">
       <div className="w-full lg:w-[90%] mx-auto h-full relative ">
         <h1 className="cssStyle text-4xl font-bold text-left pt-6">
           Our Experties
