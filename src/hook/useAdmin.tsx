@@ -1,19 +1,24 @@
 import { useEffect, useState } from "react";
 
-const useAdmin = (email: any) => {
+const useAdmin = (data: any) => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [isAdminLoading, setIsAdminLoading] = useState(true);
   useEffect(() => {
-    if (email) {
-      fetch(`http://localhost:5000/users/admin/${email}`)
+    if (data) {
+      console.log("inside hook", data);
+      fetch(`http://localhost:5000/admin?email=${data}`)
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
-          setIsAdmin(data.isAdmin);
-          setIsAdminLoading(false);
+          if (data.success) {
+            setIsAdmin(true);
+            setIsAdminLoading(false);
+          } else {
+            setIsAdmin(false);
+            setIsAdminLoading(false);
+          }
         });
     }
-  }, [email]);
+  }, [data]);
   return [isAdmin, isAdminLoading];
 };
 export default useAdmin;

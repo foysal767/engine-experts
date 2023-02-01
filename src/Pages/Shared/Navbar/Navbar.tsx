@@ -1,20 +1,19 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AiOutlineDeploymentUnit } from 'react-icons/ai';
+import { AiOutlineDeploymentUnit } from "react-icons/ai";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
-import './Navbar.css';
+import "./Navbar.css";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
-  console.log(user)
 
   const handleLogOut = () => {
-        logOut(navigate);
-      }
+    logOut(navigate);
+  };
   const menuItems = (
     <React.Fragment>
-      <li className="font-semibold hover:text-[#E81C2E]" >
+      <li className="font-semibold hover:text-[#E81C2E]">
         <Link to="/">Home</Link>
       </li>
       <li className="font-semibold hover:text-[#E81C2E]">
@@ -30,7 +29,10 @@ const Navbar = () => {
         <Link to="/dashboard1">Dashboard</Link>
       </li>
       {user?.uid ? (
-        <li className="font-semibold hover:text-[#E81C2E]" onClick={handleLogOut}>
+        <li
+          className="font-semibold hover:text-[#E81C2E]"
+          onClick={handleLogOut}
+        >
           <button>Logout</button>
         </li>
       ) : (
@@ -68,8 +70,12 @@ const Navbar = () => {
             {menuItems}
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost font-semibold normal-case text-xl">
-          <AiOutlineDeploymentUnit className="text-4xl mx-2 text-green-500"></AiOutlineDeploymentUnit> Engine Experts
+        <Link
+          to="/"
+          className="btn btn-ghost font-semibold normal-case text-xl"
+        >
+          <AiOutlineDeploymentUnit className="text-4xl mx-2 text-green-500"></AiOutlineDeploymentUnit>{" "}
+          Engine Experts
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
