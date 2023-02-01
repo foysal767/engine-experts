@@ -24,7 +24,6 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   const imageHostKey = process.env.REACT_APP_imgbb_key;
-  console.log(imageHostKey);
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     const image = data.photoURL[0];

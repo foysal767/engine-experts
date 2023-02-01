@@ -1,20 +1,44 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
+import { useQuery } from "@tanstack/react-query";
 
 const MyReview = () => {
+
+  const { user } = useContext(AuthContext);
+
+  const { data: reviews = [], isLoading } = useQuery({
+    queryKey: ["reviews"],
+    queryFn: async () => {
+      const res = await fetch(
+        `http://localhost:5000/userReviews?email=${user?.email}`
+      );
+      const data = await res.json();
+      return data.data;
+    },
+  });
+  if (isLoading) {
+    return (
+      <div className="grid place-items-center w-full h-screen">
+        <span className="loader"></span>
+      </div>
+    );
+  }
+
   return (
     <section className="text-black mt-5 px-4 md:px-12 lg:px-12">
       <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-5">
-        <div className="shadow-xl mx-auto px-4 py-5">
-          <h3 className="text-xl font-bold">Performance Upgrade</h3>
+        {
+          reviews?.map((review: any, i: any) => <div key={i} className="shadow-xl mx-auto px-4 py-5">
+          <h3 className="text-xl font-bold">{review?.name}</h3>
           <img
-            className="w-[280px] my-2"
-            src="/assets/service-1.1.jpg"
+            className="w-[280px] h-[180px] my-2"
+            src={review?.image}
             alt=""
           />
           <h3 className="text-left text-lg font-bold">
-            Review: <span className="text-sm">Thats my first review</span>
+            Review: <span className="text-sm">{review?.review?.feedback}</span>
           </h3>
-          <h3 className="text-left text-lg font-bold mb-2">Rating: Good</h3>
+          <h3 className="text-left text-lg font-bold mb-2">Rating: {review?.review?.rating}</h3>
           <div className="flex justify-between items-center">
             <label
               htmlFor="edit-modal"
@@ -29,7 +53,9 @@ const MyReview = () => {
               Delete
             </label>
           </div>
-        </div>
+        </div>)
+        }
+        
       </div>
 
       {/* Edit modal */}
