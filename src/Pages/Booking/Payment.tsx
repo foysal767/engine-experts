@@ -8,11 +8,14 @@ import CheckOutForm from './CheckOutForm';
 const stripeKey = process.env.REACT_APP_STRIPE_PK;
 // console.log(stripeKey);
 
-const stripePromise = loadStripe(`${stripeKey}` as string );
+const stripePromise = loadStripe(`${stripeKey}` as string);
 console.log('stripe', stripePromise);
 
 
-const Payment = () => {
+
+const Payment  = () => {
+
+
     const { data: services = [], isLoading } = useQuery({
         queryKey: ["services"],
         queryFn: async () => {
