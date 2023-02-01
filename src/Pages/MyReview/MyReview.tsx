@@ -16,12 +16,72 @@ const MyReview = () => {
           </h3>
           <h3 className="text-left text-lg font-bold mb-2">Rating: Good</h3>
           <div className="flex justify-between items-center">
-            <button className="btn bg-blue-600 lg:btn-sm btn-xs border-none text-white">
+            <label
+              htmlFor="edit-modal"
+              className="btn bg-blue-600 lg:btn-sm btn-xs border-none text-white"
+            >
               Edit
-            </button>
-            <button className="btn bg-red-600 lg:btn-sm btn-xs border-none text-white">
+            </label>
+            <label
+              htmlFor="delete-modal"
+              className="btn bg-red-600 lg:btn-sm btn-xs border-none text-white"
+            >
               Delete
+            </label>
+          </div>
+        </div>
+      </div>
+
+      {/* Edit modal */}
+      <input type="checkbox" id="edit-modal" className="modal-toggle" />
+      <div className="modal">
+        <div className="modal-box relative bg-white">
+          <label
+            htmlFor="edit-modal"
+            className="btn btn-sm btn-circle absolute right-2 top-2"
+          >
+            ✕
+          </label>
+          <h3 className="text-lg font-bold">Service 1</h3>
+          <label>
+            <p className="text-left">Give feedback</p>
+          </label>
+          <input
+            type="text"
+            placeholder="Comment your feedback here..."
+            className="input input-bordered w-full text-white"
+          />
+          <label>
+            <p className="text-left">Rating</p>
+          </label>
+          <select className="select select-bordered w-full text-white">
+            <option>Good</option>
+            <option>Excellent</option>
+            <option>As well</option>
+          </select>
+          <button className="btn bg-green-600 w-full text-white border-none mt-5">Submit</button>
+        </div>
+      </div>
+      {/* Delete modal */}
+      <input type="checkbox" id="delete-modal" className="modal-toggle" />
+      <div className="modal">
+        <div className="modal-box bg-white">
+          <h3 className="font-bold text-lg">
+            Are you sure you want to delete?
+          </h3>
+          <p className="py-4">
+            If you delete once it will be removed permanently.
+          </p>
+          <div className="modal-action">
+            <button className="btn btn-sm bg-green-600 text-white border-none">
+              Yes
             </button>
+            <label
+              htmlFor="delete-modal"
+              className="btn btn-sm bg-red-600 text-white border-none"
+            >
+              No
+            </label>
           </div>
         </div>
       </div>
