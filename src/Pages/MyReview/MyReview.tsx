@@ -6,7 +6,7 @@ const MyReview = () => {
 
   const { user } = useContext(AuthContext);
 
-  const { data: reviews = [], refetch, isLoading } = useQuery({
+  const { data: reviews = [], isLoading } = useQuery({
     queryKey: ["reviews"],
     queryFn: async () => {
       const res = await fetch(
