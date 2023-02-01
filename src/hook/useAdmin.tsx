@@ -6,7 +6,7 @@ const useAdmin = (data: any) => {
   useEffect(() => {
     if (data) {
       console.log("inside hook", data);
-      fetch(`http://localhost:5000/admin?email=${data}`)
+      fetch(`https://engine-experts-server-phi.vercel.app/admin?email=${data}`)
         .then((res) => res.json())
         .then((data) => {
           if (data.success) {

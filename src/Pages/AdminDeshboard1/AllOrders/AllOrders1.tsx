@@ -1,6 +1,6 @@
+import { useQuery } from "@tanstack/react-query";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 const AllOrders1 = () => {
   const { isAdmin } = useContext(AuthContext);
@@ -12,7 +12,9 @@ const AllOrders1 = () => {
   const { data: orders = [], isLoading } = useQuery({
     queryKey: ["orders"],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/bookings`);
+      const res = await fetch(
+        `https://engine-experts-server-phi.vercel.app/bookings`
+      );
       const data = await res.json();
       return data.data;
     },

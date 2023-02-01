@@ -1,8 +1,7 @@
-import React from "react";
-import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
 import L from "leaflet";
-import { useState, useEffect } from "react";
+import "leaflet/dist/leaflet.css";
+import { useEffect, useState } from "react";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 
 const markerIconUser = new L.Icon({
   iconUrl: require("../../assets/images/marker.png"),
@@ -16,7 +15,7 @@ const markerIconSeller = new L.Icon({
 const GoogleMaps = () => {
   const [locations, setLocations] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/locations")
+    fetch("https://engine-experts-server-phi.vercel.app/locations")
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
