@@ -25,36 +25,46 @@ const MyReview = () => {
 
   return (
     <section className="text-black mt-5 px-4 md:px-12 lg:px-12">
-      <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-5">
+       { reviews?.length >= 1 ?
+              <h2 className="text-4xl">Total reviews : {reviews?.length}</h2>
+              :
+              <h2 className="text-4xl">No reviews added yet.</h2>
+            }
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5">
         {reviews?.map((review: any, i: any) => (
-          <div key={i} className="shadow-xl mx-auto px-4 py-5">
-            <h3 className="text-xl font-bold">{review?.name}</h3>
-            <img
-              className="w-[280px] h-[180px] my-2"
-              src={review?.image}
-              alt=""
-            />
-            <h3 className="text-left text-lg font-bold">
-              Review:{" "}
-              <span className="text-sm">{review?.review?.feedback}</span>
-            </h3>
-            <h3 className="text-left text-lg font-bold mb-2">
-              Rating: {review?.review?.rating}
-            </h3>
-            <div className="flex justify-between items-center">
-              <label
-                htmlFor="edit-modal"
-                className="btn bg-blue-600 lg:btn-sm btn-xs border-none text-white"
-              >
-                Edit
-              </label>
-              <label
-                htmlFor="delete-modal"
-                className="btn bg-red-600 lg:btn-sm btn-xs border-none text-white"
-              >
-                Delete
-              </label>
+          <div key={i} className="shadow-xl mx-auto px-4 py-5 w-full">
+            <h3 className="text-left text-xl font-bold">{review?.name}</h3>
+            <div className="flex items-center">
+              <img
+                className="w-[180px] h-[80px] my-2"
+                src={review?.image}
+                alt=""
+              />
+            
+            <div className="ml-5">
+              <h3 className="text-left text-lg font-bold">
+                Review:{" "}
+                <span className="text-sm">{review?.review?.feedback}</span>
+              </h3>
+              <h3 className="text-left text-lg font-bold mb-2">
+                Rating: {review?.review?.rating}
+              </h3>
+              </div>
             </div>
+            <div className="flex items-center space-x-3">
+                <label
+                  htmlFor="edit-modal"
+                  className="btn bg-blue-600 lg:btn-sm btn-xs border-none text-white"
+                >
+                  Edit
+                </label>
+                <label
+                  htmlFor="delete-modal"
+                  className="btn bg-red-600 lg:btn-sm btn-xs border-none text-white"
+                >
+                  Delete
+                </label>
+              </div>
           </div>
         ))}
       </div>
@@ -69,7 +79,6 @@ const MyReview = () => {
           >
             ✕
           </label>
-          <h3 className="text-lg font-bold">Service 1</h3>
           <label>
             <p className="text-left">Give feedback</p>
           </label>
