@@ -1,86 +1,86 @@
-import { useContext, useEffect, useState } from "react";
-import toast from "react-hot-toast";
-import { RiServiceFill } from "react-icons/ri";
-import { useParams } from "react-router-dom";
-import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
-import "./ServiceDetails.css";
+import { useContext, useEffect, useState } from "react"
+import toast from "react-hot-toast"
+import { RiServiceFill } from "react-icons/ri"
+import { useParams } from "react-router-dom"
+import { AuthContext } from "../../Context/AuthProvider/AuthProvider"
+import "./ServiceDetails.css"
 
 interface usedata {
-  name: string;
-  image: any;
-  details: string;
-  price: string;
-  _id: string;
-  Totalreviews: string;
-  reviews: [];
+  name: string
+  image: any
+  details: string
+  price: string
+  _id: string
+  Totalreviews: string
+  reviews: []
 }
 interface reviewtype {
-  email: string;
-  feedback: string;
-  map: any;
+  email: string
+  feedback: string
+  map: any
 }
 
 let userLocation = {
   lat: 0,
   long: 0,
-};
+}
 
 const ServiceDetails = () => {
-  const { id } = useParams();
-  const [details, setDetails] = useState<usedata>();
-  const [loading, setLoading] = useState<boolean>(true);
-  const [reviews, setReviews] = useState<reviewtype>();
-  const { user } = useContext(AuthContext);
-  const [checked, setChecked] = useState(false);
+  const { id } = useParams()
+  const [details, setDetails] = useState<usedata>()
+  const [loading, setLoading] = useState<boolean>(true)
+  const [reviews, setReviews] = useState<reviewtype>()
+  const { user } = useContext(AuthContext)
+  const [checked, setChecked] = useState(false)
   // const [value, onChange] = useState(new Date());
   // const [location, setLocation] = useState<object>(userLocation);
   const getLocation = () => {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition, handleError);
+      navigator.geolocation.getCurrentPosition(showPosition, handleError)
     } else {
-      toast.error("Location is not supported");
+      toast.error("Location is not supported")
     }
-  };
+  }
 
   // console.log('serviceDetails',user)
 
   const showPosition = (position: any) => {
-    userLocation.lat = position.coords.latitude;
-    userLocation.long = position.coords.longitude;
-    console.log(userLocation);
-  };
+    userLocation.lat = position.coords.latitude
+    userLocation.long = position.coords.longitude
+    console.log(userLocation)
+  }
 
   const handleError = (error: any) => {
-    let errorStr;
+    let errorStr
     switch (error.code) {
       case error.PERMISSION_DENIED:
-        errorStr = "User denied the request for Geolocation.";
-        break;
+        errorStr = "User denied the request for Geolocation."
+        break
       case error.POSITION_UNAVAILABLE:
-        errorStr = "Location information is unavailable.";
-        break;
+        errorStr = "Location information is unavailable."
+        break
       case error.TIMEOUT:
-        errorStr = "The request to get user location timed out.";
-        break;
+        errorStr = "The request to get user location timed out."
+        break
       case error.UNKNOWN_ERROR:
-        errorStr = "An unknown error occurred.";
-        break;
+        errorStr = "An unknown error occurred."
+        break
       default:
-        errorStr = "An unknown error occurred.";
+        errorStr = "An unknown error occurred."
     }
-    console.error("Error occurred: " + errorStr);
-    toast.error(errorStr);
-  };
+    console.error("Error occurred: " + errorStr)
+    toast.error(errorStr)
+  }
 
   const handleBooking = (event: any) => {
-    event.preventDefault();
+    event.preventDefault()
 
-    const form = event.target;
-    const price = form.price.value;
-    const email = form.email.value;
-    const number = form.number.value;
-    const model = form.model.value;
-    const date = form.date.value;
+    const form = event.target
+    const price = form.price.value
+    const email = form.email.value
+    const number = form.number.value
+    const model = form.model.value
+    const date = form.date.value
     const formValue = {
       serviceName: details?.name,
       userEmail: email,
@@ -92,48 +92,48 @@ const ServiceDetails = () => {
       date,
       payment: "unpaid",
       seller: "",
-    };
-    fetch("https://engine-experts-server-phi.vercel.app/bookings", {
+    }
+    fetch("http://localhost:5000/bookings", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify(formValue),
     })
-      .then((res) => res.json())
-      .then((data) => {
+      .then(res => res.json())
+      .then(data => {
         if (data.success) {
-          toast.success(data.message);
+          toast.success(data.message)
         } else {
-          toast.error(data.message);
+          toast.error(data.message)
         }
-      });
+      })
     // console.log(formValue);
-  };
+  }
   useEffect(() => {
-    setLoading(true);
+    setLoading(true)
     const getDetail = async () => {
       const res = await fetch(
         `https://engine-experts-server-phi.vercel.app/servicedetails?id=${id}`
-      );
-      const data = await res.json();
-      setDetails(data.data);
-      setReviews(data.data.reviews);
-      setLoading(false);
-    };
-    getDetail();
-  }, [id, loading]);
+      )
+      const data = await res.json()
+      setDetails(data.data)
+      setReviews(data.data.reviews)
+      setLoading(false)
+    }
+    getDetail()
+  }, [id, loading])
 
   const giveFeedBack = (event: any) => {
-    event.preventDefault();
-    const feedback = event.target.feedback.value;
-    const rating = event.target.rating.value;
+    event.preventDefault()
+    const feedback = event.target.feedback.value
+    const rating = event.target.rating.value
     // console.log(feedback, rating, user.email, details?.name, details?._id);
     const feedbackObject = {
       email: user?.email || "User not found",
       feedback,
       rating,
-    };
+    }
     fetch(
       `https://engine-experts-server-phi.vercel.app/servicedetails?id=${details?._id}`,
       {
@@ -144,15 +144,15 @@ const ServiceDetails = () => {
         body: JSON.stringify(feedbackObject),
       }
     )
-      .then((res) => res.json())
-      .then((data) => {
+      .then(res => res.json())
+      .then(data => {
         if (data.success) {
-          toast.success("Thanks for your feedback");
-          setLoading(!loading);
-          event.target.reset();
+          toast.success("Thanks for your feedback")
+          setLoading(!loading)
+          event.target.reset()
         }
-      });
-  };
+      })
+  }
 
   return (
     <section className="">
@@ -302,7 +302,7 @@ const ServiceDetails = () => {
                   <p>{review?.feedback}</p>
                 </div>
               </div>
-            );
+            )
           })}
         </div>
       </div>
@@ -375,8 +375,8 @@ const ServiceDetails = () => {
             <div className="w-full text-start px-2">
               <input
                 onClick={(e: any) => {
-                  setChecked(e.target.checked);
-                  getLocation();
+                  setChecked(e.target.checked)
+                  getLocation()
                 }}
                 type="checkbox"
                 id="locationAllow"
@@ -402,7 +402,9 @@ const ServiceDetails = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default ServiceDetails;
+export default ServiceDetails
+
+//https://engine-experts-server-phi.vercel.app/bookings
