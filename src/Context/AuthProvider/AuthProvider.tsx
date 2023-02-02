@@ -11,6 +11,8 @@ import {
 } from "firebase/auth";
 import app from "../../Firebase/firebase.config";
 import { toast } from "react-hot-toast";
+import useAdmin from "../../hook/useAdmin";
+import useAccType from "../../hook/useAccType";
 
 interface User {
   user: any;
@@ -27,6 +29,8 @@ interface User {
   logOut: (navigate: any) => any;
   updateUser: (name: string, photoURL: string) => any;
   loading: boolean;
+  isAdmin: boolean;
+  accType: any;
 }
 
 export const AuthContext = createContext({} as User);
@@ -39,9 +43,13 @@ type childrenType = {
 };
 
 const AuthProvider = ({ children }: childrenType) => {
-  const [user, setUser] = useState<React.SetStateAction<{}>>({});
+  // const [user, setUser] = useState<React.SetStateAction<{}>>({});
+  const [user, setUser] = useState<React.SetStateAction<{} | null>>({});
+  const [userEmail, setUserEmail] =
+    useState<React.SetStateAction<string | null>>();
   const [loading, setLoading] = useState(true);
-
+  const [isAdmin] = useAdmin(userEmail);
+  const [accType] = useAccType(userEmail);
   const createUser = (
     email: string,
     password: string,
@@ -171,7 +179,8 @@ const AuthProvider = ({ children }: childrenType) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(() => currentUser);
+      setUser(currentUser);
+      setUserEmail(currentUser?.email);
       console.log(currentUser, "state", user);
       setLoading(false);
     });
@@ -187,6 +196,8 @@ const AuthProvider = ({ children }: childrenType) => {
     logOut,
     updateUser,
     loading,
+    isAdmin,
+    accType,
   };
 
   return (
