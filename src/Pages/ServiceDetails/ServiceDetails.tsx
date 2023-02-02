@@ -32,6 +32,7 @@ const ServiceDetails = () => {
   const [reviews, setReviews] = useState<reviewtype>();
   const { user } = useContext(AuthContext);
   const [checked, setChecked] = useState(false);
+  const [openModal, setIsOpenModal] = useState(false);
   // const [value, onChange] = useState(new Date());
   // const [location, setLocation] = useState<object>(userLocation);
   const getLocation = () => {
@@ -72,6 +73,10 @@ const ServiceDetails = () => {
     toast.error(errorStr);
   };
 
+  const handleClose = () => {
+    setIsOpenModal(false);
+  };
+
   const handleBooking = (event: any) => {
     event.preventDefault();
 
@@ -104,6 +109,7 @@ const ServiceDetails = () => {
       .then((data) => {
         if (data.success) {
           toast.success(data.message);
+          handleClose();
         } else {
           toast.error(data.message);
         }
@@ -238,6 +244,7 @@ const ServiceDetails = () => {
             <span className=" font-bold text-2xl">Price: {details?.price}</span>
             <label
               htmlFor="payment-modal"
+              onClick={() => setIsOpenModal(true)}
               className="pt-2 pb-3 text-2xl font-semibold btn bg-[#E81C2E] text-white"
             >
               Get Service
@@ -308,62 +315,63 @@ const ServiceDetails = () => {
       </div>
       {/* Put this part before </body> tag */}
       <input type="checkbox" id="payment-modal" className="modal-toggle" />
-      <div className="modal">
-        <div className="modal-box relative bg-white text-black">
-          <label
-            htmlFor="payment-modal"
-            className="btn btn-sm btn-circle absolute right-2 top-2"
-          >
-            ✕
-          </label>
-          <form onSubmit={handleBooking}>
-            <h3 className="text-2xl font-bold text-black">
-              Bookings For {details?.name}
-            </h3>
-            <p className="text-black text-left">Email</p>
-            <input
-              type="email"
-              // placeholder="Full name"
-              defaultValue={user?.email}
-              name="email"
-              disabled
-              className="h-[51px] px-2 rounded-md input-bordered w-full bg-white border border-black"
-            />
-            <p className="text-black text-left">Price</p>
-            <input
-              type="text"
-              defaultValue={details?.price}
-              name="price"
-              className="input-bordered w-full rounded-md px-2 py-3 text-black bg-white border border-black"
-              disabled
-            />
-            <p className="text-black text-left">Phone Number</p>
-            <input
-              type="text"
-              placeholder="Mobile Number"
-              name="number"
-              required
-              className="input input-bordered w-full text-black bg-white border border-black"
-            />
-            <p className="text-black text-left">Model</p>
-            <input
-              type="text"
-              placeholder="Enter Your Car Model"
-              name="model"
-              required
-              className="input input-bordered w-full text-black bg-white border border-black"
-            />
+      {openModal && (
+        <div className="modal">
+          <div className="modal-box relative bg-white text-black">
+            <label
+              htmlFor="payment-modal"
+              className="btn btn-sm btn-circle absolute right-2 top-2"
+            >
+              ✕
+            </label>
+            <form onSubmit={handleBooking}>
+              <h3 className="text-2xl font-bold text-black">
+                Bookings For {details?.name}
+              </h3>
+              <p className="text-black text-left">Email</p>
+              <input
+                type="email"
+                // placeholder="Full name"
+                defaultValue={user?.email}
+                name="email"
+                disabled
+                className="h-[51px] px-2 rounded-md input-bordered w-full bg-white border border-black"
+              />
+              <p className="text-black text-left">Price</p>
+              <input
+                type="text"
+                defaultValue={details?.price}
+                name="price"
+                className="input-bordered w-full rounded-md px-2 py-3 text-black bg-white border border-black"
+                disabled
+              />
+              <p className="text-black text-left">Phone Number</p>
+              <input
+                type="text"
+                placeholder="Mobile Number"
+                name="number"
+                required
+                className="input input-bordered w-full text-black bg-white border border-black"
+              />
+              <p className="text-black text-left">Model</p>
+              <input
+                type="text"
+                placeholder="Enter Your Car Model"
+                name="model"
+                required
+                className="input input-bordered w-full text-black bg-white border border-black"
+              />
 
-            <p className="text-black text-left">Select Booking Date</p>
-            <input
-              className=" input-bordered w-full text-black px-2 py-2 rounded-md bg-white border border-black"
-              type="date"
-              placeholder="Booking Date"
-              name="date"
-              required
-              id="dated"
-            />
-            {/* <div className="w-full h-[53px] rounded-md px-2 py-3 border">
+              <p className="text-black text-left">Select Booking Date</p>
+              <input
+                className=" input-bordered w-full text-black px-2 py-2 rounded-md bg-white border border-black"
+                type="date"
+                placeholder="Booking Date"
+                name="date"
+                required
+                id="dated"
+              />
+              {/* <div className="w-full h-[53px] rounded-md px-2 py-3 border">
               <DatePicker
                 name="date"
                 className="w-full h-full border-0"
@@ -372,35 +380,36 @@ const ServiceDetails = () => {
               />
             </div> */}
 
-            <div className="w-full text-start px-2">
-              <input
-                onClick={(e: any) => {
-                  setChecked(e.target.checked);
-                  getLocation();
-                }}
-                type="checkbox"
-                id="locationAllow"
-                name="locationAllow"
-                value="true"
-                className="mr-2"
-              />
-              <label htmlFor="locationAllow">
-                Click 'Allow' for Successful order
-              </label>
-            </div>
+              <div className="w-full text-start px-2">
+                <input
+                  onClick={(e: any) => {
+                    setChecked(e.target.checked);
+                    getLocation();
+                  }}
+                  type="checkbox"
+                  id="locationAllow"
+                  name="locationAllow"
+                  value="true"
+                  className="mr-2"
+                />
+                <label htmlFor="locationAllow">
+                  Click 'Allow' for Successful order
+                </label>
+              </div>
 
-            <button
-              type="submit"
-              disabled={!checked ? true : false}
-              className={` ${checked ? "bg-red-500" : "bg-red-300"}  ${
-                checked ? "text-white" : "text-black"
-              } border-none w-full mt-3 rounded-full py-2 text-xl`}
-            >
-              Book Now
-            </button>
-          </form>
+              <button
+                type="submit"
+                disabled={!checked ? true : false}
+                className={` ${checked ? "bg-red-500" : "bg-red-300"}  ${
+                  checked ? "text-white" : "text-black"
+                } border-none w-full mt-3 rounded-full py-2 text-xl`}
+              >
+                Book Now
+              </button>
+            </form>
+          </div>
         </div>
-      </div>
+      )}
     </section>
   );
 };
