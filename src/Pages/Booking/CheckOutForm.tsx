@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
+// import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
 
 
