@@ -1,11 +1,15 @@
 import { useContext } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import "./AdminDeshboard.css";
 
 const AdminDeshboard1 = () => {
   const { accType, isAdmin } = useContext(AuthContext);
   console.log("admin", accType, isAdmin);
+  const navigate = useNavigate();
+  if (!isAdmin && accType !== "Seller") {
+    navigate("/");
+  }
   return (
     <main className="bg-[#EBF2F4] text-black w-full">
       <section className="w-full h-[83vh] lg:h-[100vh] relative ">

@@ -5,7 +5,7 @@ import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 import "./Navbar.css";
 
 const Navbar = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logOut, isAdmin, accType } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleLogOut = () => {
@@ -25,9 +25,12 @@ const Navbar = () => {
       <li className="hover:text-[#E81C2E] font-semibold">
         <Link to="/myreview">My Review</Link>
       </li>
-      <li className="font-semibold hover:text-[#E81C2E]">
-        <Link to="/dashboard1">Dashboard</Link>
-      </li>
+      {(isAdmin || accType === "Seller") && (
+        <li className="font-semibold hover:text-[#E81C2E]">
+          <Link to="/dashboard1">Dashboard</Link>
+        </li>
+      )}
+
       {user?.uid ? (
         <li
           className="font-semibold hover:text-[#E81C2E]"
