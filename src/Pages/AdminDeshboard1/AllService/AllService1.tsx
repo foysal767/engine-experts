@@ -44,13 +44,16 @@ const AllService1 = () => {
       details: description,
       image: image,
     };
-    fetch(`http://localhost:5000/services/${serviceId}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(editService),
-    })
+    fetch(
+      `https://engine-experts-server-phi.vercel.app/services/${serviceId}`,
+      {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(editService),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
@@ -65,7 +68,7 @@ const AllService1 = () => {
       `Are you sure, want to delete this ${name}?`
     );
     if (confirm) {
-      fetch(`http://localhost:5000/services/${id}`, {
+      fetch(`https://engine-experts-server-phi.vercel.app/services/${id}`, {
         method: "DELETE",
         headers: {
           "content-type": "application/json",
