@@ -58,8 +58,6 @@ const AuthProvider = ({ children }: childrenType) => {
     role: string,
     navigate: any
   ) => {
-    console.log(name, photoURL);
-
     setLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
@@ -161,7 +159,7 @@ const AuthProvider = ({ children }: childrenType) => {
     if (newUser !== null) {
       updateProfile(newUser, profile)
         .then((res) => {})
-        .catch((err) => console.log(err));
+        .catch((err) => console.error(err));
     }
   };
 
@@ -174,14 +172,13 @@ const AuthProvider = ({ children }: childrenType) => {
         navigate("/");
         setLoading(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
   };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setUserEmail(currentUser?.email);
-      console.log(currentUser, "state", user);
       setLoading(false);
     });
 

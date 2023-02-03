@@ -1,15 +1,22 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
+import { RiYoutubeFill } from "react-icons/ri";
+import { toast } from "react-hot-toast";
 
 const AllService1 = () => {
   const { isAdmin } = useContext(AuthContext);
+  const [serviceId, setServiceId] = useState("");
   const navigate = useNavigate();
   if (!isAdmin) {
     navigate("/");
   }
-  const { data: services = [], isLoading } = useQuery({
+  const {
+    data: services = [],
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: ["services"],
     queryFn: async () => {
       const res = await fetch(
@@ -19,6 +26,61 @@ const AllService1 = () => {
       return data.data;
     },
   });
+
+  const handleServiceEdit = (id: any) => {
+    setServiceId(id);
+    // console.log(serviceId);
+  };
+
+  const handleEditSubmit = (e: any) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const price = e.target.price.value;
+    const description = e.target.description.value;
+    const image = e.target.image.value;
+    const editService = {
+      name: name,
+      price: price,
+      details: description,
+      image: image,
+    };
+    fetch(`http://localhost:5000/services/${serviceId}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(editService),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          toast.success(data.message);
+          refetch();
+        }
+      });
+  };
+
+  const handleServiceDelete = (id: any, name: any) => {
+    const confirm = window.confirm(
+      `Are you sure, want to delete this ${name}?`
+    );
+    if (confirm) {
+      fetch(`http://localhost:5000/services/${id}`, {
+        method: "DELETE",
+        headers: {
+          "content-type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.success) {
+            toast.success(data.message);
+            refetch();
+          }
+        });
+    }
+  };
+
   if (isLoading) {
     return (
       <div className="grid place-items-center w-full h-screen">
@@ -50,12 +112,79 @@ const AllService1 = () => {
             <h2>{service?.name}</h2>
             <h2>{service?.price}</h2>
             <div className="flex gap-3">
-              <button className="bg-green-500 px-3 rounded-xl">Edit</button>
-              <button className="bg-red-500 px-3 rounded-xl">Delete</button>
+              <label
+                onClick={() => handleServiceEdit(service?._id)}
+                htmlFor="edit-Service"
+                className="btn bg-green-500 px-3 rounded-xl border-none text-black font-medium"
+              >
+                Edit
+              </label>
+              <button
+                onClick={() => handleServiceDelete(service?._id, service?.name)}
+                className="bg-red-500 px-3 rounded-xl"
+              >
+                Delete
+              </button>
             </div>
           </div>
         ))}
-        {/* Card Starts from here */}
+      </div>
+
+      {/* Edit modal */}
+      <input type="checkbox" id="edit-Service" className="modal-toggle" />
+      <div className="modal">
+        <div className="modal-box relative bg-white">
+          <label
+            htmlFor="edit-Service"
+            className="btn btn-sm btn-circle absolute right-2 top-2"
+          >
+            ✕
+          </label>
+          <form onSubmit={handleEditSubmit}>
+            <label>
+              <p className="text-left">Service Name</p>
+            </label>
+            <input
+              name="name"
+              type="text"
+              placeholder="Type your Service Name"
+              className="input input-bordered w-full text-white"
+            />
+            <label>
+              <p className="text-left">Price</p>
+            </label>
+            <input
+              name="price"
+              type="text"
+              placeholder="Type your Service Price"
+              className="input input-bordered w-full text-white"
+            />
+            <label>
+              <p className="text-left">Description</p>
+            </label>
+            <input
+              name="description"
+              type="Description"
+              placeholder="Write your Service Details"
+              className="input input-bordered w-full text-white"
+            />
+            <label>
+              <p className="text-left">Input Image URL</p>
+            </label>
+            <input
+              name="image"
+              type="text"
+              placeholder="Put your Service Image URL"
+              className="input input-bordered w-full text-white"
+            />
+            <button
+              className="btn bg-green-600 w-full text-white border-none mt-5"
+              type="submit"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
       </div>
     </section>
   );
