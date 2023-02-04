@@ -4,7 +4,6 @@ import { toast } from "react-hot-toast";
 import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 import GoogleMaps from "../../GoogleMaps/GoogleMaps";
-
 const AllUsers1 = () => {
   const { isAdmin } = useContext(AuthContext);
   const [type, setType] = useState("Seller");
@@ -26,18 +25,6 @@ const AllUsers1 = () => {
       return data.data;
     },
   });
-
-  const handleDeleteFirebase = (uid: any) => {
-    // firebase
-    //   .auth()
-    //   .deleteUser(uid)
-    //   .then(function () {
-    //     console.log("User deleted successfully!");
-    //   })
-    //   .catch(function (error) {
-    //     console.error("Error deleting user:", error);
-    //   });
-  };
 
   const handleUserDelete = (id: any, name: any, uid: any) => {
     const confirm = window.confirm(
@@ -110,7 +97,6 @@ const AllUsers1 = () => {
                   <option>InProgress</option>
                   <option>Accept</option>
                 </select>
-
                 <button
                   className="bg-red-500 h-[30px] px-3 rounded-md"
                   onClick={() =>
@@ -119,6 +105,7 @@ const AllUsers1 = () => {
                 >
                   Delete
                 </button>
+                {/* {isDeleting ? "Deleting..." : "Delete User"} */}
               </div>
             ) : (
               <div className="flex justify-between items-center h-full">
@@ -130,6 +117,7 @@ const AllUsers1 = () => {
                 >
                   Delete
                 </button>
+                {/* {isDeleting ? "Deleting..." : "Delete User"} */}
               </div>
             )}
           </div>

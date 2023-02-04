@@ -50,6 +50,8 @@ const AuthProvider = ({ children }: childrenType) => {
   const [loading, setLoading] = useState(true);
   const [isAdmin] = useAdmin(userEmail);
   const [accType] = useAccType(userEmail);
+  console.log("admin", isAdmin);
+  console.log("acctype", accType);
   const createUser = (
     email: string,
     password: string,
