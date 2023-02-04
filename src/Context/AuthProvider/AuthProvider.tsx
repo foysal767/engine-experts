@@ -68,6 +68,7 @@ const AuthProvider = ({ children }: childrenType) => {
           email: user.email,
           accType: role,
           image: photoURL,
+          userId: user?.uid,
         };
         fetch("https://engine-experts-server-phi.vercel.app/users", {
           method: "POST",
