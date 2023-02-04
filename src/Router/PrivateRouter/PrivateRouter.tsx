@@ -12,7 +12,11 @@ const PrivateRouter = ({ children }: childrenType) => {
   const location = useLocation();
 
   if (loading) {
-    return <Loading></Loading>;
+    return (
+      <div className="grid place-items-center w-full h-screen">
+        <span className="loader"></span>
+      </div>
+    );
   }
 
   if (user) {
