@@ -16,6 +16,7 @@ import useAccType from "../../hook/useAccType";
 
 interface User {
   user: any;
+  errorSignUp: any;
   createUser: (
     email: string,
     password: string,
@@ -48,6 +49,7 @@ const AuthProvider = ({ children }: childrenType) => {
   const [userEmail, setUserEmail] =
     useState<React.SetStateAction<string | null>>();
   const [loading, setLoading] = useState(true);
+  const [errorSignUp, setErrorSignUp] = useState();
   const [isAdmin] = useAdmin(userEmail);
   const [accType] = useAccType(userEmail);
   const createUser = (
@@ -99,7 +101,10 @@ const AuthProvider = ({ children }: childrenType) => {
             }
           });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err)
+        setErrorSignUp(err.message)
+      });
   };
 
   const signIn = (email: string, password: string, navigate: any) => {
@@ -125,7 +130,10 @@ const AuthProvider = ({ children }: childrenType) => {
             }
           });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err)
+        setErrorSignUp(err.message)
+      });
   };
 
   const googleSignIn = (navigate: any) => {
@@ -188,6 +196,7 @@ const AuthProvider = ({ children }: childrenType) => {
   const authInfo = {
     user,
     createUser,
+    errorSignUp,
     signIn,
     googleSignIn,
     logOut,
