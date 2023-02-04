@@ -1,13 +1,19 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
-const CheckOutForm = () => {
+type pay = {
+  servicePayment: any;
+};
+
+const CheckOutForm = ({ servicePayment }: pay) => {
   const [cardError, setCardError] = useState<string>("");
   const [clientSecret, setClientSecret] = useState("");
   const [success, setSuccess] = useState("");
   const [processing, setprocessing] = useState(false);
   const [transactionId, setTransactionId] = useState("");
-  // const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
+  const { price } = servicePayment;
 
   const stripe = useStripe();
   const elements = useElements();
@@ -21,12 +27,12 @@ const CheckOutForm = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ amount: 9900 }),
+        body: JSON.stringify({ price: price }),
       }
     )
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
-  }, []);
+  }, [price]);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -72,8 +78,9 @@ const CheckOutForm = () => {
         payment_method: {
           card: card,
           billing_details: {
-            name: "patient",
-            email: "rayonridu9@gmail.com",
+            name: "hriday",
+            email: servicePayment?.userEmail,
+            // price: servicePayment?.price,
           },
         },
       });
@@ -87,7 +94,7 @@ const CheckOutForm = () => {
       // store payment info in the database
 
       const payment = {
-        amount: "9900",
+        price: servicePayment?.price,
         transactionId,
       };
 

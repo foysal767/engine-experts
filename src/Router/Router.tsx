@@ -20,6 +20,7 @@ import MyReview from "../Pages/MyReview/MyReview";
 import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
 import Services from "../Pages/Services/Services";
 import SignUp from "../Pages/SignUp/SignUp";
+import PrivateRouter from "./PrivateRouter/PrivateRouter";
 
 const router = createBrowserRouter([
   {
@@ -68,7 +69,7 @@ const router = createBrowserRouter([
         element: <ServiceDetails></ServiceDetails>,
       },
       {
-        path: "/booking/payment",
+        path: "/booking/payment/:id",
         element: <Payment></Payment>,
       },
     ],

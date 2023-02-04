@@ -1,17 +1,22 @@
 import { useQuery } from "@tanstack/react-query";
 import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 import GoogleMaps from "../../GoogleMaps/GoogleMaps";
 
 const AllUsers1 = () => {
-  const { isAdmin } = useContext(AuthContext);
-  const navigate = useNavigate();
+  const { isAdmin, user } = useContext(AuthContext);
   const [type, setType] = useState("Seller");
+  const location = useLocation();
   if (!isAdmin) {
-    navigate("/");
+    <Navigate to="/" state={{ from: location }} replace></Navigate>;
   }
-  const { data: users = [], isLoading } = useQuery({
+  const {
+    data: users = [],
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: ["users", type],
     queryFn: async () => {
       const res = await fetch(
@@ -21,6 +26,28 @@ const AllUsers1 = () => {
       return data.data;
     },
   });
+
+  const handleUserDelete = (id: any, name: any) => {
+    const confirm = window.confirm(
+      `Are you sure, want to delete this ${name}?`
+    );
+    if (confirm) {
+      fetch(`http://localhost:5000/user/${id}`, {
+        method: "DELETE",
+        headers: {
+          "content-type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.success) {
+            toast.success(data.message);
+            refetch();
+          }
+        });
+    }
+  };
+
   if (isLoading) {
     return (
       <div className="grid place-items-center w-full h-screen">
@@ -72,13 +99,19 @@ const AllUsers1 = () => {
                   <option>Accept</option>
                 </select>
 
-                <button className="bg-red-500 h-[30px] px-3 rounded-md">
+                <button
+                  className="bg-red-500 h-[30px] px-3 rounded-md"
+                  onClick={() => handleUserDelete(user?._id, user?.name)}
+                >
                   Delete
                 </button>
               </div>
             ) : (
               <div className="flex justify-between items-center h-full">
-                <button className="bg-red-500 h-[30px] px-3 rounded-md">
+                <button
+                  className="bg-red-500 h-[30px] px-3 rounded-md"
+                  onClick={() => handleUserDelete(user?._id, user?.name)}
+                >
                   Delete
                 </button>
               </div>
