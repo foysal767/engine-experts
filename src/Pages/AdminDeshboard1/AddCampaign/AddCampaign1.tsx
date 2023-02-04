@@ -1,13 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 const AddCampaign1 = () => {
   const { isAdmin } = useContext(AuthContext);
-  const navigate = useNavigate();
+  const location = useLocation();
   if (!isAdmin) {
-    navigate("/");
+    <Navigate to="/" state={{ from: location }} replace></Navigate>;
   }
   const { data: services = [], isLoading } = useQuery({
     queryKey: ["services"],

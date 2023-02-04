@@ -32,7 +32,7 @@ const ServiceDetails = () => {
   const [reviews, setReviews] = useState<reviewtype>();
   const { user } = useContext(AuthContext);
   const [checked, setChecked] = useState(false);
-  const [openModal, setIsOpenModal] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
   // const [value, onChange] = useState(new Date());
   // const [location, setLocation] = useState<object>(userLocation);
   const getLocation = () => {
@@ -74,7 +74,7 @@ const ServiceDetails = () => {
   };
 
   const handleClose = () => {
-    setIsOpenModal(false);
+    setOpenModal(false);
   };
 
   const handleBooking = (event: any) => {
@@ -244,7 +244,7 @@ const ServiceDetails = () => {
             <span className=" font-bold text-2xl">Price: {details?.price}</span>
             <label
               htmlFor="payment-modal"
-              onClick={() => setIsOpenModal(true)}
+              onClick={() => setOpenModal(true)}
               className="pt-2 pb-3 text-2xl font-semibold btn bg-[#E81C2E] text-white"
             >
               Get Service

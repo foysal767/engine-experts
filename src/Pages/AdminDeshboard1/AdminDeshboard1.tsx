@@ -1,14 +1,20 @@
 import { useContext } from "react";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import {
+  Link,
+  Navigate,
+  Outlet,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import "./AdminDeshboard.css";
 
 const AdminDeshboard1 = () => {
   const { accType, isAdmin } = useContext(AuthContext);
   console.log("admin", accType, isAdmin);
-  const navigate = useNavigate();
+  const location = useLocation();
   if (!isAdmin && accType !== "Seller") {
-    navigate("/");
+    <Navigate to="/" state={{ from: location }} replace></Navigate>;
   }
   return (
     <main className="bg-[#EBF2F4] text-black w-full">

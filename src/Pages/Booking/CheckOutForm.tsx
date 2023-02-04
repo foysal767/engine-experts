@@ -2,27 +2,26 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
-type pay={
-    servicePayment:any
+type pay = {
+  servicePayment: any;
+};
 
-}
-
-const CheckOutForm = ({servicePayment}:pay) => {
+const CheckOutForm = ({ servicePayment }: pay) => {
   const [cardError, setCardError] = useState<string>("");
   const [clientSecret, setClientSecret] = useState("");
   const [success, setSuccess] = useState("");
   const [processing, setprocessing] = useState(false);
   const [transactionId, setTransactionId] = useState("");
-  const {user} = useContext(AuthContext);
-  const {price} = servicePayment;
-  
+  const { user } = useContext(AuthContext);
+  const { price } = servicePayment;
+
   const stripe = useStripe();
   const elements = useElements();
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
     fetch(
-      "http://localhost:5000/create-payment-intent",
+      "https://engine-experts-server-phi.vercel.app/create-payment-intent",
       {
         method: "POST",
         headers: {
@@ -99,7 +98,7 @@ const CheckOutForm = ({servicePayment}:pay) => {
         transactionId,
       };
 
-      fetch("http://localhost:5000/payments", {
+      fetch("https://engine-experts-server-phi.vercel.app/payments", {
         method: "POST",
         headers: {
           "content-type": "application/json",
