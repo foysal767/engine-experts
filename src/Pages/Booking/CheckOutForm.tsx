@@ -4,7 +4,6 @@ import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
 type pay={
     servicePayment:any
-
 }
 
 const CheckOutForm = ({servicePayment}:pay) => {

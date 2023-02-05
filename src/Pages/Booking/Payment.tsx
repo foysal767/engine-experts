@@ -50,11 +50,12 @@ const Payment = () => {
             </div>
         );
     }
+    const {price, email} = servicePayment;
     return (
         <div className='my-20'>
             
             <div className=' marquee'>
-                <h1 className='text-2xl text-black font-bold'>Payment for {servicePayment.serviceName} & Price: {servicePayment?.price}</h1>
+                <h1 className='text-2xl text-black font-bold'>Payment for {servicePayment.serviceName} & Price: {price}</h1>
             </div>
             <div className='w-96 mx-auto my-6 border p-7 '>
                 <Elements stripe={stripePromise}>
