@@ -16,6 +16,7 @@ import useAccType from "../../hook/useAccType";
 
 interface User {
   user: any;
+  errorSignUp: any;
   createUser: (
     email: string,
     password: string,
@@ -24,7 +25,7 @@ interface User {
     role: string,
     navigate: any
   ) => any;
-  signIn: (email: string, password: string, navigate: any) => any;
+  signIn: (email: string, password: string) => any;
   googleSignIn: (navigate: any) => any;
   logOut: (navigate: any) => any;
   updateUser: (name: string, photoURL: string) => any;
@@ -43,11 +44,15 @@ type childrenType = {
 };
 
 const AuthProvider = ({ children }: childrenType) => {
+  // const location = useLocation();
+
+  // const from = location.state?.from?.pathname || "/";
   // const [user, setUser] = useState<React.SetStateAction<{}>>({});
   const [user, setUser] = useState<React.SetStateAction<{} | null>>({});
   const [userEmail, setUserEmail] =
     useState<React.SetStateAction<string | null>>();
   const [loading, setLoading] = useState(true);
+  const [errorSignUp, setErrorSignUp] = useState();
   const [isAdmin] = useAdmin(userEmail);
   const [accType] = useAccType(userEmail);
   console.log("admin", isAdmin);
@@ -102,10 +107,13 @@ const AuthProvider = ({ children }: childrenType) => {
             }
           });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err)
+        setErrorSignUp(err.message)
+      });
   };
 
-  const signIn = (email: string, password: string, navigate: any) => {
+  const signIn = (email: string, password: string) => {
     setLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
@@ -123,12 +131,14 @@ const AuthProvider = ({ children }: childrenType) => {
             if (data.success) {
               localStorage.setItem("access-token", data.token);
               toast.success("successfully Login");
-              navigate("/");
               setLoading(false);
             }
           });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err)
+        setErrorSignUp(err.message)
+      });
   };
 
   const googleSignIn = (navigate: any) => {
@@ -191,6 +201,7 @@ const AuthProvider = ({ children }: childrenType) => {
   const authInfo = {
     user,
     createUser,
+    errorSignUp,
     signIn,
     googleSignIn,
     logOut,
