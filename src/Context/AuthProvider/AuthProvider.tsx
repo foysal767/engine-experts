@@ -55,6 +55,8 @@ const AuthProvider = ({ children }: childrenType) => {
   const [errorSignUp, setErrorSignUp] = useState();
   const [isAdmin] = useAdmin(userEmail);
   const [accType] = useAccType(userEmail);
+  console.log("admin", isAdmin);
+  console.log("acctype", accType);
   const createUser = (
     email: string,
     password: string,
@@ -73,6 +75,7 @@ const AuthProvider = ({ children }: childrenType) => {
           email: user.email,
           accType: role,
           image: photoURL,
+          userId: user?.uid,
         };
         fetch("https://engine-experts-server-phi.vercel.app/users", {
           method: "POST",

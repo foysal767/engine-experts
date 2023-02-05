@@ -1,12 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 import GoogleMaps from "../../GoogleMaps/GoogleMaps";
-
 const AllUsers1 = () => {
-  const { isAdmin, user } = useContext(AuthContext);
+  const { isAdmin } = useContext(AuthContext);
   const [type, setType] = useState("Seller");
   const location = useLocation();
   if (!isAdmin) {
@@ -27,7 +26,7 @@ const AllUsers1 = () => {
     },
   });
 
-  const handleUserDelete = (id: any, name: any) => {
+  const handleUserDelete = (id: any, name: any, uid: any) => {
     const confirm = window.confirm(
       `Are you sure, want to delete this ${name}?`
     );
@@ -98,22 +97,27 @@ const AllUsers1 = () => {
                   <option>InProgress</option>
                   <option>Accept</option>
                 </select>
-
                 <button
                   className="bg-red-500 h-[30px] px-3 rounded-md"
-                  onClick={() => handleUserDelete(user?._id, user?.name)}
+                  onClick={() =>
+                    handleUserDelete(user?._id, user?.name, user?.userId)
+                  }
                 >
                   Delete
                 </button>
+                {/* {isDeleting ? "Deleting..." : "Delete User"} */}
               </div>
             ) : (
               <div className="flex justify-between items-center h-full">
                 <button
                   className="bg-red-500 h-[30px] px-3 rounded-md"
-                  onClick={() => handleUserDelete(user?._id, user?.name)}
+                  onClick={() =>
+                    handleUserDelete(user?._id, user?.name, user?.userId)
+                  }
                 >
                   Delete
                 </button>
+                {/* {isDeleting ? "Deleting..." : "Delete User"} */}
               </div>
             )}
           </div>
