@@ -25,7 +25,7 @@ interface User {
     role: string,
     navigate: any
   ) => any;
-  signIn: (email: string, password: string, navigate: any) => any;
+  signIn: (email: string, password: string) => any;
   googleSignIn: (navigate: any) => any;
   logOut: (navigate: any) => any;
   updateUser: (name: string, photoURL: string) => any;
@@ -44,6 +44,9 @@ type childrenType = {
 };
 
 const AuthProvider = ({ children }: childrenType) => {
+  // const location = useLocation();
+
+  // const from = location.state?.from?.pathname || "/";
   // const [user, setUser] = useState<React.SetStateAction<{}>>({});
   const [user, setUser] = useState<React.SetStateAction<{} | null>>({});
   const [userEmail, setUserEmail] =
@@ -107,7 +110,7 @@ const AuthProvider = ({ children }: childrenType) => {
       });
   };
 
-  const signIn = (email: string, password: string, navigate: any) => {
+  const signIn = (email: string, password: string) => {
     setLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
@@ -125,7 +128,6 @@ const AuthProvider = ({ children }: childrenType) => {
             if (data.success) {
               localStorage.setItem("access-token", data.token);
               toast.success("successfully Login");
-              navigate("/");
               setLoading(false);
             }
           });

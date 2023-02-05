@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
-import Loading from "../../Pages/Loading/Loading";
 
 type childrenType = {
   children: React.ReactNode;
@@ -20,7 +19,7 @@ const PrivateRouter = ({ children }: childrenType) => {
   }
 
   if (user) {
-    return children;
+    return <React.Fragment>{children}</React.Fragment>;
   }
 
   return <Navigate to="/login" state={{ from: location }} replace></Navigate>;

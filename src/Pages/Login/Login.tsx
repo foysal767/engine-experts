@@ -1,17 +1,20 @@
 import React, { useContext } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
-// import swal from "sweetalert";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import "./Login.css";
 
 type Inputs = {
   email: string;
   password: string;
+  navigate: any;
 };
 
 const Login = () => {
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
   const { signIn, googleSignIn, errorSignUp } = useContext(AuthContext);
   const {
     register,
@@ -21,7 +24,8 @@ const Login = () => {
   const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    signIn(data.email, data.password, navigate);
+    signIn(data.email, data.password);
+    navigate(from, {replace: true});
   };
 
   const googleLogin = () => {

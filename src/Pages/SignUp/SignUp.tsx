@@ -16,8 +16,6 @@ type Inputs = {
 const SignUp = () => {
   const { createUser, googleSignIn, errorSignUp } = useContext(AuthContext);
 
-  
-
   const {
     register,
     handleSubmit,
@@ -157,12 +155,12 @@ const SignUp = () => {
               </label>
               <input
                 type="password"
-                placeholder="Enter your password..."
+                placeholder="Enter your password (a-z A-Z 0-9)"
                 {...register("password", {
                   required: "Password is required",
-                  minLength: {
-                    value: 6,
-                    message: "Password must be 6 characters or longer",
+                  pattern: {
+                    value: /^[a-zA-Z0-9]{8}$/,
+                    message: 'provide ( small, capital letter and number ) at least 8 digit. example( (a-z A-Z 0-9) )',
                   },
                 })}
                 className="w-full h-[50px] bg-white rounded text-black px-2"
