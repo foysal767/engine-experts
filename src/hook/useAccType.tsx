@@ -6,7 +6,9 @@ const useAccType = (data: any) => {
   useEffect(() => {
     setAccType("");
     if (data) {
-      fetch(`http://localhost:5000/accType?email=${data}`)
+      fetch(
+        `https://engine-experts-server-phi.vercel.app/accType?email=${data}`
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data.success) {

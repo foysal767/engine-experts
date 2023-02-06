@@ -1,8 +1,8 @@
-import { useContext, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { useContext, useState } from "react";
+import { toast } from "react-hot-toast";
 import { Link, Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
-import { toast } from "react-hot-toast";
 
 type singleService = {
   name: string;
@@ -37,7 +37,7 @@ const AllService1 = () => {
   const handleServiceEdit = (id: any) => {
     setServiceId(id);
     setOpenModal(true);
-    fetch(`http://localhost:5000/singleService/${id}`)
+    fetch(`https://engine-experts-server-phi.vercel.app/singleService/${id}`)
       .then((res) => res.json())
       .then((data) => setSingleService(data.data));
   };
@@ -58,13 +58,16 @@ const AllService1 = () => {
       details: description,
       image: image,
     };
-    fetch(`http://localhost:5000/editService/${serviceId}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(editService),
-    })
+    fetch(
+      `https://engine-experts-server-phi.vercel.app/editService/${serviceId}`,
+      {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(editService),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
