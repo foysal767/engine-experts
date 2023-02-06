@@ -5,6 +5,29 @@ import { AiFillStar } from "react-icons/ai";
 const DiscountSection = () => {
   const [discount, setDiscount] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  // CountDown timer added by jabed from here
+
+  const [days, setDays] = useState<number>(0);
+  const [hours, setHours] = useState<number>(0);
+  const [mins, setMinutes] = useState<number>(0);
+  const [secs, setSeconds] = useState<number>(0);
+
+  const deadline = "February, 13, 2023"
+
+  const getTime = () => {
+    const time = Date.parse(deadline)-Date.now();
+    setDays(Math.floor(time/(1000*60*60*24)));
+    setHours(Math.floor(time/(1000*60*60)%24));
+    setMinutes(Math.floor((time/1000/60)%60));
+    setSeconds(Math.floor((time/1000)%60));
+  }
+
+  useEffect(() => {
+    const interval = setInterval(() => getTime(), 1000);
+    return () => clearInterval(interval);
+  }, [])
+  
   // const { data: discount = [], isLoading } = useQuery({
   //   queryKey: ["discount"],
   //   queryFn: async () => {
@@ -35,6 +58,7 @@ const DiscountSection = () => {
       </div>
     );
   }
+
   return (
     <section className="w-full mb-6 lg:mb-28">
       <div className="w-full bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] py-24 relative upper-section ">
@@ -48,20 +72,20 @@ const DiscountSection = () => {
           </h2>
           <div className="flex gap-x-5 justify-center mt-5">
             <span className="bg-red-600 px-5 py-1 rounded-md">
-              <h2 className="text-lg font-bold">30</h2>
-              <p className="text-xs">Day</p>
+              <h2 className="text-2xl font-bold">{days < 10 ? "0" + days : days}</h2>
+              <p className="text-sm">Day</p>
             </span>
-            <span className="bg-red-600 px-3 py-1 rounded-md">
-              <h2 className="text-lg font-bold">03</h2>
-              <p className="text-xs">Hours</p>
-            </span>
-            <span className="bg-red-600 px-5 py-1 rounded-md">
-              <h2 className="text-lg font-bold">08</h2>
-              <p className="text-xs">Min</p>
+            <span className="bg-red-600 px-4 py-1 rounded-md">
+              <h2 className="text-2xl font-bold">{hours < 10 ? "0" + hours : hours}</h2>
+              <p className="text-sm">Hours</p>
             </span>
             <span className="bg-red-600 px-5 py-1 rounded-md">
-              <h2 className="text-lg font-bold">03</h2>
-              <p className="text-xs">Sec</p>
+              <h2 className="text-2xl font-bold">{mins < 10 ? "0" + mins : mins}</h2>
+              <p className="text-sm">Min</p>
+            </span>
+            <span className="bg-red-600 px-5 py-1 rounded-md">
+              <h2 className="text-2xl font-bold">{secs < 10 ? "0" + secs : secs}</h2>
+              <p className="text-sm">Sec</p>
             </span>
           </div>
         </div>
