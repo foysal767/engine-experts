@@ -1,21 +1,21 @@
-import React, { useContext, useEffect, useState } from "react";
-import Lottie from "lottie-react";
-import hi from "./hi.json";
-import { Link } from "react-router-dom";
-import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
+import Lottie from "lottie-react"
+import { useContext, useEffect, useState } from "react"
+import { Link } from "react-router-dom"
+import { AuthContext } from "../../Context/AuthProvider/AuthProvider"
+import hi from "./hi.json"
 
 const Booking = () => {
-  const [bookings, setBookings] = useState([]);
-  const { user } = useContext(AuthContext);
+  const [bookings, setBookings] = useState([])
+  const { user } = useContext(AuthContext)
   useEffect(() => {
-    fetch(`http://localhost:5000/booking?email=${user?.email}`)
+    fetch(`http://localhost:5000/bookings?email=${user?.email}`)
       .then(res => res.json())
       .then(data => {
         if (data.success) {
-          setBookings(data.data);
+          setBookings(data.data)
         }
-      });
-  }, [user?.email]);
+      })
+  }, [user?.email])
 
   return (
     <div className="text-[#383232] px-4 md:px-8 lg:px-12">
@@ -139,7 +139,7 @@ const Booking = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Booking;
+export default Booking
