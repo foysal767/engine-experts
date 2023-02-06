@@ -19,6 +19,7 @@ import useAdmin from "../../hook/useAdmin";
 
 interface User {
   user: any;
+  errorSignUp: any;
   createUser: (
     email: string,
     password: string,
@@ -27,7 +28,7 @@ interface User {
     role: string,
     navigate: any
   ) => any;
-  signIn: (email: string, password: string, navigate: any) => any;
+  signIn: (email: string, password: string) => any;
   googleSignIn: (navigate: any) => any;
   logOut: (navigate: any) => any;
   updateUser: (name: string, photoURL: string) => any;
@@ -46,13 +47,19 @@ type childrenType = {
 };
 
 const AuthProvider = ({ children }: childrenType) => {
+  // const location = useLocation();
+
+  // const from = location.state?.from?.pathname || "/";
   // const [user, setUser] = useState<React.SetStateAction<{}>>({});
   const [user, setUser] = useState<React.SetStateAction<{} | null>>({});
   const [userEmail, setUserEmail] =
     useState<React.SetStateAction<string | null>>();
   const [loading, setLoading] = useState(true);
+  const [errorSignUp, setErrorSignUp] = useState();
   const [isAdmin] = useAdmin(userEmail);
   const [accType] = useAccType(userEmail);
+  console.log("admin", isAdmin);
+  console.log("acctype", accType);
   const createUser = (
     email: string,
     password: string,
@@ -61,8 +68,6 @@ const AuthProvider = ({ children }: childrenType) => {
     role: string,
     navigate: any
   ) => {
-    console.log(name, photoURL);
-
     setLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
@@ -73,6 +78,7 @@ const AuthProvider = ({ children }: childrenType) => {
           email: user.email,
           accType: role,
           image: photoURL,
+          userId: user?.uid,
         };
         fetch("https://engine-experts-server-phi.vercel.app/users", {
           method: "POST",
@@ -104,10 +110,13 @@ const AuthProvider = ({ children }: childrenType) => {
             }
           });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err)
+        setErrorSignUp(err.message)
+      });
   };
 
-  const signIn = (email: string, password: string, navigate: any) => {
+  const signIn = (email: string, password: string) => {
     setLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
@@ -125,12 +134,14 @@ const AuthProvider = ({ children }: childrenType) => {
             if (data.success) {
               localStorage.setItem("access-token", data.token);
               toast.success("successfully Login");
-              navigate("/");
               setLoading(false);
             }
           });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err)
+        setErrorSignUp(err.message)
+      });
   };
 
   const googleSignIn = (navigate: any) => {
@@ -164,7 +175,7 @@ const AuthProvider = ({ children }: childrenType) => {
     if (newUser !== null) {
       updateProfile(newUser, profile)
         .then((res) => {})
-        .catch((err) => console.log(err));
+        .catch((err) => console.error(err));
     }
   };
 
@@ -177,14 +188,13 @@ const AuthProvider = ({ children }: childrenType) => {
         navigate("/");
         setLoading(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
   };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setUserEmail(currentUser?.email);
-      console.log(currentUser, "state", user);
       setLoading(false);
     });
 
@@ -194,6 +204,7 @@ const AuthProvider = ({ children }: childrenType) => {
   const authInfo = {
     user,
     createUser,
+    errorSignUp,
     signIn,
     googleSignIn,
     logOut,

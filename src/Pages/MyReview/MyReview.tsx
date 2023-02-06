@@ -1,21 +1,27 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 
 const MyReview = () => {
   const { user } = useContext(AuthContext);
+  const [reviews, setReviews] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  const { data: reviews = [], isLoading } = useQuery({
-    queryKey: ["reviews"],
-    queryFn: async () => {
-      const res = await fetch(
-        `https://engine-experts-server-phi.vercel.app/userReviews?email=${user?.email}`
-      );
-      const data = await res.json();
-      return data.data;
-    },
-  });
-  if (isLoading) {
+  useEffect(() => {
+    setLoading(true);
+    fetch(
+      `https://engine-experts-server-phi.vercel.app/userReviews/${user?.email}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setReviews(data.data);
+          setLoading(false);
+        }
+      });
+  }, [user?.email]);
+
+  if (loading) {
     return (
       <div className="grid place-items-center w-full h-screen">
         <span className="loader"></span>
@@ -25,23 +31,33 @@ const MyReview = () => {
 
   return (
     <section className="text-black mt-5 px-4 md:px-12 lg:px-12">
-      <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-5">
+      {reviews?.length >= 1 ? (
+        <h2 className="text-4xl">Total reviews : {reviews?.length}</h2>
+      ) : (
+        <h2 className="text-4xl">No reviews added yet.</h2>
+      )}
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5">
         {reviews?.map((review: any, i: any) => (
-          <div key={i} className="shadow-xl mx-auto px-4 py-5">
-            <h3 className="text-xl font-bold">{review?.name}</h3>
-            <img
-              className="w-[280px] h-[180px] my-2"
-              src={review?.image}
-              alt=""
-            />
-            <h3 className="text-left text-lg font-bold">
-              Review:{" "}
-              <span className="text-sm">{review?.review?.feedback}</span>
-            </h3>
-            <h3 className="text-left text-lg font-bold mb-2">
-              Rating: {review?.review?.rating}
-            </h3>
-            <div className="flex justify-between items-center">
+          <div key={i} className="shadow-xl mx-auto px-4 py-5 w-full">
+            <h3 className="text-left text-xl font-bold">{review?.name}</h3>
+            <div className="flex items-center">
+              <img
+                className="w-[180px] h-[80px] my-2"
+                src={review?.image}
+                alt=""
+              />
+
+              <div className="ml-5">
+                <h3 className="text-left text-lg font-bold">
+                  Review:{" "}
+                  <span className="text-sm">{review?.review?.feedback}</span>
+                </h3>
+                <h3 className="text-left text-lg font-bold mb-2">
+                  Rating: {review?.review?.rating}
+                </h3>
+              </div>
+            </div>
+            <div className="flex items-center space-x-3">
               <label
                 htmlFor="edit-modal"
                 className="btn bg-blue-600 lg:btn-sm btn-xs border-none text-white"
@@ -69,7 +85,6 @@ const MyReview = () => {
           >
             ✕
           </label>
-          <h3 className="text-lg font-bold">Service 1</h3>
           <label>
             <p className="text-left">Give feedback</p>
           </label>

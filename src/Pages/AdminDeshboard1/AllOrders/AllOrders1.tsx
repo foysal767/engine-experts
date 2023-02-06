@@ -1,15 +1,20 @@
 import { useQuery } from "@tanstack/react-query";
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
+import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 const AllOrders1 = () => {
   const { isAdmin } = useContext(AuthContext);
-  const navigate = useNavigate();
+  const location = useLocation();
   if (!isAdmin) {
-    navigate("/");
+    <Navigate to="/" state={{ from: location }} replace></Navigate>;
   }
 
-  const { data: orders = [], isLoading } = useQuery({
+  const {
+    data: orders = [],
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: ["orders"],
     queryFn: async () => {
       const res = await fetch(
@@ -19,6 +24,27 @@ const AllOrders1 = () => {
       return data.data;
     },
   });
+
+  const handleOrderDelete = (id: any, name: any) => {
+    const confirm = window.confirm(
+      `Are you sure, want to delete this ${name}?`
+    );
+    if (confirm) {
+      fetch(`http://localhost:5000/deleteOrder/${id}`, {
+        method: "DELETE",
+        headers: {
+          "content-type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.success) {
+            toast.success(data.message);
+            refetch();
+          }
+        });
+    }
+  };
   if (isLoading) {
     return (
       <div className="grid place-items-center w-full h-screen">
@@ -44,7 +70,7 @@ const AllOrders1 = () => {
         {/* card starts from here */}
         {orders?.map((order: any, i: any) => (
           <div className="flex flex-col lg:flex-row gap-3 justify-between items-center px-4 py-3 text-xl bg-[#d9dee4] rounded border">
-            <h2>1.</h2>
+            <h2>{i + 1}</h2>
             <img
               src={order?.userImage}
               alt=""
@@ -64,7 +90,12 @@ const AllOrders1 = () => {
               <option value="In Progress">In Progress</option>
               <option value="Done">Done</option>
             </select>
-            <button className="bg-red-500 px-3 rounded-xl">Delete</button>
+            <button
+              className="bg-red-500 px-3 rounded-xl"
+              onClick={() => handleOrderDelete(order?._id, order?.serviceName)}
+            >
+              Delete
+            </button>
           </div>
         ))}
       </div>
