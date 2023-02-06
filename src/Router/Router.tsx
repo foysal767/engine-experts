@@ -1,26 +1,26 @@
-import { createBrowserRouter } from "react-router-dom";
-import Main from "../layout/Main/Main";
-import AddCampaign1 from "../Pages/AdminDeshboard1/AddCampaign/AddCampaign1";
-import AddService1 from "../Pages/AdminDeshboard1/AddService/AddService1";
-import AdminDeshboard1 from "../Pages/AdminDeshboard1/AdminDeshboard1";
-import AllOrders1 from "../Pages/AdminDeshboard1/AllOrders/AllOrders1";
-import AllService1 from "../Pages/AdminDeshboard1/AllService/AllService1";
-import AllUsers1 from "../Pages/AdminDeshboard1/AllUsers/AllUsers1";
-import SellerOrder from "../Pages/AdminDeshboard1/SellerOrders/SellerOrder";
+import { createBrowserRouter } from "react-router-dom"
+import Main from "../layout/Main/Main"
+import AddCampaign1 from "../Pages/AdminDeshboard1/AddCampaign/AddCampaign1"
+import AddService1 from "../Pages/AdminDeshboard1/AddService/AddService1"
+import AdminDeshboard1 from "../Pages/AdminDeshboard1/AdminDeshboard1"
+import AllOrders1 from "../Pages/AdminDeshboard1/AllOrders/AllOrders1"
+import AllService1 from "../Pages/AdminDeshboard1/AllService/AllService1"
+import AllUsers1 from "../Pages/AdminDeshboard1/AllUsers/AllUsers1"
+import SellerOrder from "../Pages/AdminDeshboard1/SellerOrders/SellerOrder"
 // import SellerOrder from "../Pages/AdminDeshboard1/SellerOrder/SellerOrder";
-import Booking from "../Pages/Booking/Booking";
-import Payment from "../Pages/Booking/Payment";
-import ErrorPage from "../Pages/ErrorPage/ErrorPage";
-import GoogleMaps from "../Pages/GoogleMaps/GoogleMaps";
-import ContactForm from "../Pages/Home/ContactForm/ContactForm";
-import ContactUs from "../Pages/Home/ContactUs/ContactUs";
-import Home from "../Pages/Home/Home/Home";
-import Login from "../Pages/Login/Login";
-import MyReview from "../Pages/MyReview/MyReview";
-import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
-import Services from "../Pages/Services/Services";
-import SignUp from "../Pages/SignUp/SignUp";
-import PrivateRouter from "./PrivateRouter/PrivateRouter";
+import Booking from "../Pages/Booking/Booking"
+import Payment from "../Pages/Booking/Payment"
+import ErrorPage from "../Pages/ErrorPage/ErrorPage"
+import GoogleMaps from "../Pages/GoogleMaps/GoogleMaps"
+import ContactForm from "../Pages/Home/ContactForm/ContactForm"
+import ContactUs from "../Pages/Home/ContactUs/ContactUs"
+import Person1 from "../Pages/Home/Home/EnginrExperties/Person1"
+import Home from "../Pages/Home/Home/Home"
+import Login from "../Pages/Login/Login"
+import MyReview from "../Pages/MyReview/MyReview"
+import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails"
+import Services from "../Pages/Services/Services"
+import SignUp from "../Pages/SignUp/SignUp"
 
 const router = createBrowserRouter([
   {
@@ -72,6 +72,10 @@ const router = createBrowserRouter([
         path: "/booking/payment/:id",
         element: <Payment></Payment>,
       },
+      {
+        path: "/person1",
+        element: <Person1></Person1>,
+      },
     ],
   },
   {
@@ -104,6 +108,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-]);
+])
 
-export default router;
+export default router
