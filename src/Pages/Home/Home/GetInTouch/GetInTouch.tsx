@@ -1,9 +1,9 @@
-import { FaPhone, FaRegEdit, FaRegPaperPlane } from "react-icons/fa";
-import "./GetInTouch.css";
+import { FaPhone, FaRegEdit, FaRegPaperPlane } from "react-icons/fa"
+import "./GetInTouch.css"
 
 const GetInTouch = () => {
   return (
-    <section className="mb-32">
+    <section className="my-32 md:my-20 lg:my-20">
       <div className="w-full text-left pl-8">
         <button className="getTouch mb-6">Get In Touch</button>
       </div>
@@ -71,7 +71,7 @@ const GetInTouch = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default GetInTouch;
+export default GetInTouch

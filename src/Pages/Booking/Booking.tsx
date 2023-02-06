@@ -4,20 +4,18 @@ import hi from "./hi.json";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
-
 const Booking = () => {
   const [bookings, setBookings] = useState([]);
   const { user } = useContext(AuthContext);
   useEffect(() => {
-    fetch(`http://localhost:5000/bookings?email=${user?.email}`)
+    fetch(`http://localhost:5000/booking?email=${user?.email}`)
       .then(res => res.json())
       .then(data => {
         if (data.success) {
-          setBookings(data.data)
+          setBookings(data.data);
         }
-      })
-
-  }, [user?.email])
+      });
+  }, [user?.email]);
 
   return (
     <div className="text-[#383232] px-4 md:px-8 lg:px-12">
@@ -34,8 +32,8 @@ const Booking = () => {
           <span>Payment</span>
           <span>Cancel</span>
         </div>
-        {
-          bookings?.map((booking: any, i: any) => <div className="grid grid-cols-5 gap-2 lg:gap-3 items-center my-5 bg-gray-200 rounded py-2 px-2 h-[80px]">
+        {bookings?.map((booking: any, i: any) => (
+          <div className="grid grid-cols-5 gap-2 lg:gap-3 items-center my-5 bg-gray-200 rounded py-2 px-2 h-[80px]">
             <span>
               <img
                 className="lg:w-[80px] w-[50px] mx-auto"
@@ -49,7 +47,9 @@ const Booking = () => {
               </h2>
             </span>
             <span>
-              <h2 className="lg:text-xl text-sm lg:font-bold">{booking?.price}</h2>
+              <h2 className="lg:text-xl text-sm lg:font-bold">
+                {booking?.price}
+              </h2>
             </span>
             <span>
               <Link to={`/booking/payment/${booking?._id}`}>
@@ -66,10 +66,8 @@ const Booking = () => {
                 Cancel
               </button>
             </span>
-          </div>)
-        }
-
-
+          </div>
+        ))}
       </div>
       {/* Put this part before </body> tag */}
       {/* payment modal */}
@@ -109,7 +107,7 @@ const Booking = () => {
           />
 
           {/* Form */}
-          <form >
+          <form>
             <p className="text-black text-left">Card Number</p>
             <input
               type="text"

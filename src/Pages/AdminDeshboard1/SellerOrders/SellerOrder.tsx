@@ -1,4 +1,13 @@
+import { useContext } from "react";
+import { Navigate, useLocation } from "react-router-dom";
+import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
+
 const SellerOrder = () => {
+  const { accType } = useContext(AuthContext);
+  const location = useLocation();
+  if (accType !== "Seller") {
+    <Navigate to="/" state={{ from: location }} replace></Navigate>;
+  }
   return (
     <section className="w-full lg:w-[80%] md:w-[80%] mx-auto px-4 md:px-8 lg:px-12 bg-[#EBF2F4] pb-10">
       <h1 className="text-2xl font-serif text-start mb-6">
