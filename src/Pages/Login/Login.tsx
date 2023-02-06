@@ -1,28 +1,31 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
-// import swal from "sweetalert";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import "./Login.css";
 
 type Inputs = {
   email: string;
   password: string;
+  navigate: any;
 };
 
 const Login = () => {
-  const { signIn, googleSignIn } = useContext(AuthContext);
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
+  const { signIn, googleSignIn, errorSignUp } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
-  const [loginError, setLoginError] = useState("");
   const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    signIn(data.email, data.password, navigate);
+    signIn(data.email, data.password);
+    navigate(from, {replace: true});
   };
 
   const googleLogin = () => {
@@ -87,28 +90,26 @@ const Login = () => {
                 className="w-full h-[50px] bg-white rounded text-black px-2"
                 required
               />
-              <label className="label">
-                <span className="label-text">Forget Password?</span>
-              </label>
               {errors.password && (
                 <p className="text-red-600">{errors.password?.message}</p>
               )}
+              <label className="label">
+                <span className="label-text text-black cursor-pointer">Forget Password?</span>
+              </label>
             </div>
-            <div className="w-full grid lg:grid-cols-2 gap-3">
+            <div className="w-full grid lg:grid-cols-2 gap-6 mt-3">
             <button className="loginBtn w-full font-semibold">Login</button>
               <button
                 onClick={googleLogin}
                 className="w-full hover:bg-black hover:text-white rounded border flex items-center text-black font-semibold"
               >
-                <FcGoogle className="text-2xl mx-2"></FcGoogle> CONTINUE WITH
-                GOOGLE
+                <FcGoogle className="text-2xl mx-2"></FcGoogle> CONTINUE WITH GOOGLE
               </button>
             </div>
-            {loginError && <p className="text-red-600">{loginError}</p>}
+            {errorSignUp && <p className="text-red-600 mt-2">{errorSignUp}</p>}
             <p className="mt-3 text-black">
               New to Engine Experts?
-              <Link className="text-orange-500" to="/signup">
-                Create new Account
+              <Link className="text-orange-500 ml-2" to="/signup">Create new Account
               </Link>
             </p>
           </form>

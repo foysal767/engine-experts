@@ -14,7 +14,7 @@ type Inputs = {
 };
 
 const SignUp = () => {
-  const { createUser, googleSignIn } = useContext(AuthContext);
+  const { createUser, googleSignIn, errorSignUp } = useContext(AuthContext);
 
   const {
     register,
@@ -47,8 +47,8 @@ const SignUp = () => {
             navigate
           );
         }
-      });
-  };
+      })
+    };
 
   const googleLogin = () => {
     googleSignIn(navigate);
@@ -155,25 +155,22 @@ const SignUp = () => {
               </label>
               <input
                 type="password"
-                placeholder="Enter your password..."
+                placeholder="Enter your password (a-z A-Z 0-9)"
                 {...register("password", {
                   required: "Password is required",
-                  minLength: {
-                    value: 6,
-                    message: "Password must be 6 characters or longer",
+                  pattern: {
+                    value: /^[a-zA-Z0-9]{8}$/,
+                    message: 'provide ( small, capital letter and number ) at least 8 digit. example( (a-z A-Z 0-9) )',
                   },
                 })}
                 className="w-full h-[50px] bg-white rounded text-black px-2"
                 required
               />
-              <label className="label">
-                <span className="label-text text-black">Forget Password?</span>
-              </label>
               {errors.password && (
                 <p className="text-red-600">{errors.password?.message}</p>
               )}
             </div>
-            <div className="w-full grid lg:grid-cols-2 gap-3">
+            <div className="w-full grid lg:grid-cols-2 gap-6 mt-4">
               <button className="signupBtn w-full font-semibold">
                 Sign Up
               </button>
@@ -185,6 +182,7 @@ const SignUp = () => {
                 GOOGLE
               </button>
             </div>
+            {errorSignUp && <p className="text-red-600 mt-2">{errorSignUp}</p>}
             <p className="mt-3 text-black">
               Already have an account?
               <Link className="text-orange-500 ml-2" to="/login">

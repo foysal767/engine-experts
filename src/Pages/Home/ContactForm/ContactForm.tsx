@@ -3,9 +3,9 @@ import "./ContactForm.css"
 
 const ContactForm = () => {
   return (
-    <section className="my-20 px-10">
-      <div className="contactForm flex space-x-8 justify-center">
-        <div className="leftContactForm bg-white p-4 rounded-lg px-20 py-10">
+    <section className="my-20 px-4">
+      <div className="contactForm grid lg:grid-cols-3 md:grid-cols-2 gap-6 justify-center">
+        <div className="leftContactForm lg:col-span-2 bg-white p-4 rounded-lg lg:px-20 py-10">
           <div className="headText text-left">
             <h2 className="text-4xl font-semibold text-gray-900">
               Need Services ? Send Message
@@ -15,7 +15,7 @@ const ContactForm = () => {
             </p>
           </div>
           <div className="contactFormInput">
-            <div className="nameEmail flex space-x-24">
+            <div className="nameEmail grid lg:grid-cols-2 md:grid-cols-1 gap-4">
               <div className="inputName">
                 <div className="text-gray-900 font-bold text-left">
                   <label className="" htmlFor="name">
@@ -23,7 +23,7 @@ const ContactForm = () => {
                   </label>
                 </div>
                 <input
-                  className="bg-gray-100 w-full"
+                  className="bg-gray-100 input input-bordered text-black w-full"
                   type="text"
                   placeholder="Type your Name"
                 />
@@ -35,13 +35,13 @@ const ContactForm = () => {
                   </label>
                 </div>
                 <input
-                  className="bg-gray-100 w-full"
+                  className="bg-gray-100 input input-bordered text-black w-full"
                   type="email"
                   placeholder="Type your Email"
                 />
               </div>
             </div>
-            <div className="phoneService flex space-x-24 my-4">
+            <div className="phoneService grid lg:grid-cols-2 md:grid-cols-1 gap-4 my-4">
               <div className="inputPhone">
                 <div className="text-gray-900 font-bold text-left">
                   <label className="" htmlFor="phone">
@@ -49,7 +49,7 @@ const ContactForm = () => {
                   </label>
                 </div>
                 <input
-                  className="bg-gray-100 w-full"
+                  className="bg-gray-100 input input-bordered text-black w-full"
                   type="text"
                   placeholder="Type your Phone"
                 />
@@ -61,7 +61,7 @@ const ContactForm = () => {
                   </label>
                 </div>
                 <input
-                  className="bg-gray-100 w-full"
+                  className="bg-gray-100 input input-bordered text-black w-full"
                   type="text"
                   placeholder="Type your service"
                 />
@@ -74,7 +74,7 @@ const ContactForm = () => {
                 </label>
               </div>
               <textarea
-                className="bg-gray-100 mb-4 w-full"
+                className="textarea textarea-bordered text-black bg-gray-100 mb-4 w-full"
                 placeholder="Your Message"
                 name="message"
                 id=""
@@ -82,7 +82,7 @@ const ContactForm = () => {
             </div>
           </div>
           <div>
-            <button className="btn btn-block btn-outline bg-gray-100 text-gray-600 font-bold">
+            <button className="contactBtn font-bold">
               Submit
             </button>
           </div>
