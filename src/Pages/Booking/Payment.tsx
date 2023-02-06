@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { loadStripe } from '@stripe/stripe-js';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext} from 'react';
 import { Elements } from '@stripe/react-stripe-js';
 import CheckOutForm from './CheckOutForm';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
@@ -12,7 +12,7 @@ const stripeKey = process.env.REACT_APP_STRIPE_PK;
 // console.log(stripeKey);
 
 const stripePromise = loadStripe(`${stripeKey}` as string);
-console.log('stripe', stripePromise);
+// console.log('stripe', stripePromise);
 
 
 
@@ -51,6 +51,7 @@ const Payment = () => {
         );
     }
     const {price, email} = servicePayment;
+    // console.log('inside payment', servicePayment);
     return (
         <div className='my-20'>
             
