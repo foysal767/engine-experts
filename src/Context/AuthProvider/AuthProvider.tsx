@@ -1,4 +1,3 @@
-import React, { createContext, useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
   getAuth,
@@ -9,10 +8,14 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
-import app from "../../Firebase/firebase.config";
+
+import React, { createContext, useEffect, useState } from "react";
+
 import { toast } from "react-hot-toast";
-import useAdmin from "../../hook/useAdmin";
+import app from "../../Firebase/firebase.config";
 import useAccType from "../../hook/useAccType";
+import useAdmin from "../../hook/useAdmin";
+
 
 interface User {
   user: any;
