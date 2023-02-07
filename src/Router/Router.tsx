@@ -14,7 +14,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage"
 import GoogleMaps from "../Pages/GoogleMaps/GoogleMaps"
 import ContactForm from "../Pages/Home/ContactForm/ContactForm"
 import ContactUs from "../Pages/Home/ContactUs/ContactUs"
-import Person1 from "../Pages/Home/Home/EnginrExperties/Person1"
+import AirExpertise from "../Pages/Home/Home/EnginrExperties/AirExpertise"
 import Home from "../Pages/Home/Home/Home"
 import Login from "../Pages/Login/Login"
 import MyReview from "../Pages/MyReview/MyReview"
@@ -78,8 +78,8 @@ const router = createBrowserRouter([
         element: <Payment></Payment>,
       },
       {
-        path: "/person1",
-        element: <Person1></Person1>,
+        path: "/airexpertise",
+        element: <AirExpertise></AirExpertise>,
       },
     ],
   },

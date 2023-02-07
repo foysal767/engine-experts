@@ -16,7 +16,7 @@ const EngineExperties = () => {
               src="/assets/service-1.1.jpg"
               alt=""
             />
-            <Link to="/person1">
+            <Link to="/airexpertise">
               <div className="absolute w-[90%] h-[40%] lg:h-[60%] left-[5%] bottom-0 lg:-bottom-20 bg-white p-5 flex-col gap-3 rounded-md hover:bg-red-200 cursor-pointer">
                 <div className="flex items-center justify-between w-full text-black">
                   <h1 className="flex items-center gap-2">
@@ -35,7 +35,7 @@ const EngineExperties = () => {
                 </div>
                 <div className="font-bold text-xl text-gray-700">
                   <h1>
-                    Common Engine Oil <br /> Problems and Solutions
+                    Air-Conditioning-&-Evac <br /> Problems and Solutions
                   </h1>
                 </div>
               </div>

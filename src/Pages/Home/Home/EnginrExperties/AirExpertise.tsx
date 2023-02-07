@@ -1,27 +1,88 @@
-const Person1 = () => {
+import {
+  FaEnvelope,
+  FaLinkedinIn,
+  FaPhoneVolume,
+  FaWhatsapp,
+} from "react-icons/fa"
+
+const AirExpertise = () => {
   return (
     <section>
-      <div className="my-20 flex gap-4 px-10">
-        <div className="sideBar text-black border-2 basis-3/12">
+      <div className="my-20 flex flex-col md:flex-row gap-8 px-10">
+        <div className="sideBar text-black border-2 basis-3/12 bg-green-100 p-4">
           <img className="rounded-lg" src="assets/team/arif.jpg" alt="" />
-          <div className="flex justify-around text-2xl text-gray-700 font-bold my-2">
+          <div className="flex justify-around text-2xl text-gray-700 font-bold mb-2">
             <h1>Name:</h1>
             <span>Ariful Islam</span>
           </div>
           <hr className="border border-red-500 mb-2" />
           <p className="text-xl text-gray-600">
-            Hi! I am Ariful Islam. I am a motor machanicqe. My job title is
-            Air-Conditioning-&-Evac Spacialist. To my company my position is a
-            senior excutive of engine expertise.
+            Hi! I am Ariful Islam. I am a Motor Expertise. I am in
+            Air-Conditioning-&-Evac Spacialist. And also I am in senior excutive
+            of engine expertise team.
           </p>
           <div className="contactInfo mt-8">
             <span className="text-3xl text-gray-600 font-bold">
-              Education Info
+              Contact Info
             </span>
-            <hr className="border border-red-500 mb-2" />
+            <hr className="border border-red-500 mb-4" />
             <div className=" flex justify-around">
-              <h1>Email:</h1>
-              <span>arifulislam24@gmail.com</span>
+              <div className="flex gap-1 items-center">
+                <FaEnvelope className="text-amber-400"></FaEnvelope>
+                <span className="text-xl text-gray-600">Email:</span>
+              </div>
+              <span className="text-xl text-gray-600">
+                arifulislam24@gmail.com
+              </span>
+            </div>
+            <div className=" flex justify-around">
+              <div className="flex gap-1 items-center">
+                <FaLinkedinIn className="text-blue-800"></FaLinkedinIn>
+                <span className="text-xl text-gray-600">Linkedin:</span>
+              </div>
+              <span className="text-xl text-gray-600">
+                Go to Linekdin Profile
+              </span>
+            </div>
+            <div className=" flex justify-around">
+              <div className="flex gap-1 items-center">
+                <FaPhoneVolume className="text-green-600"></FaPhoneVolume>
+                <span className="text-xl text-gray-600">Phone:</span>
+              </div>
+              <span className="text-xl text-gray-600">
+                +88 017 22 262041/42/43
+              </span>
+            </div>
+            <div className=" flex justify-around mb-8">
+              <div className="flex gap-1 items-center">
+                <FaWhatsapp className="text-blue-900"></FaWhatsapp>
+                <span className="text-xl text-gray-600">Whats App:</span>
+              </div>
+              <span className="text-xl text-gray-600">
+                Arifulislamarif 9867
+              </span>
+            </div>
+            <span className="text-3xl text-gray-600 font-bold">
+              Home Address
+            </span>
+            <hr className="border border-red-500 mb-4" />
+            <div className="text-xl text-gray-600 mb-8">
+              <p>MD. Ariful Islam</p>
+              <p>123 Chottogram Potengga Street</p>
+              <p>Solt Gola Rail Crossing/235</p>
+              <p>South East Halishahar/NX 204</p>
+            </div>
+
+            <span className="text-3xl text-gray-600 font-bold">
+              Education Details
+            </span>
+            <hr className="border border-red-500 mb-4" />
+            <div className="text-xl text-gray-600">
+              <p>Bachelor of Science, Tecnology</p>
+              <p>Honors: Cum laude (GPA: 3.8/4.0)</p>
+              <p>Dean's List 4 Semester</p>
+              <p>Thesis: Oil Engine, Air Vocked</p>
+              <p>Relevant: Tires Repair, Engine Repair</p>
             </div>
           </div>
         </div>
@@ -361,4 +422,4 @@ const Person1 = () => {
   )
 }
 
-export default Person1
+export default AirExpertise
