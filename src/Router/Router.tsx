@@ -54,24 +54,12 @@ const router = createBrowserRouter([
         element: <ContactForm></ContactForm>,
       },
       {
-        path: "/booking",
-        element: <Booking></Booking>,
-      },
-      {
-        path: "/myreview",
-        element: (
-          <PrivateRouter>
-            <MyReview></MyReview>
-          </PrivateRouter>
-        ),
-      },
-      {
         path: "/services",
         element: <Services></Services>,
       },
       {
         path: "/serviceDetails/:id",
-        element: <ServiceDetails></ServiceDetails>,
+        element: <PrivateRouter><ServiceDetails></ServiceDetails></PrivateRouter>,
       },
       {
         path: "/booking/payment/:id",
@@ -110,6 +98,16 @@ const router = createBrowserRouter([
       {
         path: "/dashboard1/sellerOrders",
         element: <SellerOrder></SellerOrder>,
+      },
+      {
+        path: "/dashboard1/booking",
+        element: <Booking></Booking>,
+      },
+      {
+        path: "/dashboard1/myreview",
+        element: (
+            <MyReview></MyReview>
+        ),
       },
     ],
   },
