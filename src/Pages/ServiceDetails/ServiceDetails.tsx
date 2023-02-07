@@ -30,7 +30,7 @@ const ServiceDetails = () => {
   const [details, setDetails] = useState<usedata>();
   const [loading, setLoading] = useState<boolean>(true);
   const [reviews, setReviews] = useState<reviewtype>();
-  const { user } = useContext(AuthContext);
+  const { user, isAdmin, accType } = useContext(AuthContext);
   const [checked, setChecked] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   // const [value, onChange] = useState(new Date());
@@ -166,7 +166,7 @@ const ServiceDetails = () => {
 
       <div className="relative lg:h-[200px] h-[100px] w-full">
         <img
-          className="opacity-70 w-full h-full"
+          className="opacity-80 w-full h-full"
           src="/assets/services-bg.jpg"
           alt="service-bg"
         />
@@ -190,43 +190,45 @@ const ServiceDetails = () => {
             />
           </div>
           <h1 className="text-start text-black px-2">{details?.details}</h1>
-          <div className="w-full mt-4">
-            <h1 className="text-4xl text-black font-semibold  text-start">
-              Give Your FeedBack Here
-            </h1>
+          {!isAdmin && (
+            <div className="w-full mt-4">
+              <h1 className="text-4xl text-black font-semibold  text-start">
+                Give Your FeedBack Here
+              </h1>
 
-            {/* form/feedback */}
-            <form
-              onSubmit={giveFeedBack}
-              className="w-full text-start rounded-md outline-none mt-4 "
-            >
-              <div className="w-full lg:flex items-center gap-3">
-                <textarea
-                  name="feedback"
-                  cols={12}
-                  rows={1}
-                  placeholder="Comment your feedback here..."
-                  className="bg-black p-3 h-[60px] m-0 w-full rounded-md outline-none"
-                  required
-                ></textarea>
-                <select
-                  name="rating"
-                  id=""
-                  className="bg-black h-[60px] text-xl rounded outline-none"
-                >
-                  <option value="Good">Good</option>
-                  <option value="Excellent">Excellent</option>
-                  <option value="As Well">As Well</option>
-                </select>
-              </div>
-              <button
-                type="submit"
-                className="btn border-none text-white bg-red-500 rounded-sm mt-4"
+              {/* form/feedback */}
+              <form
+                onSubmit={giveFeedBack}
+                className="w-full text-start rounded-md outline-none mt-4 "
               >
-                Submit
-              </button>
-            </form>
-          </div>
+                <div className="w-full lg:flex items-center gap-3">
+                  <textarea
+                    name="feedback"
+                    cols={12}
+                    rows={1}
+                    placeholder="Comment your feedback here..."
+                    className="bg-black p-3 h-[60px] m-0 w-full rounded-md outline-none"
+                    required
+                  ></textarea>
+                  <select
+                    name="rating"
+                    id=""
+                    className="bg-black h-[60px] text-xl rounded outline-none px-4"
+                  >
+                    <option value="Good">Good</option>
+                    <option value="Excellent">Excellent</option>
+                    <option value="As Well">As Well</option>
+                  </select>
+                </div>
+                <button
+                  type="submit"
+                  className="btn border-none text-white bg-red-500 rounded-sm mt-4"
+                >
+                  Submit
+                </button>
+              </form>
+            </div>
+          )}
 
           {/* ----------------Table starts from here------------ */}
         </div>
@@ -242,13 +244,15 @@ const ServiceDetails = () => {
               </h2>
             </div>
             <span className=" font-bold text-2xl">Price: {details?.price}</span>
-            <label
-              htmlFor="payment-modal"
-              onClick={() => setOpenModal(true)}
-              className="pt-2 pb-3 text-2xl font-semibold btn bg-[#E81C2E] text-white"
-            >
-              Get Service
-            </label>
+            {!isAdmin && accType !== "Seller" && (
+              <label
+                htmlFor="payment-modal"
+                onClick={() => setOpenModal(true)}
+                className="pt-2 pb-3 text-2xl font-semibold getServiceBtn"
+              >
+                Get Service
+              </label>
+            )}
           </div>
 
           {/* ------------Conact us Section------------ */}

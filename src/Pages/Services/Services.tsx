@@ -45,7 +45,7 @@ const Services = () => {
               </div>
             </div>
             <Link to={`/servicedetails/${service?.name}`}>
-              <h4 className="bg-[#E81C2E] relative rounded-md text-center py-4 px-3 my-0 mx-8 -mt-8 font-bold text-white">
+              <h4 className="bg-[#E81C2E] relative rounded-md hover:bg[initial] text-center py-4 px-3 my-0 mx-8 -mt-8 font-bold text-white">
                 {service?.name}
               </h4>
             </Link>

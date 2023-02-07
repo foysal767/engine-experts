@@ -24,7 +24,7 @@ const Booking = () => {
       <div className="flex items-center mt-2 justify-center ">
         <h2 className="text-2xl font-bold mt-20">Hi,</h2>
         <Lottie className="w-1/12" animationData={hi} />
-        <h2 className="text-2xl font-bold mt-20">Welcome {user?.email}</h2>
+        <h2 className="text-2xl font-bold mt-20">Welcome {user?.displayName}</h2>
       </div>
       <div className="py-10">
         <div className="grid grid-cols-5 mx-auto border-b-2 py-3 border-b-red-600 bg-gray-200 rounded">

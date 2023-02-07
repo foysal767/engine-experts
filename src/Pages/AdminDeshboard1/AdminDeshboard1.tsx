@@ -10,12 +10,17 @@ import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import "./AdminDeshboard.css";
 
 const AdminDeshboard1 = () => {
-  const { accType, isAdmin } = useContext(AuthContext);
+  const { accType, isAdmin, user } = useContext(AuthContext);
+  const navigate = useNavigate()
+  if (!user){
+    navigate("/");
+  }
   console.log("admin", accType, isAdmin);
   const location = useLocation();
   if (!isAdmin && accType !== "Seller") {
     <Navigate to="/" state={{ from: location }} replace></Navigate>;
   }
+  
   return (
     <main className="bg-[#EBF2F4] text-black w-full">
       <section className="w-full h-[83vh] lg:h-[100vh] relative ">
@@ -156,7 +161,7 @@ const AdminDeshboard1 = () => {
             </div>
           )}
           {accType === "Seller" && (
-            <div className="grid gap-4 w-[80%] mx-auto mt-16 lg:mt-28">
+            <div className="grid grid-cols-2 gap-4 w-[80%] mx-auto mt-16 lg:mt-28">
               {/* Card one start from here */}
               <div className="maincard bg-[#DFF6E5] h-[180px] rounded-lg  relative transition duration-700">
                 <Link to={"/dashboard1/sellerOrders"}>
@@ -180,6 +185,88 @@ const AdminDeshboard1 = () => {
                 <div className="droping w-full h-full absolute bg-[#7E9EAE] rounded-lg items-end justify-center p-1 transition duration-700">
                   <h1 className="text-sm font-poppins text-center">
                     All Orders
+                  </h1>
+                </div>
+              </div>
+              {/* Card one start from here */}
+              <div className="maincard bg-[#DFF6E5] h-[180px] rounded-lg  relative transition duration-700">
+                <Link to={"/dashboard1/sellerOrders"}>
+                  <div className="flex flex-col justify-between w-full h-full absolute top-0 left-0 z-10 bg-[#DFF6E5] rounded-lg p-8">
+                    <div className="flex justify-between items-center">
+                      <button className="w-12 h-12 rounded-full bg-gray-200 text-center">
+                        Xx
+                      </button>
+                      <button className="bg-gray-200 h-7 px-2 rounded-full">
+                        growth
+                      </button>
+                    </div>
+                    <div className="">
+                      <h2 className="text-sm text-start font-poppins">
+                        All Orders
+                      </h2>
+                      <h1 className="text-2xl text-start font-poppins">130</h1>
+                    </div>
+                  </div>
+                </Link>
+                <div className="droping w-full h-full absolute bg-[#7E9EAE] rounded-lg items-end justify-center p-1 transition duration-700">
+                  <h1 className="text-sm font-poppins text-center">
+                    All Orders
+                  </h1>
+                </div>
+              </div>
+            </div>
+          )}
+          {(!isAdmin && accType !== "Seller") && (
+            <div className="grid grid-cols-2 gap-4 w-[80%] mx-auto mt-16 lg:mt-28">
+              {/* Card one start from here */}
+              <div className="maincard bg-[#DFF6E5] h-[180px] rounded-lg  relative transition duration-700">
+                <Link to={"/dashboard1/booking"}>
+                  <div className="flex flex-col justify-between w-full h-full absolute top-0 left-0 z-10 bg-[#DFF6E5] rounded-lg p-8">
+                    <div className="flex justify-between items-center">
+                      <button className="w-12 h-12 rounded-full bg-gray-200 text-center">
+                        Xx
+                      </button>
+                      <button className="bg-gray-200 h-7 px-2 rounded-full">
+                        growth
+                      </button>
+                    </div>
+                    <div className="">
+                      <h2 className="text-sm text-start font-poppins">
+                        My Bookings
+                      </h2>
+                      <h1 className="text-2xl text-start font-poppins">130</h1>
+                    </div>
+                  </div>
+                </Link>
+                <div className="droping w-full h-full absolute bg-[#7E9EAE] rounded-lg items-end justify-center p-1 transition duration-700">
+                  <h1 className="text-sm font-poppins text-center">
+                    My Bookings
+                  </h1>
+                </div>
+              </div>
+              {/* Card one start from here */}
+              <div className="maincard bg-[#DFF6E5] h-[180px] rounded-lg  relative transition duration-700">
+                <Link to={"/dashboard1/myreview"}>
+                  <div className="flex flex-col justify-between w-full h-full absolute top-0 left-0 z-10 bg-[#DFF6E5] rounded-lg p-8">
+                    <div className="flex justify-between items-center">
+                      <button className="w-12 h-12 rounded-full bg-gray-200 text-center">
+                        Xx
+                      </button>
+                      <button className="bg-gray-200 h-7 px-2 rounded-full">
+                        growth
+                      </button>
+                    </div>
+                    <div className="">
+                      <h2 className="text-sm text-start font-poppins">
+                        My Reviews
+                      </h2>
+                      <h1 className="text-2xl text-start font-poppins">130</h1>
+                    </div>
+                  </div>
+                </Link>
+                <div className="droping w-full h-full absolute bg-[#7E9EAE] rounded-lg items-end justify-center p-1 transition duration-700">
+                  <h1 className="text-sm font-poppins text-center">
+                    My Reviews
                   </h1>
                 </div>
               </div>
