@@ -9,7 +9,7 @@ const AirExpertise = () => {
   return (
     <section>
       <div className="my-20 flex flex-col md:flex-row gap-8 px-10">
-        <div className="sideBar text-black border-2 basis-3/12 bg-green-100 p-4">
+        <div className="sideBar text-black border-2 basis-3/12 bg-green-100 p-4 scroll-my-16 sticky">
           <img className="rounded-lg" src="assets/team/arif.jpg" alt="" />
           <div className="flex justify-around text-2xl text-gray-700 font-bold mb-2">
             <h1>Name:</h1>
