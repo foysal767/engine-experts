@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineDeploymentUnit } from "react-icons/ai";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 import "./Navbar.css";
+import Lottie from "lottie-react";
+import navlogo from "./navlogo.json";
 
 const Navbar = () => {
   const { user, logOut, isAdmin, accType } = useContext(AuthContext);
@@ -19,13 +21,13 @@ const Navbar = () => {
       <li className="font-semibold hover:text-[#E81C2E]">
         <Link to="/services">Services</Link>
       </li>
-      <li className="hover:text-[#E81C2E] font-semibold">
+      {/* <li className="hover:text-[#E81C2E] font-semibold">
         <Link to="/booking">My Booking</Link>
       </li>
       <li className="hover:text-[#E81C2E] font-semibold">
         <Link to="/myreview">My Review</Link>
-      </li>
-      {(isAdmin || accType === "Seller") && (
+      </li> */}
+      {user?.uid && (
         <li className="font-semibold hover:text-[#E81C2E]">
           <Link to="/dashboard1">Dashboard</Link>
         </li>
@@ -41,6 +43,15 @@ const Navbar = () => {
       ) : (
         <li className="font-semibold hover:text-[#E81C2E]">
           <Link to="/login">Login</Link>
+        </li>
+      )}
+      {user?.uid && (
+        <li className="tooltip tooltip-left" data-tip={user?.displayName}>
+          <img
+            className="w-[65px] h-[65px] rounded-full"
+            src={user?.photoURL}
+            alt=""
+          />
         </li>
       )}
     </React.Fragment>
@@ -73,13 +84,15 @@ const Navbar = () => {
             {menuItems}
           </ul>
         </div>
-        <Link
-          to="/"
-          className="btn btn-ghost font-semibold normal-case text-xl"
-        >
-          <AiOutlineDeploymentUnit className="text-4xl mx-2 text-green-500"></AiOutlineDeploymentUnit>{" "}
-          Engine Experts
-        </Link>
+        <div className="flex items-center">
+          <Lottie className="w-[60px] h-[60px] mr-[-10px] my-[-10px]" animationData={navlogo} />
+          <Link
+            to="/"
+            className="btn btn-ghost font-semibold normal-case text-xl"
+          >
+            Engine Experts
+          </Link>
+        </div>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">{menuItems}</ul>
