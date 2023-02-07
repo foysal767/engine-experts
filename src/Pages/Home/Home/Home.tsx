@@ -1,18 +1,17 @@
-import React from "react";
-import Services from "../../Services/Services";
-import WorkingEnvironment from "../WorkingEnvironment/WorkingEnvironment";
-import Banner from "./Banner/Banner";
-import Brand from "./BrandSection/Brand";
+import Services from "../../Services/Services"
+import WorkingEnvironment from "../WorkingEnvironment/WorkingEnvironment"
+import Banner from "./Banner/Banner"
+import Brand from "./BrandSection/Brand"
 // import BrandSection from './BrandSection/BrandSection';
-import CustomerReviews from "./CustomerReviews/CustomerReviews";
-import DiscountSection from "./DiscountSection/DiscountSection";
-import EngineExperties from "./EnginrExperties/EngineExperties";
-import GetInTouch from "./GetInTouch/GetInTouch";
+import CustomerReviews from "./CustomerReviews/CustomerReviews"
+import DiscountSection from "./DiscountSection/DiscountSection"
+import EngineExperties from "./EnginrExperties/EngineExperties"
+import GetInTouch from "./GetInTouch/GetInTouch"
 // import Gallery from './Gallery/Gallery';
 // import GetService from './GetService/GetService';
 // import OurTeam from './OurTeam/OurTeam';
-import PopularService from "./PopularService/PopularService";
-import Video from "./Video/Video";
+import PopularService from "./PopularService/PopularService"
+import Video from "./Video/Video"
 
 const Home = () => {
   return (
@@ -32,7 +31,7 @@ const Home = () => {
       <Brand></Brand>
       {/* <BrandSection></BrandSection> */}
     </main>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

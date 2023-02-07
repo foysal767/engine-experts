@@ -13,7 +13,7 @@ const CheckOutForm = ({ servicePayment }: pay) => {
   const [processing, setprocessing] = useState(false);
   const [transactionId, setTransactionId] = useState("");
   const { user } = useContext(AuthContext);
-  const { price } = servicePayment;
+  const { price, _id, serviceName } = servicePayment;
 
   const stripe = useStripe();
   const elements = useElements();
@@ -31,7 +31,11 @@ const CheckOutForm = ({ servicePayment }: pay) => {
       }
     )
       .then((res) => res.json())
-      .then((data) => setClientSecret(data.clientSecret));
+      .then((data) => {
+        // console.log('payment intent', data);
+        setTransactionId(data.id);
+        setClientSecret(data.client_secret);
+      });
   }, [price]);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -59,20 +63,6 @@ const CheckOutForm = ({ servicePayment }: pay) => {
     setSuccess("");
     setprocessing(true);
 
-    // const confirmCardPayment = async (clientSecret: string, cardElement: any) => {
-    //     const paymentIntent = await stripe.confirmCardPayment(clientSecret, {
-    //         payment_method: {
-    //             card: card,
-    //             billing_details: {
-    //                 name: 'name',
-    //                 email:'email',
-    //             },
-    //         },
-    //     });
-    //     const { paymentIntent: payment, error } = paymentIntent;
-    //     return { payment, error };
-    // const handlePayment = async () => {
-
     const { paymentIntent, error: confirmError } =
       await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
@@ -94,8 +84,12 @@ const CheckOutForm = ({ servicePayment }: pay) => {
       // store payment info in the database
 
       const payment = {
-        price: servicePayment?.price,
-        transactionId,
+        user: user?.email,
+        price: price,
+        transactionId: transactionId,
+        id: _id,
+        serviceName: serviceName,
+        date: new Date().toLocaleDateString(),
       };
 
       fetch("https://engine-experts-server-phi.vercel.app/payments", {
@@ -103,14 +97,13 @@ const CheckOutForm = ({ servicePayment }: pay) => {
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify({ payment }),
+        body: JSON.stringify(payment),
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
+          // console.log('payment data', data);
           if (data.insertedId) {
             setSuccess("Congrats! your payment completed.");
-            setTransactionId(paymentIntent.id);
           }
         });
     }
@@ -151,7 +144,7 @@ const CheckOutForm = ({ servicePayment }: pay) => {
         <div>
           <p className="text-green-500 font-bold">{success}</p>
           <p className="text-black">
-            Your Transaction Id:{" "}
+            Txn ID:
             <span className="font-bold text-black">{transactionId}</span>
           </p>
         </div>

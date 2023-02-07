@@ -31,7 +31,7 @@ const AllUsers1 = () => {
       `Are you sure, want to delete this ${name}?`
     );
     if (confirm) {
-      fetch(`http://localhost:5000/user/${id}`, {
+      fetch(`https://engine-experts-server-phi.vercel.app/user/${id}`, {
         method: "DELETE",
         headers: {
           "content-type": "application/json",

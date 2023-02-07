@@ -1,14 +1,16 @@
-import React, { useContext, useEffect, useState } from "react";
 import Lottie from "lottie-react";
-import hi from "./hi.json";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
+import hi from "./hi.json";
 
 const Booking = () => {
   const [bookings, setBookings] = useState([]);
   const { user } = useContext(AuthContext);
   useEffect(() => {
-    fetch(`http://localhost:5000/bookings?email=${user?.email}`)
+    fetch(
+      `https://engine-experts-server-phi.vercel.app/bookings?email=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {

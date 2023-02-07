@@ -1,10 +1,10 @@
-import { useQuery } from "@tanstack/react-query";
-import { loadStripe } from "@stripe/stripe-js";
-import React, { useContext, useEffect, useState } from "react";
 import { Elements } from "@stripe/react-stripe-js";
-import CheckOutForm from "./CheckOutForm";
-import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
+import { loadStripe } from "@stripe/stripe-js";
+import { useQuery } from "@tanstack/react-query";
+import { useContext } from "react";
 import { useParams } from "react-router";
+import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
+import CheckOutForm from "./CheckOutForm";
 import "./Payment.css";
 
 const stripeKey = process.env.REACT_APP_STRIPE_PK;
@@ -47,7 +47,7 @@ const Payment = () => {
   }
   return (
     <div className="my-20">
-      <div className=" marquee">
+      <div className="">
         <h1 className="text-2xl text-black font-bold">
           Payment for {servicePayment.serviceName} & Price:{" "}
           {servicePayment?.price}
