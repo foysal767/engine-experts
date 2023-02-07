@@ -166,7 +166,7 @@ const ServiceDetails = () => {
 
       <div className="relative lg:h-[200px] h-[100px] w-full">
         <img
-          className="opacity-70 w-full h-full"
+          className="opacity-80 w-full h-full"
           src="/assets/services-bg.jpg"
           alt="service-bg"
         />
@@ -212,7 +212,7 @@ const ServiceDetails = () => {
                 <select
                   name="rating"
                   id=""
-                  className="bg-black h-[60px] text-xl rounded outline-none"
+                  className="bg-black h-[60px] text-xl rounded outline-none px-4"
                 >
                   <option value="Good">Good</option>
                   <option value="Excellent">Excellent</option>
@@ -245,7 +245,7 @@ const ServiceDetails = () => {
             <label
               htmlFor="payment-modal"
               onClick={() => setOpenModal(true)}
-              className="pt-2 pb-3 text-2xl font-semibold btn bg-[#E81C2E] text-white"
+              className="pt-2 pb-3 text-2xl font-semibold getServiceBtn"
             >
               Get Service
             </label>

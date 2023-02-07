@@ -36,13 +36,27 @@ const PopularService = () => {
           </div>
           <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 gap-4 h-full w-full py-12">
             {popular?.map((service: any) => (
-              <div className="w-full h-full relative">
-                <img className="w-full h-full" src={service?.image} alt="" />
-                <div className="w-full h-full absolute top-0 bg-black opacity-40"></div>
-                <div className="w-full h-full absolute top-0 flex items-end p-3">
-                  <h1 className="text-2xl text-start font-poppins font-semibold">
-                    {service?.name}
-                  </h1>
+              // <div className="w-full h-full relative">
+              //   <img className="w-full h-full" src={service?.image} alt="" />
+              //   <div className="w-full h-full absolute top-0 bg-black opacity-40"></div>
+              //   <div className="w-full h-full absolute top-0 flex items-end p-3">
+              //     <h1 className="text-2xl text-start font-poppins font-semibold">
+              //       {service?.name}
+              //     </h1>
+              //   </div>
+              // </div>
+
+              <div className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
+                <div className="h-full w-full">
+                  <img
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125"
+                    src={service?.image}
+                    alt=""
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black group-hover:from-black/70 group-hover:via-black/60 group-hover:to-black/70"></div>
+                <div className="absolute inset-0 flex translate-y-[80%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0">
+                  <h1 className="font-dmserif text-3xl font-bold text-white">{service?.name}</h1>
                 </div>
               </div>
             ))}

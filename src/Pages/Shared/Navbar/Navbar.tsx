@@ -43,6 +43,9 @@ const Navbar = () => {
           <Link to="/login">Login</Link>
         </li>
       )}
+      <li className="w-[70px] h-[60px]">
+        <img className="rounded-full" src={user?.photoURL} alt="" />
+      </li>
     </React.Fragment>
   );
 

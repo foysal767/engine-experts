@@ -13,7 +13,8 @@ const DiscountSection = () => {
   const [mins, setMinutes] = useState<number>(0);
   const [secs, setSeconds] = useState<number>(0);
 
-  const deadline = "February, 13, 2023"
+  // const deadline = "February, 13, 2023"
+  const deadline = "2/12/2023"
 
   const getTime = () => {
     const time = Date.parse(deadline)-Date.now();
