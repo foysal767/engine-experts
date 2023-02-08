@@ -33,8 +33,13 @@ const PopularService = () => {
               This service are popular for our customer <br />
               so that they review it.
             </p>
-            <button className="popularBtn">Get All Service</button>
+            <div className="w-full">
+              <Link to='/servicesAll'>
+                <button className="popularBtn">Get All Service</button>
+              </Link>
+            </div>
           </div>
+
           <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 gap-4 h-full w-full py-12">
             {popular?.map((service: any) => (
               <div className="group relative items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
@@ -48,7 +53,7 @@ const PopularService = () => {
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black group-hover:from-black/70 group-hover:via-black/60 group-hover:to-black/70"></div>
                 <div className="absolute inset-0 flex translate-y-[80%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0">
                   <h1 className="font-dmserif text-3xl font-bold text-white">{service?.name}</h1>
-                <Link className="rounded-full backdrop-blur-lg py-2 px-3.5 font-com text-sm capitalize text-white shadow shadow-black/60 mt-5 font-bold" to={`/servicedetails/${service?.name}`}>See Details</Link>
+                  <Link className="rounded-full backdrop-blur-lg py-2 px-3.5 font-com text-sm capitalize text-white shadow shadow-black/60 mt-5 font-bold" to={`/servicedetails/${service?.name}`}>See Details</Link>
                 </div>
               </div>
             ))}
