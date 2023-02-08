@@ -1,14 +1,16 @@
-import React, { useContext, useEffect, useState } from "react";
 import Lottie from "lottie-react";
-import hi from "./hi.json";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
+import hi from "./hi.json";
 
 const Booking = () => {
   const [bookings, setBookings] = useState([]);
   const { user } = useContext(AuthContext);
   useEffect(() => {
-    fetch(`http://localhost:5000/bookings?email=${user?.email}`)
+    fetch(
+      `https://engine-experts-server-phi.vercel.app/bookings?email=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
@@ -22,7 +24,9 @@ const Booking = () => {
       <div className="flex items-center mt-2 justify-center ">
         <h2 className="text-2xl font-bold mt-20">Hi,</h2>
         <Lottie className="w-1/12" animationData={hi} />
-        <h2 className="text-2xl font-bold mt-20">Welcome {user?.email}</h2>
+        <h2 className="text-2xl font-bold mt-20">
+          Welcome {user?.displayName}
+        </h2>
       </div>
       <div className="py-10">
         <div className="grid grid-cols-5 mx-auto border-b-2 py-3 border-b-red-600 bg-gray-200 rounded">
@@ -33,39 +37,41 @@ const Booking = () => {
           <span>Cancel</span>
         </div>
         {bookings?.map((booking: any, i: any) => (
-          <div className="grid grid-cols-5 gap-2 lg:gap-3 items-center my-5 bg-gray-200 rounded py-2 px-2 h-[80px]">
-            <span>
-              <img
-                className="lg:w-[80px] w-[50px] mx-auto"
-                src="/assets/service-1.1.jpg"
-                alt=""
-              />
-            </span>
-            <span className="text-start">
-              <h2 className="lg:text-xl text-sm lg:font-bold break-words text-starts">
-                {booking?.serviceName}
-              </h2>
-            </span>
-            <span>
-              <h2 className="lg:text-xl text-sm lg:font-bold">
-                {booking?.price}
-              </h2>
-            </span>
-            <span>
-              <Link to={`/booking/payment/${booking?._id}`}>
-                <label
-                  htmlFor="payment-modal"
-                  className="btn btn-success lg:btn-sm btn-xs"
-                >
-                  Pay Now
-                </label>
-              </Link>
-            </span>
-            <span>
-              <button className="btn bg-red-600 lg:btn-sm btn-xs border-none">
-                Cancel
-              </button>
-            </span>
+          <div key={i}>
+            <div className="grid grid-cols-5 gap-2 lg:gap-3 items-center my-5 bg-gray-200 rounded py-2 px-2 h-[80px]">
+              <span>
+                <img
+                  className="lg:w-[80px] w-[50px] mx-auto"
+                  src="/assets/service-1.1.jpg"
+                  alt=""
+                />
+              </span>
+              <span className="text-start">
+                <h2 className="lg:text-xl text-sm lg:font-bold break-words text-starts">
+                  {booking?.serviceName}
+                </h2>
+              </span>
+              <span>
+                <h2 className="lg:text-xl text-sm lg:font-bold">
+                  {booking?.price}
+                </h2>
+              </span>
+              <span>
+                <Link to={`/booking/payment/${booking?._id}`}>
+                  <label
+                    htmlFor="payment-modal"
+                    className="btn btn-success lg:btn-sm btn-xs"
+                  >
+                    Pay Now
+                  </label>
+                </Link>
+              </span>
+              <span>
+                <button className="btn bg-red-600 lg:btn-sm btn-xs border-none">
+                  Cancel
+                </button>
+              </span>
+            </div>
           </div>
         ))}
       </div>
