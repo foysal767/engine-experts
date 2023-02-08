@@ -21,6 +21,8 @@ const AddCampaign1 = () => {
   });
   const [selectedService, setSelectedService] = useState("");
   const [originalPrice, setOriginalPrice] = useState();
+  const [startDate, setStartDate] = useState();
+  const [endDate, setEndDate] = useState();
   useEffect(() => {
     fetch(
       `https://engine-experts-server-phi.vercel.app/service?id=${selectedService}`
@@ -33,6 +35,13 @@ const AddCampaign1 = () => {
         }
       });
   }, [selectedService, originalPrice]);
+
+  const handleStartCam = (e: any) => {
+    e.preventDefault();
+    const form = e.target;
+    const startDate = form.startDate.value;
+    const endDate = form.endDate.value;
+  }
 
   const handleAddCam = (e: any) => {
     e.preventDefault();
@@ -137,9 +146,29 @@ const AddCampaign1 = () => {
           <h2 className="text-xl font-poppins text-start mb-4">
             Total Products: {discount?.services?.length}
           </h2>
-          <button className="w-[150px] h-[40px] rounded bg-red-500 text-xl">
-            Stop Campaign
-          </button>
+          <form className="flex gap-3 items-center">
+            <div className="flex flex-col items-start">
+              <label htmlFor="start-date">Start date</label>
+              <input
+                type="date"
+                name="startDate"
+                id="start-date"
+                className="w-[200px] h-[40px] bg-white rounded-md px-2"
+              />
+            </div>
+            <div className="flex flex-col items-start">
+              <label htmlFor="end-date">End date</label>
+              <input
+                type="date"
+                name="endDate"
+                id="end-date"
+                className="w-[200px] h-[40px] bg-white rounded-md px-2"
+              />
+            </div>
+            <button className="w-[150px] h-[40px] rounded bg-red-500 text-xl">
+              Stop Campaign
+            </button>
+          </form>
         </div>
         <div className="w-full flex justify-between px-4">
           <h1>SL</h1>
