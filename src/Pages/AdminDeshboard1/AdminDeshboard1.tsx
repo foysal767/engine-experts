@@ -197,7 +197,7 @@ const AdminDeshboard1 = () => {
                     </div>
                     <div className="">
                       <h2 className="text-sm text-start font-poppins">
-                        All Orders
+                        Completed Orders
                       </h2>
                       <h1 className="text-2xl text-start font-poppins">130</h1>
                     </div>
@@ -205,7 +205,7 @@ const AdminDeshboard1 = () => {
                 </Link>
                 <div className="droping w-full h-full absolute bg-[#7E9EAE] rounded-lg items-end justify-center p-1 transition duration-700">
                   <h1 className="text-sm font-poppins text-center">
-                    All Orders
+                  Completed Orders
                   </h1>
                 </div>
               </div>
