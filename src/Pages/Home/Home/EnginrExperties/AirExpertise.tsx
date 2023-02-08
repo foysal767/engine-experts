@@ -1,3 +1,5 @@
+import "./AirExpertise.css"
+
 import {
   FaEnvelope,
   FaLinkedinIn,
@@ -103,9 +105,6 @@ const AirExpertise = () => {
                 is 0. Vacuuming or evacuation is removing all gasses until the
                 system
               </p>
-              <div className="card-actions">
-                <button className="btn btn-primary">Read More</button>
-              </div>
             </div>
           </div>
 
@@ -125,9 +124,6 @@ const AirExpertise = () => {
                 is 0. Vacuuming or evacuation is removing all gasses until the
                 system
               </p>
-              <div className="card-actions">
-                <button className="btn btn-primary">Read More</button>
-              </div>
             </div>
           </div>
 
@@ -147,9 +143,6 @@ const AirExpertise = () => {
                 is 0. Vacuuming or evacuation is removing all gasses until the
                 system
               </p>
-              <div className="card-actions">
-                <button className="btn btn-primary">Read More</button>
-              </div>
             </div>
           </div>
 
@@ -169,9 +162,6 @@ const AirExpertise = () => {
                 is 0. Vacuuming or evacuation is removing all gasses until the
                 system
               </p>
-              <div className="card-actions">
-                <button className="btn btn-primary">Read More</button>
-              </div>
             </div>
           </div>
 
@@ -191,9 +181,6 @@ const AirExpertise = () => {
                 is 0. Vacuuming or evacuation is removing all gasses until the
                 system
               </p>
-              <div className="card-actions">
-                <button className="btn btn-primary">Read More</button>
-              </div>
             </div>
           </div>
 
@@ -213,9 +200,6 @@ const AirExpertise = () => {
                 is 0. Vacuuming or evacuation is removing all gasses until the
                 system
               </p>
-              <div className="card-actions">
-                <button className="btn btn-primary">Read More</button>
-              </div>
             </div>
           </div>
 
@@ -235,9 +219,6 @@ const AirExpertise = () => {
                 is 0. Vacuuming or evacuation is removing all gasses until the
                 system
               </p>
-              <div className="card-actions">
-                <button className="btn btn-primary">Read More</button>
-              </div>
             </div>
           </div>
 
@@ -257,9 +238,6 @@ const AirExpertise = () => {
                 is 0. Vacuuming or evacuation is removing all gasses until the
                 system
               </p>
-              <div className="card-actions">
-                <button className="btn btn-primary">Read More</button>
-              </div>
             </div>
           </div>
 
@@ -279,9 +257,6 @@ const AirExpertise = () => {
                 is 0. Vacuuming or evacuation is removing all gasses until the
                 system
               </p>
-              <div className="card-actions">
-                <button className="btn btn-primary">Read More</button>
-              </div>
             </div>
           </div>
 
@@ -301,9 +276,6 @@ const AirExpertise = () => {
                 is 0. Vacuuming or evacuation is removing all gasses until the
                 system
               </p>
-              <div className="card-actions">
-                <button className="btn btn-primary">Read More</button>
-              </div>
             </div>
           </div>
 
@@ -323,9 +295,6 @@ const AirExpertise = () => {
                 is 0. Vacuuming or evacuation is removing all gasses until the
                 system
               </p>
-              <div className="card-actions">
-                <button className="btn btn-primary">Read More</button>
-              </div>
             </div>
           </div>
 
@@ -345,9 +314,6 @@ const AirExpertise = () => {
                 is 0. Vacuuming or evacuation is removing all gasses until the
                 system
               </p>
-              <div className="card-actions">
-                <button className="btn btn-primary">Read More</button>
-              </div>
             </div>
           </div>
 
@@ -367,9 +333,6 @@ const AirExpertise = () => {
                 is 0. Vacuuming or evacuation is removing all gasses until the
                 system
               </p>
-              <div className="card-actions">
-                <button className="btn btn-primary">Read More</button>
-              </div>
             </div>
           </div>
 
@@ -389,9 +352,6 @@ const AirExpertise = () => {
                 is 0. Vacuuming or evacuation is removing all gasses until the
                 system
               </p>
-              <div className="card-actions">
-                <button className="btn btn-primary">Read More</button>
-              </div>
             </div>
           </div>
 
@@ -411,9 +371,6 @@ const AirExpertise = () => {
                 is 0. Vacuuming or evacuation is removing all gasses until the
                 system
               </p>
-              <div className="card-actions">
-                <button className="btn btn-primary">Read More</button>
-              </div>
             </div>
           </div>
         </div>

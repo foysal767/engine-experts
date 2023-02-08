@@ -15,6 +15,7 @@ import GoogleMaps from "../Pages/GoogleMaps/GoogleMaps"
 import ContactForm from "../Pages/Home/ContactForm/ContactForm"
 import ContactUs from "../Pages/Home/ContactUs/ContactUs"
 import AirExpertise from "../Pages/Home/Home/EnginrExperties/AirExpertise"
+import EngineCluster from "../Pages/Home/Home/EnginrExperties/EngineCluster"
 import Home from "../Pages/Home/Home/Home"
 import Login from "../Pages/Login/Login"
 import MyReview from "../Pages/MyReview/MyReview"
@@ -59,7 +60,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/serviceDetails/:id",
-        element: <PrivateRouter><ServiceDetails></ServiceDetails></PrivateRouter>,
+        element: (
+          <PrivateRouter>
+            <ServiceDetails></ServiceDetails>
+          </PrivateRouter>
+        ),
       },
       {
         path: "/booking/payment/:id",
@@ -68,6 +73,10 @@ const router = createBrowserRouter([
       {
         path: "/airexpertise",
         element: <AirExpertise></AirExpertise>,
+      },
+      {
+        path: "/enginecluster",
+        element: <EngineCluster></EngineCluster>,
       },
     ],
   },
@@ -105,9 +114,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard1/myreview",
-        element: (
-            <MyReview></MyReview>
-        ),
+        element: <MyReview></MyReview>,
       },
     ],
   },
