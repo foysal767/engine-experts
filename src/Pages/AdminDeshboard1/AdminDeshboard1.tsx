@@ -4,19 +4,14 @@ import {
   Navigate,
   Outlet,
   useLocation,
-  useNavigate,
 } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import "./AdminDeshboard.css";
 
 const AdminDeshboard1 = () => {
   const { accType, isAdmin, user } = useContext(AuthContext);
-  const navigate = useNavigate()
-  if (!user){
-    navigate("/");
-  }
-  console.log("admin", accType, isAdmin);
   const location = useLocation();
+  console.log("admin", accType, isAdmin);
   if (!isAdmin && accType !== "Seller") {
     <Navigate to="/" state={{ from: location }} replace></Navigate>;
   }
@@ -202,7 +197,7 @@ const AdminDeshboard1 = () => {
                     </div>
                     <div className="">
                       <h2 className="text-sm text-start font-poppins">
-                        All Orders
+                        Completed Orders
                       </h2>
                       <h1 className="text-2xl text-start font-poppins">130</h1>
                     </div>
@@ -210,7 +205,7 @@ const AdminDeshboard1 = () => {
                 </Link>
                 <div className="droping w-full h-full absolute bg-[#7E9EAE] rounded-lg items-end justify-center p-1 transition duration-700">
                   <h1 className="text-sm font-poppins text-center">
-                    All Orders
+                  Completed Orders
                   </h1>
                 </div>
               </div>

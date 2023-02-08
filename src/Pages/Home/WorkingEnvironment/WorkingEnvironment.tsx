@@ -37,6 +37,11 @@ const WorkingEnvironment = () => {
           </div>
         </div>
         <div className="lg:flex justify-center">
+        <img
+            className="lg:w-1/2 w-full h-1/2 lg:order-2"
+            src="/assets/working-2.jpg"
+            alt=""
+          />
           <div className="bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] lg:w-1/2 w-full py-4 pt-20 pl-16">
             <h2 className="text-left text-xl font-poppins font-bold">
               RUBBING, WAXING AND POLISHING
@@ -50,11 +55,7 @@ const WorkingEnvironment = () => {
             </p>
             {/* <button className="workBtn mt-7">Get more Info</button> */}
           </div>
-          <img
-            className="lg:w-1/2 w-full h-1/2"
-            src="/assets/working-2.jpg"
-            alt=""
-          />
+          
         </div>
       </div>
     </section>

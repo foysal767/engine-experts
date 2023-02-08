@@ -18,7 +18,7 @@ const AllOrders1 = () => {
     queryKey: ["orders"],
     queryFn: async () => {
       const res = await fetch(
-        `https://engine-experts-server-phi.vercel.app/bookings`
+        `http://localhost:5000/allBookings`
       );
       const data = await res.json();
       return data.data;

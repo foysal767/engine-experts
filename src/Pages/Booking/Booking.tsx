@@ -32,7 +32,6 @@ const Booking = () => {
           <span>Service Name</span>
           <span>Price</span>
           <span>Payment</span>
-          <span>Cancel</span>
         </div>
         {bookings?.map((booking: any, i: any) => (
           <div key={i
