@@ -32,42 +32,44 @@ const Booking = () => {
           <span>Service Name</span>
           <span>Price</span>
           <span>Payment</span>
-          <span>Cancel</span>
         </div>
         {bookings?.map((booking: any, i: any) => (
-          <div className="grid grid-cols-5 gap-2 lg:gap-3 items-center my-5 bg-gray-200 rounded py-2 px-2 h-[80px]">
-            <span>
-              <img
-                className="lg:w-[80px] w-[50px] mx-auto"
-                src="/assets/service-1.1.jpg"
-                alt=""
-              />
-            </span>
-            <span className="text-start">
-              <h2 className="lg:text-xl text-sm lg:font-bold break-words text-starts">
-                {booking?.serviceName}
-              </h2>
-            </span>
-            <span>
-              <h2 className="lg:text-xl text-sm lg:font-bold">
-                {booking?.price}
-              </h2>
-            </span>
-            <span>
-              <Link to={`/booking/payment/${booking?._id}`}>
-                <label
-                  htmlFor="payment-modal"
-                  className="btn btn-success lg:btn-sm btn-xs"
-                >
-                  Pay Now
-                </label>
-              </Link>
-            </span>
-            <span>
-              <button className="btn bg-red-600 lg:btn-sm btn-xs border-none">
-                Cancel
-              </button>
-            </span>
+          <div key={i
+          }>
+            <div className="grid grid-cols-5 gap-2 lg:gap-3 items-center my-5 bg-gray-200 rounded py-2 px-2 h-[80px]">
+              <span>
+                <img
+                  className="lg:w-[80px] w-[50px] mx-auto"
+                  src="/assets/service-1.1.jpg"
+                  alt=""
+                />
+              </span>
+              <span className="text-start">
+                <h2 className="lg:text-xl text-sm lg:font-bold break-words text-starts">
+                  {booking?.serviceName}
+                </h2>
+              </span>
+              <span>
+                <h2 className="lg:text-xl text-sm lg:font-bold">
+                  {booking?.price}
+                </h2>
+              </span>
+              <span>
+                <Link to={`/booking/payment/${booking?._id}`}>
+                  <label
+                    htmlFor="payment-modal"
+                    className="btn btn-success lg:btn-sm btn-xs"
+                  >
+                    Pay Now
+                  </label>
+                </Link>
+              </span>
+              <span>
+                <button className="btn bg-red-600 lg:btn-sm btn-xs border-none">
+                  Cancel
+                </button>
+              </span>
+            </div>
           </div>
         ))}
       </div>

@@ -3,21 +3,21 @@ import "./ContactForm.css"
 
 const ContactForm = () => {
   return (
-    <section className="my-20 px-4">
+    <section className="py-20 px-4">
       <div className="contactForm grid lg:grid-cols-3 md:grid-cols-2 gap-6 justify-center">
-        <div className="leftContactForm lg:col-span-2 bg-white p-4 rounded-lg lg:px-20 py-10">
+        <div className="leftContactForm lg:col-span-2 p-4 rounded-lg lg:px-20 py-10 bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')]">
           <div className="headText text-left">
-            <h2 className="text-4xl font-semibold text-gray-900">
+            <h2 className="text-4xl font-semibold">
               Need Services ? Send Message
             </h2>
-            <p className="text-xl text-gray-800 mb-4">
+            <p className="text-xl mb-4">
               We provide all engine services
             </p>
           </div>
           <div className="contactFormInput">
             <div className="nameEmail grid lg:grid-cols-2 md:grid-cols-1 gap-4">
               <div className="inputName">
-                <div className="text-gray-900 font-bold text-left">
+                <div className="font-bold text-left">
                   <label className="" htmlFor="name">
                     Name
                   </label>
@@ -29,7 +29,7 @@ const ContactForm = () => {
                 />
               </div>
               <div className="inputEmail">
-                <div className="text-gray-900 font-bold text-left">
+                <div className="font-bold text-left">
                   <label className="" htmlFor="email">
                     Email
                   </label>
@@ -43,7 +43,7 @@ const ContactForm = () => {
             </div>
             <div className="phoneService grid lg:grid-cols-2 md:grid-cols-1 gap-4 my-4">
               <div className="inputPhone">
-                <div className="text-gray-900 font-bold text-left">
+                <div className="font-bold text-left">
                   <label className="" htmlFor="phone">
                     Phone
                   </label>
@@ -55,7 +55,7 @@ const ContactForm = () => {
                 />
               </div>
               <div className="inputService">
-                <div className="text-gray-900 font-bold text-left">
+                <div className="font-bold text-left">
                   <label className="" htmlFor="service">
                     Service
                   </label>
@@ -68,7 +68,7 @@ const ContactForm = () => {
               </div>
             </div>
             <div>
-              <div className="text-gray-900 font-bold text-left">
+              <div className="font-bold text-left">
                 <label className="" htmlFor="message">
                   Message
                 </label>
@@ -87,21 +87,21 @@ const ContactForm = () => {
             </button>
           </div>
         </div>
-        <div className="rightContactDetails bg-white p-4 rounded-lg py-10 px-8">
+        <div className="rightContactDetails p-4 rounded-lg py-10 px-8 bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')]">
           <div className="contactDetails text-left mb-8">
-            <h2 className="text-4xl font-semibold text-gray-900 mb-4">
+            <h2 className="text-4xl font-semibold  mb-4">
               Contact Details
             </h2>
-            <p className="text-gray-700">
-              <span className="font-bold text-gray-800">
+            <p className="">
+              <span className="font-bold ">
                 Office Address -1:{" "}
               </span>{" "}
               Engine Experts Agency <br />
               (Chottogram Baskhali) Co. Ltd Bridge 8. Room <br /> 9201
             </p>
             <br />
-            <p className="text-gray-700">
-              <span className="font-bold text-gray-800">
+            <p className="">
+              <span className="font-bold ">
                 Office Address-2:{" "}
               </span>{" "}
               Engine Expertice Agency <br />
@@ -113,10 +113,10 @@ const ContactForm = () => {
               <FaPhoneVolume />
             </div>
             <div>
-              <h2 className="text-sm text-gray-700 text-left">
+              <h2 className="text-sm  text-left">
                 Emargency Call
               </h2>
-              <span className="font-bold text-gray-800">+88 017 22 262041</span>
+              <span className="font-bold ">+88 017 22 262041</span>
             </div>
           </div>
           <div className="generalEmail flex items-center space-x-4">
@@ -124,10 +124,10 @@ const ContactForm = () => {
               <FaRegEnvelope />
             </div>
             <div>
-              <h2 className="text-sm text-gray-700 text-left">
+              <h2 className="text-sm  text-left">
                 General Communication
               </h2>
-              <span className="font-bold text-gray-800">
+              <span className="font-bold ">
                 nazrulislamrongon@gmail.com
               </span>
             </div>
