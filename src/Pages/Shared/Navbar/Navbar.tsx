@@ -17,8 +17,11 @@ const Navbar = () => {
       <li className="font-semibold hover:text-[#E81C2E]">
         <Link to="/">Home</Link>
       </li>
-      <li className="font-semibold hover:text-[#E81C2E]">
+      {/* <li className="font-semibold hover:text-[#E81C2E]">
         <Link to="/services">Services</Link>
+      </li> */}
+      <li className="font-semibold hover:text-[#E81C2E]">
+        <Link to="/servicesAll">Services</Link>
       </li>
       <li className="font-semibold hover:text-[#E81C2E]">
         <Link to="/contactform">Contact Us</Link>

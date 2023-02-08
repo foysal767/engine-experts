@@ -15,7 +15,7 @@ const Banner = () => {
             modifying cars.
           </p>
           <div className="w-full flex items-start">
-            <Link to="/services">
+            <Link to="/servicesAll">
               <button className="bannerBtn mt-6">Get Service</button>
             </Link>
           </div>
