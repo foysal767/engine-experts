@@ -15,6 +15,7 @@ import GoogleMaps from "../Pages/GoogleMaps/GoogleMaps"
 import ContactForm from "../Pages/Home/ContactForm/ContactForm"
 import ContactUs from "../Pages/Home/ContactUs/ContactUs"
 import AirExpertise from "../Pages/Home/Home/EnginrExperties/AirExpertise"
+import ElectricCar from "../Pages/Home/Home/EnginrExperties/ElectricCar"
 import EngineCluster from "../Pages/Home/Home/EnginrExperties/EngineCluster"
 import Home from "../Pages/Home/Home/Home"
 import Login from "../Pages/Login/Login"
@@ -61,7 +62,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/servicesAll",
-        element: <ServicesAll></ServicesAll>
+        element: <ServicesAll></ServicesAll>,
       },
       {
         path: "/serviceDetails/:id",
@@ -83,11 +84,19 @@ const router = createBrowserRouter([
         path: "/enginecluster",
         element: <EngineCluster></EngineCluster>,
       },
+      {
+        path: "/electriccar",
+        element: <ElectricCar></ElectricCar>,
+      },
     ],
   },
   {
     path: "/dashboard1",
-    element: <PrivateRouter><AdminDeshboard1></AdminDeshboard1></PrivateRouter>,
+    element: (
+      <PrivateRouter>
+        <AdminDeshboard1></AdminDeshboard1>
+      </PrivateRouter>
+    ),
     children: [
       {
         path: "/dashboard1/addservice1",
