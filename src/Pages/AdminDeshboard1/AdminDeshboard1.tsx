@@ -1,10 +1,5 @@
 import { useContext } from "react";
-import {
-  Link,
-  Navigate,
-  Outlet,
-  useLocation,
-} from "react-router-dom";
+import { Link, Navigate, Outlet, useLocation } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import "./AdminDeshboard.css";
 
@@ -15,7 +10,7 @@ const AdminDeshboard1 = () => {
   if (!isAdmin && accType !== "Seller") {
     <Navigate to="/" state={{ from: location }} replace></Navigate>;
   }
-  
+
   return (
     <main className="bg-[#EBF2F4] text-black w-full">
       <section className="w-full h-[83vh] lg:h-[100vh] relative ">
@@ -155,7 +150,20 @@ const AdminDeshboard1 = () => {
               </div>
             </div>
           )}
+
+          {/* unverified seller */}
+
           {accType === "Seller" && (
+            <div className="mt-20">
+              <h2 className="text-3xl text-white font-bold">
+                Your request was send to Admin
+              </h2>
+              <p className="text-white">Please wait for response</p>
+              <p className="text-white">If you have any argent please <Link className="text-orange-400" to={"/contactform"}>Contact us</Link></p>
+            </div>
+          )}
+
+          {accType === "verifiedSeller" && (
             <div className="grid grid-cols-2 gap-4 w-[80%] mx-auto mt-16 lg:mt-28">
               {/* Card one start from here */}
               <div className="maincard bg-[#DFF6E5] h-[180px] rounded-lg  relative transition duration-700">
@@ -205,13 +213,14 @@ const AdminDeshboard1 = () => {
                 </Link>
                 <div className="droping w-full h-full absolute bg-[#7E9EAE] rounded-lg items-end justify-center p-1 transition duration-700">
                   <h1 className="text-sm font-poppins text-center">
-                  Completed Orders
+                    Completed Orders
                   </h1>
                 </div>
               </div>
             </div>
           )}
-          {(!isAdmin && accType !== "Seller") && (
+
+          {!isAdmin && accType !== "Seller" && (
             <div className="grid grid-cols-2 gap-4 w-[80%] mx-auto mt-16 lg:mt-28">
               {/* Card one start from here */}
               <div className="maincard bg-[#DFF6E5] h-[180px] rounded-lg  relative transition duration-700">
