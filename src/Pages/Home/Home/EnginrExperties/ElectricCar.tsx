@@ -90,17 +90,16 @@ const ElectricCar = () => {
             <div className="bg-red-50 p-4 rounded-md shadow-md">
               <img
                 className="rounded-lg"
-                src="assets/image-gallery/Performance-upgrade.jpg"
+                src="assets/image-gallery/Break-Repair-&-Service.jpg"
                 alt=""
               />
               <p className="text-gray-700 text-justify font-semibold mt-2">
-                Performed electronic scan of the cars eletronic system
-                monitoring including report on status of hybrid battery cell by
-                cell. Performed high performance test drive for detecting fault
-                with suspension, gearbox, engine and breakes. Performed thorough
-                visual inspection of car body including edges and weilding of
-                body panels plus undercar visual inspection to detect accident
-                history. I'm satisfied with the service.
+                All electric cars have some form of regenerative braking, which
+                uses the electric motor to slow the vehicle whilst putting some
+                electricity back into the battery. Braking becomes more
+                efficient, placing less wear and tear on the brakes. Brake disks
+                and pads still need maintaining but this needs to be done less
+                often, saving you money
               </p>
             </div>
 

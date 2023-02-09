@@ -1,5 +1,3 @@
-import "./AirExpertise.css"
-
 import {
   FaEnvelope,
   FaLinkedinIn,
