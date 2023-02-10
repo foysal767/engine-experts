@@ -5,19 +5,34 @@ import { AiFillStar } from "react-icons/ai";
 const DiscountSection = () => {
   const [discount, setDiscount] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [deadline, setdeadLine] = useState('');
 
-  // CountDown timer added by jabed from here
-
-  const [days, setDays] = useState<number>(0);
-  const [hours, setHours] = useState<number>(0);
-  const [mins, setMinutes] = useState<number>(0);
-  const [secs, setSeconds] = useState<number>(0);
-
+   useEffect(() => {
+     setIsLoading(true);
+     fetch("https://engine-experts-server-phi.vercel.app/campaign")
+       .then((res) => res.json())
+       .then((data) => {
+         if (data.success) {
+           setDiscount(data?.data[0]?.services);
+           setdeadLine(data.data[0]?.endDate);
+           setIsLoading(false);
+          }
+        });
+      }, []);
+      
+      // CountDown timer added by jabed from here
+      
+      const [days, setDays] = useState<number>(0);
+      const [hours, setHours] = useState<number>(0);
+      const [mins, setMinutes] = useState<number>(0);
+      const [secs, setSeconds] = useState<number>(0);
+      
   // const deadline = "February, 13, 2023"
-  const deadline = "2023-02-15"
-
+  // const deadline = "2023-02-15"
+  
   const getTime = () => {
-    const time = Date.parse(deadline)-Date.now();
+    const time = Date.parse(deadline) - Date.now();
+    // console.log('time',time)
     setDays(Math.floor(time/(1000*60*60*24)));
     setHours(Math.floor(time/(1000*60*60)%24));
     setMinutes(Math.floor((time/1000/60)%60));
@@ -27,7 +42,7 @@ const DiscountSection = () => {
   useEffect(() => {
     const interval = setInterval(() => getTime(), 1000);
     return () => clearInterval(interval);
-  }, [])
+  }, [deadline])
   
   // const { data: discount = [], isLoading } = useQuery({
   //   queryKey: ["discount"],
@@ -41,23 +56,17 @@ const DiscountSection = () => {
   //   },
   // });
 
-  useEffect(() => {
-    setIsLoading(true);
-    fetch("https://engine-experts-server-phi.vercel.app/campaign")
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.success) {
-          setDiscount(data?.data[0]?.services);
-          setIsLoading(false);
-        }
-      });
-  }, []);
+ 
   if (isLoading) {
     return (
       <div className="grid place-items-center w-full h-screen">
         <span className="loader"></span>
       </div>
     );
+  }
+
+  if (!deadline) {
+    return <></>;
   }
 
   return (
