@@ -21,6 +21,9 @@ const AddCampaign1 = () => {
   });
   const [selectedService, setSelectedService] = useState("");
   const [originalPrice, setOriginalPrice] = useState();
+  // const [startDate, setStartDate] = useState();
+  const [endedDate, setEndedDate] = useState();
+  const [campName, setCampName] = useState("");
   useEffect(() => {
     fetch(
       `https://engine-experts-server-phi.vercel.app/service?id=${selectedService}`
@@ -34,17 +37,44 @@ const AddCampaign1 = () => {
       });
   }, [selectedService, originalPrice]);
 
+  const handleStartCam = (e: any) => {
+    e.preventDefault();
+    const form = e.target;
+    const startDate = form.startDate.value;
+    const endDate = form.endDate.value;
+    // setStartDate(startDate);
+    // setEndedDate(endDate);
+    const date = {
+      startDate,endDate
+    }
+    fetch("http://localhost:5000/startCamp", {
+      method: "PATCH",
+      headers: {
+        'content-type':'application/json'
+      },
+      body: JSON.stringify(date)
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          toast.success(data?.message)
+        }
+      });
+  };
+
   const handleAddCam = (e: any) => {
     e.preventDefault();
-    const campname = e.target.campname.value;
+    // const campname = e.target.campname.value;
     const service = e.target.service.value;
     const discountprice = e.target.discountprice.value;
     const addCampService = {
-      campname,
+      campName,
       service,
       discountprice,
+      startDate: "",
+      endedDate: "",
     };
-    fetch("https://engine-experts-server-phi.vercel.app/campaign", {
+    fetch("http://localhost:5000/campaign", {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -54,20 +84,23 @@ const AddCampaign1 = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          toast.success("Add campaign Successfull");
+          toast.success(data.message);
+          refetch()
         } else {
           toast.error(data.message);
         }
       });
   };
 
-  const { data: discount = [] } = useQuery({
+  const { data: discount = [], refetch } = useQuery({
     queryKey: ["discount"],
     queryFn: async () => {
       const res = await fetch(
         "https://engine-experts-server-phi.vercel.app/campaign"
       );
       const data = await res.json();
+      setCampName(data.data[0].campaignName);
+      setEndedDate(data?.data[0]?.endDate)
       return data?.data[0];
     },
   });
@@ -88,59 +121,93 @@ const AddCampaign1 = () => {
           Add New Campaign
         </button>
       </div>
-      <form
-        className="w-full grid lg:grid-cols-5 justify-between items-center gap-3 mb-5"
-        onSubmit={handleAddCam}
-      >
-        <input
-          className="bg-white w-[168%] lg:w-full  h-[53px] rounded px-2"
-          type="text"
-          name="campname"
-          placeholder="Campaign Name"
-        />
-        <select
-          className="h-[50px] w-[168%] lg:w-full rounded px-3 bg-white"
-          name="service"
-          placeholder="Select Service"
-          onClick={(e: any) => setSelectedService(e.target.value)}
-        >
-          {services?.map((service: any, i: any) => (
-            <option value={service?.name}>{service?.name}</option>
-          ))}
-        </select>
-        <input
-          className="bg-white w-[168%] lg:w-full h-[53px] rounded px-2"
-          type="text"
-          name="originalprice"
-          placeholder="Original Price"
-          defaultValue={originalPrice}
-        />
-        <input
-          className="bg-white w-[168%] lg:w-full h-[53px] rounded px-2"
-          type="text"
-          name="discountprice"
-          placeholder="Discount Price"
-        />
-        <button
-          className="w-[168%] lg:w-full h-[53px] rounded bg-blue-500 text-xl"
-          type="submit"
-        >
-          Add
-        </button>
-      </form>
 
       <div className="border flex flex-col gap-3 p-3">
         <div className="lg:flex justify-between items-center text-center">
-          <h2 className="text-xl font-poppins text-start mb-4">
-            Campaign: {discount?.campaignName}
+          <h2 className="text-start mb-4">
+            <span className="text-2xl">Campaign:</span>{" "}
+            <input
+              type="text"
+              className="bg-white w-[200px] h-[35px] rounded-md text-black px-4 py-2"
+              defaultValue={campName}
+              onBlur={(e: any) => {
+                setCampName(e.target.value);
+              }}
+            />
           </h2>
           <h2 className="text-xl font-poppins text-start mb-4">
             Total Products: {discount?.services?.length}
           </h2>
-          <button className="w-[150px] h-[40px] rounded bg-red-500 text-xl">
-            Stop Campaign
-          </button>
+          <form onSubmit={handleStartCam} className="flex gap-3 items-center">
+            <div className="flex flex-col items-start">
+              <label htmlFor="start-date">Start date</label>
+              <input
+                type="date"
+                name="startDate"
+                id="start-date"
+                className="w-[200px] h-[40px] bg-white rounded-md px-2"
+              />
+            </div>
+            <div className="flex flex-col items-start">
+              <label htmlFor="end-date">End date</label>
+              <input
+                type="date"
+                name="endDate"
+                id="end-date"
+                defaultValue={endedDate}
+                className="w-[200px] h-[40px] bg-white rounded-md px-2"
+              />
+            </div>
+            <button
+              type="submit"
+              disabled={discount?.services?.length > 0 ? false : true}
+              className="w-[150px] h-[40px] rounded bg-red-500 text-xl"
+            >
+              Start Campaign
+            </button>
+          </form>
         </div>
+        {/* add campaign product from */}
+        <form
+          className="w-full grid lg:grid-cols-4 justify-between items-center gap-3 mb-5"
+          onSubmit={handleAddCam}
+        >
+          {/* <input
+            className="bg-white w-[168%] lg:w-full  h-[53px] rounded px-2"
+            type="text"
+            name="campname"
+            placeholder="Campaign Name"
+          /> */}
+          <select
+            className="h-[50px] w-[168%] lg:w-full rounded px-3 bg-white"
+            name="service"
+            placeholder="Select Service"
+            onClick={(e: any) => setSelectedService(e.target.value)}
+          >
+            {services?.map((service: any, i: any) => (
+              <option value={service?.name}>{service?.name}</option>
+            ))}
+          </select>
+          <input
+            className="bg-white w-[168%] lg:w-full h-[53px] rounded px-2"
+            type="text"
+            name="originalprice"
+            placeholder="Original Price"
+            defaultValue={originalPrice}
+          />
+          <input
+            className="bg-white w-[168%] lg:w-full h-[53px] rounded px-2"
+            type="text"
+            name="discountprice"
+            placeholder="Discount Price"
+          />
+          <button
+            className="w-[168%] lg:w-full h-[53px] rounded bg-blue-500 text-xl"
+            type="submit"
+          >
+            Add
+          </button>
+        </form>
         <div className="w-full flex justify-between px-4">
           <h1>SL</h1>
           <h1>Image</h1>

@@ -16,7 +16,6 @@ import app from "../../Firebase/firebase.config";
 import useAccType from "../../hook/useAccType";
 import useAdmin from "../../hook/useAdmin";
 
-
 interface User {
   user: any;
   errorSignUp: any;
@@ -27,6 +26,19 @@ interface User {
     photoURL: string,
     role: string,
     navigate: any
+  ) => any;
+
+  createSeller: (
+    email: string,
+    password: string,
+    name: string,
+    photoURL: string,
+    role: string,
+    navigate: any,
+    phone: number,
+    nid: number,
+    nationality: string,
+    address: any
   ) => any;
   signIn: (email: string, password: string) => any;
   googleSignIn: (navigate: any) => any;
@@ -66,7 +78,7 @@ const AuthProvider = ({ children }: childrenType) => {
     name: string,
     photoURL: string,
     role: string,
-    navigate: any
+    navigate: any,
   ) => {
     setLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
@@ -111,8 +123,76 @@ const AuthProvider = ({ children }: childrenType) => {
           });
       })
       .catch((err) => {
-        console.log(err)
-        setErrorSignUp(err.message)
+        console.log(err);
+        setErrorSignUp(err.message);
+      });
+  };
+
+  // seller/organizer
+
+  const createSeller = (
+    email: string,
+    password: string,
+    name: string,
+    photoURL: string,
+    role: string,
+    navigate: any,
+    phone: number,
+    nid: number,
+    nationality: string,
+    address: any
+  ) => {
+    setLoading(true);
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((result) => {
+        const user = result.user;
+        setUser(user);
+        const createdSeller = {
+          name: name,
+          email: user.email,
+          accType: role,
+          image: photoURL,
+          userId: user?.uid,
+          role: role,
+          navigate: navigate,
+          phone: phone,
+          nid: nid,
+          nationality: nationality,
+          address: address,
+        };
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(createdSeller),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.success) {
+              fetch("https://engine-experts-server-phi.vercel.app/jwt", {
+                method: "POST",
+                headers: {
+                  "content-type": "application/json",
+                },
+                body: JSON.stringify({ email: user.email }),
+              })
+                .then((res) => res.json())
+                .then((data) => {
+                  if (data.success) {
+                    updateUser(name, photoURL);
+                    localStorage.setItem("access-token", data.token);
+                    toast.success("successfully crated user");
+                    navigate("/");
+                    setLoading(false);
+                  }
+                });
+            }
+          });
+      })
+      .catch((err) => {
+        console.log(err);
+        setErrorSignUp(err.message);
       });
   };
 
@@ -139,8 +219,8 @@ const AuthProvider = ({ children }: childrenType) => {
           });
       })
       .catch((err) => {
-        console.log(err)
-        setErrorSignUp(err.message)
+        console.log(err);
+        setErrorSignUp(err.message);
       });
   };
 
@@ -204,6 +284,7 @@ const AuthProvider = ({ children }: childrenType) => {
   const authInfo = {
     user,
     createUser,
+    createSeller,
     errorSignUp,
     signIn,
     googleSignIn,

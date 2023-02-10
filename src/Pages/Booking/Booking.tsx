@@ -34,7 +34,6 @@ const Booking = () => {
           <span>Service Name</span>
           <span>Price</span>
           <span>Payment</span>
-          <span>Cancel</span>
         </div>
         {bookings?.map((booking: any, i: any) => (
           <div key={i}>
@@ -56,6 +55,16 @@ const Booking = () => {
                   {booking?.price}
                 </h2>
               </span>
+              {
+                booking?.payment === "paid" ? 
+                <span>
+                  <label
+                    className="btn btn-disabled bg-gray-500 text-white lg:btn-sm btn-xs"
+                  >
+                    Paid
+                  </label>
+              </span>
+              :
               <span>
                 <Link to={`/booking/payment/${booking?._id}`}>
                   <label
@@ -66,8 +75,9 @@ const Booking = () => {
                   </label>
                 </Link>
               </span>
+              }
               <span>
-                <button className="btn bg-red-600 lg:btn-sm btn-xs border-none">
+                <button className={`btn ${booking?.payment === "paid" && "btn-disabled bg-gray-500 text-white"} bg-red-600 lg:btn-sm btn-xs border-none text-white`}>
                   Cancel
                 </button>
               </span>

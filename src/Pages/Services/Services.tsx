@@ -52,10 +52,9 @@ const Services = () => {
           </div>
         ))}
       </div>
-        <Link to={"/servicesAll"} className="mt-14">
+      <Link to={"/servicesAll"} className="mt-14">
         <button className="servicesBtn">All Services</button>
       </Link>
-    
     </section>
   );
 };
