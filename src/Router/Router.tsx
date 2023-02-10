@@ -18,6 +18,7 @@ import Person1 from "../Pages/Home/Home/EnginrExperties/Person1"
 import Home from "../Pages/Home/Home/Home"
 import Login from "../Pages/Login/Login"
 import MyReview from "../Pages/MyReview/MyReview"
+import Organizer from "../Pages/Organizer/Organizer"
 import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails"
 import Services from "../Pages/Services/Services"
 import ServicesAll from "../Pages/ServicesAll/ServicesAll"
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUp></SignUp>,
+      },
+      {
+        path: "/organizer",
+        element: <Organizer></Organizer>,
       },
       {
         path: "/login",

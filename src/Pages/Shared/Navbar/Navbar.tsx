@@ -6,7 +6,7 @@ import Lottie from "lottie-react";
 import navlogo from "./navlogo.json";
 
 const Navbar = () => {
-  const { user, logOut, isAdmin, accType } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleLogOut = () => {
@@ -17,21 +17,12 @@ const Navbar = () => {
       <li className="font-semibold hover:text-[#E81C2E]">
         <Link to="/">Home</Link>
       </li>
-      {/* <li className="font-semibold hover:text-[#E81C2E]">
-        <Link to="/services">Services</Link>
-      </li> */}
       <li className="font-semibold hover:text-[#E81C2E]">
         <Link to="/servicesAll">Services</Link>
       </li>
       <li className="font-semibold hover:text-[#E81C2E]">
         <Link to="/contactform">Contact Us</Link>
       </li>
-      {/* <li className="hover:text-[#E81C2E] font-semibold">
-        <Link to="/booking">My Booking</Link>
-      </li>
-      <li className="hover:text-[#E81C2E] font-semibold">
-        <Link to="/myreview">My Review</Link>
-      </li> */}
       {user?.uid && (
         <li className="font-semibold hover:text-[#E81C2E]">
           <Link to="/dashboard1">Dashboard</Link>
@@ -56,11 +47,20 @@ const Navbar = () => {
           data-tip={user?.displayName}
         >
           <label tabIndex={0}>
-            <img
+            {
+              user?.photoURL ? 
+              <img
               className="w-[36px] h-[36px] rounded-full mr-5"
               src={user?.photoURL}
               alt=""
             />
+            :
+            <img
+              className="w-[36px] h-[36px] rounded-full mr-5"
+              src="assets/profile.png"
+              alt=""
+            />
+            }
           </label>
           <ul
             tabIndex={0}
