@@ -239,7 +239,7 @@ const Organizer = () => {
                 {...register("password", {
                   required: "Password is required",
                   pattern: {
-                    value: /^[a-zA-Z0-9]{8}$/,
+                    value: /^[a-zA-Z0-9]{8,}$/,
                     message:
                       "provide ( small, capital letter and number ) at least 8 digit. example( (a-z A-Z 0-9) )",
                   },
