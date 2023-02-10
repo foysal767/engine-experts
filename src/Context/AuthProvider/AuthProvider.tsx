@@ -77,7 +77,6 @@ const AuthProvider = ({ children }: childrenType) => {
     password: string,
     name: string,
     photoURL: string,
-    role: string,
     navigate: any,
   ) => {
     setLoading(true);
@@ -88,7 +87,7 @@ const AuthProvider = ({ children }: childrenType) => {
         const createdUser = {
           name: name,
           email: user.email,
-          accType: role,
+          accType: "User",
           image: photoURL,
           userId: user?.uid,
         };
@@ -153,14 +152,13 @@ const AuthProvider = ({ children }: childrenType) => {
           accType: role,
           image: photoURL,
           userId: user?.uid,
-          role: role,
           navigate: navigate,
           phone: phone,
           nid: nid,
           nationality: nationality,
           address: address,
         };
-        fetch("http://localhost:5000/users", {
+        fetch("https://engine-experts-server-phi.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",

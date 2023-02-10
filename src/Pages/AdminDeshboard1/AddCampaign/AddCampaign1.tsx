@@ -47,7 +47,7 @@ const AddCampaign1 = () => {
     const date = {
       startDate,endDate
     }
-    fetch("http://localhost:5000/startCamp", {
+    fetch("https://engine-experts-server-phi.vercel.app/startCamp", {
       method: "PATCH",
       headers: {
         'content-type':'application/json'
@@ -74,7 +74,7 @@ const AddCampaign1 = () => {
       startDate: "",
       endedDate: "",
     };
-    fetch("http://localhost:5000/campaign", {
+    fetch("https://engine-experts-server-phi.vercel.app/campaign", {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
