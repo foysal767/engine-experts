@@ -147,7 +147,7 @@ const AuthProvider = ({ children }: childrenType) => {
       .then((result) => {
         const user = result.user;
         setUser(user);
-        const createdUser = {
+        const createdSeller = {
           name: name,
           email: user.email,
           accType: role,
@@ -160,12 +160,12 @@ const AuthProvider = ({ children }: childrenType) => {
           nationality: nationality,
           address: address,
         };
-        fetch("https://engine-experts-server-phi.vercel.app/users", {
+        fetch("http://localhost:5000/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
           },
-          body: JSON.stringify(createdUser),
+          body: JSON.stringify(createdSeller),
         })
           .then((res) => res.json())
           .then((data) => {

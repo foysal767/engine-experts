@@ -159,7 +159,7 @@ const AdminDeshboard1 = () => {
                 Your request was send to Admin
               </h2>
               <p className="text-white">Please wait for response</p>
-              <p className="text-white">If you have any argent please <Link className="text-orange-400" to={"/contactform"}>Contact us</Link></p>
+              <p className="text-white">If you have any urgent please <Link className="text-orange-400" to={"/contactform"}>Contact us</Link></p>
             </div>
           )}
 
