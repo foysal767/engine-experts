@@ -53,7 +53,7 @@ const AllOrders1 = () => {
     );
   }
   return (
-    <section className="w-full lg:w-[80%] md:w-[80%] mx-auto px-4 md:px-8 lg:px-12 bg-[#EBF2F4] pb-10">
+    <section className="w-full md:w-[80%] mx-auto px-4 md:px-8 lg:px-12 bg-[#EBF2F4] pb-10">
       <h1 className="text-2xl font-serif text-start mb-6">
         All orders Available here
       </h1>
@@ -69,8 +69,9 @@ const AllOrders1 = () => {
         </select>
         {/* card starts from here */}
         {orders?.map((order: any, i: any) => (
-          <div className="flex flex-col lg:flex-row gap-3 justify-between items-center px-4 py-3 text-xl bg-[#d9dee4] rounded border">
-            <h2>{i + 1}</h2>
+          // <div className="flex flex-col lg:flex-row gap-3 justify-between items-center px-4 py-3 text-xl bg-[#d9dee4] rounded border">
+          <div className="grid lg:grid-cols-6 md:grid-cols-1 sm:grid-cols-1 px-4 gap-5 items-center bg-[#d9dee4] rounded border">
+            {/* <h2>{i + 1}</h2> */}
             <img
               src={order?.userImage}
               alt=""
@@ -79,9 +80,9 @@ const AllOrders1 = () => {
 
             <h2>{order?.serviceName}</h2>
             <h2>{order?.userEmail}</h2>
-            <h2>{order?.price}</h2>
+            <h2 className="lg:ml-20">{order?.price}</h2>
             <select
-              className="w-[160px] h-[45px] bg-transparent rounded border"
+              className="w-[60px] bg-transparent rounded border"
               name="options"
             >
               <option value="Pending" selected>
@@ -91,7 +92,7 @@ const AllOrders1 = () => {
               <option value="Done">Done</option>
             </select>
             <button
-              className="bg-red-500 px-3 rounded-xl"
+              className="bg-red-500 btn-sm rounded-xl"
               onClick={() => handleOrderDelete(order?._id, order?.serviceName)}
             >
               Delete
