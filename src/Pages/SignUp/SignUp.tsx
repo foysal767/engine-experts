@@ -10,7 +10,7 @@ type Inputs = {
   password: string;
   name: string;
   photoURL: string;
-  role: string;
+  // role: string;
 };
 
 const SignUp = () => {
@@ -38,17 +38,10 @@ const SignUp = () => {
       .then((imgData) => {
         if (imgData.success) {
           const imgUrl = imgData.data.url;
-          createUser(
-            data.email,
-            data.password,
-            data.name,
-            imgUrl,
-            data.role,
-            navigate
-          );
+          createUser(data.email, data.password, data.name, imgUrl, navigate);
         }
-      })
-    };
+      });
+  };
 
   const googleLogin = () => {
     googleSignIn(navigate);
@@ -139,7 +132,8 @@ const SignUp = () => {
                   required: "Password is required",
                   pattern: {
                     value: /^[a-zA-Z0-9]{8,}$/,
-                    message: 'provide ( small, capital letter and number ) at least 8 digit. example( (a-z A-Z 0-9) )',
+                    message:
+                      "provide ( small, capital letter and number ) at least 8 digit. example( (a-z A-Z 0-9) )",
                   },
                 })}
                 className="w-full h-[50px] bg-white rounded text-black px-2"
@@ -169,7 +163,7 @@ const SignUp = () => {
               </Link>
             </p>
             <p className="mt-3 font-bold text-lg text-black border py-3 bg-gray-200">
-              Want a Organizer or Seller?
+              Become a Seller?
               <Link className="text-orange-500 ml-2" to="/organizer">
                 Click here
               </Link>

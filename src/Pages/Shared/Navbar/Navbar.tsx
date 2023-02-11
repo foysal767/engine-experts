@@ -6,7 +6,7 @@ import Lottie from "lottie-react";
 import navlogo from "./navlogo.json";
 
 const Navbar = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logOut, accType, isAdmin } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleLogOut = () => {
@@ -23,11 +23,15 @@ const Navbar = () => {
       <li className="font-semibold hover:text-[#E81C2E]">
         <Link to="/contactform">Contact Us</Link>
       </li>
-      {user?.uid && (
-        <li className="font-semibold hover:text-[#E81C2E]">
-          <Link to="/dashboard1">Dashboard</Link>
-        </li>
-      )}
+      {user?.uid &&
+        (accType === "Seller" ||
+          accType === "User" ||
+          isAdmin ||
+          accType === "verifiedSeller") && (
+          <li className="font-semibold hover:text-[#E81C2E]">
+            <Link to="/dashboard1">Dashboard</Link>
+          </li>
+        )}
 
       {user?.uid ? (
         <li
@@ -47,20 +51,19 @@ const Navbar = () => {
           data-tip={user?.displayName}
         >
           <label tabIndex={0}>
-            {
-              user?.photoURL ? 
+            {user?.photoURL ? (
               <img
-              className="w-[36px] h-[36px] rounded-full mr-5"
-              src={user?.photoURL}
-              alt=""
-            />
-            :
-            <img
-              className="w-[36px] h-[36px] rounded-full mr-5"
-              src="assets/profile.png"
-              alt=""
-            />
-            }
+                className="w-[36px] h-[36px] rounded-full mr-5"
+                src={user?.photoURL}
+                alt=""
+              />
+            ) : (
+              <img
+                className="w-[36px] h-[36px] rounded-full mr-5"
+                src="assets/profile.png"
+                alt=""
+              />
+            )}
           </label>
           <ul
             tabIndex={0}
@@ -73,7 +76,7 @@ const Navbar = () => {
               <Link to={"/"}>Account</Link>
             </li>
             <li>
-            <Link to={"/"}>Profile</Link>
+              <Link to={"/"}>Profile</Link>
             </li>
           </ul>
         </div>
