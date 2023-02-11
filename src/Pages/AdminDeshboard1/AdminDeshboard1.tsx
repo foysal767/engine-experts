@@ -5,7 +5,7 @@ import Navbar from "../Shared/Navbar/Navbar";
 import "./AdminDeshboard.css";
 
 const AdminDeshboard1 = () => {
-  const { accType, isAdmin, user } = useContext(AuthContext);
+  const { accType, isAdmin } = useContext(AuthContext);
   const location = useLocation();
   console.log("admin", accType, isAdmin);
 

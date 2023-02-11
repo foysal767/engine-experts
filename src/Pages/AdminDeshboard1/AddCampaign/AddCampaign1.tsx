@@ -9,7 +9,11 @@ const AddCampaign1 = () => {
   if (!isAdmin) {
     <Navigate to="/" state={{ from: location }} replace></Navigate>;
   }
-  const { data: services = [], isLoading } = useQuery({
+  const {
+    data: services = [],
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: ["services"],
     queryFn: async () => {
       const res = await fetch(
@@ -21,7 +25,7 @@ const AddCampaign1 = () => {
   });
   const [selectedService, setSelectedService] = useState("");
   const [originalPrice, setOriginalPrice] = useState();
-  // const [startDate, setStartDate] = useState();
+  const [startDate, setStartDate] = useState();
   const [endedDate, setEndedDate] = useState();
   const [campName, setCampName] = useState("");
   useEffect(() => {
@@ -45,19 +49,21 @@ const AddCampaign1 = () => {
     // setStartDate(startDate);
     // setEndedDate(endDate);
     const date = {
-      startDate,endDate
-    }
-    fetch("https://engine-experts-server-phi.vercel.app/startCamp", {
+      startDate,
+      endDate,
+    };
+    fetch("http://localhost:5000/startCamp", {
       method: "PATCH",
       headers: {
-        'content-type':'application/json'
+        "content-type": "application/json",
       },
-      body: JSON.stringify(date)
+      body: JSON.stringify(date),
     })
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         if (data.success) {
-          toast.success(data?.message)
+          refetch();
+          toast.success(data?.message);
         }
       });
   };
@@ -84,15 +90,29 @@ const AddCampaign1 = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
+          refetch();
           toast.success(data.message);
-          refetch()
         } else {
           toast.error(data.message);
         }
       });
   };
 
-  const { data: discount = [], refetch } = useQuery({
+  const stopCampaign = (e: any) => {
+    e.preventDefault();
+    fetch("http://localhost:5000/stopCampaign", {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data?.success) {
+          toast.success(data?.message);
+          refetch();
+        }
+      });
+  };
+
+  const { data: discount = [] } = useQuery({
     queryKey: ["discount"],
     queryFn: async () => {
       const res = await fetch(
@@ -100,7 +120,9 @@ const AddCampaign1 = () => {
       );
       const data = await res.json();
       setCampName(data.data[0].campaignName);
-      setEndedDate(data?.data[0]?.endDate)
+      setEndedDate(data?.data[0]?.endDate);
+      setStartDate(data?.data[0]?.startDate);
+      refetch();
       return data?.data[0];
     },
   });
@@ -124,28 +146,35 @@ const AddCampaign1 = () => {
 
       <div className="border flex flex-col gap-3 p-3">
         <div className="lg:flex justify-between items-center text-center">
-          <h2 className="text-start mb-4">
-            <span className="text-2xl">Campaign:</span>{" "}
-            <input
-              type="text"
-              className="bg-white w-[200px] h-[35px] rounded-md text-black px-4 py-2"
-              defaultValue={campName}
-              onBlur={(e: any) => {
-                setCampName(e.target.value);
-              }}
-            />
-          </h2>
-          <h2 className="text-xl font-poppins text-start mb-4">
-            Total Products: {discount?.services?.length}
-          </h2>
-          <form onSubmit={handleStartCam} className="grid lg:grid-cols-2 grid-cols-1 gap-3 items-center">
+          <div>
+            <h2 className="text-start mb-4">
+              <span className="text-2xl">Campaign:</span>
+              <input
+                type="text"
+                className="bg-white w-[200px] h-[35px] rounded-md text-black px-4 py-2"
+                defaultValue={campName}
+                onChange={(e: any) => {
+                  setCampName(e.target.value);
+                }}
+              />
+            </h2>
+            <h2 className="text-xl font-poppins text-start mb-4">
+              Total Products: {discount?.services?.length}
+            </h2>
+          </div>
+          <form
+            onSubmit={handleStartCam}
+            className="grid lg:grid-cols-3 grid-cols-1 gap-3 items-end justify-between"
+          >
             <div className="flex flex-col items-start">
               <label htmlFor="start-date">Start date</label>
               <input
                 type="date"
                 name="startDate"
                 id="start-date"
+                defaultValue={startDate}
                 className="w-[200px] h-[40px] bg-white rounded-md px-2"
+                required
               />
             </div>
             <div className="flex flex-col items-start">
@@ -156,15 +185,29 @@ const AddCampaign1 = () => {
                 id="end-date"
                 defaultValue={endedDate}
                 className="w-[200px] h-[40px] bg-white rounded-md px-2"
+                required
               />
             </div>
-            <button
-              type="submit"
-              disabled={discount?.services?.length > 0 ? false : true}
-              className="w-[150px] h-[40px] rounded bg-red-500 text-xl"
-            >
-              Start Campaign
-            </button>
+            <div className="flex flex-col items-end">
+              {(Date.parse(`${endedDate}`) - Date.now()) /
+                (1000 * 60 * 60 * 24) >
+              0 ? (
+                <button
+                  className="w-full h-[40px] rounded bg-red-500 text-xl"
+                  onClick={stopCampaign}
+                >
+                  Stop Campaign
+                </button>
+              ) : (
+                <button
+                  type="submit"
+                  disabled={discount?.services?.length > 0 ? false : true}
+                  className="w-full h-[40px] rounded bg-red-500 text-xl"
+                >
+                  Start Campaign
+                </button>
+              )}
+            </div>
           </form>
         </div>
         {/* add campaign product from */}
@@ -172,12 +215,6 @@ const AddCampaign1 = () => {
           className="lg:w-full w-1/2 grid lg:grid-cols-4 items-center gap-3 mb-5"
           onSubmit={handleAddCam}
         >
-          {/* <input
-            className="bg-white w-[168%] lg:w-full  h-[53px] rounded px-2"
-            type="text"
-            name="campname"
-            placeholder="Campaign Name"
-          /> */}
           <select
             className="h-[50px] w-[168%] lg:w-full rounded px-3 bg-white"
             name="service"
@@ -200,10 +237,12 @@ const AddCampaign1 = () => {
             type="text"
             name="discountprice"
             placeholder="Discount Price"
+            required
           />
           <button
             className="w-[168%] lg:w-full h-[53px] rounded bg-blue-500 text-xl"
             type="submit"
+            disabled={campName ? false : true}
           >
             Add
           </button>
@@ -229,10 +268,8 @@ const AddCampaign1 = () => {
             <h2 className="lg:text-start text-center">{service?.name}</h2>
             <h2>{service?.price}</h2>
             <h2>{service?.discountPrice}</h2>
-              <button className="bg-green-500 btn-sm rounded-xl">
-                Edit
-              </button>
-              <button className="bg-red-500 btn-sm rounded-xl">Delete</button>
+            <button className="bg-green-500 btn-sm rounded-xl">Edit</button>
+            <button className="bg-red-500 btn-sm rounded-xl">Delete</button>
           </div>
         ))}
       </div>
