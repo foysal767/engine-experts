@@ -31,7 +31,7 @@ const ElectricCar = () => {
                 <span className="text-xl text-gray-600">Email:</span>
               </div>
               <span className="text-xl text-gray-600">
-                sheikjabedali24@gmail.com
+                sheikjabedali269@gmail.com
               </span>
             </div>
             <div className=" flex flex-col md:flex-row text-justify md:justify-around">
@@ -99,7 +99,9 @@ const ElectricCar = () => {
                 electricity back into the battery. Braking becomes more
                 efficient, placing less wear and tear on the brakes. Brake disks
                 and pads still need maintaining but this needs to be done less
-                often, saving you money
+                often, saving you money A regular car can contain hundreds of
+                working parts which means there's lots that can go wrong and
+                parts that need replacing over time.
               </p>
             </div>
 
