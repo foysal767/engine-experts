@@ -47,7 +47,7 @@ const AddCampaign1 = () => {
     const date = {
       startDate,endDate
     }
-    fetch("http://localhost:5000/startCamp", {
+    fetch("https://engine-experts-server-phi.vercel.app/startCamp", {
       method: "PATCH",
       headers: {
         'content-type':'application/json'
@@ -74,7 +74,7 @@ const AddCampaign1 = () => {
       startDate: "",
       endedDate: "",
     };
-    fetch("http://localhost:5000/campaign", {
+    fetch("https://engine-experts-server-phi.vercel.app/campaign", {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -112,9 +112,9 @@ const AddCampaign1 = () => {
     );
   }
   return (
-    <section className="w-full lg:w-[90%] md:w-[80%] mx-auto px-4 md:px-8 lg:px-12 bg-[#EBF2F4] pb-10">
+    <section className="w-full lg:w-[90%] md:w-[80%] mx-auto px-4 md:px-8 lg:px-12 bg-[#EBF2F4] pb-10 lg:mt-2 md:mt-4 sm:mt-20">
       <div className="flex justify-between items-center px-4 mb-5">
-        <h1 className="text-2xl font-serif text-start mb-6">
+        <h1 className="text-2xl font-serif text-start">
           Campaigns are available here
         </h1>
         <button className="w-[180px] lg:h-[50px] rounded bg-blue-500 text-xl">
@@ -138,7 +138,7 @@ const AddCampaign1 = () => {
           <h2 className="text-xl font-poppins text-start mb-4">
             Total Products: {discount?.services?.length}
           </h2>
-          <form onSubmit={handleStartCam} className="flex gap-3 items-center">
+          <form onSubmit={handleStartCam} className="grid lg:grid-cols-2 grid-cols-1 gap-3 items-center">
             <div className="flex flex-col items-start">
               <label htmlFor="start-date">Start date</label>
               <input
@@ -169,7 +169,7 @@ const AddCampaign1 = () => {
         </div>
         {/* add campaign product from */}
         <form
-          className="w-full grid lg:grid-cols-4 justify-between items-center gap-3 mb-5"
+          className="lg:w-full w-1/2 grid lg:grid-cols-4 items-center gap-3 mb-5"
           onSubmit={handleAddCam}
         >
           {/* <input
@@ -208,7 +208,7 @@ const AddCampaign1 = () => {
             Add
           </button>
         </form>
-        <div className="w-full flex justify-between px-4">
+        <div className="w-full hidden lg:grid lg:grid-cols-7">
           <h1>SL</h1>
           <h1>Image</h1>
           <h1>Service Name</h1>
@@ -219,22 +219,20 @@ const AddCampaign1 = () => {
         </div>
         {/* card starts from here */}
         {discount?.services?.map((service: any, i: any) => (
-          <div className="flex flex-col lg:flex-row gap-3 justify-between items-center px-4 py-2 text-xl bg-[#d9dee4] rounded border">
+          <div className="grid lg:grid-cols-7 md:grid-cols-1 sm:grid-cols-1 gap-3 items-center px-4 py-2 text-xl bg-[#d9dee4] rounded border">
             <h2>{i + 1}</h2>
             <img
               className="w-[50px] h-[50px] hidden lg:block rounded-full bg-gray-300"
               alt=""
               src={service?.image}
             />
-            <h2 className="text-start">{service?.name}</h2>
+            <h2 className="lg:text-start text-center">{service?.name}</h2>
             <h2>{service?.price}</h2>
             <h2>{service?.discountPrice}</h2>
-            <div className="flex gap-3 items-center">
-              <button className="bg-green-500 px-3 rounded-xl lg:mb-2">
+              <button className="bg-green-500 btn-sm rounded-xl">
                 Edit
               </button>
-              <button className="bg-red-500 px-3 rounded-xl">Delete</button>
-            </div>
+              <button className="bg-red-500 btn-sm rounded-xl">Delete</button>
           </div>
         ))}
       </div>

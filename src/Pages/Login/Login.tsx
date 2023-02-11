@@ -24,12 +24,11 @@ const Login = () => {
   const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    signIn(data.email, data.password);
-    navigate(from, {replace: true});
+    signIn(data.email, data.password, navigate, from);
   };
 
   const googleLogin = () => {
-    googleSignIn(navigate);
+    googleSignIn(navigate, from);
   };
 
   return (
