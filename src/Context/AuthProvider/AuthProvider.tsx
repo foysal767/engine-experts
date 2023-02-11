@@ -40,8 +40,8 @@ interface User {
     nationality: string,
     address: any
   ) => any;
-  signIn: (email: string, password: string) => any;
-  googleSignIn: (navigate: any) => any;
+  signIn: (email: string, password: string, navigate: any, from: any) => any;
+  googleSignIn: (navigate: any, from: any) => any;
   logOut: (navigate: any) => any;
   updateUser: (name: string, photoURL: string) => any;
   loading: boolean;
@@ -194,12 +194,13 @@ const AuthProvider = ({ children }: childrenType) => {
       });
   };
 
-  const signIn = (email: string, password: string) => {
+  const signIn = (email: string, password: string, navigate: any, from: any) => {
     setLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
         const user = result.user;
         setUser(user);
+        navigate(from, {replace: true});
         fetch("https://engine-experts-server-phi.vercel.app/jwt", {
           method: "POST",
           headers: {
@@ -222,11 +223,12 @@ const AuthProvider = ({ children }: childrenType) => {
       });
   };
 
-  const googleSignIn = (navigate: any) => {
+  const googleSignIn = (navigate: any, from: any) => {
     setLoading(true);
     signInWithPopup(auth, googleProvider).then((res) => {
       const user = res.user;
       setUser(user);
+      navigate(from, {replace: true});
       fetch("https://engine-experts-server-phi.vercel.app/jwt", {
         method: "POST",
         headers: {
@@ -239,7 +241,6 @@ const AuthProvider = ({ children }: childrenType) => {
           if (data.success) {
             localStorage.setItem("access-token", data.token);
             toast.success("successfully Login");
-            navigate("/");
             setLoading(false);
           }
         });

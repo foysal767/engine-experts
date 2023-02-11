@@ -27,12 +27,20 @@ const Booking = () => {
         <h2 className="text-2xl font-bold mt-20">Welcome {user?.displayName}</h2>
       </div>
       <div className="py-10">
-        <div className="grid grid-cols-5 mx-auto border-b-2 py-3 border-b-red-600 bg-gray-200 rounded">
+        {
+          bookings?.length >= 1 ? (
+          <div className="grid grid-cols-5 mx-auto border-b-2 py-3 border-b-red-600 bg-gray-200 rounded">
           <span>Image</span>
           <span>Service Name</span>
           <span>Price</span>
           <span>Payment</span>
-        </div>
+        </div>)
+        : (
+          <div>
+            <h2 className="text-4xl mb-8 text-red-600">No booking added yet.</h2>
+          </div>
+        )
+        }
         {bookings?.map((booking: any, i: any) => (
           <div key={i
           }>

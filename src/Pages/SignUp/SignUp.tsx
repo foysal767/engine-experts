@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./SignUp.css";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
@@ -14,6 +14,9 @@ type Inputs = {
 };
 
 const SignUp = () => {
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
   const { createUser, googleSignIn, errorSignUp } = useContext(AuthContext);
 
   const {
@@ -46,12 +49,13 @@ const SignUp = () => {
             data.role,
             navigate
           );
+          navigate("/")
         }
       })
     };
 
   const googleLogin = () => {
-    googleSignIn(navigate);
+    googleSignIn(navigate, from);
   };
 
   return (
