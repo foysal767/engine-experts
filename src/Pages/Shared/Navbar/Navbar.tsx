@@ -5,8 +5,21 @@ import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 import "./Navbar.css";
 import Lottie from "lottie-react";
 import navlogo from "./navlogo.json";
+import { FaSearch } from "react-icons/fa";
+import SearchBar from "../../components/SearchBar/SearchBar";
+import { useQuery } from "@tanstack/react-query";
 
 const Navbar = () => {
+  // const { data: services = [] } = useQuery({
+  //   queryKey: ["services"],
+  //   queryFn: async () => {
+  //     const res = await fetch(
+  //       "https://engine-experts-server-phi.vercel.app/services"
+  //     );
+  //     const data = await res.json();
+  //     return data.data;
+  //   },
+  // });
   const { user, logOut, isAdmin, accType } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -87,7 +100,8 @@ const Navbar = () => {
             {menuItems}
           </ul>
         </div>
-        <div className="flex items-center">
+
+        <div className="flex items-end">
           <Lottie className="w-[60px] h-[60px] mr-[-10px] my-[-10px]" animationData={navlogo} />
           <Link
             to="/"
@@ -97,9 +111,16 @@ const Navbar = () => {
           </Link>
         </div>
       </div>
+
+      {/* search bar==========>>>hriday */}
+
+      <SearchBar></SearchBar>
+
+
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">{menuItems}</ul>
       </div>
+
     </div>
   );
 };

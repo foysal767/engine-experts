@@ -41,8 +41,9 @@ const PopularService = () => {
           </div>
 
           <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 gap-4 h-full w-full py-12">
-            {popular?.map((service: any) => (
-              <div className="group relative items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
+            {popular?.map((service: any, i: any) => (
+              <div key={i
+              } className="group relative items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
                 <div className="h-full w-full">
                   <img
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125"
