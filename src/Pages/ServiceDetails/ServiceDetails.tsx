@@ -295,6 +295,40 @@ const ServiceDetails = () => {
         </div>
       </div>
 
+      {/* start rating */}
+      <div className="rating gap-2">
+        <input
+          type="radio"
+          name="rating-2"
+          value="1"
+          className="mask mask-star-2 bg-orange-500"
+        />
+        <input
+          type="radio"
+          name="rating-2"
+          value="2"
+          className="mask mask-star-2 bg-orange-500"
+        />
+        <input
+          type="radio"
+          name="rating-2"
+          value="3"
+          className="mask mask-star-2 bg-orange-500"
+        />
+        <input
+          type="radio"
+          name="rating-2"
+          value="4"
+          className="mask mask-star-2 bg-orange-500"
+        />
+        <input
+          type="radio"
+          name="rating-2"
+          value="5"
+          className="mask mask-star-2 bg-orange-500"
+        />
+      </div>
+
       <div className="mt-24 text-start lg:px-12 md:px-8 px-4">
         <h1 className="text-4xl text-black font-semibold">
           Recent Review and Rating
