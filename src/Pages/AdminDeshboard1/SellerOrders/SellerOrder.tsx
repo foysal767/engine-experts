@@ -14,7 +14,7 @@ const SellerOrder = () => {
         All orders Available here
       </h1>
       <div className="w-full flex flex-col gap-4">
-        <select
+        {/* <select
           className="w-[160px] h-[45px] bg-white rounded px-3"
           name="options"
         >
@@ -22,7 +22,7 @@ const SellerOrder = () => {
             Active Orders
           </option>
           <option value="Completed Orders">Completed Orders</option>
-        </select>
+        </select> */}
         {/* card starts from here */}
         <div className="flex flex-col lg:flex-row gap-3 justify-between items-center px-4 py-3 text-xl bg-[#d9dee4] rounded border">
           <h2>1.</h2>

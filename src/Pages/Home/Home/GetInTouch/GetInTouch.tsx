@@ -1,4 +1,6 @@
-import { FaPhone, FaRegEdit, FaRegPaperPlane } from "react-icons/fa"
+import { FaPhone, FaRegEdit } from "react-icons/fa"
+import { VscWorkspaceTrusted } from "react-icons/vsc"
+import { SiTrustpilot } from "react-icons/si"
 import "./GetInTouch.css"
 
 const GetInTouch = () => {
@@ -7,10 +9,7 @@ const GetInTouch = () => {
       <div className="w-full text-left pl-8">
         <button className="getTouch mb-6">Get In Touch</button>
       </div>
-      {/* <h1 className="text-[#383232] text-[4vw] font-bold font-poppins mb-12">
-        Get In Touch Our Experts
-      </h1> */}
-      <div className="getInTouchWrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] py-12">
+      <div className="getInTouchWrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center gap-4 bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] py-12">
         <div className="leftTouch flex flex-col justify-center items-center gap-4">
           <div className="bg-[#E81C2E] p-5 rounded-full">
             <FaRegEdit className="text-2xl"></FaRegEdit>
@@ -47,26 +46,20 @@ const GetInTouch = () => {
 
         <div className="rightTouch flex flex-col justify-center items-center gap-4">
           <div className="bg-[#E81C2E] p-5 rounded-full">
-            <FaRegPaperPlane className="text-2xl"></FaRegPaperPlane>
+            <VscWorkspaceTrusted className="text-2xl"></VscWorkspaceTrusted>
           </div>
           <div>
-            <h2 className="text-2xl font-semibold">Subscribe Us</h2>
+            <h2 className="text-2xl font-semibold">Trust</h2>
             <p>
-              We provide all engine service <br />
-              Please Chat the down box
+            We give our best service to our customer <br/> and we are confident with our services.
             </p>
           </div>
-          <div className="flex items-center">
-            <div className="">
-              <input
-                className="w-full py-2 px-2"
-                type="email"
-                placeholder="Enter Your Email"
-              />
-            </div>
-            <div className="">
-              <button className=" bg-[#E81C2E] px-4 py-2">Subscribe</button>
-            </div>
+          <div className="flex items-center text-[#E81C2E] gap-2 text-xl">
+            <SiTrustpilot></SiTrustpilot>
+            <SiTrustpilot></SiTrustpilot>
+            <SiTrustpilot></SiTrustpilot>
+            <SiTrustpilot></SiTrustpilot>
+            <SiTrustpilot></SiTrustpilot>
           </div>
         </div>
       </div>

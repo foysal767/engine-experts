@@ -24,19 +24,27 @@ const Booking = () => {
       <div className="flex items-center mt-2 justify-center ">
         <h2 className="text-2xl font-bold mt-20">Hi,</h2>
         <Lottie className="w-1/12" animationData={hi} />
-        <h2 className="text-2xl font-bold mt-20">Welcome {user?.displayName}</h2>
+        <h2 className="text-2xl font-bold mt-20">
+          Welcome {user?.displayName}
+        </h2>
       </div>
       <div className="py-10">
-        <div className="grid grid-cols-5 mx-auto border-b-2 py-3 border-b-red-600 bg-gray-200 rounded">
+        {
+          bookings?.length >= 1 ? (
+          <div className="grid grid-cols-5 mx-auto border-b-2 py-3 border-b-red-600 bg-gray-200 rounded">
           <span>Image</span>
           <span>Service Name</span>
           <span>Price</span>
           <span>Payment</span>
-          <span>Cancel</span>
-        </div>
+        </div>)
+        : (
+          <div>
+            <h2 className="text-4xl mb-8 text-red-600">No booking added yet.</h2>
+          </div>
+        )
+        }
         {bookings?.map((booking: any, i: any) => (
-          <div key={i
-          }>
+          <div key={i}>
             <div className="grid grid-cols-5 gap-2 lg:gap-3 items-center my-5 bg-gray-200 rounded py-2 px-2 h-[80px]">
               <span>
                 <img
@@ -55,6 +63,16 @@ const Booking = () => {
                   {booking?.price}
                 </h2>
               </span>
+              {
+                booking?.payment === "paid" ? 
+                <span>
+                  <label
+                    className="btn btn-disabled bg-gray-500 text-white lg:btn-sm btn-xs"
+                  >
+                    Paid
+                  </label>
+              </span>
+              :
               <span>
                 <Link to={`/booking/payment/${booking?._id}`}>
                   <label
@@ -65,8 +83,9 @@ const Booking = () => {
                   </label>
                 </Link>
               </span>
+              }
               <span>
-                <button className="btn bg-red-600 lg:btn-sm btn-xs border-none">
+                <button className={`btn ${booking?.payment === "paid" && "btn-disabled bg-gray-500 text-white"} bg-red-600 lg:btn-sm btn-xs border-none text-white`}>
                   Cancel
                 </button>
               </span>

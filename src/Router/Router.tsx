@@ -14,10 +14,14 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage"
 import GoogleMaps from "../Pages/GoogleMaps/GoogleMaps"
 import ContactForm from "../Pages/Home/ContactForm/ContactForm"
 import ContactUs from "../Pages/Home/ContactUs/ContactUs"
-import Person1 from "../Pages/Home/Home/EnginrExperties/Person1"
+import AirExpertise from "../Pages/Home/Home/EnginrExperties/AirExpertise"
+import ElectricCar from "../Pages/Home/Home/EnginrExperties/ElectricCar"
+import EngineCluster from "../Pages/Home/Home/EnginrExperties/EngineCluster"
 import Home from "../Pages/Home/Home/Home"
 import Login from "../Pages/Login/Login"
+import Messenger from "../Pages/Messenger/Messenger"
 import MyReview from "../Pages/MyReview/MyReview"
+import Organizer from "../Pages/Organizer/Organizer"
 import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails"
 import Services from "../Pages/Services/Services"
 import ServicesAll from "../Pages/ServicesAll/ServicesAll"
@@ -43,6 +47,10 @@ const router = createBrowserRouter([
         element: <SignUp></SignUp>,
       },
       {
+        path: "/organizer",
+        element: <Organizer></Organizer>,
+      },
+      {
         path: "/login",
         element: <Login></Login>,
       },
@@ -60,25 +68,45 @@ const router = createBrowserRouter([
       },
       {
         path: "/servicesAll",
-        element: <ServicesAll></ServicesAll>
+        element: <ServicesAll></ServicesAll>,
       },
       {
         path: "/serviceDetails/:id",
-        element: <PrivateRouter><ServiceDetails></ServiceDetails></PrivateRouter>,
+        element: (
+          <PrivateRouter>
+            <ServiceDetails></ServiceDetails>
+          </PrivateRouter>
+        ),
       },
       {
         path: "/booking/payment/:id",
         element: <Payment></Payment>,
       },
       {
-        path: "/person1",
-        element: <Person1></Person1>,
+        path: "/airexpertise",
+        element: <AirExpertise></AirExpertise>,
+      },
+      {
+        path: "/enginecluster",
+        element: <EngineCluster></EngineCluster>,
+      },
+      {
+        path: "/electriccar",
+        element: <ElectricCar></ElectricCar>,
+      },
+      {
+        path: "/messenger",
+        element: <Messenger></Messenger>,
       },
     ],
   },
   {
     path: "/dashboard1",
-    element: <AdminDeshboard1></AdminDeshboard1>,
+    element: (
+      <PrivateRouter>
+        <AdminDeshboard1></AdminDeshboard1>
+      </PrivateRouter>
+    ),
     children: [
       {
         path: "/dashboard1/addservice1",
@@ -110,9 +138,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard1/myreview",
-        element: (
-            <MyReview></MyReview>
-        ),
+        element: <MyReview></MyReview>,
       },
     ],
   },

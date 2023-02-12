@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./SignUp.css";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
@@ -10,10 +10,13 @@ type Inputs = {
   password: string;
   name: string;
   photoURL: string;
-  role: string;
+  // role: string;
 };
 
 const SignUp = () => {
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
   const { createUser, googleSignIn, errorSignUp } = useContext(AuthContext);
 
   const {
@@ -38,20 +41,13 @@ const SignUp = () => {
       .then((imgData) => {
         if (imgData.success) {
           const imgUrl = imgData.data.url;
-          createUser(
-            data.email,
-            data.password,
-            data.name,
-            imgUrl,
-            data.role,
-            navigate
-          );
+          createUser(data.email, data.password, data.name, imgUrl, navigate);
         }
-      })
-    };
+      });
+  };
 
   const googleLogin = () => {
-    googleSignIn(navigate);
+    googleSignIn(navigate, from);
   };
 
   return (
@@ -73,7 +69,6 @@ const SignUp = () => {
             className="h-[80%] w-[80%]"
           />
         </div>
-
         <div className="grid place-items-center h-full w-full">
           <form
             onSubmit={handleSubmit(onSubmit)}
@@ -115,26 +110,6 @@ const SignUp = () => {
             <div className="w-full">
               <label className="label">
                 <span className="label-text text-black text-xl">
-                  Account type
-                </span>
-              </label>
-              <select
-                className="select select-bordered w-full bg-white text-black text-xl font-normal"
-                {...register("role", {
-                  required: "role is required",
-                })}
-              >
-                <option>User</option>
-                <option>Seller</option>
-              </select>
-              {errors.role && (
-                <p className="text-red-600">{errors.role?.message}</p>
-              )}
-            </div>
-
-            <div className="w-full">
-              <label className="label">
-                <span className="label-text text-black text-xl">
                   Upload Image
                 </span>
               </label>
@@ -159,8 +134,9 @@ const SignUp = () => {
                 {...register("password", {
                   required: "Password is required",
                   pattern: {
-                    value: /^[a-zA-Z0-9]{8}$/,
-                    message: 'provide ( small, capital letter and number ) at least 8 digit. example( (a-z A-Z 0-9) )',
+                    value: /^[a-zA-Z0-9]{8,}$/,
+                    message:
+                      "provide ( small, capital letter and number ) at least 8 digit. example( (a-z A-Z 0-9) )",
                   },
                 })}
                 className="w-full h-[50px] bg-white rounded text-black px-2"
@@ -187,6 +163,12 @@ const SignUp = () => {
               Already have an account?
               <Link className="text-orange-500 ml-2" to="/login">
                 Sign In
+              </Link>
+            </p>
+            <p className="mt-3 font-bold text-lg text-black border py-3 bg-gray-200">
+              Become a Seller?
+              <Link className="text-orange-500 ml-2" to="/organizer">
+                Click here
               </Link>
             </p>
           </form>

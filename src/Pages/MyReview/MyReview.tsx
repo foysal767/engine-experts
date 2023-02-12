@@ -34,7 +34,7 @@ const MyReview = () => {
       {reviews?.length >= 1 ? (
         <h2 className="text-4xl">Total reviews : {reviews?.length}</h2>
       ) : (
-        <h2 className="text-4xl">No reviews added yet.</h2>
+        <h2 className="text-4xl mb-8 text-red-600">No reviews added yet.</h2>
       )}
       <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5">
         {reviews?.map((review: any, i: any) => (

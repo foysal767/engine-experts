@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AiOutlineDeploymentUnit } from "react-icons/ai";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 import "./Navbar.css";
 import Lottie from "lottie-react";
@@ -10,17 +9,7 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import { useQuery } from "@tanstack/react-query";
 
 const Navbar = () => {
-  // const { data: services = [] } = useQuery({
-  //   queryKey: ["services"],
-  //   queryFn: async () => {
-  //     const res = await fetch(
-  //       "https://engine-experts-server-phi.vercel.app/services"
-  //     );
-  //     const data = await res.json();
-  //     return data.data;
-  //   },
-  // });
-  const { user, logOut, isAdmin, accType } = useContext(AuthContext);
+  const { user, logOut, accType, isAdmin } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleLogOut = () => {
@@ -31,23 +20,21 @@ const Navbar = () => {
       <li className="font-semibold hover:text-[#E81C2E]">
         <Link to="/">Home</Link>
       </li>
-      {/* <li className="font-semibold hover:text-[#E81C2E]">
-        <Link to="/services">Services</Link>
-      </li> */}
       <li className="font-semibold hover:text-[#E81C2E]">
         <Link to="/servicesAll">Services</Link>
       </li>
-      {/* <li className="hover:text-[#E81C2E] font-semibold">
-        <Link to="/booking">My Booking</Link>
+      <li className="font-semibold hover:text-[#E81C2E]">
+        <Link to="/contactform">Contact Us</Link>
       </li>
-      <li className="hover:text-[#E81C2E] font-semibold">
-        <Link to="/myreview">My Review</Link>
-      </li> */}
-      {user?.uid && (
-        <li className="font-semibold hover:text-[#E81C2E]">
-          <Link to="/dashboard1">Dashboard</Link>
-        </li>
-      )}
+      {user?.uid &&
+        (accType === "Seller" ||
+          accType === "User" ||
+          isAdmin ||
+          accType === "verifiedSeller") && (
+          <li className="font-semibold hover:text-[#E81C2E]">
+            <Link to="/dashboard1">Dashboard</Link>
+          </li>
+        )}
 
       {user?.uid ? (
         <li
@@ -62,13 +49,40 @@ const Navbar = () => {
         </li>
       )}
       {user?.uid && (
-        <li className="tooltip tooltip-left" data-tip={user?.displayName}>
-          <img
-            className="w-[65px] h-[65px] rounded-full"
-            src={user?.photoURL}
-            alt=""
-          />
-        </li>
+        <div
+          className="tooltip lg:tooltip-left md:tooltip-right mt-1 dropdown dropdown-bottom dropdown-end"
+          data-tip={user?.displayName}
+        >
+          <label tabIndex={0}>
+            {user?.photoURL ? (
+              <img
+                className="w-[36px] h-[36px] rounded-full mr-5"
+                src={user?.photoURL}
+                alt=""
+              />
+            ) : (
+              <img
+                className="w-[36px] h-[36px] rounded-full mr-5"
+                src="assets/profile.png"
+                alt=""
+              />
+            )}
+          </label>
+          <ul
+            tabIndex={0}
+            className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 mx-auto"
+          >
+            <li>
+              <h3>{user?.displayName}</h3>
+            </li>
+            <li>
+              <Link to={"/"}>Account</Link>
+            </li>
+            <li>
+              <Link to={"/"}>Profile</Link>
+            </li>
+          </ul>
+        </div>
       )}
     </React.Fragment>
   );
@@ -100,9 +114,11 @@ const Navbar = () => {
             {menuItems}
           </ul>
         </div>
-
-        <div className="flex items-end">
-          <Lottie className="w-[60px] h-[60px] mr-[-10px] my-[-10px]" animationData={navlogo} />
+        <div className="flex items-center">
+          <Lottie
+            className="w-[60px] h-[60px] mr-[-10px] my-[-10px]"
+            animationData={navlogo}
+          />
           <Link
             to="/"
             className="btn btn-ghost font-semibold normal-case text-xl"
