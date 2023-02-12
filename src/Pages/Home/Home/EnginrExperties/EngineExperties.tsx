@@ -16,7 +16,7 @@ const EngineExperties = () => {
               src="/assets/service-1.1.jpg"
               alt=""
             />
-            <Link to="/person1">
+            <Link to="/airexpertise">
               <div className="absolute w-[90%] h-[40%] lg:h-[60%] left-[5%] bottom-0 lg:-bottom-20 bg-white p-5 flex-col gap-3 rounded-md hover:bg-red-200 cursor-pointer">
                 <div className="flex items-center justify-between w-full text-black">
                   <h1 className="flex items-center gap-2">
@@ -35,7 +35,7 @@ const EngineExperties = () => {
                 </div>
                 <div className="font-bold text-xl text-gray-700">
                   <h1>
-                    Common Engine Oil <br /> Problems and Solutions
+                    Air-Conditioning-&-Evac <br /> Problems and Solutions
                   </h1>
                 </div>
               </div>
@@ -48,26 +48,28 @@ const EngineExperties = () => {
               src="/assets/image-gallery/Performance-upgrade.jpg"
               alt=""
             />
-            <div className="absolute w-[90%] h-[40%] lg:h-[60%] left-[5%] bottom-0 lg:-bottom-20 bg-white p-5 flex-col gap-3 rounded-md hover:bg-red-200 cursor-pointer">
-              <div className="flex items-center justify-between w-full text-black">
-                <h1 className="flex items-center gap-2">
-                  <img
-                    className="w-10 h-10 rounded-full object-fill"
-                    src="assets/team/faysal.jpg"
-                    alt=""
-                  />
-                  <span className="text-gray-600 font-semibold">
-                    Foysal Ahmed
-                  </span>
-                </h1>
-                <h2 className="text-gray-600 font-semibold">Experiance</h2>
+            <Link to="/enginecluster">
+              <div className="absolute w-[90%] h-[40%] lg:h-[60%] left-[5%] bottom-0 lg:-bottom-20 bg-white p-5 flex-col gap-3 rounded-md hover:bg-red-200 cursor-pointer">
+                <div className="flex items-center justify-between w-full text-black">
+                  <h1 className="flex items-center gap-2">
+                    <img
+                      className="w-10 h-10 rounded-full object-fill"
+                      src="assets/team/faysal.jpg"
+                      alt=""
+                    />
+                    <span className="text-gray-600 font-semibold">
+                      Foysal Ahmed
+                    </span>
+                  </h1>
+                  <h2 className="text-gray-600 font-semibold">Experiance</h2>
+                </div>
+                <div className="font-bold text-xl text-gray-700">
+                  <h1>
+                    How and When to <br /> Reaplace Engine Cluster
+                  </h1>
+                </div>
               </div>
-              <div className="font-bold text-xl text-gray-700">
-                <h1>
-                  How and When to <br /> Reaplace Engine Cluster
-                </h1>
-              </div>
-            </div>
+            </Link>
           </div>
 
           <div className="w-full h-[300px] relative">
@@ -76,27 +78,29 @@ const EngineExperties = () => {
               src="/assets/image-gallery/Engine-Service-&-Repair.jpg"
               alt=""
             />
-            <div className="absolute w-[90%] h-[40%] lg:h-[60%] left-[5%] bottom-0 lg:-bottom-20 bg-white p-5 flex-col gap-3 rounded-md hover:bg-red-200 cursor-pointer">
-              <div className="flex items-center justify-between w-full text-black">
-                <h1 className="flex items-center gap-2">
-                  <img
-                    className="w-10 h-10 rounded-full object-fill"
-                    src="assets/team/javed.jpg"
-                    alt=""
-                  />
-                  <span className="text-gray-600 font-semibold">
-                    Sheik Jabed
-                  </span>
-                </h1>
-                <h2 className="text-gray-600 font-semibold">Experiance</h2>
+            <Link to="/electriccar">
+              <div className="absolute w-[90%] h-[40%] lg:h-[60%] left-[5%] bottom-0 lg:-bottom-20 bg-white p-5 flex-col gap-3 rounded-md hover:bg-red-200 cursor-pointer">
+                <div className="flex items-center justify-between w-full text-black">
+                  <h1 className="flex items-center gap-2">
+                    <img
+                      className="w-10 h-10 rounded-full object-fill"
+                      src="assets/team/javed.jpg"
+                      alt=""
+                    />
+                    <span className="text-gray-600 font-semibold">
+                      Sheik Jabed
+                    </span>
+                  </h1>
+                  <h2 className="text-gray-600 font-semibold">Experiance</h2>
+                </div>
+                <div className="font-bold text-xl text-gray-700">
+                  <h1>
+                    Electric Cur Issue <br />
+                    Servicing and Repairs
+                  </h1>
+                </div>
               </div>
-              <div className="font-bold text-xl text-gray-700">
-                <h1>
-                  Electric Cur Issue <br />
-                  Servicing and Repairs
-                </h1>
-              </div>
-            </div>
+            </Link>
           </div>
         </div>
       </div>
