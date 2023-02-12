@@ -1,110 +1,136 @@
+import { toast } from "react-hot-toast"
 import { FaPhoneVolume, FaRegEnvelope } from "react-icons/fa"
 import "./ContactForm.css"
 
 const ContactForm = () => {
+  const handleSubmit = (event: any) => {
+    event.preventDefault()
+    const name = event.target.name.value
+    const email = event.target.email.value
+    const phone = event.target.phone.value
+    const service = event.target.service.value
+    const message = event.target.message.value
+    const user = { name, email, phone, service, message }
+    console.log(user)
+
+    fetch("http://localhost:5000/contactform", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then(res => res.json())
+      .then(data => {
+        toast.success(data.message)
+      })
+      .catch(err => console.error(err))
+  }
+
   return (
     <section className="py-20 px-4">
       <div className="contactForm grid lg:grid-cols-3 md:grid-cols-2 gap-6 justify-center">
         <div className="leftContactForm lg:col-span-2 p-4 rounded-lg lg:px-20 py-10 bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')]">
           <div className="headText text-left">
-            <h2 className="text-4xl font-semibold">
-              Need Services ? Send Message
-            </h2>
+            <h2 className="text-4xl font-semibold">Need Help ? Send Message</h2>
             <p className="text-xl mb-4">
-              We provide all engine services
+              We provide all engine services related help!
             </p>
           </div>
           <div className="contactFormInput">
-            <div className="nameEmail grid lg:grid-cols-2 md:grid-cols-1 gap-4">
-              <div className="inputName">
+            <form onSubmit={handleSubmit}>
+              <div className="nameEmail grid lg:grid-cols-2 md:grid-cols-1 gap-4">
+                <div className="inputName">
+                  <div className="font-bold text-left">
+                    <label className="" htmlFor="name">
+                      Name
+                    </label>
+                  </div>
+                  <input
+                    className="bg-gray-100 input input-bordered text-black w-full"
+                    type="text"
+                    name="name"
+                    id="name"
+                    placeholder="Type your Name"
+                  />
+                </div>
+                <div className="inputEmail">
+                  <div className="font-bold text-left">
+                    <label className="" htmlFor="email">
+                      Email
+                    </label>
+                  </div>
+                  <input
+                    className="bg-gray-100 input input-bordered text-black w-full"
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Type your Email"
+                  />
+                </div>
+              </div>
+              <div className="phoneService grid lg:grid-cols-2 md:grid-cols-1 gap-4 my-4">
+                <div className="inputPhone">
+                  <div className="font-bold text-left">
+                    <label className="" htmlFor="phone">
+                      Phone
+                    </label>
+                  </div>
+                  <input
+                    className="bg-gray-100 input input-bordered text-black w-full"
+                    type="text"
+                    name="phone"
+                    id="phone"
+                    placeholder="Type your Phone"
+                  />
+                </div>
+                <div className="inputService">
+                  <div className="font-bold text-left">
+                    <label className="" htmlFor="service">
+                      Service
+                    </label>
+                  </div>
+                  <input
+                    className="bg-gray-100 input input-bordered text-black w-full"
+                    type="text"
+                    name="service"
+                    id="service"
+                    placeholder="Type your service"
+                  />
+                </div>
+              </div>
+              <div>
                 <div className="font-bold text-left">
-                  <label className="" htmlFor="name">
-                    Name
+                  <label className="" htmlFor="message">
+                    Message
                   </label>
                 </div>
-                <input
-                  className="bg-gray-100 input input-bordered text-black w-full"
-                  type="text"
-                  placeholder="Type your Name"
-                />
+                <textarea
+                  className="textarea textarea-bordered text-black bg-gray-100 mb-4 w-full"
+                  placeholder="Your Message"
+                  name="message"
+                  id="massage"
+                ></textarea>
               </div>
-              <div className="inputEmail">
-                <div className="font-bold text-left">
-                  <label className="" htmlFor="email">
-                    Email
-                  </label>
-                </div>
-                <input
-                  className="bg-gray-100 input input-bordered text-black w-full"
-                  type="email"
-                  placeholder="Type your Email"
-                />
+
+              <div>
+                <button className="contactBtn font-bold">Submit</button>
               </div>
-            </div>
-            <div className="phoneService grid lg:grid-cols-2 md:grid-cols-1 gap-4 my-4">
-              <div className="inputPhone">
-                <div className="font-bold text-left">
-                  <label className="" htmlFor="phone">
-                    Phone
-                  </label>
-                </div>
-                <input
-                  className="bg-gray-100 input input-bordered text-black w-full"
-                  type="text"
-                  placeholder="Type your Phone"
-                />
-              </div>
-              <div className="inputService">
-                <div className="font-bold text-left">
-                  <label className="" htmlFor="service">
-                    Service
-                  </label>
-                </div>
-                <input
-                  className="bg-gray-100 input input-bordered text-black w-full"
-                  type="text"
-                  placeholder="Type your service"
-                />
-              </div>
-            </div>
-            <div>
-              <div className="font-bold text-left">
-                <label className="" htmlFor="message">
-                  Message
-                </label>
-              </div>
-              <textarea
-                className="textarea textarea-bordered text-black bg-gray-100 mb-4 w-full"
-                placeholder="Your Message"
-                name="message"
-                id=""
-              ></textarea>
-            </div>
-          </div>
-          <div>
-            <button className="contactBtn font-bold">
-              Submit
-            </button>
+            </form>
           </div>
         </div>
         <div className="rightContactDetails p-4 rounded-lg py-10 px-8 bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')]">
           <div className="contactDetails text-left mb-8">
-            <h2 className="text-4xl font-semibold  mb-4">
-              Contact Details
-            </h2>
+            <h2 className="text-4xl font-semibold  mb-4">Contact Details</h2>
             <p className="">
-              <span className="font-bold ">
-                Office Address -1:{" "}
-              </span>{" "}
-              Engine Experts Agency <br />
+              <span className="font-bold ">Office Address -1: </span> Engine
+              Experts Agency <br />
               (Chottogram Baskhali) Co. Ltd Bridge 8. Room <br /> 9201
             </p>
             <br />
             <p className="">
-              <span className="font-bold ">
-                Office Address-2:{" "}
-              </span>{" "}
-              Engine Expertice Agency <br />
+              <span className="font-bold ">Office Address-2: </span> Engine
+              Expertice Agency <br />
               (Kamranggir Chor Vuter Goli) Co. Ltd Sheik Jamal Road- <br /> 9876
             </p>
           </div>
@@ -113,9 +139,7 @@ const ContactForm = () => {
               <FaPhoneVolume />
             </div>
             <div>
-              <h2 className="text-sm  text-left">
-                Emargency Call
-              </h2>
+              <h2 className="text-sm  text-left">Emargency Call</h2>
               <span className="font-bold ">+88 017 22 262041</span>
             </div>
           </div>
@@ -124,12 +148,8 @@ const ContactForm = () => {
               <FaRegEnvelope />
             </div>
             <div>
-              <h2 className="text-sm  text-left">
-                General Communication
-              </h2>
-              <span className="font-bold ">
-                nazrulislamrongon@gmail.com
-              </span>
+              <h2 className="text-sm  text-left">General Communication</h2>
+              <span className="font-bold ">nazrulislamrongon@gmail.com</span>
             </div>
           </div>
         </div>

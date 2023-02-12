@@ -1,5 +1,3 @@
-import React from "react";
-
 const Brand = () => {
   return (
     <section className="px-4 md:px-12 lg:px-12">
@@ -7,14 +5,36 @@ const Brand = () => {
         <div className="bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] lg:w-1/2 h-[250px] text-left">
           <div className="lg:ml-20 lg:pt-14 ml-5 pt-5">
             <h2 className="text-2xl font-bold">Brand We Trust</h2>
-            <p className="text-sm text-gray-400">We carry over 100 of the world's highest quality aumotive parts.</p>
+            <p className="text-sm text-gray-400">
+              We carry over 100 of the world's highest quality aumotive parts.
+            </p>
             <p className="my-4 text-red-600 font-bold">Our Brands</p>
             <div className="flex space-x-5">
-              <img className="w-1/12 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-150 duration-300" src="/assets/brand-1.png" alt="" />
-              <img className="w-1/12 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-150 duration-300" src="/assets/brand-2.png" alt="" />
-              <img className="w-1/12 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-150 duration-300" src="/assets/brand-3.png" alt="" />
-              <img className="w-1/12 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-150 duration-300" src="/assets/brand-4.png" alt="" />
-              <img className="w-1/12 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-150 duration-300" src="/assets/brand-7.png" alt="" />
+              <img
+                className="w-1/12 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-150 duration-300"
+                src="/assets/brand-1.png"
+                alt=""
+              />
+              <img
+                className="w-1/12 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-150 duration-300"
+                src="/assets/brand-2.png"
+                alt=""
+              />
+              <img
+                className="w-1/12 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-150 duration-300"
+                src="/assets/brand-3.png"
+                alt=""
+              />
+              <img
+                className="w-1/12 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-150 duration-300"
+                src="/assets/brand-4.png"
+                alt=""
+              />
+              <img
+                className="w-1/12 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-150 duration-300"
+                src="/assets/brand-7.png"
+                alt=""
+              />
             </div>
           </div>
         </div>
@@ -37,7 +57,7 @@ const Brand = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Brand;
+export default Brand
