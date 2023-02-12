@@ -8,8 +8,8 @@ const ErrorPage = () => {
   const error = useRouteError();
   return (
     //@ts-ignore
-    <div className="lg:w-1/2 w-full mx-auto mt-20">
-      <h1 className="text-black text-4xl font-extrabold">Ops! An Error Ocurred!</h1>
+    <div className="w-1/2 mx-auto">
+      <h1 className="text-black text-4xl lg:font-extrabold font-bold pt-4">Ops! An Error Ocurred!</h1>
       <br />
       {error && (
         <div className=" text-center">
@@ -19,7 +19,7 @@ const ErrorPage = () => {
             {/* @ts-ignore */}
             {error.statusText || error.message}
           </p>
-          <p className="lg:text-3xl font-poppins mt-10 flex justify-center"><Link to={'/'}><span className="px-4 py-3 errBtn">Go to Home</span></Link></p>
+          <p className="lg:text-xl font-poppins mt-10 flex justify-center"><Link to={'/'}><span className="px-3 py-2 errBtn">Go to Home</span></Link></p>
         </div>
       )}
       <Lottie className="" animationData={errorCar} />
