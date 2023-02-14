@@ -18,11 +18,13 @@ const GetInTouch = () => {
             <h2 className="text-2xl font-semibold">Service Help ?</h2>
             <p>
               We provide all engine service <br />
-              Please Chat the down box
+              Please Contact us with clicking the email.
             </p>
           </div>
           <div>
-            <button className="getBtn">Chat Now</button>
+          <h5 className="ftext-xl text-[#E81C2E] font-bold">
+              <a href="mailto:engineexpertise24@gmail.com">engineexpertise24@gmail.com</a>
+            </h5>
           </div>
         </div>
 
@@ -34,7 +36,7 @@ const GetInTouch = () => {
             <h2 className="text-2xl font-semibold">Get In Touch</h2>
             <p>
               We provide all engine service <br />
-              Please Chat the down box
+              Please Contact us with clicking the phone number.
             </p>
           </div>
           <div>
