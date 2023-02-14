@@ -132,12 +132,11 @@ const ServiceDetails = () => {
   useEffect(() => {
     setLoading(true);
     const getDetail = async () => {
-      const res = await fetch(
-        `https://engine-experts-server-phi.vercel.app/servicedetails?id=${id}`
-      );
+      const res = await fetch(`http://localhost:5000/servicedetails?id=${id}`);
       const data = await res.json();
-      setDetails(data.data);
-      setReviews(data.data.reviews);
+      setDetails(data?.data);
+      // setReviews(data?.data?.reviews);
+      setReviews(data?.reviews);
       // console.log("service reviews", reviews);
       setLoading(false);
     };
@@ -152,18 +151,17 @@ const ServiceDetails = () => {
     const feedbackObject = {
       email: user?.email || "User not found",
       feedback,
+      image: details?.image,
       rating,
+      service: details?.name,
     };
-    fetch(
-      `https://engine-experts-server-phi.vercel.app/servicedetails?id=${details?._id}`,
-      {
-        method: "PATCH",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(feedbackObject),
-      }
-    )
+    fetch(`http://localhost:5000/servicedetails?id=${details?._id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(feedbackObject),
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
@@ -233,6 +231,38 @@ const ServiceDetails = () => {
                     <option value="Excellent">Excellent</option>
                     <option value="As Well">As Well</option>
                   </select>
+                  {/* <div className="rating gap-2">
+                    <input
+                      type="radio"
+                      name="rating-2"
+                      value="1"
+                      className="mask mask-star-2 bg-orange-500"
+                    />
+                    <input
+                      type="radio"
+                      name="rating-2"
+                      value="2"
+                      className="mask mask-star-2 bg-orange-500"
+                    />
+                    <input
+                      type="radio"
+                      name="rating-2"
+                      value="3"
+                      className="mask mask-star-2 bg-orange-500"
+                    />
+                    <input
+                      type="radio"
+                      name="rating-2"
+                      value="4"
+                      className="mask mask-star-2 bg-orange-500"
+                    />
+                    <input
+                      type="radio"
+                      name="rating-2"
+                      value="5"
+                      className="mask mask-star-2 bg-orange-500"
+                    />
+                  </div> */}
                 </div>
                 <button
                   type="submit"
@@ -294,6 +324,40 @@ const ServiceDetails = () => {
           </div>
         </div>
       </div>
+
+      {/* start rating */}
+      {/* <div className="rating gap-2">
+        <input
+          type="radio"
+          name="rating-2"
+          value="1"
+          className="mask mask-star-2 bg-orange-500"
+        />
+        <input
+          type="radio"
+          name="rating-2"
+          value="2"
+          className="mask mask-star-2 bg-orange-500"
+        />
+        <input
+          type="radio"
+          name="rating-2"
+          value="3"
+          className="mask mask-star-2 bg-orange-500"
+        />
+        <input
+          type="radio"
+          name="rating-2"
+          value="4"
+          className="mask mask-star-2 bg-orange-500"
+        />
+        <input
+          type="radio"
+          name="rating-2"
+          value="5"
+          className="mask mask-star-2 bg-orange-500"
+        />
+      </div> */}
 
       <div className="mt-24 text-start lg:px-12 md:px-8 px-4">
         <h1 className="text-4xl text-black font-semibold">

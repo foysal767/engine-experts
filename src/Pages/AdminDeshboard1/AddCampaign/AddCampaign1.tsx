@@ -9,11 +9,7 @@ const AddCampaign1 = () => {
   if (!isAdmin) {
     <Navigate to="/" state={{ from: location }} replace></Navigate>;
   }
-  const {
-    data: services = [],
-    isLoading,
-    refetch,
-  } = useQuery({
+  const { data: services = [], isLoading } = useQuery({
     queryKey: ["services"],
     queryFn: async () => {
       const res = await fetch(
@@ -105,14 +101,14 @@ const AddCampaign1 = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data?.success) {
-          toast.success(data?.message);
+        if (data.success) {
           refetch();
+          toast.success(data?.message);
         }
       });
   };
 
-  const { data: discount = [] } = useQuery({
+  const { data: discount = [], refetch } = useQuery({
     queryKey: ["discount"],
     queryFn: async () => {
       const res = await fetch(
@@ -122,7 +118,6 @@ const AddCampaign1 = () => {
       setCampName(data.data[0].campaignName);
       setEndedDate(data?.data[0]?.endDate);
       setStartDate(data?.data[0]?.startDate);
-      refetch();
       return data?.data[0];
     },
   });
