@@ -7,7 +7,7 @@ const GetInTouch = () => {
   return (
     <section className="my-32 md:my-20 lg:my-20">
       <div className="w-full text-left pl-8">
-        <button className="getTouch mb-6">Get In Touch</button>
+        <p className="getTouch mb-6">Get In Touch</p>
       </div>
       <div className="getInTouchWrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center gap-4 bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] py-12">
         <div className="leftTouch flex flex-col justify-center items-center gap-4">

@@ -130,7 +130,7 @@ const Navbar = () => {
 
       {/* search bar==========>>>hriday */}
 
-      <SearchBar></SearchBar>
+      {/* <SearchBar></SearchBar> */}
 
 
       <div className="navbar-center hidden lg:flex">

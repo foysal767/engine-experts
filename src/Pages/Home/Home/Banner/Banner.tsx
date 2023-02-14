@@ -3,10 +3,10 @@ import "./Banner.css";
 
 const Banner = () => {
   return (
-    <section className="w-[100%] lg:px-14 md:px-8 px-4 h-[70vh] lg:h-screen relative overflow-hidden text-start bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] mb-6 lg:mb-28">
+    <section className="md:h-[40vh] w-[100%] lg:px-14 md:px-8 px-4 h-[70vh] lg:h-screen relative overflow-hidden text-start bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] mb-6 lg:mb-28">
       <div className="w-full h-full flex">
         <div className="h-full w-full lg:w-[40%] flex flex-col items-center justify-center">
-          <h1 className="text-2xl lg:text-[3vw] lg:leading-[50px] font-semibold mb-6 text-[#FFFFFF]">
+          <h1 className="text-2xl lg:text-[3vw] lg:leading-[50px] font-semibold mb-6 text-[#FFFFFF] md:text-4xl ">
             A genuine solution to vehicle problems
           </h1>
           <p className="md:text-xl text-lg">

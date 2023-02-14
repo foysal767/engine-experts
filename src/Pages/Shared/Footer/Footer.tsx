@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Footer.css";
 import { FaArrowRight } from "react-icons/fa";
-import ScrollToTop from "react-scroll-up";
+// import ScrollToTop from "react-scroll-up";
 import Lottie from "lottie-react";
 import worker from "./footer.json";
 
@@ -11,11 +11,11 @@ const Footer = () => {
     <div className="bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')]">
       {/* scrollbar */}
 
-      <ScrollToTop showUnder={160}>
+      {/* <ScrollToTop showUnder={160}>
         <span>
           <img className="w-[30px]" src="/assets/scroll-car.png" alt="" />
         </span>
-      </ScrollToTop>
+      </ScrollToTop> */}
 
       <footer className="mt-10 font-poppins w-full ">
         <footer className="footer p-10  ">
@@ -96,10 +96,10 @@ const Footer = () => {
             </span>
             <div className="pt-4">
               <p className="text-left">
-                Our workers are so cool. They work happily <br/> and they give their best for our customers.
+                Our workers are so cool. They work happily <br /> and they give their best for our customers.
               </p>
               <Lottie className="w-[200px] mx-auto" animationData={worker} />
-              
+
             </div>
           </div>
         </footer>

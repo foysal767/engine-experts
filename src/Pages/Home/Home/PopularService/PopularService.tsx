@@ -23,10 +23,10 @@ const PopularService = () => {
   }
   return (
     <section className="w-full mb-6 lg:mb-28">
-      <div className="px-4 md:px-8 lg:px-12 bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] w-full lg:h-[350px] grid place-items-center">
-        <div className="lg:flex lg:justify-around items-center md:justify-center w-full lg:h-full gap-6">
-          <div className="lg:w-[30%] w-full lg:h-full flex flex-col justify-center gap-3">
-            <h2 className="lg:text-start text-3xl font-bold font-poppins">
+      <div className="px-4 md:px-8 lg:px-12 bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] w-full lg:h-[350px] flex place-items-center">
+        <div className="lg:flex lg:flex-row md:mt-7 lg:justify-around items-center md:justify-center w-full lg:h-full gap-6">
+          <div className="lg:w-[30%] w-full lg:h-full flex flex-col  justify-center gap-3 ">
+            <h2 className="lg:text-start text-3xl font-bold font-poppins ">
               Popular Services
             </h2>
             <p className="lg:text-start">
@@ -52,7 +52,7 @@ const PopularService = () => {
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black group-hover:from-black/70 group-hover:via-black/60 group-hover:to-black/70"></div>
-                <div className="absolute inset-0 flex translate-y-[80%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0">
+                <div className="absolute inset-0 flex lg:translate-y-[80%] md:translate-y-[100%] translate-y-[80%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0">
                   <h1 className="font-dmserif text-3xl font-bold text-white">{service?.name}</h1>
                   <Link className="rounded-full backdrop-blur-lg py-2 px-3.5 font-com text-sm capitalize text-white shadow shadow-black/60 mt-5 font-bold" to={`/servicedetails/${service?.name}`}>See Details</Link>
                 </div>
