@@ -11,11 +11,11 @@ const Footer = () => {
     <div className="bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')]">
       {/* scrollbar */}
 
-      <ScrollToTop showUnder={160}>
+      {/* <ScrollToTop showUnder={160}>
         <span>
           <img className="w-[30px]" src="/assets/scroll-car.png" alt="" />
         </span>
-      </ScrollToTop>
+      </ScrollToTop> */}
 
       <footer className="mt-10 font-poppins w-full ">
         <footer className="footer p-10  ">
