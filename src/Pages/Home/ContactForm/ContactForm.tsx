@@ -11,6 +11,7 @@ const ContactForm = () => {
     const service = event.target.service.value
     const message = event.target.message.value
     const user = { name, email, phone, service, message }
+    event.target.reset()
     console.log(user)
 
     fetch("http://localhost:5000/contactform", {
