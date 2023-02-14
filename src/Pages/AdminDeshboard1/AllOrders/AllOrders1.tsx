@@ -1,10 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 const AllOrders1 = () => {
   const { isAdmin } = useContext(AuthContext);
+  const [sellers, setSellers] = useState([]);
   const location = useLocation();
   if (!isAdmin) {
     <Navigate to="/" state={{ from: location }} replace></Navigate>;
@@ -45,6 +46,16 @@ const AllOrders1 = () => {
         });
     }
   };
+
+  const getSeller = (name: any) => {
+    fetch(`https://engine-experts-server-phi.vercel.app/getSeller?name=${name}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setSellers(data?.data);
+        }
+      });
+  };
   if (isLoading) {
     return (
       <div className="grid place-items-center w-full h-screen">
@@ -71,25 +82,26 @@ const AllOrders1 = () => {
         {orders?.map((order: any, i: any) => (
           // <div className="flex flex-col lg:flex-row gap-3 justify-between items-center px-4 py-3 text-xl bg-[#d9dee4] rounded border">
           <div className="grid lg:grid-cols-6 md:grid-cols-1 sm:grid-cols-1 px-4 gap-5 items-center bg-[#d9dee4] rounded border">
-            {/* <h2>{i + 1}</h2> */}
-            <img
-              src={order?.userImage}
-              alt=""
-              className="w-[50px] hidden lg:block h-[50px] rounded-full bg-gray-300"
-            />
+            <div className="flex items-center gap-3 py-1">
+              <h2>{i + 1}</h2>
+              <img
+                src={order?.userImage}
+                alt=""
+                className="w-[50px] hidden lg:block h-[50px] rounded-full bg-gray-300"
+              />
+            </div>
 
             <h2>{order?.serviceName}</h2>
             <h2>{order?.userEmail}</h2>
             <h2 className="lg:ml-20">{order?.price}</h2>
             <select
-              className="w-[60px] bg-transparent rounded border"
+              className="w-[150px] bg-transparent rounded border text-black"
               name="options"
+              onClick={() => getSeller(order?.serviceName)}
             >
-              <option value="Pending" selected>
-                Pending
-              </option>
-              <option value="In Progress">In Progress</option>
-              <option value="Done">Done</option>
+              {sellers?.map((seller: any) => (
+                <option value="seller">{seller.email}</option>
+              ))}
             </select>
             <button
               className="bg-red-500 btn-sm rounded-xl"
