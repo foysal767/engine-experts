@@ -13,13 +13,11 @@ import Payment from "../Pages/Booking/Payment"
 import ErrorPage from "../Pages/ErrorPage/ErrorPage"
 import GoogleMaps from "../Pages/GoogleMaps/GoogleMaps"
 import ContactForm from "../Pages/Home/ContactForm/ContactForm"
-import ContactUs from "../Pages/Home/ContactUs/ContactUs"
 import AirExpertise from "../Pages/Home/Home/EnginrExperties/AirExpertise"
 import ElectricCar from "../Pages/Home/Home/EnginrExperties/ElectricCar"
 import EngineCluster from "../Pages/Home/Home/EnginrExperties/EngineCluster"
 import Home from "../Pages/Home/Home/Home"
 import Login from "../Pages/Login/Login"
-import Messenger from "../Pages/Messenger/Messenger"
 import MyReview from "../Pages/MyReview/MyReview"
 import Organizer from "../Pages/Organizer/Organizer"
 import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails"
@@ -53,10 +51,6 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login></Login>,
-      },
-      {
-        path: "/contactUs",
-        element: <ContactUs></ContactUs>,
       },
       {
         path: "/contactform",
@@ -93,10 +87,6 @@ const router = createBrowserRouter([
       {
         path: "/electriccar",
         element: <ElectricCar></ElectricCar>,
-      },
-      {
-        path: "/messenger",
-        element: <Messenger></Messenger>,
       },
     ],
   },
