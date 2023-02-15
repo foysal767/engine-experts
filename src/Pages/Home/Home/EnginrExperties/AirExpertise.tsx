@@ -1,17 +1,101 @@
+import "./AirExpertise.css"
+
 const AirExpertise = () => {
   return (
     <section className="my-8 px-10">
       <div className="flex flex-col md:flex-row text-gray-400 gap-8">
         <div className="sideBar basis-3/12">
-          <h1 className="">Use Full Link</h1>
-          <img
-            src="assets/engine-blog/air-engine/airEngine-5.jpg"
-            className="w-full my-4 rounded-lg"
-            alt=""
-          />
-          <button className="border-2 border-gray-500 w-full rounded-lg text-gray-600 hover:bg-pink-600 hover:text-white mb-4">
-            Automotive Air Conditioning
-          </button>
+          <h1 className="text-2xl text-center text-gray-800 font-bold mb-4">
+            Popular Servicing
+          </h1>
+
+          <div className="animation mb-10 border border-gray-500 p-4 rounded-lg cursor-pointer">
+            <img
+              src="assets/engine-blog/air-engine/airEngine-5.jpg"
+              className="animated w-full my-4 rounded-lg"
+              alt=""
+            />
+            <button className="border-2 border-gray-500 w-full rounded-lg text-gray-600 hover:bg-pink-600 hover:text-white mb-4">
+              Automotive Air Conditioning
+            </button>
+          </div>
+
+          <div className="animation mb-10 border border-gray-500 p-4 rounded-lg cursor-pointer">
+            <img
+              src="assets/engine-blog/air-engine/airEngine-6.jpg"
+              className="w-full my-4 rounded-lg"
+              alt=""
+            />
+            <button className="border-2 border-gray-500 w-full rounded-lg text-gray-600 hover:bg-pink-600 hover:text-white mb-4">
+              Expansion Valve System
+            </button>
+          </div>
+
+          <div className="animation mb-10 border border-gray-500 p-4 rounded-lg cursor-pointer">
+            <img
+              src="assets/engine-blog/air-engine/airEngine-6.jpg"
+              className="w-full my-4 rounded-lg"
+              alt=""
+            />
+            <button className="border-2 border-gray-500 w-full rounded-lg text-gray-600 hover:bg-pink-600 hover:text-white mb-4">
+              Orifice Tube system
+            </button>
+          </div>
+
+          <div className="animation mb-10 border border-gray-500 p-4 rounded-lg cursor-pointer">
+            <img
+              src="assets/engine-blog/air-engine/airEngine-6.jpg"
+              className="w-full my-4 rounded-lg"
+              alt=""
+            />
+            <button className="border-2 border-gray-500 w-full rounded-lg text-gray-600 hover:bg-pink-600 hover:text-white mb-4">
+              Expansion Valve System
+            </button>
+          </div>
+
+          <div className="animation mb-10 border border-gray-500 p-4 rounded-lg cursor-pointer">
+            <img
+              src="assets/engine-blog/air-engine/airEngine-6.jpg"
+              className="w-full my-4 rounded-lg"
+              alt=""
+            />
+            <button className="border-2 border-gray-500 w-full rounded-lg text-gray-600 hover:bg-pink-600 hover:text-white mb-4">
+              Expansion Valve System
+            </button>
+          </div>
+
+          <div className="animation mb-10 border border-gray-500 p-4 rounded-lg cursor-pointer">
+            <img
+              src="assets/engine-blog/air-engine/airEngine-6.jpg"
+              className="w-full my-4 rounded-lg"
+              alt=""
+            />
+            <button className="border-2 border-gray-500 w-full rounded-lg text-gray-600 hover:bg-pink-600 hover:text-white mb-4">
+              Expansion Valve System
+            </button>
+          </div>
+
+          <div className="animation mb-10 border border-gray-500 p-4 rounded-lg cursor-pointer">
+            <img
+              src="assets/engine-blog/air-engine/airEngine-6.jpg"
+              className="w-full my-4 rounded-lg"
+              alt=""
+            />
+            <button className="border-2 border-gray-500 w-full rounded-lg text-gray-600 hover:bg-pink-600 hover:text-white mb-4">
+              Expansion Valve System
+            </button>
+          </div>
+
+          <div className="animation mb-10 border border-gray-500 p-4 rounded-lg cursor-pointer">
+            <img
+              src="assets/engine-blog/air-engine/airEngine-6.jpg"
+              className="w-full my-4 rounded-lg"
+              alt=""
+            />
+            <button className="border-2 border-gray-500 w-full rounded-lg text-gray-600 hover:bg-pink-600 hover:text-white mb-4">
+              Expansion Valve System
+            </button>
+          </div>
         </div>
         <div className="middleBar basis-9/12">
           <div className="mb-10">
@@ -36,7 +120,7 @@ const AirExpertise = () => {
             </p>
             <img
               src="assets/engine-blog/air-engine/airEngine-1.jpg"
-              className="w-full my-4 border-2 border-gray-400"
+              className="w-full my-4"
               alt=""
             />
             <p className="text-xl text-gray-600 text-justify mt-4">
@@ -66,7 +150,7 @@ const AirExpertise = () => {
             </p>
             <img
               src="assets/engine-blog/air-engine/airEngine-2.jpg"
-              className="w-full my-4 border-2 border-gray-400"
+              className="w-full my-4"
               alt=""
             />
             <p className="text-xl text-gray-600 text-justify mt-4">
@@ -102,7 +186,7 @@ const AirExpertise = () => {
             </p>
             <img
               src="assets/engine-blog/air-engine/airEngine-3.jpg"
-              className="w-full my-4 border-2 border-gray-400"
+              className="w-full my-4"
               alt=""
             />
             <p className="text-xl text-gray-600 text-justify mt-4">
@@ -139,7 +223,7 @@ const AirExpertise = () => {
             </p>
             <img
               src="assets/engine-blog/air-engine/airEngine-4.jpg"
-              className="w-full my-4 border-2 border-gray-400"
+              className="w-full my-4"
               alt=""
             />
             <p className="text-xl text-gray-600 text-justify mt-4">
