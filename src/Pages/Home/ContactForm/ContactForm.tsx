@@ -118,7 +118,6 @@ const ContactForm = () => {
                   required
                   name="message"
                   id="massage"
-                  required
                 ></textarea>
               </div>
 
