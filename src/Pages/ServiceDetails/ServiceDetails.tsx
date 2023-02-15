@@ -187,7 +187,7 @@ const ServiceDetails = () => {
           alt="service-bg"
         />
         <div className="h-full w-full flex items-end absolute top-0 p-4 lg:p-10">
-          <h2 className="flex items-center font-poppins text-2xl lg:text-5xl font-bold ">
+          <h2 className="flex items-center font-poppins text-2xl md:text-3xl lg:text-5xl font-bold ">
             {details?.name}___
             <RiServiceFill className="text-[#E81C2E]"></RiServiceFill>
           </h2>
@@ -281,7 +281,7 @@ const ServiceDetails = () => {
           {/* ----------------Table starts from here------------ */}
         </div>
 
-        <div className=" w-full flex flex-col gap-8 lg:w-[30%] px-2 mt-7 lg:mt-0">
+        <div className=" w-full flex flex-col gap-8 lg:w-[30%] lg:px-2 md:px-0  mt-7 lg:mt-0">
           {/* -------------Get Service---------- */}
           <div className="shadow-2xl rounded py-8 px-10 text-start bg-[black] flex flex-col gap-3">
             <h1 className="text-3xl">GET SERVICE</h1>

@@ -59,3 +59,8 @@
 .bannerCar:hover .bannerLightImg{
     display: block;
 }
+/* @media only screen and (max-width: 600px){
+    .banner{
+       height: 20vh;
+    }
+} */

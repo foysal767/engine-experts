@@ -11,3 +11,9 @@
     clip-path: polygon(0 0,100% 0,100% calc(100% - 20px),100% 100%,0 100%,0 20px);
     border: 2px solid #E81C2E;
 }
+
+@media only screen and (max-width: 600px){
+    .popular-heading{
+        margin-top: 50px;
+    }
+}

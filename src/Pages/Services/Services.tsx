@@ -21,11 +21,11 @@ const Services = () => {
     );
   }
   return (
-    <section className="mb-6 lg:mb-28 px-4 md:px-8 lg:px-12">
-      <h1 className="text-2xl lg:text-5xl font-bold font-poppins mb-12 text-[#383232]">
+    <section className="mb-12 lg:mb-20 px-4 md:px-8 lg:px-12">
+      <h1 className="text-2xl md:text-3xl lg:text-5xl md:mt-10 sm:mt-10 lg:mt-0 services-heading  font-bold font-poppins pser text-[#383232]">
         Services that we Offer
       </h1>
-      <div className="mt-9 mb-12 row grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 font-poppins">
+      <div className="mt-9 mb-10 row grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 font-poppins">
         {services.slice(0, 3).map((service: any, i: any) => (
           <div key={i}>
             <div className="card rounded-md w-full h-[400px] bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] shadow-xl">
@@ -52,7 +52,7 @@ const Services = () => {
           </div>
         ))}
       </div>
-      <Link to={"/servicesAll"} className="mt-14">
+      <Link to={"/servicesAll"} className="mt-5">
         <button className="servicesBtn">All Services</button>
       </Link>
     </section>

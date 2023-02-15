@@ -22,11 +22,11 @@ const PopularService = () => {
     );
   }
   return (
-    <section className="w-full mb-6 lg:mb-28">
+    <section className="w-full mb-6 lg:mb-20">
       <div className="px-4 md:px-8 lg:px-12 bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] w-full lg:h-[350px] flex place-items-center">
-        <div className="lg:flex lg:flex-row md:mt-7 lg:justify-around items-center md:justify-center w-full lg:h-full gap-6">
+        <div className="popular-heading lg:flex lg:flex-row md:mt-7  lg:mt-0 lg:justify-around items-center md:justify-center w-full lg:h-full gap-6">
           <div className="lg:w-[30%] w-full lg:h-full flex flex-col  justify-center gap-3 ">
-            <h2 className="lg:text-start text-3xl font-bold font-poppins ">
+            <h2 className="lg:text-start text-3xl font-bold font-poppins sm:pt-52 lg:pt-0  md:pt-0">
               Popular Services
             </h2>
             <p className="lg:text-start">

@@ -29,8 +29,8 @@ const ContactForm = () => {
 
   return (
     <section className="py-20 px-4">
-      <div className="contactForm grid lg:grid-cols-3 md:grid-cols-2 gap-6 justify-center">
-        <div className="leftContactForm lg:col-span-2 p-4 rounded-lg lg:px-20 py-10 bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')]">
+      <div className="contactForm grid lg:grid-cols-3 md:grid-cols-1 gap-6 justify-center">
+        <div className="leftContactForm lg:col-span-2 p-4 rounded-lg lg:px-16 py-10 bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')]">
           <div className="headText text-left">
             <h2 className="text-4xl font-semibold">Need Help ? Send Message</h2>
             <p className="text-xl mb-4">
@@ -52,6 +52,7 @@ const ContactForm = () => {
                     name="name"
                     id="name"
                     placeholder="Type your Name"
+                    required
                   />
                 </div>
                 <div className="inputEmail">
@@ -66,6 +67,7 @@ const ContactForm = () => {
                     name="email"
                     id="email"
                     placeholder="Type your Email"
+                    required
                   />
                 </div>
               </div>
@@ -82,6 +84,7 @@ const ContactForm = () => {
                     name="phone"
                     id="phone"
                     placeholder="Type your Phone"
+                    required
                   />
                 </div>
                 <div className="inputService">
@@ -96,6 +99,7 @@ const ContactForm = () => {
                     name="service"
                     id="service"
                     placeholder="Type your service"
+                    required
                   />
                 </div>
               </div>
@@ -110,6 +114,7 @@ const ContactForm = () => {
                   placeholder="Your Message"
                   name="message"
                   id="massage"
+                  required
                 ></textarea>
               </div>
 
@@ -119,7 +124,7 @@ const ContactForm = () => {
             </form>
           </div>
         </div>
-        <div className="rightContactDetails p-4 rounded-lg py-10 px-8 bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')]">
+        <div className="rightContactDetails p-4 rounded-lg py-10 px-8 lg:mr-4 md:mr-1 bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')]">
           <div className="contactDetails text-left mb-8">
             <h2 className="text-4xl font-semibold  mb-4">Contact Details</h2>
             <p className="">

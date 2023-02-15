@@ -4,7 +4,7 @@ import "./WorkingEnvironment.css"
 
 const WorkingEnvironment = () => {
   return (
-    <section className="mb-6 lg:mb-28">
+    <section className="mb-14 lg:mb-28">
       <div className="mt-10">
         <div className="lg:flex justify-center">
           <img
@@ -13,10 +13,10 @@ const WorkingEnvironment = () => {
             alt=""
           />
           <div className="bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] lg:w-1/2 w-full text-left pt-20 pb-5 pl-20">
-            <h2 className="text-xl font-poppins font-bold">
+            <h2 className="text-xl font-poppins font-bold mr-5 lg:mr-0 md:mr-0">
               CAR EXTERIOR CLEANING: BASIC DETAILING
             </h2>
-            <div className="grid lg:grid-cols-2 md:grid-cols-1">
+            <div className="grid lg:grid-cols-2 md:grid-cols-1 md:mb-5 mr-5 lg:mr-0 md:mr-0 ">
               <span className="flex items-center space-x-1 my-2">
                 <VscDebugBreakpointData></VscDebugBreakpointData>{" "}
                 <p>SAME DAY SERVICE</p>
@@ -43,10 +43,10 @@ const WorkingEnvironment = () => {
             alt=""
           />
           <div className="bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] lg:w-1/2 w-full py-4 pt-20 pl-16">
-            <h2 className="text-left text-xl font-poppins font-bold">
+            <h2 className="text-left text-xl font-poppins font-bold mr-5 lg:mr-0 md:mr-0">
               RUBBING, WAXING AND POLISHING
             </h2>
-            <p className="text-left mt-3">
+            <p className="text-left mt-3 md:mb-5 mr-5 lg:mr-0 md:mr-0">
               Our technicians have undergone the most extensive and stringent
               <br />
               car detail training program. And the only car that matters is

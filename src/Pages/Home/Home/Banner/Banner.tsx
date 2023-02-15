@@ -3,9 +3,9 @@ import "./Banner.css";
 
 const Banner = () => {
   return (
-    <section className="md:h-[40vh] w-[100%] lg:px-14 md:px-8 px-4 h-[70vh] lg:h-screen relative overflow-hidden text-start bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] mb-6 lg:mb-28">
+    <section className="banner md:h-[40vh]  w-[100%] lg:px-14 md:px-8 px-4 h-[70vh] lg:h-screen relative overflow-hidden text-start bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] mb-12 lg:mb-28">
       <div className="w-full h-full flex">
-        <div className="h-full w-full lg:w-[40%] flex flex-col items-center justify-center">
+        <div className="h-full w-full lg:w-[40%] flex flex-col items-center justify-center md:text-center lg:text-left">
           <h1 className="text-2xl lg:text-[3vw] lg:leading-[50px] font-semibold mb-6 text-[#FFFFFF] md:text-4xl ">
             A genuine solution to vehicle problems
           </h1>
@@ -14,7 +14,7 @@ const Banner = () => {
             car service and give a new look to your cars. Also specialize in
             modifying cars.
           </p>
-          <div className="w-full flex items-start">
+          <div className="w-full flex items-start md:items-center md:ml-[550px] lg:ml-0">
             <Link to="/servicesAll">
               <button className="bannerBtn mt-6">Get Service</button>
             </Link>
