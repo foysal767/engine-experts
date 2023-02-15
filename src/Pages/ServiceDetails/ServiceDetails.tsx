@@ -2,10 +2,10 @@ import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { RiServiceFill } from "react-icons/ri";
 import { useParams } from "react-router-dom";
-import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
-import "./ServiceDetails.css";
 import { Autoplay, Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
+import "./ServiceDetails.css";
 
 // Import Swiper styles
 import "swiper/css";
@@ -21,7 +21,7 @@ interface usedata {
   price: string;
   _id: string;
   Totalreviews: string;
-  reviews: [];
+  discountPrice: string;
 }
 interface reviewtype {
   email: string;
@@ -61,7 +61,6 @@ const ServiceDetails = () => {
   const showPosition = (position: any) => {
     userLocation.lat = position.coords.latitude;
     userLocation.long = position.coords.longitude;
-    console.log(userLocation);
   };
 
   const handleError = (error: any) => {
@@ -82,7 +81,7 @@ const ServiceDetails = () => {
       default:
         errorStr = "An unknown error occurred.";
     }
-    console.error("Error occurred: " + errorStr);
+    // console.error("Error occurred: " + errorStr);
     toast.error(errorStr);
   };
 
@@ -132,7 +131,9 @@ const ServiceDetails = () => {
   useEffect(() => {
     setLoading(true);
     const getDetail = async () => {
-      const res = await fetch(`http://localhost:5000/servicedetails?id=${id}`);
+      const res = await fetch(
+        `https://engine-experts-server-phi.vercel.app/servicedetails?id=${id}`
+      );
       const data = await res.json();
       setDetails(data?.data);
       // setReviews(data?.data?.reviews);
@@ -155,13 +156,16 @@ const ServiceDetails = () => {
       rating,
       service: details?.name,
     };
-    fetch(`http://localhost:5000/servicedetails?id=${details?._id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(feedbackObject),
-    })
+    fetch(
+      `https://engine-experts-server-phi.vercel.app/servicedetails?id=${details?._id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(feedbackObject),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
@@ -287,7 +291,23 @@ const ServiceDetails = () => {
                 trained to make your visit informative and hassle free.
               </h2>
             </div>
-            <span className=" font-bold text-2xl">Price: {details?.price}</span>
+            <div className="w-full flex gap-2">
+              <span className={`font-bold text-2xl`}>
+                Price:{" "}
+                <span
+                  className={`${
+                    details?.discountPrice && "line-through text-red-500"
+                  }`}
+                >
+                  {details?.price}
+                </span>
+              </span>
+              {details?.discountPrice && (
+                <span className={`font-bold text-2xl`}>
+                  {details?.discountPrice}
+                </span>
+              )}
+            </div>
             {!isAdmin && accType !== "Seller" && (
               <label
                 htmlFor="payment-modal"

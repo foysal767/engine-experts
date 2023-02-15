@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { useEffect, useState } from "react";
 import { Autoplay, Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -18,7 +18,9 @@ const CustomerReviews = () => {
   const { data: reviews = [], isLoading } = useQuery({
     queryKey: ["reviews"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/reviews");
+      const res = await fetch(
+        "https://engine-experts-server-phi.vercel.app/reviews"
+      );
       const data = await res.json();
       return data.data;
     },

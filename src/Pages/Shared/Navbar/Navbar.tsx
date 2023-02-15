@@ -23,11 +23,11 @@ const Navbar = () => {
       <li className="font-semibold hover:text-[#E81C2E]">
         <Link to="/contactform">Contact Us</Link>
       </li>
-      {user?.uid &&
+      {(user?.uid &&
         (accType === "Seller" ||
           accType === "User" ||
           isAdmin ||
-          accType === "verifiedSeller") && (
+          accType === "verifiedSeller")) && (
           <li className="font-semibold hover:text-[#E81C2E]">
             <Link to="/dashboard1">Dashboard</Link>
           </li>
