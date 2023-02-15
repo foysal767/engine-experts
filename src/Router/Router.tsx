@@ -13,7 +13,6 @@ import Payment from "../Pages/Booking/Payment"
 import ErrorPage from "../Pages/ErrorPage/ErrorPage"
 import GoogleMaps from "../Pages/GoogleMaps/GoogleMaps"
 import ContactForm from "../Pages/Home/ContactForm/ContactForm"
-import ContactUs from "../Pages/Home/ContactUs/ContactUs"
 import AirExpertise from "../Pages/Home/Home/EnginrExperties/AirExpertise"
 import ElectricCar from "../Pages/Home/Home/EnginrExperties/ElectricCar"
 import EngineCluster from "../Pages/Home/Home/EnginrExperties/EngineCluster"
@@ -52,10 +51,6 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login></Login>,
-      },
-      {
-        path: "/contactUs",
-        element: <ContactUs></ContactUs>,
       },
       {
         path: "/contactform",
