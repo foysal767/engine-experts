@@ -30,8 +30,8 @@ const ContactForm = () => {
 
   return (
     <section className="py-20 px-4">
-      <div className="contactForm grid lg:grid-cols-3 md:grid-cols-2 gap-6 justify-center">
-        <div className="leftContactForm lg:col-span-2 p-4 rounded-lg lg:px-20 py-10 bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')]">
+      <div className="contactForm grid lg:grid-cols-3 md:grid-cols-1 gap-6 justify-center">
+        <div className="leftContactForm lg:col-span-2 p-4 rounded-lg lg:px-16 py-10 bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')]">
           <div className="headText text-left">
             <h2 className="text-4xl font-semibold font-poppins">
               Need Help ? Send Message
@@ -129,7 +129,7 @@ const ContactForm = () => {
             </form>
           </div>
         </div>
-        <div className="rightContactDetails p-4 rounded-lg py-10 px-8 bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')]">
+        <div className="rightContactDetails p-4 rounded-lg py-10 px-8 lg:mr-4 md:mr-1 bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')]">
           <div className="contactDetails text-left mb-8">
             <h2 className="text-4xl font-semibold  mb-4 font-poppins">
               Contact Details

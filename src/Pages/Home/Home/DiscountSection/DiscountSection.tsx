@@ -6,6 +6,7 @@ const DiscountSection = () => {
   const [discount, setDiscount] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [deadline, setdeadLine] = useState("");
+  const [campaignName, setCampignName] = useState("");
 
   useEffect(() => {
     setIsLoading(true);
@@ -15,7 +16,9 @@ const DiscountSection = () => {
         if (data.success) {
           setDiscount(data?.data[0]?.services);
           setdeadLine(data.data[0]?.endDate);
+          setCampignName(data.data[0]?.campaignName)
           setIsLoading(false);
+
         }
       });
   }, []);
@@ -57,6 +60,7 @@ const DiscountSection = () => {
   
   return (
     <section className="w-full mb-6 lg:mb-28">
+      <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold text-[#383232] px-4 md:px-8 lg:px-12 text-start">{campaignName} Campaign</h1>
       <div className="w-full bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] py-24 h-[200px] relative upper-section ">
         <div className="hidden lg:grid grid-cols-2 absolute w-full h-full top-0">
           <img src="/assets/tire-left.png" alt="" className="tyre" />

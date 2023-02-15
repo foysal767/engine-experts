@@ -5,11 +5,11 @@ import "./GetInTouch.css"
 
 const GetInTouch = () => {
   return (
-    <section className="my-32 md:my-20 lg:my-20">
+    <section className=" ">
       <div className="w-full text-left pl-8">
-        <button className="getTouch mb-6">Get In Touch</button>
+        <p className="getTouch mb-6">Get In Touch</p>
       </div>
-      <div className="getInTouchWrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center gap-4 bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] py-12">
+      <div className="getInTouchWrapper grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 items-center gap-4 bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] py-12 px-4 md:px-8 lg:px-12">
         <div className="leftTouch flex flex-col justify-center items-center gap-4">
           <div className="bg-[#E81C2E] p-5 rounded-full">
             <FaRegEdit className="text-2xl"></FaRegEdit>
@@ -53,7 +53,7 @@ const GetInTouch = () => {
           <div>
             <h2 className="text-2xl font-semibold">Trust</h2>
             <p>
-            We give our best service to our customer <br/> and we are confident with our services.
+            We give our best service to our customer  and we are confident with our services.
             </p>
           </div>
           <div className="flex items-center text-[#E81C2E] gap-2 text-xl">

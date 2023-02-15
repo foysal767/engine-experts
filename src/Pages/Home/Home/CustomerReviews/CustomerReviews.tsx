@@ -34,8 +34,8 @@ const CustomerReviews = () => {
   }
 
   return (
-    <div className="lg:mb-32 px-4 md:px-8 lg:px-12 mt-12 mb-12">
-      <h3 className="font-poppins font-bold text-2xl md:text-5xl lg:text-5xl lg:mb-12 mb-6 text-[#383232]">
+    <div className="lg:mb-28 px-4 md:px-8 lg:px-12 mt-12 mb-12">
+      <h3 className="font-poppins font-bold text-2xl md:text-3xl  lg:text-5xl lg:mb-12 mb-10 text-[#383232]">
         Customer Reviews
       </h3>
       <Swiper

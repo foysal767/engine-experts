@@ -87,10 +87,10 @@ const Footer = () => {
             </span>
             <div className="pt-4">
               <p className="text-left">
-                Our workers are so cool. They work happily <br/> and they give their best for our customers.
+                Our workers are so cool. They work happily <br /> and they give their best for our customers.
               </p>
               <Lottie className="w-[200px] mx-auto" animationData={worker} />
-              
+
             </div>
           </div>
         </footer>
