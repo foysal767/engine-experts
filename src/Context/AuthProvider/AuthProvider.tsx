@@ -241,6 +241,8 @@ const AuthProvider = ({ children }: childrenType) => {
         userId: user?.uid,
       };
       setUser(user);
+      navigate(from, { replace: true });
+      toast.success("successfully Login");
       fetch("http://localhost:5000/users", {
         method: "POST",
         headers: {
@@ -262,8 +264,6 @@ const AuthProvider = ({ children }: childrenType) => {
               .then((data) => {
                 if (data.success) {
                   localStorage.setItem("access-token", data.token);
-                  toast.success("successfully Login");
-                  navigate("/");
                   setLoading(false);
                 }
               });
