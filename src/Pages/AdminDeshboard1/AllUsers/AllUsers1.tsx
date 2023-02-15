@@ -40,7 +40,7 @@ const AllUsers1 = () => {
   });
 
   const getSingleUser = (id: any) => {
-    fetch(`http://localhost:5000/singleUser/${id}`)
+    fetch(`https://engine-experts-server-phi.vercel.app/singleUser/${id}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
@@ -56,17 +56,21 @@ const AllUsers1 = () => {
   const handleVerify = (e: any) => {
     e.preventDefault();
     console.log(singleUser?._id);
-    fetch(`http://localhost:5000/singleUser/${singleUser?._id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-type": "application/json",
-      },
-    })
+    fetch(
+      `https://engine-experts-server-phi.vercel.app/singleUser/${singleUser?._id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
           handleClose();
           toast.success(data.message);
+          refetch();
         }
       });
   };

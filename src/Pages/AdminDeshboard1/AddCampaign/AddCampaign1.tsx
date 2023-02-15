@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 const AddCampaign1 = () => {
   const { isAdmin } = useContext(AuthContext);
@@ -21,7 +21,7 @@ const AddCampaign1 = () => {
   });
   const [selectedService, setSelectedService] = useState("");
   const [originalPrice, setOriginalPrice] = useState();
-  const [startDate, setStartDate] = useState();
+  // const [startDate, setStartDate] = useState();
   const [endedDate, setEndedDate] = useState();
   const [campName, setCampName] = useState("");
   useEffect(() => {
@@ -40,15 +40,14 @@ const AddCampaign1 = () => {
   const handleStartCam = (e: any) => {
     e.preventDefault();
     const form = e.target;
-    const startDate = form.startDate.value;
+    // const startDate = form.startDate.value;
     const endDate = form.endDate.value;
     // setStartDate(startDate);
     // setEndedDate(endDate);
     const date = {
-      startDate,
       endDate,
     };
-    fetch("http://localhost:5000/startCamp", {
+    fetch("https://engine-experts-server-phi.vercel.app/startCamp", {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -96,7 +95,7 @@ const AddCampaign1 = () => {
 
   const stopCampaign = (e: any) => {
     e.preventDefault();
-    fetch("http://localhost:5000/stopCampaign", {
+    fetch("https://engine-experts-server-phi.vercel.app/stopCampaign", {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -117,7 +116,7 @@ const AddCampaign1 = () => {
       const data = await res.json();
       setCampName(data.data[0].campaignName);
       setEndedDate(data?.data[0]?.endDate);
-      setStartDate(data?.data[0]?.startDate);
+      // setStartDate(data?.data[0]?.startDate);
       return data?.data[0];
     },
   });
@@ -159,9 +158,9 @@ const AddCampaign1 = () => {
           </div>
           <form
             onSubmit={handleStartCam}
-            className="grid lg:grid-cols-3 grid-cols-1 gap-3 items-end justify-between"
+            className="grid lg:grid-cols-2 grid-cols-1 gap-3 items-end justify-between"
           >
-            <div className="flex flex-col items-start">
+            {/* <div className="flex flex-col items-start">
               <label htmlFor="start-date">Start date</label>
               <input
                 type="date"
@@ -171,7 +170,7 @@ const AddCampaign1 = () => {
                 className="w-[200px] h-[40px] bg-white rounded-md px-2"
                 required
               />
-            </div>
+            </div> */}
             <div className="flex flex-col items-start">
               <label htmlFor="end-date">End date</label>
               <input
@@ -197,7 +196,7 @@ const AddCampaign1 = () => {
                 <button
                   type="submit"
                   disabled={discount?.services?.length > 0 ? false : true}
-                  className="w-full h-[40px] rounded bg-red-500 text-xl"
+                  className="w-full h-[40px] rounded bg-blue-500 text-xl"
                 >
                   Start Campaign
                 </button>
