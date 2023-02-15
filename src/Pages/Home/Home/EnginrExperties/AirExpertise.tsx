@@ -1,9 +1,19 @@
 const AirExpertise = () => {
   return (
-    <section className="my-8">
-      <div className="flex flex-col md:flex-row text-gray-400">
-        <div className="sideBar basis-3/12">Air Conducting Ruls</div>
-        <div className="middleBar basis-6/12">
+    <section className="my-8 px-10">
+      <div className="flex flex-col md:flex-row text-gray-400 gap-8">
+        <div className="sideBar basis-3/12">
+          <h1 className="">Use Full Link</h1>
+          <img
+            src="assets/engine-blog/air-engine/airEngine-5.jpg"
+            className="w-full my-4 rounded-lg"
+            alt=""
+          />
+          <button className="border-2 border-gray-500 w-full rounded-lg text-gray-600 hover:bg-pink-600 hover:text-white mb-4">
+            Automotive Air Conditioning
+          </button>
+        </div>
+        <div className="middleBar basis-9/12">
           <div className="mb-10">
             <h1 className="text-2xl text-center text-gray-800 font-bold ">
               How Automotive Air Conditioning Works
@@ -26,7 +36,7 @@ const AirExpertise = () => {
             </p>
             <img
               src="assets/engine-blog/air-engine/airEngine-1.jpg"
-              className="w-full my-4"
+              className="w-full my-4 border-2 border-gray-400"
               alt=""
             />
             <p className="text-xl text-gray-600 text-justify mt-4">
@@ -56,7 +66,7 @@ const AirExpertise = () => {
             </p>
             <img
               src="assets/engine-blog/air-engine/airEngine-2.jpg"
-              className="w-full my-4"
+              className="w-full my-4 border-2 border-gray-400"
               alt=""
             />
             <p className="text-xl text-gray-600 text-justify mt-4">
@@ -92,7 +102,7 @@ const AirExpertise = () => {
             </p>
             <img
               src="assets/engine-blog/air-engine/airEngine-3.jpg"
-              className="w-full my-4"
+              className="w-full my-4 border-2 border-gray-400"
               alt=""
             />
             <p className="text-xl text-gray-600 text-justify mt-4">
@@ -129,7 +139,7 @@ const AirExpertise = () => {
             </p>
             <img
               src="assets/engine-blog/air-engine/airEngine-4.jpg"
-              className="w-full my-4"
+              className="w-full my-4 border-2 border-gray-400"
               alt=""
             />
             <p className="text-xl text-gray-600 text-justify mt-4">
@@ -140,7 +150,6 @@ const AirExpertise = () => {
             </p>
           </div>
         </div>
-        <div className="rightBar basis-3/12">Air Engine categories</div>
       </div>
     </section>
   )

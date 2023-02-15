@@ -55,6 +55,7 @@ const ContactForm = () => {
                     name="name"
                     id="name"
                     placeholder="Type your Name"
+                    required
                   />
                 </div>
                 <div className="inputEmail">
@@ -69,6 +70,7 @@ const ContactForm = () => {
                     name="email"
                     id="email"
                     placeholder="Type your Email"
+                    required
                   />
                 </div>
               </div>
@@ -85,6 +87,7 @@ const ContactForm = () => {
                     name="phone"
                     id="phone"
                     placeholder="Type your Phone"
+                    required
                   />
                 </div>
                 <div className="inputService">
@@ -99,6 +102,7 @@ const ContactForm = () => {
                     name="service"
                     id="service"
                     placeholder="Type your service"
+                    required
                   />
                 </div>
               </div>
@@ -111,6 +115,7 @@ const ContactForm = () => {
                 <textarea
                   className="textarea textarea-bordered text-black bg-gray-100 mb-4 w-full font-poppins"
                   placeholder="Your Message"
+                  required
                   name="message"
                   id="massage"
                 ></textarea>
