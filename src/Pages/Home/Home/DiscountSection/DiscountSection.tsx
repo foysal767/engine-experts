@@ -5,7 +5,6 @@ import { AiFillStar } from "react-icons/ai";
 const DiscountSection = () => {
   const [discount, setDiscount] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [startDate, setStartDate] = useState("");
   const [deadline, setdeadLine] = useState("");
 
   useEffect(() => {
@@ -15,7 +14,6 @@ const DiscountSection = () => {
       .then((data) => {
         if (data.success) {
           setDiscount(data?.data[0]?.services);
-          setStartDate(data.data[0]?.startDate);
           setdeadLine(data.data[0]?.endDate);
           setIsLoading(false);
         }
@@ -68,103 +66,79 @@ const DiscountSection = () => {
     );
   }
 
-  // if (!startDate) {
-  //   return <></>;
-  // }
-  console.log(startDate, new Date().toLocaleDateString());
-  if (new Date().toLocaleDateString() !== startDate) {
-    const date1: any = new Date(startDate);
-    const date2: any = new Date(deadline);
-    const diffTime = Math.abs(date2 - date1);
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    // console.log(diffDays + " days");
-    var nextDay = new Date(startDate);
-    nextDay.setDate(new Date().getDate() + diffDays + 1);
-    var endDay = new Date(deadline);
-    endDay.setDate(new Date().getDate() + 1);
-    // var nextDay = new Date(today);
-    // nextDay.setDate(today.getDate() + diffDays + 1);
-    // console.log("date testing", nextDay.toLocaleDateString());
-    const endingDate = nextDay.toLocaleDateString();
-    const closingDate = endDay.toLocaleDateString();
-    console.log("ending & closing", endingDate, closingDate);
-    if (endingDate === closingDate) {
-      return <></>;
-    } else {
-      return (
-        <section className="w-full mb-6 lg:mb-28">
-          <div className="w-full bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] py-24 relative upper-section ">
-            <div className="hidden lg:grid grid-cols-2 absolute w-full top-0">
-              <img src="/assets/tire-left.png" alt="" className="tyre" />
-              <img src="/assets/tire-right.png" alt="" className="tyre" />
-            </div>
-            <div className="absolute top-0 place-items-center w-full h-full mt-5">
-              <h2 className="font-extrabold text-center text-xl">
-                Hurry up! Discount up to 30%
-              </h2>
-              <div className="flex gap-x-5 justify-center mt-5">
-                <span className="bg-red-600 px-5 py-1 rounded-md">
-                  <h2 className="text-2xl font-bold">
-                    {days < 10 ? "0" + days : days}
-                  </h2>
-                  <p className="text-sm">Day</p>
-                </span>
-                <span className="bg-red-600 px-4 py-1 rounded-md">
-                  <h2 className="text-2xl font-bold">
-                    {hours < 10 ? "0" + hours : hours}
-                  </h2>
-                  <p className="text-sm">Hours</p>
-                </span>
-                <span className="bg-red-600 px-5 py-1 rounded-md">
-                  <h2 className="text-2xl font-bold">
-                    {mins < 10 ? "0" + mins : mins}
-                  </h2>
-                  <p className="text-sm">Min</p>
-                </span>
-                <span className="bg-red-600 px-5 py-1 rounded-md">
-                  <h2 className="text-2xl font-bold">
-                    {secs < 10 ? "0" + secs : secs}
-                  </h2>
-                  <p className="text-sm">Sec</p>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4 mx-auto px-4 md:px-12 lg:px-12">
-            {discount?.map((service: any, i: any) => (
-              <div className="hover:scale-105 transition-all duration-700 card w-full bg-white rounded-sm shadow-xl pb-2">
-                <p className="text-xs font-bold bg-red-600">-30%</p>
-                <figure className="pt-6 w-full h-[200px]">
-                  <img
-                    src={service?.image}
-                    alt="Shoes"
-                    className="rounded-sm px-5 w-full h-full"
-                  />
-                </figure>
-                <div className="text-yellow-500 flex gap-x-0.5 ml-5 mt-3">
-                  <AiFillStar></AiFillStar>
-                  <AiFillStar></AiFillStar>
-                  <AiFillStar></AiFillStar>
-                  <AiFillStar></AiFillStar>
-                  <AiFillStar></AiFillStar>
-                </div>
-                <div>
-                  <h2 className="text-xl text-left ml-5 font-medium text-black">
-                    {service?.name}
-                  </h2>
-                </div>
-                <div className="flex gap-2 ml-5 font-medium text-sm">
-                  <p className="text-black line-through">{service?.price}</p>
-                  <p className="text-red-600">{service?.discountPrice}$</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-      );
-    }
+  if (!deadline) {
+    return <></>;
   }
-  return <></>;
+  
+  return (
+    <section className="w-full mb-6 lg:mb-28">
+      <div className="w-full bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] py-24 h-[200px] relative upper-section ">
+        <div className="hidden lg:grid grid-cols-2 absolute w-full h-full top-0">
+          <img src="/assets/tire-left.png" alt="" className="tyre" />
+          <img src="/assets/tire-right.png" alt="" className="tyre" />
+        </div>
+        <div className="absolute top-0 grid place-items-center w-full h-full">
+          
+          <div className="flex gap-x-5 justify-center">
+            <span className="bg-red-600 px-5 py-1 rounded-md">
+              <h2 className="text-2xl font-bold">
+                {days < 10 ? "0" + days : days}
+              </h2>
+              <p className="text-sm">Day</p>
+            </span>
+            <span className="bg-red-600 px-4 py-1 rounded-md">
+              <h2 className="text-2xl font-bold">
+                {hours < 10 ? "0" + hours : hours}
+              </h2>
+              <p className="text-sm">Hours</p>
+            </span>
+            <span className="bg-red-600 px-5 py-1 rounded-md">
+              <h2 className="text-2xl font-bold">
+                {mins < 10 ? "0" + mins : mins}
+              </h2>
+              <p className="text-sm">Min</p>
+            </span>
+            <span className="bg-red-600 px-5 py-1 rounded-md">
+              <h2 className="text-2xl font-bold">
+                {secs < 10 ? "0" + secs : secs}
+              </h2>
+              <p className="text-sm">Sec</p>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4 mx-auto px-4 md:px-12 lg:px-12">
+        {discount?.map((service: any, i: any) => (
+          <div className="hover:scale-105 transition-all duration-700 card w-full bg-white rounded-sm shadow-xl pb-2">
+            
+            <figure className="pt-6 w-full h-[200px]">
+              <img
+                src={service?.image}
+                alt="Shoes"
+                className="rounded-sm px-5 w-full h-full"
+              />
+            </figure>
+            <div className="text-yellow-500 flex gap-x-0.5 ml-5 mt-3">
+              <AiFillStar></AiFillStar>
+              <AiFillStar></AiFillStar>
+              <AiFillStar></AiFillStar>
+              <AiFillStar></AiFillStar>
+              <AiFillStar></AiFillStar>
+            </div>
+            <div>
+              <h2 className="text-xl text-left ml-5 font-medium text-black">
+                {service?.name}
+              </h2>
+            </div>
+            <div className="flex gap-2 ml-5 font-medium text-sm">
+              <p className="text-black line-through">{service?.price}</p>
+              <p className="text-red-600">{service?.discountPrice}$</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
 };
 
 export default DiscountSection;

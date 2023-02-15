@@ -1,4 +1,5 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
@@ -10,7 +11,7 @@ type Inputs = {
   password: string;
   name: string;
   photoURL: string;
-  role: string;
+  service: string;
   navigate: any;
   phone: number;
   nid: number;
@@ -20,6 +21,18 @@ type Inputs = {
 
 const Organizer = () => {
   const { createSeller, errorSignUp } = useContext(AuthContext);
+  const [selectedService, setSelectedService] = useState("");
+
+  const { data: services = [] } = useQuery({
+    queryKey: ["services"],
+    queryFn: async () => {
+      const res = await fetch(
+        "https://engine-experts-server-phi.vercel.app/services"
+      );
+      const data = await res.json();
+      return data.data;
+    },
+  });
 
   const {
     register,
@@ -49,7 +62,7 @@ const Organizer = () => {
             data.password,
             data.name,
             imgUrl,
-            data.role,
+            data.service,
             navigate,
             data.phone,
             data.nid,
@@ -137,10 +150,10 @@ const Organizer = () => {
               <div className="w-full">
                 <label className="label">
                   <span className="label-text text-black text-lg">
-                    Account Type
+                    Select your expertise service
                   </span>
                 </label>
-                <input
+                {/* <input
                   type="text"
                   defaultValue="Seller"
                   readOnly
@@ -151,6 +164,21 @@ const Organizer = () => {
                 />
                 {errors.role && (
                   <p className="text-red-600">{errors.role?.message}</p>
+                )} */}
+                <select
+                  className="h-[50px] w-[168%] lg:w-full rounded px-3 bg-white text-black"
+                  {...register("service", {
+                    required: "Service Name is required",
+                  })}
+                  placeholder="Select Service"
+                  onBlur={(e: any) => setSelectedService(e.target.value)}
+                >
+                  {services?.map((service: any, i: any) => (
+                    <option value={service?.name}>{service?.name}</option>
+                  ))}
+                </select>
+                {errors.service && (
+                  <p className="text-red-600">{errors.service?.message}</p>
                 )}
               </div>
               <div className="w-full">
