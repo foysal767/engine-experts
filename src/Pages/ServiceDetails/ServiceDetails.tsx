@@ -44,8 +44,9 @@ const ServiceDetails = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [reviews, setReviews] = useState<reviewtype>();
   const { user, isAdmin, accType } = useContext(AuthContext);
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState<boolean | undefined>();
   const [openModal, setOpenModal] = useState(false);
+  const [errorStr, setErrorStr] = useState<string>("");
   // const [value, onChange] = useState(new Date());
   // const [location, setLocation] = useState<object>(userLocation);
   const getLocation = () => {
@@ -55,8 +56,6 @@ const ServiceDetails = () => {
       toast.error("Location is not supported");
     }
   };
-
-  // console.log('serviceDetails',user)
 
   const showPosition = (position: any) => {
     userLocation.lat = position.coords.latitude;
@@ -68,22 +67,27 @@ const ServiceDetails = () => {
     switch (error.code) {
       case error.PERMISSION_DENIED:
         errorStr = "User denied the request for Geolocation.";
+        setErrorStr("User denied the request for Geolocation.");
         break;
       case error.POSITION_UNAVAILABLE:
         errorStr = "Location information is unavailable.";
+        setErrorStr("Location information is unavailable.");
         break;
       case error.TIMEOUT:
         errorStr = "The request to get user location timed out.";
+        setErrorStr("The request to get user location timed out.");
         break;
       case error.UNKNOWN_ERROR:
         errorStr = "An unknown error occurred.";
+        setErrorStr("An unknown error occurred.");
         break;
       default:
         errorStr = "An unknown error occurred.";
+        setErrorStr("An unknown error occurred.");
     }
-    // console.error("Error occurred: " + errorStr);
     toast.error(errorStr);
   };
+  
 
   const handleClose = () => {
     setOpenModal(false);
@@ -126,29 +130,25 @@ const ServiceDetails = () => {
           toast.error(data.message);
         }
       });
-    // console.log(formValue);
   };
+
   useEffect(() => {
-    setLoading(true);
-    const getDetail = async () => {
-      const res = await fetch(
-        `https://engine-experts-server-phi.vercel.app/servicedetails?id=${id}`
-      );
-      const data = await res.json();
-      setDetails(data?.data);
-      // setReviews(data?.data?.reviews);
-      setReviews(data?.reviews);
-      // console.log("service reviews", reviews);
-      setLoading(false);
-    };
-    getDetail();
+    fetch(
+      `https://engine-experts-server-phi.vercel.app/servicedetails?id=${id}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setDetails(data?.data);
+          setReviews(data?.reviews);
+        }
+      });
   }, [id, loading]);
 
   const giveFeedBack = (event: any) => {
     event.preventDefault();
     const feedback = event.target.feedback.value;
     const rating = event.target.rating.value;
-    // console.log(feedback, rating, user.email, details?.name, details?._id);
     const feedbackObject = {
       email: user?.email || "User not found",
       feedback,
@@ -383,36 +383,6 @@ const ServiceDetails = () => {
         <h1 className="text-4xl text-black font-semibold">
           Recent Review and Rating
         </h1>
-        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 font-poppins w-full">
-          {reviews?.map((review: any, i:any) => {
-            return (
-              <div
-                key={i}
-                className="container flex flex-col gap-3 w-full p-6 rounded divide-gray-700 bg-[black] dark:text-gray-100"
-              >
-                <div className="w-full flex justify-between items-center gap-5">
-                  <h1 className="text-start w-[60%] break-words">
-                    {review?.email}
-                  </h1>
-                  <span className="text-xl">{review?.rating}</span>
-                </div>
-
-                <div className="flex justify-between">
-                  <div className="">
-                    <span className="text-xs dark:text-gray-400">
-                      2 days ago
-                    </span>
-                  </div>
-                  <div className="flex items-center  space-x-2 dark:text-yellow-500"></div>
-                </div>
-
-                <div className="space-y-2 text-sm dark:text-gray-400">
-                  <p>{review?.feedback}</p>
-                </div>
-              </div>
-            );
-          })}
-        </div> */}
         <div className="lg:mb-32 px-4 md:px-8 lg:px-12 mt-12 mb-12">
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
@@ -454,6 +424,7 @@ const ServiceDetails = () => {
           </Swiper>
         </div>
       </div>
+      {/* booking modal */}
       {/* Put this part before </body> tag */}
       <input type="checkbox" id="payment-modal" className="modal-toggle" />
       {openModal && (
@@ -481,7 +452,7 @@ const ServiceDetails = () => {
               <p className="text-black text-left">Price</p>
               <input
                 type="text"
-                defaultValue={details?.price}
+                defaultValue={details?.discountPrice ? details?.discountPrice : details?.price}
                 name="price"
                 className="input-bordered w-full rounded-md px-2 py-3 text-black bg-white border border-black"
                 disabled
@@ -512,15 +483,6 @@ const ServiceDetails = () => {
                 required
                 id="dated"
               />
-              {/* <div className="w-full h-[53px] rounded-md px-2 py-3 border">
-              <DatePicker
-                name="date"
-                className="w-full h-full border-0"
-                onChange={onChange}
-                value={value}
-              />
-            </div> */}
-
               <div className="w-full text-start px-2">
                 <input
                   onClick={(e: any) => {
@@ -537,16 +499,26 @@ const ServiceDetails = () => {
                   Click 'Allow' for Successful order
                 </label>
               </div>
+              {
+                errorStr ? <p className="text-red-500">You need allowed your location <br/> Refresh your browser and try again.</p> : <></>
+              }
 
-              <button
+              { (!checked || errorStr) ?
+                <button
                 type="submit"
-                disabled={!checked ? true : false}
-                className={` ${checked ? "bg-red-500" : "bg-red-300"}  ${
-                  checked ? "text-white" : "text-black"
-                } border-none w-full mt-3 rounded-full py-2 text-xl`}
+                disabled
+                className={`bg-red-300 text-white border-none w-full mt-3 rounded-full py-2 text-xl`}
               >
                 Book Now
               </button>
+              :
+              <button
+                type="submit"
+                className={` bg-red-500 text-white border-none w-full mt-3 rounded-full py-2 text-xl`}
+              >
+                Book Now
+              </button>
+              }
             </form>
           </div>
         </div>
@@ -556,5 +528,3 @@ const ServiceDetails = () => {
 };
 
 export default ServiceDetails;
-
-//https://engine-experts-server-phi.vercel.app/bookings

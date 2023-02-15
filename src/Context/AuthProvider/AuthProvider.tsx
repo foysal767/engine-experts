@@ -70,8 +70,6 @@ const AuthProvider = ({ children }: childrenType) => {
   const [errorSignUp, setErrorSignUp] = useState();
   const [isAdmin] = useAdmin(userEmail);
   const [accType] = useAccType(userEmail);
-  console.log("admin", isAdmin);
-  console.log("acctype", accType);
   const createUser = (
     email: string,
     password: string,
@@ -233,7 +231,6 @@ const AuthProvider = ({ children }: childrenType) => {
     setLoading(true);
     signInWithPopup(auth, googleProvider).then((res) => {
       const user = res.user;
-      console.log("google user", user);
       const googleUser = {
         name: user?.displayName,
         email: user?.email,
