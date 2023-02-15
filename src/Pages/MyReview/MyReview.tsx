@@ -46,7 +46,6 @@ const MyReview = () => {
     e.preventDefault();
     const form = e.target;
     const feedback = form.feedback.value;
-    console.log(feedback, "feedback");
     fetch(
       `https://engine-experts-server-phi.vercel.app/userReviews?id=${singleReview?._id}`,
       {
@@ -74,7 +73,6 @@ const MyReview = () => {
       </div>
     );
   }
-  console.log("reviewDelete", reviewDelete);
 
   return (
     <section className="text-black mt-5 px-4 md:px-12 lg:px-12">

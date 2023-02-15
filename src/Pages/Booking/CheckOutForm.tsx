@@ -32,7 +32,6 @@ const CheckOutForm = ({ servicePayment }: pay) => {
     )
       .then((res) => res.json())
       .then((data) => {
-        // console.log('payment intent', data);
         setTransactionId(data.id);
         setClientSecret(data.client_secret);
       });
@@ -101,7 +100,6 @@ const CheckOutForm = ({ servicePayment }: pay) => {
       })
         .then((res) => res.json())
         .then((data) => {
-          // console.log('payment data', data);
           if (data.insertedId) {
             setSuccess("Congrats! your payment completed.");
           }

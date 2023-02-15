@@ -4,12 +4,12 @@
     black,
     /* red, */
     gray,
-    black,
+    /* black, */
     red
     
   );
   background-size: 300%, 300%;
-  animation: color 15s linear infinite;
+  /* animation: color 15s linear infinite; */
 }
 @keyframes color {
   0% {
@@ -22,6 +22,19 @@
     background-position: 0% 50%;
   }
 
+}
+.navBtn{
+  color: #fff;
+  background-color: initial;
+  padding: 12px 80px;
+  clip-path: polygon(0 0,100% 0,100% calc(100% - 20px),100% 100%,0 100%,0 20px);
+  border: 2px solid #E81C2E;
+}
+.navBtn:hover{
+  clip-path: polygon(0 0,100% 0,100% calc(100% - 20px),100% 100%,0 100%,0 20px);
+  padding: 12px 80px;
+  background-color: #E81C2E;
+  border: 2px solid #E81C2E;
 }
 
 /* .navbar{

@@ -4,9 +4,7 @@ import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 import "./Navbar.css";
 import Lottie from "lottie-react";
 import navlogo from "./navlogo.json";
-import { FaSearch } from "react-icons/fa";
-import SearchBar from "../../components/SearchBar/SearchBar";
-import { useQuery } from "@tanstack/react-query";
+
 
 const Navbar = () => {
   const { user, logOut, accType, isAdmin } = useContext(AuthContext);
@@ -26,11 +24,11 @@ const Navbar = () => {
       <li className="font-semibold hover:text-[#E81C2E]">
         <Link to="/contactform">Contact Us</Link>
       </li>
-      {(user?.uid &&
+      {user?.uid &&
         (accType === "Seller" ||
           accType === "User" ||
           isAdmin ||
-          accType === "verifiedSeller")) && (
+          accType === "verifiedSeller") && (
           <li className="font-semibold hover:text-[#E81C2E]">
             <Link to="/dashboard1">Dashboard</Link>
           </li>
@@ -89,7 +87,7 @@ const Navbar = () => {
 
   return (
     <div className="navbar flex justify-between">
-      <div className="navbar-start">
+      <div className="navbar-start w-[30%]">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg
@@ -127,12 +125,13 @@ const Navbar = () => {
           </Link>
         </div>
       </div>
-
-      {/* search bar==========>>>hriday */}
-
-      {/* <SearchBar></SearchBar> */}
-
-
+      <div className="navbar-center hidden lg:block md:navbar-end md:block">
+        <a href="tel:+8801929921987">
+          <button className="navBtn uppercase font-bold">
+            Make a call
+          </button>
+        </a>
+      </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">{menuItems}</ul>
       </div>

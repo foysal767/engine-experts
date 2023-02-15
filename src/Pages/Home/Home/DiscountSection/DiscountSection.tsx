@@ -32,9 +32,6 @@ const DiscountSection = () => {
 
   const getTime = () => {
     const time = Date.parse(deadline) - Date.now() - 6 * 60 * 60 * 1000;
-    // const time =
-    //   Date.parse(deadline) - Date.parse(new Date().toLocaleDateString());
-    // console.log('time',time)
     setDays(Math.floor(time / (1000 * 60 * 60 * 24)));
     setHours(Math.floor((time / (1000 * 60 * 60)) % 24));
     setMinutes(Math.floor((time / 1000 / 60) % 60));
@@ -45,18 +42,6 @@ const DiscountSection = () => {
     const interval = setInterval(() => getTime(), 1000);
     return () => clearInterval(interval);
   }, [deadline]);
-
-  // const { data: discount = [], isLoading } = useQuery({
-  //   queryKey: ["discount"],
-  //   queryFn: async () => {
-  //     const res = await fetch(
-  //       "https://engine-experts-server-phi.vercel.app/campaign"
-  //     );
-  //     const data = await res.json();
-  //     console.log("camp", data.data[0].services);
-  //     return data?.data[0]?.services;
-  //   },
-  // });
 
   if (isLoading) {
     return (
@@ -109,7 +94,7 @@ const DiscountSection = () => {
       </div>
       <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4 mx-auto px-4 md:px-12 lg:px-12">
         {discount?.map((service: any, i: any) => (
-          <div className="hover:scale-105 transition-all duration-700 card w-full bg-white rounded-sm shadow-xl pb-2">
+          <div key={i} className="hover:scale-105 transition-all duration-700 card w-full bg-white rounded-sm shadow-xl pb-2">
             
             <figure className="pt-6 w-full h-[200px]">
               <img

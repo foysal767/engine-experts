@@ -48,9 +48,8 @@ const CustomerReviews = () => {
         }}
       >
         {reviews?.map((review: any, i: any) => (
-          <SwiperSlide>
+          <SwiperSlide key={i}>
             <div
-              key={i}
               className="container flex flex-col gap-3 w-full p-6 rounded divide-gray-700 bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] dark:text-gray-100 h-56"
             >
               <div className="w-full flex justify-between items-center gap-5">
