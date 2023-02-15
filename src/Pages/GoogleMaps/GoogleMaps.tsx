@@ -36,7 +36,7 @@ const GoogleMaps = () => {
           url="https://api.maptiler.com/maps/basic-v2/256/{z}/{x}/{y}.png?key=DxUohVtzxrJHRdt35lzh"
         />
         {locations?.map((user: any, i: any) => (
-          <Marker
+          <Marker key={i}
             position={[user?.location?.lat, user?.location?.long]}
             icon={user?.role === "user" ? markerIconUser : markerIconSeller}
           >

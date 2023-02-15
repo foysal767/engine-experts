@@ -174,7 +174,7 @@ const Organizer = () => {
                   onBlur={(e: any) => setSelectedService(e.target.value)}
                 >
                   {services?.map((service: any, i: any) => (
-                    <option value={service?.name}>{service?.name}</option>
+                    <option key={i} value={service?.name}>{service?.name}</option>
                   ))}
                 </select>
                 {errors.service && (

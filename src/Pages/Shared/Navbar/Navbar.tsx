@@ -23,11 +23,11 @@ const Navbar = () => {
       <li className="font-semibold hover:text-[#E81C2E]">
         <Link to="/contactform">Contact Us</Link>
       </li>
-      {(user?.uid &&
+      {user?.uid &&
         (accType === "Seller" ||
           accType === "User" ||
           isAdmin ||
-          accType === "verifiedSeller")) && (
+          accType === "verifiedSeller") && (
           <li className="font-semibold hover:text-[#E81C2E]">
             <Link to="/dashboard1">Dashboard</Link>
           </li>
@@ -86,7 +86,7 @@ const Navbar = () => {
 
   return (
     <div className="navbar flex justify-between">
-      <div className="navbar-start">
+      <div className="navbar-start w-[30%]">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg
@@ -123,6 +123,13 @@ const Navbar = () => {
             Engine Experts
           </Link>
         </div>
+      </div>
+      <div className="navbar-center hidden lg:block md:navbar-end md:block">
+        <a href="tel:+8801929921987">
+          <button className="navBtn uppercase font-bold">
+            Make a call
+          </button>
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">{menuItems}</ul>
