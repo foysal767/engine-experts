@@ -186,7 +186,7 @@ const AddCampaign1 = () => {
                 (1000 * 60 * 60 * 24) >
               0 ? (
                 <button
-                  className="w-full h-[40px] rounded bg-red-500 text-xl"
+                  className="w-full h-[40px] rounded bg-red-500 text-xl font-poppins"
                   onClick={stopCampaign}
                 >
                   Stop Campaign
@@ -240,7 +240,7 @@ const AddCampaign1 = () => {
             Add
           </button>
         </form>
-        <div className="w-full hidden lg:grid lg:grid-cols-7">
+        <div className="w-full hidden lg:grid lg:grid-cols-7 font-poppins">
           <h1>SL</h1>
           <h1>Image</h1>
           <h1>Service Name</h1>
@@ -251,7 +251,7 @@ const AddCampaign1 = () => {
         </div>
         {/* card starts from here */}
         {discount?.services?.map((service: any, i: any) => (
-          <div key={i} className="grid lg:grid-cols-7 md:grid-cols-1 sm:grid-cols-1 gap-3 items-center px-4 py-2 text-xl bg-[#d9dee4] rounded border">
+          <div key={i} className="font-poppins grid lg:grid-cols-7 md:grid-cols-1 sm:grid-cols-1 gap-3 items-center px-4 py-2 text-xl bg-[#d9dee4] rounded border">
             <h2>{i + 1}</h2>
             <img
               className="w-[50px] h-[50px] hidden lg:block rounded-full bg-gray-300"
