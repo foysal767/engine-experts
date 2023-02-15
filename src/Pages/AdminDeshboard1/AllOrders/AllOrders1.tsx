@@ -80,8 +80,7 @@ const AllOrders1 = () => {
         </select>
         {/* card starts from here */}
         {orders?.map((order: any, i: any) => (
-          // <div className="flex flex-col lg:flex-row gap-3 justify-between items-center px-4 py-3 text-xl bg-[#d9dee4] rounded border">
-          <div className="grid lg:grid-cols-6 md:grid-cols-1 sm:grid-cols-1 px-4 gap-5 items-center bg-[#d9dee4] rounded border">
+          <div key={i} className="grid lg:grid-cols-6 md:grid-cols-1 sm:grid-cols-1 px-4 gap-5 items-center bg-[#d9dee4] rounded border">
             <div className="flex items-center gap-3 py-1">
               <h2>{i + 1}</h2>
               <img
@@ -100,7 +99,7 @@ const AllOrders1 = () => {
               onClick={() => getSeller(order?.serviceName)}
             >
               {sellers?.map((seller: any) => (
-                <option value="seller">{seller.email}</option>
+                <option key={seller?._id} value="seller">{seller.email}</option>
               ))}
             </select>
             <button

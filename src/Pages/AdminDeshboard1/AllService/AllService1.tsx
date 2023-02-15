@@ -121,7 +121,7 @@ const AllService1 = () => {
       <div className="flex flex-col gap-4">
         {services?.map((service: any, i: any) => (
           // <div className="flex flex-col lg:flex-row gap-3 justify-between items-center px-4 py-3 text-xl bg-[#d9dee4] rounded border text-center">
-          <div className="grid lg:grid-cols-6 md:grid-cols-1 sm:grid-cols-1 gap-8 items-center bg-[#d9dee4] rounded border text-center px-4 py-3 text-xl">
+          <div key={i} className="grid lg:grid-cols-6 md:grid-cols-1 sm:grid-cols-1 gap-8 items-center bg-[#d9dee4] rounded border text-center px-4 py-3 text-xl">
             <h2>{i + 1}.</h2>
             <img
               className="w-[50px] hidden lg:block h-[50px] rounded-full bg-gray-300"

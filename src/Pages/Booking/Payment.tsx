@@ -8,10 +8,8 @@ import CheckOutForm from "./CheckOutForm";
 import "./Payment.css";
 
 const stripeKey = process.env.REACT_APP_STRIPE_PK;
-// console.log(stripeKey);
 
 const stripePromise = loadStripe(`${stripeKey}` as string);
-console.log("stripe", stripePromise);
 
 const Payment = () => {
   const { user } = useContext(AuthContext);

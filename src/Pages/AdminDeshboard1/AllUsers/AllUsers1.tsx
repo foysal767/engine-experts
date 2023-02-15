@@ -55,7 +55,6 @@ const AllUsers1 = () => {
 
   const handleVerify = (e: any) => {
     e.preventDefault();
-    console.log(singleUser?._id);
     fetch(
       `https://engine-experts-server-phi.vercel.app/singleUser/${singleUser?._id}`,
       {
@@ -123,7 +122,7 @@ const AllUsers1 = () => {
       <div className="w-full grid lg:grid-cols-2 gap-4 lg:px-3">
         {/* Single card starts from here */}
         {users?.map((user: any, i: any) => (
-          <div className="border flex justify-between items-center gap-2 p-5 text-start ">
+          <div key={i} className="border flex justify-between items-center gap-2 p-5 text-start ">
             <img
               src={user?.image}
               alt=""

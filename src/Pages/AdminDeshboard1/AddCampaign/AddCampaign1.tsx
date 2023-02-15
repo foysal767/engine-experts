@@ -32,7 +32,6 @@ const AddCampaign1 = () => {
       .then((data) => {
         if (data.success) {
           setOriginalPrice(data?.data?.price);
-          console.log(originalPrice);
         }
       });
   }, [selectedService, originalPrice]);
@@ -216,7 +215,7 @@ const AddCampaign1 = () => {
             onClick={(e: any) => setSelectedService(e.target.value)}
           >
             {services?.map((service: any, i: any) => (
-              <option value={service?.name}>{service?.name}</option>
+              <option key={i} value={service?.name}>{service?.name}</option>
             ))}
           </select>
           <input
@@ -252,7 +251,7 @@ const AddCampaign1 = () => {
         </div>
         {/* card starts from here */}
         {discount?.services?.map((service: any, i: any) => (
-          <div className="grid lg:grid-cols-7 md:grid-cols-1 sm:grid-cols-1 gap-3 items-center px-4 py-2 text-xl bg-[#d9dee4] rounded border">
+          <div key={i} className="grid lg:grid-cols-7 md:grid-cols-1 sm:grid-cols-1 gap-3 items-center px-4 py-2 text-xl bg-[#d9dee4] rounded border">
             <h2>{i + 1}</h2>
             <img
               className="w-[50px] h-[50px] hidden lg:block rounded-full bg-gray-300"

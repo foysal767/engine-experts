@@ -7,7 +7,6 @@ import "./AdminDeshboard.css";
 const AdminDeshboard1 = () => {
   const { accType, isAdmin } = useContext(AuthContext);
   const location = useLocation();
-  console.log("admin", accType, isAdmin);
 
   if (!isAdmin && accType !== "Seller" && accType !== "User") {
     <Navigate to="/" state={{ from: location }} replace></Navigate>;
