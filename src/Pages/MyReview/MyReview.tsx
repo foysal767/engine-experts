@@ -1,7 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
-import { useQuery } from "@tanstack/react-query";
+import { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
+import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
 interface singleReview {
   feedback: any;
@@ -19,7 +18,9 @@ const MyReview = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:5000/userReviews/${user?.email}`)
+    fetch(
+      `https://engine-experts-server-phi.vercel.app/userReviews/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
@@ -30,31 +31,32 @@ const MyReview = () => {
   }, [user?.email, loader]);
 
   const handleDelete = (id: any) => {
-    if (reviewDelete) {
-      fetch(`http://localhost:5000/userReviews?id=${id}`, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.success) {
-            setLoader(!loader);
-            toast.success(data.message);
-          }
-        });
-    }
+    fetch(`https://engine-experts-server-phi.vercel.app/userReviews?id=${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setLoader(!loader);
+          toast.success(data.message);
+        }
+      });
   };
   const handleEdit = (e: any) => {
     e.preventDefault();
     const form = e.target;
     const feedback = form.feedback.value;
     console.log(feedback, "feedback");
-    fetch(`http://localhost:5000/userReviews?id=${singleReview?._id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ feedback: feedback }),
-    })
+    fetch(
+      `https://engine-experts-server-phi.vercel.app/userReviews?id=${singleReview?._id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({ feedback: feedback }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
@@ -176,7 +178,6 @@ const MyReview = () => {
               <button
                 className="btn btn-sm bg-green-600 text-white border-none"
                 onClick={() => {
-                  setReviewDelete(true);
                   handleDelete(deletedId);
                   setOpenModal(false);
                 }}
@@ -187,7 +188,6 @@ const MyReview = () => {
                 htmlFor="delete-modal"
                 className="btn btn-sm bg-red-600 text-white border-none"
                 onClick={() => {
-                  setReviewDelete(false);
                   setOpenModal(false);
                 }}
               >

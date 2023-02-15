@@ -33,7 +33,7 @@ interface User {
     password: string,
     name: string,
     photoURL: string,
-    role: string,
+    service: string,
     navigate: any,
     phone: number,
     nid: number,
@@ -134,7 +134,7 @@ const AuthProvider = ({ children }: childrenType) => {
     password: string,
     name: string,
     photoURL: string,
-    role: string,
+    service: string,
     navigate: any,
     phone: number,
     nid: number,
@@ -150,6 +150,7 @@ const AuthProvider = ({ children }: childrenType) => {
           name: name,
           email: user.email,
           accType: "Seller",
+          expert: service,
           image: photoURL,
           userId: user?.uid,
           navigate: navigate,
@@ -241,9 +242,7 @@ const AuthProvider = ({ children }: childrenType) => {
         userId: user?.uid,
       };
       setUser(user);
-      navigate(from, { replace: true });
-      toast.success("successfully Login");
-      fetch("http://localhost:5000/users", {
+      fetch("https://engine-experts-server-phi.vercel.app/users", {
         method: "POST",
         headers: {
           "content-type": "application/json",

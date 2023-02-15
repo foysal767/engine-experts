@@ -1,31 +1,31 @@
-import { toast } from "react-hot-toast"
-import { FaPhoneVolume, FaRegEnvelope } from "react-icons/fa"
-import "./ContactForm.css"
+import { toast } from "react-hot-toast";
+import { FaPhoneVolume, FaRegEnvelope } from "react-icons/fa";
+import "./ContactForm.css";
 
 const ContactForm = () => {
   const handleSubmit = (event: any) => {
-    event.preventDefault()
-    const name = event.target.name.value
-    const email = event.target.email.value
-    const phone = event.target.phone.value
-    const service = event.target.service.value
-    const message = event.target.message.value
-    const user = { name, email, phone, service, message }
-    console.log(user)
+    event.preventDefault();
+    const name = event.target.name.value;
+    const email = event.target.email.value;
+    const phone = event.target.phone.value;
+    const service = event.target.service.value;
+    const message = event.target.message.value;
+    const user = { name, email, phone, service, message };
+    console.log(user);
 
-    fetch("http://localhost:5000/contactform", {
+    fetch("https://engine-experts-server-phi.vercel.app/contactform", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify(user),
     })
-      .then(res => res.json())
-      .then(data => {
-        toast.success(data.message)
+      .then((res) => res.json())
+      .then((data) => {
+        toast.success(data.message);
       })
-      .catch(err => console.error(err))
-  }
+      .catch((err) => console.error(err));
+  };
 
   return (
     <section className="py-20 px-4">
@@ -155,7 +155,7 @@ const ContactForm = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default ContactForm
+export default ContactForm;

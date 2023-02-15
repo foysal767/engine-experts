@@ -21,8 +21,8 @@ const AddService1 = () => {
       price,
       details,
       image,
-      reviews: [],
       Totalreviews: 0,
+      discountPrice: ""
     };
     fetch("https://engine-experts-server-phi.vercel.app/addservice", {
       method: "POST",
