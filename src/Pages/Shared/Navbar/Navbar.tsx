@@ -88,8 +88,8 @@ const Navbar = () => {
   )
 
   return (
-    <div className="navbar flex justify-between">
-      <div className="navbar-start w-[30%]">
+    <div className="navbar flex justify-between px-4 md:px-8 lg:px-12">
+      <div className="navbar-start ">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg
@@ -114,11 +114,8 @@ const Navbar = () => {
             {menuItems}
           </ul>
         </div>
-        <div className="flex items-center">
-          <Lottie
-            className="w-[60px] h-[60px] mr-[-10px] my-[-10px]"
-            animationData={navlogo}
-          />
+        <div className="flex items-center gap-2">
+          <Lottie className="w-[60px] h-[60px] " animationData={navlogo} />
           <Link
             to="/"
             className="btn btn-ghost font-semibold normal-case text-xl"
@@ -127,12 +124,12 @@ const Navbar = () => {
           </Link>
         </div>
       </div>
-      <div className="navbar-center hidden lg:block md:navbar-end md:block">
+      <div className="navbar-end hidden lg:block md:navbar-end md:block">
         <a href="tel:+8801929921987">
           <button className="navBtn uppercase font-bold">Make a call</button>
         </a>
       </div>
-      <div className="navbar-center hidden lg:flex">
+      <div className="navbar-end hidden lg:flex">
         <ul className="menu menu-horizontal p-0">{menuItems}</ul>
       </div>
     </div>

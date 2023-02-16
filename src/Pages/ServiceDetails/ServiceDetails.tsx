@@ -6,6 +6,7 @@ import { Autoplay, Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import "./ServiceDetails.css";
+import { AiFillStar } from 'react-icons/ai';
 
 // Import Swiper styles
 import "swiper/css";
@@ -87,7 +88,6 @@ const ServiceDetails = () => {
     }
     toast.error(errorStr);
   };
-  
 
   const handleClose = () => {
     setOpenModal(false);
@@ -148,11 +148,12 @@ const ServiceDetails = () => {
   const giveFeedBack = (event: any) => {
     event.preventDefault();
     const feedback = event.target.feedback.value;
-    const rating = event.target.rating.value;
+    const rating = parseInt(event.target.rating.value);
     const feedbackObject = {
       email: user?.email || "User not found",
       feedback,
-      image: details?.image,
+      image: user?.photoURL,
+      date: new Date().toLocaleDateString(),
       rating,
       service: details?.name,
     };
@@ -187,7 +188,7 @@ const ServiceDetails = () => {
           alt="service-bg"
         />
         <div className="h-full w-full flex items-end absolute top-0 p-4 lg:p-10">
-          <h2 className="flex items-center font-poppins text-2xl lg:text-5xl font-bold ">
+          <h2 className="flex items-center font-poppins text-2xl md:text-3xl lg:text-5xl font-bold ">
             {details?.name}___
             <RiServiceFill className="text-[#E81C2E]"></RiServiceFill>
           </h2>
@@ -217,7 +218,7 @@ const ServiceDetails = () => {
                 onSubmit={giveFeedBack}
                 className="w-full text-start rounded-md outline-none mt-4 "
               >
-                <div className="w-full lg:flex items-center gap-3">
+                <div className="w-full  items-center gap-3">
                   <textarea
                     name="feedback"
                     cols={12}
@@ -226,47 +227,42 @@ const ServiceDetails = () => {
                     className="bg-black p-3 h-[60px] m-0 w-full rounded-md outline-none"
                     required
                   ></textarea>
-                  <select
-                    name="rating"
-                    id=""
-                    className="bg-black h-[60px] text-xl rounded outline-none px-4"
-                  >
-                    <option value="Good">Good</option>
-                    <option value="Excellent">Excellent</option>
-                    <option value="As Well">As Well</option>
-                  </select>
-                  {/* <div className="rating gap-2">
+                  <div className="flex gap-3 mt-2">
+                    <h4 className="text-lg font-bold text-black">Please Rate Us:</h4>
+                  <div className="rating gap-2">
                     <input
                       type="radio"
-                      name="rating-2"
+                      name="rating"
                       value="1"
                       className="mask mask-star-2 bg-orange-500"
+                      checked
                     />
                     <input
                       type="radio"
-                      name="rating-2"
+                      name="rating"
                       value="2"
                       className="mask mask-star-2 bg-orange-500"
                     />
                     <input
                       type="radio"
-                      name="rating-2"
+                      name="rating"
                       value="3"
                       className="mask mask-star-2 bg-orange-500"
                     />
                     <input
                       type="radio"
-                      name="rating-2"
+                      name="rating"
                       value="4"
                       className="mask mask-star-2 bg-orange-500"
                     />
                     <input
                       type="radio"
-                      name="rating-2"
+                      name="rating"
                       value="5"
                       className="mask mask-star-2 bg-orange-500"
                     />
-                  </div> */}
+                  </div>
+                  </div>
                 </div>
                 <button
                   type="submit"
@@ -281,7 +277,7 @@ const ServiceDetails = () => {
           {/* ----------------Table starts from here------------ */}
         </div>
 
-        <div className=" w-full flex flex-col gap-8 lg:w-[30%] px-2 mt-7 lg:mt-0">
+        <div className=" w-full flex flex-col gap-8 lg:w-[30%] lg:px-2 md:px-0  mt-7 lg:mt-0">
           {/* -------------Get Service---------- */}
           <div className="shadow-2xl rounded py-8 px-10 text-start bg-[black] flex flex-col gap-3">
             <h1 className="text-3xl">GET SERVICE</h1>
@@ -345,40 +341,6 @@ const ServiceDetails = () => {
         </div>
       </div>
 
-      {/* start rating */}
-      {/* <div className="rating gap-2">
-        <input
-          type="radio"
-          name="rating-2"
-          value="1"
-          className="mask mask-star-2 bg-orange-500"
-        />
-        <input
-          type="radio"
-          name="rating-2"
-          value="2"
-          className="mask mask-star-2 bg-orange-500"
-        />
-        <input
-          type="radio"
-          name="rating-2"
-          value="3"
-          className="mask mask-star-2 bg-orange-500"
-        />
-        <input
-          type="radio"
-          name="rating-2"
-          value="4"
-          className="mask mask-star-2 bg-orange-500"
-        />
-        <input
-          type="radio"
-          name="rating-2"
-          value="5"
-          className="mask mask-star-2 bg-orange-500"
-        />
-      </div> */}
-
       <div className="mt-24 text-start lg:px-12 md:px-8 px-4">
         <h1 className="text-4xl text-black font-semibold">
           Recent Review and Rating
@@ -399,17 +361,16 @@ const ServiceDetails = () => {
                   key={i}
                   className="container flex flex-col gap-3 w-full p-6 rounded divide-gray-700 bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] dark:text-gray-100 h-56"
                 >
-                  <div className="w-full flex justify-between items-center gap-5">
+                  <div className="w-full flex items-center gap-2">
+                    <img className="w-[40px] h-[40px] rounded-full" src={review?.image} alt="" />
                     <h1 className="text-start w-[60%] break-words">
                       {review?.email}
                     </h1>
-                    <span className="text-xl">{review?.rating}</span>
                   </div>
-
                   <div className="flex justify-between">
                     <div className="">
                       <span className="text-xs dark:text-gray-400">
-                        2 days ago
+                        {review?.date}
                       </span>
                     </div>
                     <div className="flex items-center  space-x-2 dark:text-yellow-500"></div>
@@ -418,6 +379,9 @@ const ServiceDetails = () => {
                   <div className="text-start space-y-2 text-sm dark:text-gray-400">
                     <p>{review?.feedback}</p>
                   </div>
+                  <span className="text-xl flex gap-1">
+                      {[...Array(review?.rating)].map((star, i) => <AiFillStar className="text-orange-500"></AiFillStar>)}
+                    </span>
                 </div>
               </SwiperSlide>
             ))}
@@ -452,7 +416,11 @@ const ServiceDetails = () => {
               <p className="text-black text-left">Price</p>
               <input
                 type="text"
-                defaultValue={details?.discountPrice ? details?.discountPrice : details?.price}
+                defaultValue={
+                  details?.discountPrice
+                    ? details?.discountPrice
+                    : details?.price
+                }
                 name="price"
                 className="input-bordered w-full rounded-md px-2 py-3 text-black bg-white border border-black"
                 disabled
@@ -499,26 +467,31 @@ const ServiceDetails = () => {
                   Click 'Allow' for Successful order
                 </label>
               </div>
-              {
-                errorStr ? <p className="text-red-500">You need allowed your location <br/> Refresh your browser and try again.</p> : <></>
-              }
+              {errorStr ? (
+                <p className="text-red-500">
+                  You need allowed your location <br /> Refresh your browser and
+                  try again.
+                </p>
+              ) : (
+                <></>
+              )}
 
-              { (!checked || errorStr) ?
+              {!checked || errorStr ? (
                 <button
-                type="submit"
-                disabled
-                className={`bg-red-300 text-white border-none w-full mt-3 rounded-full py-2 text-xl`}
-              >
-                Book Now
-              </button>
-              :
-              <button
-                type="submit"
-                className={` bg-red-500 text-white border-none w-full mt-3 rounded-full py-2 text-xl`}
-              >
-                Book Now
-              </button>
-              }
+                  type="submit"
+                  disabled
+                  className={`bg-red-300 text-white border-none w-full mt-3 rounded-full py-2 text-xl`}
+                >
+                  Book Now
+                </button>
+              ) : (
+                <button
+                  type="submit"
+                  className={` bg-red-500 text-white border-none w-full mt-3 rounded-full py-2 text-xl`}
+                >
+                  Book Now
+                </button>
+              )}
             </form>
           </div>
         </div>

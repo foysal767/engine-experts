@@ -249,6 +249,7 @@ const AuthProvider = ({ children }: childrenType) => {
         .then((res) => res.json())
         .then((data) => {
           if (data?.success) {
+            navigate(from, { replace: true });
             fetch("https://engine-experts-server-phi.vercel.app/jwt", {
               method: "POST",
               headers: {

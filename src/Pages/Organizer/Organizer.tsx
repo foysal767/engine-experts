@@ -96,7 +96,7 @@ const Organizer = () => {
         <div className="grid place-items-center h-full w-full">
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="lg:w-[80%] mx-auto"
+            className="lg:w-[100%] mx-auto"
           >
             <div className="w-full">
               <label className="label">

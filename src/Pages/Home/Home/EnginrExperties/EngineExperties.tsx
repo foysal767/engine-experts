@@ -3,8 +3,8 @@ import "./EngineExperties.css"
 
 const EngineExperties = () => {
   return (
-    <section className="w-full h-[152vh] lg:h-[85vh] blog px-4 md:px-8 lg:px-12 mb-6 lg:mb-28">
-      <div className="w-full lg:w-[90%] mx-auto h-full relative ">
+    <section className="w-full h-[115vh] md:h-[67vh] lg:h-[85vh]  blog  px-4 md:px-8 lg:px-12 mb-6 lg:mb-28">
+      <div className="w-full lg:w-[90%] mx-auto h-full  relative ">
         <h1 className="cssStyle text-4xl font-bold text-left pt-6">
           Our Experties
         </h1>
