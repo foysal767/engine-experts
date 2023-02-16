@@ -130,7 +130,7 @@ const AllOrders1 = () => {
 
             <h2>{order?.serviceName}</h2>
             <h2>{order?.userEmail}</h2>
-            <h2 className="lg:ml-20">{order?.price}</h2>
+            <h2 className="lg:ml-20">${order?.price}</h2>
             {order?.seller ? (
               <h2>{order?.seller}</h2>
             ) : (

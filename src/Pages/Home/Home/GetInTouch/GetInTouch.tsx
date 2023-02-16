@@ -5,7 +5,7 @@ import "./GetInTouch.css"
 
 const GetInTouch = () => {
   return (
-    <section className=" ">
+    <section className=" mb-12 lg:mb-28">
       <div className="w-full text-left pl-8">
         <p className="getTouch mb-6">Get In Touch</p>
       </div>

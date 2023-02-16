@@ -47,10 +47,10 @@ const Navbar = () => {
       )}
       {user?.uid && (
         <div
-          className="tooltip lg:tooltip-left md:tooltip-right mt-1 dropdown dropdown-bottom dropdown-end"
+          className="tooltip lg:tooltip-bottom md:tooltip-right mt-1 dropdown dropdown-bottom dropdown-end"
           data-tip={user?.displayName}
         >
-          <label tabIndex={0}>
+          <label>
             {user?.photoURL ? (
               <img
                 className="w-[36px] h-[36px] rounded-full mr-5"
@@ -65,20 +65,7 @@ const Navbar = () => {
               />
             )}
           </label>
-          <ul
-            tabIndex={0}
-            className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 mx-auto"
-          >
-            <li>
-              <h3>{user?.displayName}</h3>
-            </li>
-            <li>
-              <Link to={"/"}>Account</Link>
-            </li>
-            <li>
-              <Link to={"/"}>Profile</Link>
-            </li>
-          </ul>
+         
         </div>
       )}
     </React.Fragment>

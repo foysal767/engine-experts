@@ -22,18 +22,18 @@ const PopularService = () => {
     );
   }
   return (
-    <section className="w-full mb-6 lg:mb-28">
-      <div className="mb-4 lg:flex md:flex sm:block justify-between items-center gap-3 lg:px-12 md:px-6">
-            <h2 className="lg:text-start text-center lg:text-4xl md:text-4xl text-3xl font-bold   text-[#383232] my-2">
-              Popular Services
-            </h2>
-              <Link to='/servicesAll'>
-                <button className="popularBtn">Get All Service</button>
-              </Link>
-          </div>
+    <section className="w-full mb-12 lg:mb-28">
+      <div className="mb-8 lg:flex md:flex sm:block justify-between items-center gap-3 lg:px-12 md:px-6">
+        <h2 className="lg:text-start text-center lg:text-5xl md:text-3xl text-2xl font-bold   text-[#383232] my-2 md:my-2 lg:my-2">
+          Popular Services
+        </h2>
+        <Link to='/servicesAll'>
+          <button className="popularBtn">Get All Service</button>
+        </Link>
+      </div>
       <div className="px-4 md:px-8 lg:px-12 bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] w-full lg:h-[400px] grid place-items-center">
         <div className="lg:flex lg:justify-around items-center md:justify-center w-full lg:h-full gap-6">
-          <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 gap-5 h-full w-full py-6">
+          <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-5 h-full w-full py-6">
             {popular?.map((service: any, i: any) => (
               <div key={i} className="group relative items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
                 <div className="h-full w-full">

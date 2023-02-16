@@ -48,7 +48,7 @@ const SellerOrder = () => {
             </button>
             <h2>{order?.serviceName}</h2>
             <h2>{order?.userEmail}</h2>
-            <h2>{order?.price}</h2>
+            <h2>${order?.price}</h2>
             <select
               className="w-[160px] h-[45px] bg-transparent rounded border"
               name="options"

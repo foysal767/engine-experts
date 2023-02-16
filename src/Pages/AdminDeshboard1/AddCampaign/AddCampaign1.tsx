@@ -132,9 +132,9 @@ const AddCampaign1 = () => {
         <h1 className="text-2xl  text-start">
           Campaigns are available here
         </h1>
-        <button className="w-[180px] lg:h-[50px] rounded bg-blue-500 text-xl">
+        {/* <button className="w-[180px] lg:h-[50px] rounded bg-blue-500 text-xl">
           Add New Campaign
-        </button>
+        </button> */}
       </div>
 
       <div className="border flex flex-col gap-3 p-3">
@@ -223,7 +223,7 @@ const AddCampaign1 = () => {
             type="text"
             name="originalprice"
             placeholder="Original Price"
-            defaultValue={originalPrice}
+            defaultValue={originalPrice } 
           />
           <input
             className="bg-white w-[168%] lg:w-full h-[53px] rounded px-2"
@@ -259,8 +259,8 @@ const AddCampaign1 = () => {
               src={service?.image}
             />
             <h2 className="lg:text-start text-center">{service?.name}</h2>
-            <h2>{service?.price}</h2>
-            <h2>{service?.discountPrice}</h2>
+            <h2>${service?.price}</h2>
+            <h2>${service?.discountPrice}</h2>
             <button className="bg-green-500 btn-sm rounded-xl">Edit</button>
             <button className="bg-red-500 btn-sm rounded-xl">Delete</button>
           </div>

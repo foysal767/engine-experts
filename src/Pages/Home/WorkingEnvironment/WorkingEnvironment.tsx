@@ -4,8 +4,8 @@ import "./WorkingEnvironment.css"
 
 const WorkingEnvironment = () => {
   return (
-    <section className="mb-14 lg:mb-28">
-      <div className="mt-10">
+    <section className="mb-12 lg:mb-28">
+      <div className="mt-0">
         <div className="lg:flex justify-center">
           <img
             className="lg:w-1/2 w-full h-1/2"
