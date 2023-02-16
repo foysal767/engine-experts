@@ -3,8 +3,8 @@ import "./OurTeam.css";
 
 const OurTeam = () => {
   return (
-    <section className="font-poppins w-full lg:px-20 md:px-8 px-4 lg:mb-32 lg:mt-40">
-      <h1 className="font-poppins text-center text-5xl font-bold lg:mb-12">
+    <section className="  w-full lg:px-20 md:px-8 px-4 lg:mb-32 lg:mt-40">
+      <h1 className="  text-center text-5xl font-bold lg:mb-12">
         Our Team
       </h1>
       <div className="w-full grid lg:grid-cols-3 md:grid-cols-2 gap-3">

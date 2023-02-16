@@ -24,7 +24,7 @@ const PopularService = () => {
   return (
     <section className="w-full mb-6 lg:mb-28">
       <div className="mb-4 lg:flex md:flex sm:block justify-between items-center gap-3 lg:px-12 md:px-6">
-            <h2 className="lg:text-start text-center lg:text-4xl md:text-4xl text-3xl font-bold font-poppins text-[#383232] my-2">
+            <h2 className="lg:text-start text-center lg:text-4xl md:text-4xl text-3xl font-bold   text-[#383232] my-2">
               Popular Services
             </h2>
               <Link to='/servicesAll'>

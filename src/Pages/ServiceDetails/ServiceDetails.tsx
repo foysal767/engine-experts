@@ -188,7 +188,7 @@ const ServiceDetails = () => {
           alt="service-bg"
         />
         <div className="h-full w-full flex items-end absolute top-0 p-4 lg:p-10">
-          <h2 className="flex items-center font-poppins text-2xl md:text-3xl lg:text-5xl font-bold ">
+          <h2 className="flex items-center   text-2xl md:text-3xl lg:text-5xl font-bold ">
             {details?.name}___
             <RiServiceFill className="text-[#E81C2E]"></RiServiceFill>
           </h2>

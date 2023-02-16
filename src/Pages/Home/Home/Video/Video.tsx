@@ -2,7 +2,7 @@ import "./Video.css";
 const Video = () => {
   return (
     <section className="w-full lg:h-[300px] mb-6 lg:mb-28">
-      <h1 className="text-2xl md:text-3xl lg:text-5xl font-poppins text-center mb-12 font-bold lg:mb-16 text-[#383232]">
+      <h1 className="text-2xl md:text-3xl lg:text-5xl   text-center mb-12 font-bold lg:mb-16 text-[#383232]">
         Our Working Environment
       </h1>
       <video

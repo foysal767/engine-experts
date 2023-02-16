@@ -129,7 +129,7 @@ const AddCampaign1 = () => {
   return (
     <section className="w-full lg:w-[90%] md:w-[80%] mx-auto px-4 md:px-8 lg:px-12 bg-[#EBF2F4] pb-10 lg:mt-2 md:mt-4 sm:mt-20">
       <div className="flex justify-between items-center px-4 mb-5">
-        <h1 className="text-2xl font-serif text-start">
+        <h1 className="text-2xl  text-start">
           Campaigns are available here
         </h1>
         <button className="w-[180px] lg:h-[50px] rounded bg-blue-500 text-xl">
@@ -151,7 +151,7 @@ const AddCampaign1 = () => {
                 }}
               />
             </h2>
-            <h2 className="text-xl font-poppins text-start mb-4">
+            <h2 className="text-xl  text-start mb-4">
               Total Products: {discount?.services?.length}
             </h2>
           </div>
@@ -186,7 +186,7 @@ const AddCampaign1 = () => {
                 (1000 * 60 * 60 * 24) >
               0 ? (
                 <button
-                  className="w-full h-[40px] rounded bg-red-500 text-xl font-poppins"
+                  className="w-full h-[40px] rounded bg-red-500 text-xl "
                   onClick={stopCampaign}
                 >
                   Stop Campaign
@@ -240,7 +240,7 @@ const AddCampaign1 = () => {
             Add
           </button>
         </form>
-        <div className="w-full hidden lg:grid lg:grid-cols-7 font-poppins">
+        <div className="w-full hidden lg:grid lg:grid-cols-7 ">
           <h1>SL</h1>
           <h1>Image</h1>
           <h1>Service Name</h1>
@@ -251,7 +251,7 @@ const AddCampaign1 = () => {
         </div>
         {/* card starts from here */}
         {discount?.services?.map((service: any, i: any) => (
-          <div key={i} className="font-poppins grid lg:grid-cols-7 md:grid-cols-1 sm:grid-cols-1 gap-3 items-center px-4 py-2 text-xl bg-[#d9dee4] rounded border">
+          <div key={i} className=" grid lg:grid-cols-7 md:grid-cols-1 sm:grid-cols-1 gap-3 items-center px-4 py-2 text-xl bg-[#d9dee4] rounded border">
             <h2>{i + 1}</h2>
             <img
               className="w-[50px] h-[50px] hidden lg:block rounded-full bg-gray-300"
