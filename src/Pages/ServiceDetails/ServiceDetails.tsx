@@ -188,7 +188,7 @@ const ServiceDetails = () => {
           alt="service-bg"
         />
         <div className="h-full w-full flex items-end absolute top-0 p-4 lg:p-10">
-          <h2 className="flex items-center font-poppins text-2xl md:text-3xl lg:text-5xl font-bold ">
+          <h2 className="flex items-center   text-2xl md:text-3xl lg:text-5xl font-bold ">
             {details?.name}___
             <RiServiceFill className="text-[#E81C2E]"></RiServiceFill>
           </h2>
@@ -332,11 +332,10 @@ const ServiceDetails = () => {
           <div className="shadow-2xl py-8 px-10 text-start flex flex-col gap-3 bg-[black] rounded">
             <h1 className="text-3xl">Address</h1>
             <div>
-              <h2 className="text-xl">19 Frisk Drive, Middletown,nj,</h2>
-              <h2 className="text-xl">3348 United States</h2>
+              <h2 className="text-xl">Sector-11, Uttara,</h2>
+              <h2 className="text-xl">Dhaka-1230,  </h2>
+              <h1 className="text-xl">Bangladesh</h1>
             </div>
-            <h1>31 S Division Street, Montour,ia,</h1>
-            <h1>50133 United States</h1>
           </div>
         </div>
       </div>
@@ -419,7 +418,7 @@ const ServiceDetails = () => {
                 defaultValue={
                   details?.discountPrice
                     ? details?.discountPrice
-                    : details?.price
+                    : details?.price 
                 }
                 name="price"
                 className="input-bordered w-full rounded-md px-2 py-3 text-black bg-white border border-black"

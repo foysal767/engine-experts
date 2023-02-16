@@ -8,7 +8,7 @@ import worker from "./footer.json";
 const Footer = () => {
   return (
     <div className="bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')]">
-      <footer className="mt-10 font-poppins w-full ">
+      <footer className="mt-10   w-full ">
         <footer className="footer p-10  ">
           <div>
             <span className="title uppercase font-bold text-xl  text-white">

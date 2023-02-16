@@ -19,7 +19,7 @@ const ErrorPage = () => {
             {/* @ts-ignore */}
             {error.statusText || error.message}
           </p>
-          <p className="lg:text-xl font-poppins mt-10 flex justify-center"><Link to={'/'}><span className="px-3 py-2 errBtn">Go to Home</span></Link></p>
+          <p className="lg:text-xl   mt-10 flex justify-center"><Link to={'/'}><span className="px-3 py-2 errBtn">Go to Home</span></Link></p>
         </div>
       )}
       <Lottie className="" animationData={errorCar} />
