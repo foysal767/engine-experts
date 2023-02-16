@@ -1,9 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./Footer.css";
-import { FaArrowRight } from "react-icons/fa";
-import Lottie from "lottie-react";
-import worker from "./footer.json";
+import Lottie from "lottie-react"
+import { FaArrowRight } from "react-icons/fa"
+import { Link } from "react-router-dom"
+import "./Footer.css"
+import worker from "./footer.json"
 
 const Footer = () => {
   return (
@@ -52,7 +51,10 @@ const Footer = () => {
             </div>
             <div className=" flex items-center ">
               <FaArrowRight />{" "}
-              <Link to="/servicesAll" className=" pl-2 link link-hover text-white">
+              <Link
+                to="/servicesAll"
+                className=" pl-2 link link-hover text-white"
+              >
                 Our Services
               </Link>
             </div>
@@ -64,7 +66,7 @@ const Footer = () => {
             </div>
             <div className=" flex items-center ">
               <FaArrowRight />{" "}
-              <Link to="/" className=" pl-2 link link-hover text-white">
+              <Link to="/blog" className=" pl-2 link link-hover text-white">
                 Latest Blog
               </Link>
             </div>
@@ -87,10 +89,10 @@ const Footer = () => {
             </span>
             <div className="pt-4">
               <p className="text-left">
-                Our workers are so cool. They work happily <br /> and they give their best for our customers.
+                Our workers are so cool. They work happily <br /> and they give
+                their best for our customers.
               </p>
               <Lottie className="w-[200px] mx-auto" animationData={worker} />
-
             </div>
           </div>
         </footer>
@@ -152,7 +154,7 @@ const Footer = () => {
         </footer>
       </footer>
     </div>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer
