@@ -39,8 +39,11 @@ const Footer = () => {
             </span>
             <div className=" flex items-center pt-4">
               <FaArrowRight />{" "}
-              <Link to="/" className=" pl-2 link link-hover text-white">
-                About Company
+              <Link
+                to="/engineexperties"
+                className=" pl-2 link link-hover text-white"
+              >
+                About Expertise
               </Link>
             </div>
             <div className=" flex items-center ">
