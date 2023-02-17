@@ -6,7 +6,7 @@ const ElectricCar = () => {
         <div className="middleBar basis-10/12">
           <div className="mb-10">
             <h1 className="text-2xl text-center text-gray-800 font-bold ">
-              How Automotive Air Conditioning Works
+              Electric Car Conditioning Works
             </h1>
             <p className="text-xl text-gray-600 text-justify mt-4">
               When asked how car air conditioning systems work, most people
@@ -25,7 +25,7 @@ const ElectricCar = () => {
               temperature.
             </p>
             <img
-              src="assets/engine-blog/air-engine/airEngine-1.jpg"
+              src="assets/engine-blog/electric-car/electricCar1.jpg"
               className="w-full my-4"
               alt=""
             />
@@ -55,7 +55,7 @@ const ElectricCar = () => {
               operates under high pressure, in this case the condenser.
             </p>
             <img
-              src="assets/engine-blog/air-engine/airEngine-2.jpg"
+              src="assets/engine-blog/electric-car/electricCar2.jpg"
               className="w-full my-4"
               alt=""
             />
@@ -69,7 +69,7 @@ const ElectricCar = () => {
 
           <div className="mb-10">
             <h1 className="text-2xl text-center text-gray-800 font-bold ">
-              Orifice Tube system
+              Electric Car Vulb System
             </h1>
             <p className="text-xl text-gray-600 text-justify mt-4">
               An orifice tube is similar to an expansion valve, with both
@@ -91,7 +91,7 @@ const ElectricCar = () => {
               flow is critical for the A/C to operate effectively.
             </p>
             <img
-              src="assets/engine-blog/air-engine/airEngine-3.jpg"
+              src="assets/engine-blog/electric-car/electricCar3.jpg"
               className="w-full my-4"
               alt=""
             />
@@ -113,7 +113,7 @@ const ElectricCar = () => {
 
           <div className="mb-10">
             <h1 className="text-2xl text-center text-gray-800 font-bold ">
-              A/C Components Description
+              Electric Car Washa Pannel
             </h1>
             <p className="text-xl text-gray-600 text-justify mt-4">
               To keep our environment to our desired temperature, the air
@@ -128,7 +128,7 @@ const ElectricCar = () => {
               enclosed space. The enclosed space is often building and car.
             </p>
             <img
-              src="assets/engine-blog/air-engine/airEngine-4.jpg"
+              src="assets/engine-blog/electric-car/electricCar4.jpg"
               className="w-full my-4"
               alt=""
             />
