@@ -55,7 +55,7 @@ const EngineCluster = () => {
               operates under high pressure, in this case the condenser.
             </p>
             <img
-              src="assets/engine-blog/engine-cluster/engineCluster2.jpg"
+              src="assets/engine-blog/engine-cluster/engineCluster3.jpg"
               className="w-full my-4"
               alt=""
             />
@@ -69,7 +69,7 @@ const EngineCluster = () => {
 
           <div className="mb-10">
             <h1 className="text-2xl text-center text-gray-800 font-bold ">
-              Orifice Tube system
+              Orifice Cluster system
             </h1>
             <p className="text-xl text-gray-600 text-justify mt-4">
               An orifice tube is similar to an expansion valve, with both
@@ -91,7 +91,7 @@ const EngineCluster = () => {
               flow is critical for the A/C to operate effectively.
             </p>
             <img
-              src="assets/engine-blog/air-engine/airEngine-3.jpg"
+              src="assets/engine-blog/engine-cluster/engineCluster4.jpg"
               className="w-full my-4"
               alt=""
             />
@@ -113,7 +113,7 @@ const EngineCluster = () => {
 
           <div className="mb-10">
             <h1 className="text-2xl text-center text-gray-800 font-bold ">
-              A/C Components Description
+              Cluster Components Description
             </h1>
             <p className="text-xl text-gray-600 text-justify mt-4">
               To keep our environment to our desired temperature, the air

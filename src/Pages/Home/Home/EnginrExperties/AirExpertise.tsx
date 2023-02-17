@@ -8,7 +8,7 @@ const AirExpertise = () => {
         <div className="middleBar basis-10/12">
           <div className="mb-10">
             <h1 className="text-2xl text-center text-gray-800 font-bold ">
-              How Automotive Air Conditioning Works
+              Expertise Of Automotive Air Conditioning Works
             </h1>
             <p className="text-xl text-gray-600 text-justify mt-4">
               When asked how car air conditioning systems work, most people
