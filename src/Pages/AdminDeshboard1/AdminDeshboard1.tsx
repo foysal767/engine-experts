@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, Navigate, Outlet, useLocation } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import Navbar from "../Shared/Navbar/Navbar";
@@ -7,6 +7,34 @@ import "./AdminDeshboard.css";
 const AdminDeshboard1 = () => {
   const { accType, isAdmin } = useContext(AuthContext);
   const location = useLocation();
+  const [payment, setPayment] = useState(0);
+  const [payments, setPayments] = useState([]);
+  const sevenDaysAgo = new Date(
+    new Date().getTime() - 7 * 24 * 60 * 60 * 1000
+  ).toLocaleDateString();
+  const [lastWeek, setLastWeek] = useState();
+  // let taka = 0
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/payments`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setPayments(data?.data);
+          let taka = 0;
+          let lastWeekPayment = 0;
+          data?.data?.map((singlePrice: any) => {
+            const price = parseFloat(singlePrice.price);
+            taka = taka + price;
+
+            if (sevenDaysAgo > singlePrice.date) {
+              lastWeekPayment = lastWeekPayment + price;
+            }
+            return [setPayment(taka), setLastWeek];
+          });
+        }
+      });
+  }, []);
 
   if (!isAdmin && accType !== "Seller" && accType !== "User") {
     <Navigate to="/" state={{ from: location }} replace></Navigate>;
@@ -25,7 +53,7 @@ const AdminDeshboard1 = () => {
               <div className="w-full lg:w-[80%] mx-auto flex justify-between items-center gap-4 lg:mt-8 px-3 lg:px-0">
                 <h1 className="text-start text-sm  text-slate-300">
                   Total Revenue <br />
-                  <span className="text-2xl lg:text-3xl">2100$</span>
+                  <span className="text-2xl lg:text-3xl">{payment}$</span>
                 </h1>
                 <h1 className="text-start text-sm  text-slate-300">
                   Total Revenue <br />
@@ -54,17 +82,13 @@ const AdminDeshboard1 = () => {
                         </button>
                       </div>
                       <div className="">
-                        <h2 className="text-sm text-start ">
-                          All Service
-                        </h2>
+                        <h2 className="text-sm text-start ">All Service</h2>
                         <h1 className="text-2xl text-start ">15</h1>
                       </div>
                     </div>
                   </Link>
                   <div className="droping w-full h-full absolute bg-[#7E9EAE] rounded-lg items-end justify-center p-1 transition duration-700">
-                    <h1 className="text-sm  text-center">
-                      All Service
-                    </h1>
+                    <h1 className="text-sm  text-center">All Service</h1>
                   </div>
                 </div>
                 {/* Card one start from here */}
@@ -80,19 +104,13 @@ const AdminDeshboard1 = () => {
                         </button>
                       </div>
                       <div className="">
-                        <h2 className="text-sm text-start ">
-                          All Users
-                        </h2>
-                        <h1 className="text-2xl text-start ">
-                          190
-                        </h1>
+                        <h2 className="text-sm text-start ">All Users</h2>
+                        <h1 className="text-2xl text-start ">190</h1>
                       </div>
                     </div>
                   </Link>
                   <div className="droping w-full h-full absolute bg-[#7E9EAE] rounded-lg items-end justify-center p-1 transition duration-700">
-                    <h1 className="text-sm  text-center">
-                      All Users
-                    </h1>
+                    <h1 className="text-sm  text-center">All Users</h1>
                   </div>
                 </div>
                 {/* Card one start from here */}
@@ -108,17 +126,13 @@ const AdminDeshboard1 = () => {
                         </button>
                       </div>
                       <div className="">
-                        <h2 className="text-sm text-start ">
-                          Add Campaign
-                        </h2>
+                        <h2 className="text-sm text-start ">Add Campaign</h2>
                         <h1 className="text-2xl text-start ">01</h1>
                       </div>
                     </div>
                   </Link>
                   <div className="droping w-full h-full absolute bg-[#7E9EAE] rounded-lg items-end justify-center p-1 transition duration-700">
-                    <h1 className="text-sm  text-center">
-                      Add Campaign
-                    </h1>
+                    <h1 className="text-sm  text-center">Add Campaign</h1>
                   </div>
                 </div>
                 {/* Card one start from here */}
@@ -134,19 +148,13 @@ const AdminDeshboard1 = () => {
                         </button>
                       </div>
                       <div className="">
-                        <h2 className="text-sm text-start ">
-                          All Orders
-                        </h2>
-                        <h1 className="text-2xl text-start ">
-                          130
-                        </h1>
+                        <h2 className="text-sm text-start ">All Orders</h2>
+                        <h1 className="text-2xl text-start ">130</h1>
                       </div>
                     </div>
                   </Link>
                   <div className="droping w-full h-full absolute bg-[#7E9EAE] rounded-lg items-end justify-center p-1 transition duration-700">
-                    <h1 className="text-sm  text-center">
-                      All Orders
-                    </h1>
+                    <h1 className="text-sm  text-center">All Orders</h1>
                   </div>
                 </div>
               </div>
@@ -204,19 +212,13 @@ const AdminDeshboard1 = () => {
                         </button>
                       </div>
                       <div className="">
-                        <h2 className="text-sm text-start ">
-                          All Orders
-                        </h2>
-                        <h1 className="text-2xl text-start ">
-                          130
-                        </h1>
+                        <h2 className="text-sm text-start ">All Orders</h2>
+                        <h1 className="text-2xl text-start ">130</h1>
                       </div>
                     </div>
                   </Link>
                   <div className="droping w-full h-full absolute bg-[#7E9EAE] rounded-lg items-end justify-center p-1 transition duration-700">
-                    <h1 className="text-sm  text-center">
-                      All Orders
-                    </h1>
+                    <h1 className="text-sm  text-center">All Orders</h1>
                   </div>
                 </div>
                 {/* Card one start from here */}
@@ -235,16 +237,12 @@ const AdminDeshboard1 = () => {
                         <h2 className="text-sm text-start ">
                           Completed Orders
                         </h2>
-                        <h1 className="text-2xl text-start ">
-                          130
-                        </h1>
+                        <h1 className="text-2xl text-start ">130</h1>
                       </div>
                     </div>
                   </Link>
                   <div className="droping w-full h-full absolute bg-[#7E9EAE] rounded-lg items-end justify-center p-1 transition duration-700">
-                    <h1 className="text-sm  text-center">
-                      Completed Orders
-                    </h1>
+                    <h1 className="text-sm  text-center">Completed Orders</h1>
                   </div>
                 </div>
               </div>
@@ -266,17 +264,13 @@ const AdminDeshboard1 = () => {
                       </button>
                     </div>
                     <div className="">
-                      <h2 className="text-sm text-start ">
-                        My Bookings
-                      </h2>
+                      <h2 className="text-sm text-start ">My Bookings</h2>
                       <h1 className="text-2xl text-start ">130</h1>
                     </div>
                   </div>
                 </Link>
                 <div className="droping w-full h-full absolute bg-[#7E9EAE] rounded-lg items-end justify-center p-1 transition duration-700">
-                  <h1 className="text-sm  text-center">
-                    My Bookings
-                  </h1>
+                  <h1 className="text-sm  text-center">My Bookings</h1>
                 </div>
               </div>
               {/* Card one start from here */}
@@ -292,17 +286,13 @@ const AdminDeshboard1 = () => {
                       </button>
                     </div>
                     <div className="">
-                      <h2 className="text-sm text-start ">
-                        My Reviews
-                      </h2>
+                      <h2 className="text-sm text-start ">My Reviews</h2>
                       <h1 className="text-2xl text-start ">130</h1>
                     </div>
                   </div>
                 </Link>
                 <div className="droping w-full h-full absolute bg-[#7E9EAE] rounded-lg items-end justify-center p-1 transition duration-700">
-                  <h1 className="text-sm  text-center">
-                    My Reviews
-                  </h1>
+                  <h1 className="text-sm  text-center">My Reviews</h1>
                 </div>
               </div>
             </div>
