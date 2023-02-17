@@ -1,21 +1,24 @@
-import React, { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
-import "./Navbar.css";
-import Lottie from "lottie-react";
-import navlogo from "./navlogo.json";
+import Lottie from "lottie-react"
+import React, { useContext } from "react"
+import { Link, useNavigate } from "react-router-dom"
+import { AuthContext } from "../../../Context/AuthProvider/AuthProvider"
+import "./Navbar.css"
+import navlogo from "./navlogo.json"
 
 const Navbar = () => {
-  const { user, logOut, accType, isAdmin } = useContext(AuthContext);
-  const navigate = useNavigate();
+  const { user, logOut, accType, isAdmin } = useContext(AuthContext)
+  const navigate = useNavigate()
 
   const handleLogOut = () => {
-    logOut(navigate);
-  };
+    logOut(navigate)
+  }
   const menuItems = (
     <React.Fragment>
       <li className="font-semibold hover:text-[#E81C2E]">
         <Link to="/">Home</Link>
+      </li>
+      <li className="font-semibold hover:text-[#E81C2E]">
+        <Link to="/blog">Blog</Link>
       </li>
       <li className="font-semibold hover:text-[#E81C2E]">
         <Link to="/servicesAll">Services</Link>
@@ -47,10 +50,10 @@ const Navbar = () => {
       )}
       {user?.uid && (
         <div
-          className="tooltip lg:tooltip-left md:tooltip-right mt-1 dropdown dropdown-bottom dropdown-end"
+          className="tooltip lg:tooltip-bottom md:tooltip-right mt-1 dropdown dropdown-bottom dropdown-end"
           data-tip={user?.displayName}
         >
-          <label tabIndex={0}>
+          <label>
             {user?.photoURL ? (
               <img
                 className="w-[36px] h-[36px] rounded-full mr-5"
@@ -65,24 +68,11 @@ const Navbar = () => {
               />
             )}
           </label>
-          <ul
-            tabIndex={0}
-            className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 mx-auto"
-          >
-            <li>
-              <h3>{user?.displayName}</h3>
-            </li>
-            <li>
-              <Link to={"/"}>Account</Link>
-            </li>
-            <li>
-              <Link to={"/"}>Profile</Link>
-            </li>
-          </ul>
+         
         </div>
       )}
     </React.Fragment>
-  );
+  )
 
   return (
     <div className="navbar flex justify-between px-4 md:px-8 lg:px-12">
@@ -112,10 +102,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="flex items-center gap-2">
-          <Lottie
-            className="w-[60px] h-[60px] "
-            animationData={navlogo}
-          />
+          <Lottie className="w-[60px] h-[60px] " animationData={navlogo} />
           <Link
             to="/"
             className="btn btn-ghost font-semibold normal-case text-xl"
@@ -126,16 +113,14 @@ const Navbar = () => {
       </div>
       <div className="navbar-end hidden lg:block md:navbar-end md:block">
         <a href="tel:+8801929921987">
-          <button className="navBtn uppercase font-bold">
-            Make a call
-          </button>
+          <button className="navBtn uppercase font-bold">Make a call</button>
         </a>
       </div>
       <div className="navbar-end hidden lg:flex">
         <ul className="menu menu-horizontal p-0">{menuItems}</ul>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

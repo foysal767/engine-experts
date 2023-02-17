@@ -22,10 +22,10 @@ const ServicesAll = () => {
     }
     return (
         <section className="mb-6 lg:mb-28 px-4 md:px-8 lg:px-12">
-            <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold font-poppins mb-12 text-[#383232] mt-10">
+            <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold   mb-12 text-[#383232] mt-10">
                 Services that we Offer
             </h1>
-            <div className="mt-9 mb-12 row grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 font-poppins">
+            <div className="mt-9 mb-12 row grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10  ">
                 {services.map((service: any, i: any) => (
                     <div key={i}>
                         <div className="card rounded-md w-full h-[400px] bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] shadow-xl">

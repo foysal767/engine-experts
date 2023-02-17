@@ -59,8 +59,8 @@ const DiscountSection = () => {
   }
   
   return (
-    <section className="w-full mb-6 lg:mb-28">
-      <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold text-[#383232] px-4 md:px-8 lg:px-12 text-start">{campaignName} Campaign</h1>
+    <section className="w-full mb-12 lg:mb-28">
+      <h1 className="lg:text-5xl my-5 lg:my-5 md:my-6 md:text-3xl text-2xl font-bold text-[#383232] px-4 md:px-8 lg:px-12 text-center md:text-start lg:text-start">{campaignName} Campaign</h1>
       <div className="w-full bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] py-24 h-[200px] relative upper-section ">
         <div className="hidden lg:grid grid-cols-2 absolute w-full h-full top-0">
           <img src="/assets/tire-left.png" alt="" className="tyre" />

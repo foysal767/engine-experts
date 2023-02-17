@@ -105,7 +105,7 @@ const AllUsers1 = () => {
   return (
     <section className="w-full lg:w-[90%] md:w-[80%] mx-auto px-4 md:px-8 lg:px-12 bg-[#EBF2F4] pb-10">
       <GoogleMaps></GoogleMaps>
-      <h1 className="text-2xl font-serif text-start mb-6">
+      <h1 className="text-2xl  text-start mb-6">
         Total Active Users: {users?.length}
       </h1>
       <div className="w-full flex justify-start mb-4 px-4">

@@ -1,11 +1,134 @@
-import "./AirExpertise.css"
-
-const AirExpertise = () => {
+import "./Blog.css"
+const Blog = () => {
   return (
     <section className="my-8 px-10">
       <div className="flex flex-col md:flex-row text-gray-400 gap-8">
-        <div className="sideBar basis-3/12"></div>
-        <div className="middleBar basis-6/12">
+        <div className="sideBar basis-3/12">
+          <h1 className="text-2xl text-center text-gray-800 font-bold mb-4">
+            Popular Servicing
+          </h1>
+
+          <div className="animation mb-10 border border-gray-500 p-4 rounded-lg cursor-pointer">
+            <h1 className="text-gray-600">
+              How Automotive Air Conditioning Works?
+            </h1>
+            <img
+              src="assets/engine-blog/air-engine/airEngine-5.jpg"
+              className="animated w-full my-4 rounded-lg"
+              alt=""
+            />
+            <p className="text-gray-600 mb-4">
+              The air-conditioning system in a car works by manipulating
+              refrigerant between a liquid and a gaseous state....
+            </p>
+          </div>
+
+          <div className="animation mb-10 border border-gray-500 p-4 rounded-lg cursor-pointer">
+            <h1 className="text-gray-600">Expansion Valve System?</h1>
+            <img
+              src="assets/engine-blog/air-engine/airEngine-6.jpg"
+              className="w-full my-4 rounded-lg"
+              alt=""
+            />
+            <p className="text-gray-600 mb-4">
+              Expansion valves are devices used to control the refrigerant flow
+              in a refrigeration system. They help to facilitate....
+            </p>
+          </div>
+
+          <div className="animation mb-10 border border-gray-500 p-4 rounded-lg cursor-pointer">
+            <h1 className="text-gray-600">Orifice Tube system</h1>
+            <img
+              src="assets/engine-blog/air-engine/airEngine-7.jpg"
+              className="w-full my-4 rounded-lg"
+              alt=""
+            />
+            <p className="text-gray-600 mb-4">
+              An orifice tube is similar to an expansion valve, with both
+              performing an important function in a vehicle’s A/C system....
+            </p>
+          </div>
+
+          <div className="animation mb-10 border border-gray-500 p-4 rounded-lg cursor-pointer">
+            <h1 className="text-gray-600">A/C Components Description</h1>
+            <img
+              src="assets/engine-blog/air-engine/airEngine-8.jpg"
+              className="w-full my-4 rounded-lg"
+              alt=""
+            />
+            <p className="text-gray-600 mb-4">
+              To keep our environment to our desired temperature, the air
+              conditioning system is the device that helps us achieve that....
+            </p>
+          </div>
+
+          <div className="animation mb-10 border border-gray-500 p-4 rounded-lg cursor-pointer">
+            <h1 className="text-gray-600">Breke inspections</h1>
+            <img
+              src="assets/engine-blog/air-engine/airEngine-9.jpg"
+              className="w-full my-4 rounded-lg"
+              alt=""
+            />
+            <p className="text-gray-600 mb-4">
+              During a brake inspection the entire brake system is checked; this
+              includes the following: the brake pedal, brake fluid....
+            </p>
+          </div>
+
+          <div className="animation mb-10 border border-gray-500 p-4 rounded-lg cursor-pointer">
+            <h1 className="text-gray-600">Coolant flush</h1>
+            <img
+              src="assets/engine-blog/air-engine/airEngine-10.jpg"
+              className="w-full my-4 rounded-lg"
+              alt=""
+            />
+            <p className="text-gray-600 mb-4">
+              An engine repair or replacement can cost thousands, but a coolant
+              flush preserves your car's health and can restore function to your
+              engine's tempering agents....
+            </p>
+          </div>
+
+          <div className="animation mb-10 border border-gray-500 p-4 rounded-lg cursor-pointer">
+            <h1 className="text-gray-600">Oil change</h1>
+            <img
+              src="assets/engine-blog/air-engine/airEngine-11.jpg"
+              className="w-full my-4 rounded-lg"
+              alt=""
+            />
+            <p className="text-gray-600 mb-4">
+              It is recommended to get your oil changed at least twice a year,
+              even if you haven't driven those thousands of miles....
+            </p>
+          </div>
+
+          <div className="animation mb-10 border border-gray-500 p-4 rounded-lg cursor-pointer">
+            <h1 className="text-gray-600">Filter replacement</h1>
+            <img
+              src="assets/engine-blog/air-engine/airEngine-12.jpg"
+              className="w-full my-4 rounded-lg"
+              alt=""
+            />
+            <p className="text-gray-600 mb-4">
+              You should change the air filters at least once a year or every
+              12,000-15,000 miles, whichever comes first....
+            </p>
+          </div>
+
+          <div className="animation mb-10 border border-gray-500 p-4 rounded-lg cursor-pointer">
+            <h1 className="text-gray-600">Spark plug</h1>
+            <img
+              src="assets/engine-blog/air-engine/airEngine-13.jpg"
+              className="w-full my-4 rounded-lg"
+              alt=""
+            />
+            <p className="text-gray-600 mb-4">
+              As the name implies, a spark plug supplies a small electrical
+              spark. It ignites the fuel inside the combustion....
+            </p>
+          </div>
+        </div>
+        <div className="middleBar basis-9/12">
           <div className="mb-10">
             <h1 className="text-2xl text-center text-gray-800 font-bold ">
               How Automotive Air Conditioning Works
@@ -147,4 +270,4 @@ const AirExpertise = () => {
   )
 }
 
-export default AirExpertise
+export default Blog

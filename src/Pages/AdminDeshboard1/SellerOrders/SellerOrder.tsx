@@ -23,7 +23,7 @@ const SellerOrder = () => {
   }, []);
   return (
     <section className="w-full lg:w-[80%] md:w-[80%] mx-auto px-4 md:px-8 lg:px-12 bg-[#EBF2F4] pb-10">
-      <h1 className="text-2xl font-serif text-start mb-6">
+      <h1 className="text-2xl  text-start mb-6">
         All orders Available here
       </h1>
       <div className="w-full flex flex-col gap-4">
@@ -48,7 +48,7 @@ const SellerOrder = () => {
             </button>
             <h2>{order?.serviceName}</h2>
             <h2>{order?.userEmail}</h2>
-            <h2>{order?.price}</h2>
+            <h2>${order?.price}</h2>
             <select
               className="w-[160px] h-[45px] bg-transparent rounded border"
               name="options"

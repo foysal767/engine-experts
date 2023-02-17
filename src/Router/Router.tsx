@@ -7,6 +7,7 @@ import AllOrders1 from "../Pages/AdminDeshboard1/AllOrders/AllOrders1"
 import AllService1 from "../Pages/AdminDeshboard1/AllService/AllService1"
 import AllUsers1 from "../Pages/AdminDeshboard1/AllUsers/AllUsers1"
 import SellerOrder from "../Pages/AdminDeshboard1/SellerOrders/SellerOrder"
+import Blog from "../Pages/Blog/Blog"
 // import SellerOrder from "../Pages/AdminDeshboard1/SellerOrder/SellerOrder";
 import Booking from "../Pages/Booking/Booking"
 import Payment from "../Pages/Booking/Payment"
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
       },
       {
         path: "/maps",

@@ -4,7 +4,7 @@ import './AllEngineServices.css';
 const AllEngineServices = () => {
   return (
     <section className="mt-36 mx-8">
-        <h1 className="font-poppins text-center text-5xl font-bold mb-12">All Engine Service</h1>
+        <h1 className="  text-center text-5xl font-bold mb-12">All Engine Service</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         
         <div className=" bg-gray-300 rounded-lg">

@@ -33,10 +33,10 @@ const ContactForm = () => {
       <div className="contactForm grid lg:grid-cols-3 md:grid-cols-1 gap-6 justify-center">
         <div className="leftContactForm lg:col-span-2 p-4 rounded-lg lg:px-16 py-10 bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')]">
           <div className="headText text-left">
-            <h2 className="text-4xl font-semibold font-poppins">
+            <h2 className="text-4xl font-semibold  ">
               Need Help ? Send Message
             </h2>
-            <p className="text-xl mb-4 font-poppins">
+            <p className="text-xl mb-4  ">
               We provide all engine services related help!
             </p>
           </div>
@@ -45,12 +45,12 @@ const ContactForm = () => {
               <div className="nameEmail grid lg:grid-cols-2 md:grid-cols-1 gap-4">
                 <div className="inputName">
                   <div className="font-bold text-left">
-                    <label className="font-poppins" htmlFor="name">
+                    <label className=" " htmlFor="name">
                       Name
                     </label>
                   </div>
                   <input
-                    className="bg-gray-100 input input-bordered text-black w-full font-poppins"
+                    className="bg-gray-100 input input-bordered text-black w-full  "
                     type="text"
                     name="name"
                     id="name"
@@ -60,12 +60,12 @@ const ContactForm = () => {
                 </div>
                 <div className="inputEmail">
                   <div className="font-bold text-left">
-                    <label className="font-poppins" htmlFor="email">
+                    <label className=" " htmlFor="email">
                       Email
                     </label>
                   </div>
                   <input
-                    className="bg-gray-100 input input-bordered text-black w-full font-poppins"
+                    className="bg-gray-100 input input-bordered text-black w-full  "
                     type="email"
                     name="email"
                     id="email"
@@ -77,12 +77,12 @@ const ContactForm = () => {
               <div className="phoneService grid lg:grid-cols-2 md:grid-cols-1 gap-4 my-4">
                 <div className="inputPhone">
                   <div className="font-bold text-left">
-                    <label className="font-poppins" htmlFor="phone">
+                    <label className=" " htmlFor="phone">
                       Phone
                     </label>
                   </div>
                   <input
-                    className="bg-gray-100 input input-bordered text-black w-full font-poppins"
+                    className="bg-gray-100 input input-bordered text-black w-full  "
                     type="text"
                     name="phone"
                     id="phone"
@@ -92,12 +92,12 @@ const ContactForm = () => {
                 </div>
                 <div className="inputService">
                   <div className="font-bold text-left">
-                    <label className="font-poppins" htmlFor="service">
+                    <label className=" " htmlFor="service">
                       Service
                     </label>
                   </div>
                   <input
-                    className="bg-gray-100 input input-bordered text-black w-full font-poppins"
+                    className="bg-gray-100 input input-bordered text-black w-full  "
                     type="text"
                     name="service"
                     id="service"
@@ -108,12 +108,12 @@ const ContactForm = () => {
               </div>
               <div>
                 <div className="font-bold text-left">
-                  <label className="font-poppins" htmlFor="message">
+                  <label className=" " htmlFor="message">
                     Message
                   </label>
                 </div>
                 <textarea
-                  className="textarea textarea-bordered text-black bg-gray-100 mb-4 w-full font-poppins"
+                  className="textarea textarea-bordered text-black bg-gray-100 mb-4 w-full  "
                   placeholder="Your Message"
                   required
                   name="message"
@@ -122,7 +122,7 @@ const ContactForm = () => {
               </div>
 
               <div>
-                <button className="contactBtn font-bold font-poppins">
+                <button className="contactBtn font-bold  ">
                   Submit
                 </button>
               </div>
@@ -131,11 +131,11 @@ const ContactForm = () => {
         </div>
         <div className="rightContactDetails p-4 rounded-lg py-10 px-8 lg:mr-4 md:mr-1 bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')]">
           <div className="contactDetails text-left mb-8">
-            <h2 className="text-4xl font-semibold  mb-4 font-poppins">
+            <h2 className="text-4xl font-semibold  mb-4  ">
               Contact Details
             </h2>
-            <p className="font-poppins">
-              <span className="font-bold font-poppins">
+            <p className=" ">
+              <span className="font-bold  ">
                 Office Address -1:{" "}
               </span>{" "}
               Engine Experts Agency <br />
@@ -143,8 +143,8 @@ const ContactForm = () => {
               - 9201
             </p>
             <br />
-            <p className="font-poppins">
-              <span className="font-bold font-poppins">Office Address-2: </span>{" "}
+            <p className=" ">
+              <span className="font-bold  ">Office Address-2: </span>{" "}
               Engine Expertice Agency <br />
               (Kamranggir Chor Vuter Goli) Co. Ltd Sheik Jamal Road- Dhaka,
               Bangladesh - 9876
@@ -155,10 +155,10 @@ const ContactForm = () => {
               <FaPhoneVolume />
             </div>
             <div>
-              <h2 className="text-sm  text-left font-poppins">
+              <h2 className="text-sm  text-left  ">
                 Emargency Call
               </h2>
-              <span className="font-bold font-poppins">+88 017 22 262041</span>
+              <span className="font-bold  ">+88 017 22 262041</span>
             </div>
           </div>
           <div className="generalEmail flex items-center space-x-4">
@@ -166,10 +166,10 @@ const ContactForm = () => {
               <FaRegEnvelope />
             </div>
             <div>
-              <h2 className="text-sm  text-left font-poppins">
+              <h2 className="text-sm  text-left  ">
                 General Communication
               </h2>
-              <span className="font-bold font-poppins">
+              <span className="font-bold  ">
                 engineexpertise24@gmail.com
               </span>
             </div>
