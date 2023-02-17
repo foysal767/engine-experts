@@ -18,7 +18,10 @@ import ContactForm from "../Pages/Home/ContactForm/ContactForm"
 import AirExpertise from "../Pages/Home/Home/EnginrExperties/AirExpertise"
 import ElectricCar from "../Pages/Home/Home/EnginrExperties/ElectricCar"
 import EngineCluster from "../Pages/Home/Home/EnginrExperties/EngineCluster"
+import EngineExperties from "../Pages/Home/Home/EnginrExperties/EngineExperties"
 import Home from "../Pages/Home/Home/Home"
+import PopularService from "../Pages/Home/Home/PopularService/PopularService"
+import WorkingEnvironment from "../Pages/Home/WorkingEnvironment/WorkingEnvironment"
 import Login from "../Pages/Login/Login"
 import MyReview from "../Pages/MyReview/MyReview"
 import Organizer from "../Pages/Organizer/Organizer"
@@ -81,6 +84,18 @@ const router = createBrowserRouter([
       {
         path: "/booking/payment/:id",
         element: <Payment></Payment>,
+      },
+      {
+        path: "/popularservice",
+        element: <PopularService></PopularService>,
+      },
+      {
+        path: "/workingenvironment",
+        element: <WorkingEnvironment></WorkingEnvironment>,
+      },
+      {
+        path: "/engineexperties",
+        element: <EngineExperties></EngineExperties>,
       },
       {
         path: "/airexpertise",

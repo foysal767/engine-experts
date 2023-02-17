@@ -1,13 +1,28 @@
-.getServiceBtn{
-    clip-path: polygon(20px 0,100% 0,100% calc(100% - 20px),calc(100% - 20px) 100%,0 100%,0 20px);
-    padding: 16px 80px;
-    background-color: #E81C2E;
-    border: 2px solid #E81C2E;
+.getServiceBtn {
+  clip-path: polygon(
+    20px 0,
+    100% 0,
+    100% calc(100% - 20px),
+    calc(100% - 20px) 100%,
+    0 100%,
+    0 20px
+  );
+  padding: 16px 70px;
+  text-align: center;
+  background-color: #e81c2e;
+  border: 2px solid #e81c2e;
 }
 
-.getServiceBtn:hover{
-    color: #fff;
-    background-color: initial;
-    clip-path: polygon(0 0,100% 0,100% calc(100% - 20px),100% 100%,0 100%,0 20px);
-    border: 2px solid #E81C2E;
+.getServiceBtn:hover {
+  color: #fff;
+  background-color: initial;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 20px),
+    100% 100%,
+    0 100%,
+    0 20px
+  );
+  border: 2px solid #e81c2e;
 }
