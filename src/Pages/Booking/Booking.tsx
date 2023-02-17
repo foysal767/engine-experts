@@ -29,27 +29,27 @@ const Booking = () => {
         </h2>
       </div>
       <div className="py-10">
-        {
-          bookings?.length >= 1 ? (
+        {bookings?.length >= 1 ? (
           <div className="grid grid-cols-5 mx-auto border-b-2 py-3 border-b-red-600 bg-gray-200 rounded">
-          <span>Image</span>
-          <span>Service Name</span>
-          <span>Price</span>
-          <span>Payment</span>
-        </div>)
-        : (
-          <div>
-            <h2 className="text-4xl mb-8 text-red-600">No booking added yet.</h2>
+            <span>Image</span>
+            <span>Service Name</span>
+            <span>Price</span>
+            <span>Payment</span>
           </div>
-        )
-        }
+        ) : (
+          <div>
+            <h2 className="text-4xl mb-8 text-red-600">
+              No booking added yet.
+            </h2>
+          </div>
+        )}
         {bookings?.map((booking: any, i: any) => (
           <div key={i}>
             <div className="grid grid-cols-5 gap-2 lg:gap-3 items-center my-5 bg-gray-200 rounded py-2 px-2 h-[80px]">
               <span>
                 <img
                   className="lg:w-[80px] w-[50px] mx-auto"
-                  src="/assets/service-1.1.jpg"
+                  src={booking?.image}
                   alt=""
                 />
               </span>
@@ -63,29 +63,31 @@ const Booking = () => {
                   {booking?.price}
                 </h2>
               </span>
-              {
-                booking?.payment === "paid" ? 
+              {booking?.payment === "paid" ? (
                 <span>
-                  <label
-                    className="btn btn-disabled bg-gray-500 text-white lg:btn-sm btn-xs"
-                  >
+                  <label className="btn btn-disabled bg-gray-500 text-white lg:btn-sm btn-xs">
                     Paid
                   </label>
-              </span>
-              :
+                </span>
+              ) : (
+                <span>
+                  <Link to={`/booking/payment/${booking?._id}`}>
+                    <label
+                      htmlFor="payment-modal"
+                      className="btn btn-success lg:btn-sm btn-xs"
+                    >
+                      Pay Now
+                    </label>
+                  </Link>
+                </span>
+              )}
               <span>
-                <Link to={`/booking/payment/${booking?._id}`}>
-                  <label
-                    htmlFor="payment-modal"
-                    className="btn btn-success lg:btn-sm btn-xs"
-                  >
-                    Pay Now
-                  </label>
-                </Link>
-              </span>
-              }
-              <span>
-                <button className={`btn ${booking?.payment === "paid" && "btn-disabled bg-gray-500 text-white"} bg-red-600 lg:btn-sm btn-xs border-none text-white`}>
+                <button
+                  className={`btn ${
+                    booking?.payment === "paid" &&
+                    "btn-disabled bg-gray-500 text-white"
+                  } bg-red-600 lg:btn-sm btn-xs border-none text-white`}
+                >
                   Cancel
                 </button>
               </span>
