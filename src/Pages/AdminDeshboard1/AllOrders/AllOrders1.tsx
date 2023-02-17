@@ -100,7 +100,7 @@ const AllOrders1 = () => {
   }
   return (
     <section className="w-full md:w-[80%] mx-auto px-4 md:px-8 lg:px-12 bg-[#EBF2F4] pb-10">
-      <h1 className="text-2xl font-serif text-start mb-6">
+      <h1 className="text-2xl  text-start mb-6">
         All orders Available here
       </h1>
       <div className="w-full flex flex-col gap-4">
@@ -130,7 +130,7 @@ const AllOrders1 = () => {
 
             <h2>{order?.serviceName}</h2>
             <h2>{order?.userEmail}</h2>
-            <h2 className="lg:ml-20">{order?.price}</h2>
+            <h2 className="lg:ml-20">${order?.price}</h2>
             {order?.seller ? (
               <h2>{order?.seller}</h2>
             ) : (

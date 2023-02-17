@@ -47,9 +47,9 @@ const Brand = () => {
             <input
               type="text"
               placeholder="Type here"
-              className="input rounded-none input-bordered w-full max-w-xs bg-white text-black font-bold"
+              className="input rounded-none input-bordered w-full max-w-xs my-2 bg-white text-black font-bold"
             />
-            <button className="btn bg-black rounded-none border-none">
+            <button className="btn bg-black rounded-none border-none ">
               Subscribe
             </button>
             <p className="text-sm">We don't send spam message</p>

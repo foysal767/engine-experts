@@ -25,19 +25,19 @@ const AdminDeshboard1 = () => {
           {isAdmin && (
             <>
               <div className="w-full lg:w-[80%] mx-auto flex justify-between items-center gap-4 lg:mt-8 px-3 lg:px-0">
-                <h1 className="text-start text-sm font-poppins text-slate-300">
+                <h1 className="text-start text-sm  text-slate-300">
                   Total Revenue <br />
                   <span className="text-2xl lg:text-3xl">2100$</span>
                 </h1>
-                <h1 className="text-start text-sm font-poppins text-slate-300">
+                <h1 className="text-start text-sm  text-slate-300">
                   Total Revenue <br />
                   <span className="text-2xl lg:text-3xl">210$</span>
                 </h1>
-                <h1 className="text-start text-sm font-poppins text-slate-300">
+                <h1 className="text-start text-sm  text-slate-300">
                   Total Revenue <br />
                   <span className="text-2xl lg:text-3xl">1500$</span>
                 </h1>
-                <h1 className="text-start text-sm font-poppins text-slate-300">
+                <h1 className="text-start text-sm  text-slate-300">
                   Total Revenue <br />
                   <span className="text-2xl lg:text-3xl">900$</span>
                 </h1>
@@ -56,15 +56,15 @@ const AdminDeshboard1 = () => {
                         </button>
                       </div>
                       <div className="">
-                        <h2 className="text-sm text-start font-poppins">
+                        <h2 className="text-sm text-start ">
                           All Service
                         </h2>
-                        <h1 className="text-2xl text-start font-poppins">15</h1>
+                        <h1 className="text-2xl text-start ">15</h1>
                       </div>
                     </div>
                   </Link>
                   <div className="droping w-full h-full absolute bg-[#7E9EAE] rounded-lg items-end justify-center p-1 transition duration-700">
-                    <h1 className="text-sm font-poppins text-center">
+                    <h1 className="text-sm  text-center">
                       All Service
                     </h1>
                   </div>
@@ -82,17 +82,17 @@ const AdminDeshboard1 = () => {
                         </button>
                       </div>
                       <div className="">
-                        <h2 className="text-sm text-start font-poppins">
+                        <h2 className="text-sm text-start ">
                           All Users
                         </h2>
-                        <h1 className="text-2xl text-start font-poppins">
+                        <h1 className="text-2xl text-start ">
                           190
                         </h1>
                       </div>
                     </div>
                   </Link>
                   <div className="droping w-full h-full absolute bg-[#7E9EAE] rounded-lg items-end justify-center p-1 transition duration-700">
-                    <h1 className="text-sm font-poppins text-center">
+                    <h1 className="text-sm  text-center">
                       All Users
                     </h1>
                   </div>
@@ -110,15 +110,15 @@ const AdminDeshboard1 = () => {
                         </button>
                       </div>
                       <div className="">
-                        <h2 className="text-sm text-start font-poppins">
+                        <h2 className="text-sm text-start ">
                           Add Campaign
                         </h2>
-                        <h1 className="text-2xl text-start font-poppins">01</h1>
+                        <h1 className="text-2xl text-start ">01</h1>
                       </div>
                     </div>
                   </Link>
                   <div className="droping w-full h-full absolute bg-[#7E9EAE] rounded-lg items-end justify-center p-1 transition duration-700">
-                    <h1 className="text-sm font-poppins text-center">
+                    <h1 className="text-sm  text-center">
                       Add Campaign
                     </h1>
                   </div>
@@ -136,17 +136,17 @@ const AdminDeshboard1 = () => {
                         </button>
                       </div>
                       <div className="">
-                        <h2 className="text-sm text-start font-poppins">
+                        <h2 className="text-sm text-start ">
                           All Orders
                         </h2>
-                        <h1 className="text-2xl text-start font-poppins">
+                        <h1 className="text-2xl text-start ">
                           130
                         </h1>
                       </div>
                     </div>
                   </Link>
                   <div className="droping w-full h-full absolute bg-[#7E9EAE] rounded-lg items-end justify-center p-1 transition duration-700">
-                    <h1 className="text-sm font-poppins text-center">
+                    <h1 className="text-sm  text-center">
                       All Orders
                     </h1>
                   </div>
@@ -175,19 +175,19 @@ const AdminDeshboard1 = () => {
           {accType === "verifiedSeller" && (
             <>
               <div className="w-full lg:w-[80%] mx-auto flex justify-between items-center gap-4 lg:mt-8 px-3 lg:px-0">
-                <h1 className="text-start text-sm font-poppins text-slate-300">
+                <h1 className="text-start text-sm  text-slate-300">
                   Total Revenue <br />
                   <span className="text-2xl lg:text-3xl">2100$</span>
                 </h1>
-                <h1 className="text-start text-sm font-poppins text-slate-300">
+                <h1 className="text-start text-sm  text-slate-300">
                   Total Revenue <br />
                   <span className="text-2xl lg:text-3xl">210$</span>
                 </h1>
-                <h1 className="text-start text-sm font-poppins text-slate-300">
+                <h1 className="text-start text-sm  text-slate-300">
                   Total Revenue <br />
                   <span className="text-2xl lg:text-3xl">1500$</span>
                 </h1>
-                <h1 className="text-start text-sm font-poppins text-slate-300">
+                <h1 className="text-start text-sm  text-slate-300">
                   Total Revenue <br />
                   <span className="text-2xl lg:text-3xl">900$</span>
                 </h1>
@@ -206,17 +206,17 @@ const AdminDeshboard1 = () => {
                         </button>
                       </div>
                       <div className="">
-                        <h2 className="text-sm text-start font-poppins">
+                        <h2 className="text-sm text-start ">
                           All Orders
                         </h2>
-                        <h1 className="text-2xl text-start font-poppins">
+                        <h1 className="text-2xl text-start ">
                           130
                         </h1>
                       </div>
                     </div>
                   </Link>
                   <div className="droping w-full h-full absolute bg-[#7E9EAE] rounded-lg items-end justify-center p-1 transition duration-700">
-                    <h1 className="text-sm font-poppins text-center">
+                    <h1 className="text-sm  text-center">
                       All Orders
                     </h1>
                   </div>
@@ -234,17 +234,17 @@ const AdminDeshboard1 = () => {
                         </button>
                       </div>
                       <div className="">
-                        <h2 className="text-sm text-start font-poppins">
+                        <h2 className="text-sm text-start ">
                           Completed Orders
                         </h2>
-                        <h1 className="text-2xl text-start font-poppins">
+                        <h1 className="text-2xl text-start ">
                           130
                         </h1>
                       </div>
                     </div>
                   </Link>
                   <div className="droping w-full h-full absolute bg-[#7E9EAE] rounded-lg items-end justify-center p-1 transition duration-700">
-                    <h1 className="text-sm font-poppins text-center">
+                    <h1 className="text-sm  text-center">
                       Completed Orders
                     </h1>
                   </div>
@@ -268,15 +268,15 @@ const AdminDeshboard1 = () => {
                       </button>
                     </div>
                     <div className="">
-                      <h2 className="text-sm text-start font-poppins">
+                      <h2 className="text-sm text-start ">
                         My Bookings
                       </h2>
-                      <h1 className="text-2xl text-start font-poppins">130</h1>
+                      <h1 className="text-2xl text-start ">130</h1>
                     </div>
                   </div>
                 </Link>
                 <div className="droping w-full h-full absolute bg-[#7E9EAE] rounded-lg items-end justify-center p-1 transition duration-700">
-                  <h1 className="text-sm font-poppins text-center">
+                  <h1 className="text-sm  text-center">
                     My Bookings
                   </h1>
                 </div>
@@ -294,15 +294,15 @@ const AdminDeshboard1 = () => {
                       </button>
                     </div>
                     <div className="">
-                      <h2 className="text-sm text-start font-poppins">
+                      <h2 className="text-sm text-start ">
                         My Reviews
                       </h2>
-                      <h1 className="text-2xl text-start font-poppins">130</h1>
+                      <h1 className="text-2xl text-start ">130</h1>
                     </div>
                   </div>
                 </Link>
                 <div className="droping w-full h-full absolute bg-[#7E9EAE] rounded-lg items-end justify-center p-1 transition duration-700">
-                  <h1 className="text-sm font-poppins text-center">
+                  <h1 className="text-sm  text-center">
                     My Reviews
                   </h1>
                 </div>

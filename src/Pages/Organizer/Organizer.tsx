@@ -74,8 +74,9 @@ const Organizer = () => {
   };
 
   return (
-    <section>
-      <div className="mx-auto bg-[url('https://autohive-html.themetags.com/assets/img/shapes/texture-bg.png')] py-24 relative upper-section">
+    <section className="
+    ">
+      <div className="mx-auto  bg-[url('https://autohive-html.themetags.com/assets/img/shapes/texture-bg.png')] py-24 relative upper-section">
         <div className="grid grid-cols-2 absolute w-full top-0">
           <img src="/assets/tire-left.png" alt="" className="tyre" />
           <img src="/assets/tire-right.png" alt="" className="tyre" />
@@ -86,17 +87,17 @@ const Organizer = () => {
           </h2>
         </div>
       </div>
-      <div className="grid lg:grid-cols-2 mb-14 lg:h-screen px-4 md:px-8 lg:px-12">
+      <div className="grid lg:grid-cols-2 mb-14 lg:h-screen px-4 md:px-4 lg:px-12">
         <div className="h-full w-full grid place-items-center ">
           <Lottie
-            className="lg:w-full md:w-full sm:w-3/4"
+            className="lg:w-full md:w-[70%] sm:w-3/4"
             animationData={org}
           />
         </div>
-        <div className="grid place-items-center h-full w-full">
+        <div className="grid place-items-center h-full w-full ">
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="lg:w-[100%] mx-auto"
+            className="lg:w-[100%] md:w-[100%] mx-auto"
           >
             <div className="w-full">
               <label className="label">
@@ -150,7 +151,7 @@ const Organizer = () => {
               <div className="w-full">
                 <label className="label">
                   <span className="label-text text-black text-lg">
-                    Select your expertise service
+                     Expertise service
                   </span>
                 </label>
                 {/* <input
@@ -166,7 +167,7 @@ const Organizer = () => {
                   <p className="text-red-600">{errors.role?.message}</p>
                 )} */}
                 <select
-                  className="h-[50px] w-[168%] lg:w-full rounded px-3 bg-white text-black"
+                  className="h-[50px] w-full lg:w-full rounded px-3 bg-white text-black"
                   {...register("service", {
                     required: "Service Name is required",
                   })}
