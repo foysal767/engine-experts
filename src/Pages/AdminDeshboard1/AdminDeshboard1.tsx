@@ -30,7 +30,7 @@ const AdminDeshboard1 = () => {
             if (sevenDaysAgo > singlePrice.date) {
               lastWeekPayment = lastWeekPayment + price;
             }
-            return [setPayment(taka), setLastWeek];
+            return [setPayment(taka)];
           });
         }
       });
@@ -223,7 +223,7 @@ const AdminDeshboard1 = () => {
                 </div>
                 {/* Card one start from here */}
                 <div className="maincard bg-[#DFF6E5] h-[180px] rounded-lg  relative transition duration-700">
-                  <Link to={"/dashboard1/sellerOrders"}>
+                  <Link to={"/dashboard1/completedOrders"}>
                     <div className="flex flex-col justify-between w-full h-full absolute top-0 left-0 z-10 bg-[#DFF6E5] rounded-lg p-8">
                       <div className="flex justify-between items-center">
                         <button className="w-12 h-12 rounded-full bg-gray-200 text-center">

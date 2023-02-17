@@ -49,7 +49,7 @@ const SellerOrder = () => {
             <h2>{order?.serviceName}</h2>
             <h2>{order?.userEmail}</h2>
             <h2>${order?.price}</h2>
-            <select
+            {/* <select
               className="w-[160px] h-[45px] bg-transparent rounded border"
               name="options"
             >
@@ -58,7 +58,8 @@ const SellerOrder = () => {
               </option>
               <option value="In Progress">In Progress</option>
               <option value="Done">Done</option>
-            </select>
+            </select> */}
+            <button className="bg-blue-500 px-3 rounded-xl">Complete</button>
             <button className="bg-red-500 px-3 rounded-xl">Delete</button>
           </div>
         ))}
