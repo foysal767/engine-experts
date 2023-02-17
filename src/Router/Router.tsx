@@ -6,6 +6,7 @@ import AdminDeshboard1 from "../Pages/AdminDeshboard1/AdminDeshboard1"
 import AllOrders1 from "../Pages/AdminDeshboard1/AllOrders/AllOrders1"
 import AllService1 from "../Pages/AdminDeshboard1/AllService/AllService1"
 import AllUsers1 from "../Pages/AdminDeshboard1/AllUsers/AllUsers1"
+import CompleltedOrders from "../Pages/AdminDeshboard1/CompletedOrders/CompleltedOrders"
 import SellerOrder from "../Pages/AdminDeshboard1/SellerOrders/SellerOrder"
 import Blog from "../Pages/Blog/Blog"
 // import SellerOrder from "../Pages/AdminDeshboard1/SellerOrder/SellerOrder";
@@ -128,6 +129,10 @@ const router = createBrowserRouter([
         element: <SellerOrder></SellerOrder>,
       },
       {
+        path: "/dashboard1/completedOrders",
+        element: <CompleltedOrders></CompleltedOrders>,
+      },
+      {
         path: "/dashboard1/booking",
         element: <Booking></Booking>,
       },
@@ -137,6 +142,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-])
+]);
 
 export default router
