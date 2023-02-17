@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
 import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 
@@ -6,6 +7,7 @@ const SellerOrder = () => {
   const { accType, user } = useContext(AuthContext);
   const location = useLocation();
   const [orders, setOrders] = useState([]);
+  const [loader, setLoader] = useState(false);
   if (accType !== "Seller") {
     <Navigate to="/" state={{ from: location }} replace></Navigate>;
   }
@@ -20,11 +22,27 @@ const SellerOrder = () => {
           setOrders(data?.data);
         }
       });
-  }, []);
+  }, [loader]);
+
+  const handleCompleted = (id: any) => {
+    fetch(`https://engine-experts-server-phi.vercel.app/sellerOrder/${id}`, {
+      method: "PATCH",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data?.success) {
+          toast.success(data?.message);
+          setLoader(!loader);
+        }
+      });
+  };
+
   return (
     <section className="w-full lg:w-[80%] md:w-[80%] mx-auto px-4 md:px-8 lg:px-12 bg-[#EBF2F4] pb-10">
       <h1 className="text-2xl  text-start mb-6">
-        All orders Available here
+        {orders?.length <= 0
+          ? "Orders Not Available"
+          : `Your Active orders${orders?.length}`}
       </h1>
       <div className="w-full flex flex-col gap-4">
         {/* <select
@@ -43,9 +61,9 @@ const SellerOrder = () => {
             className="flex flex-col lg:flex-row gap-3 justify-between items-center px-4 py-3 text-xl bg-[#d9dee4] rounded border"
           >
             <h2>{i + 1}</h2>
-            <button className="w-[50px] hidden lg:block h-[50px] rounded-full bg-gray-300">
+            {/* <button className="w-[50px] hidden lg:block h-[50px] rounded-full bg-gray-300">
               Img
-            </button>
+            </button> */}
             <h2>{order?.serviceName}</h2>
             <h2>{order?.userEmail}</h2>
             <h2>${order?.price}</h2>
@@ -59,8 +77,13 @@ const SellerOrder = () => {
               <option value="In Progress">In Progress</option>
               <option value="Done">Done</option>
             </select> */}
-            <button className="bg-blue-500 px-3 rounded-xl">Complete</button>
-            <button className="bg-red-500 px-3 rounded-xl">Delete</button>
+            <button
+              className="bg-blue-500 px-3 rounded-xl"
+              onClick={() => handleCompleted(order?._id)}
+            >
+              Complete
+            </button>
+            {/* <button className="bg-red-500 px-3 rounded-xl">Delete</button> */}
           </div>
         ))}
       </div>

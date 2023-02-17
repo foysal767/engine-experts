@@ -16,7 +16,7 @@ const AdminDeshboard1 = () => {
   // let taka = 0
 
   useEffect(() => {
-    fetch(`http://localhost:5000/payments`)
+    fetch(`https://engine-experts-server-phi.vercel.app/payments`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
