@@ -1,15 +1,17 @@
-import { useContext } from "react";
-import { Link, Navigate, Outlet, useLocation } from "react-router-dom";
-import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
-import Navbar from "../Shared/Navbar/Navbar";
-import "./AdminDeshboard.css";
+import { useContext } from "react"
+import { FaBullhorn, FaCartArrowDown, FaUsers } from "react-icons/fa"
+import { RiServiceFill } from "react-icons/ri"
+import { Link, Navigate, Outlet, useLocation } from "react-router-dom"
+import { AuthContext } from "../../Context/AuthProvider/AuthProvider"
+import Navbar from "../Shared/Navbar/Navbar"
+import "./AdminDeshboard.css"
 
 const AdminDeshboard1 = () => {
-  const { accType, isAdmin } = useContext(AuthContext);
-  const location = useLocation();
+  const { accType, isAdmin } = useContext(AuthContext)
+  const location = useLocation()
 
   if (!isAdmin && accType !== "Seller" && accType !== "User") {
-    <Navigate to="/" state={{ from: location }} replace></Navigate>;
+    ;<Navigate to="/" state={{ from: location }} replace></Navigate>
   }
 
   return (
@@ -47,7 +49,7 @@ const AdminDeshboard1 = () => {
                     <div className="flex flex-col justify-between w-full h-full absolute top-0 left-0 z-10 bg-[#DFF6E5] rounded-lg p-8">
                       <div className="flex justify-between items-center">
                         <button className="w-12 h-12 rounded-full bg-gray-200 text-center">
-                          Xx
+                          <RiServiceFill className="text-3xl text-blue-400" />
                         </button>
                         <button className="bg-gray-200 h-7 px-2 rounded-full">
                           growth
@@ -73,7 +75,7 @@ const AdminDeshboard1 = () => {
                     <div className="flex flex-col justify-between w-full h-full absolute top-0 left-0 z-10 bg-[#DFF6E5] rounded-lg p-8">
                       <div className="flex justify-between items-center">
                         <button className="w-12 h-12 rounded-full bg-gray-200 text-center">
-                          Xx
+                          <FaUsers className="text-3xl text-green-400" />
                         </button>
                         <button className="bg-gray-200 h-7 px-2 rounded-full">
                           growth
@@ -101,7 +103,7 @@ const AdminDeshboard1 = () => {
                     <div className="flex flex-col justify-between w-full h-full absolute top-0 left-0 z-10 bg-[#DFF6E5] rounded-lg p-8">
                       <div className="flex justify-between items-center">
                         <button className="w-12 h-12 rounded-full bg-gray-200 text-center">
-                          Xx
+                          <FaBullhorn className="text-3xl text-amber-400" />
                         </button>
                         <button className="bg-gray-200 h-7 px-2 rounded-full">
                           growth
@@ -127,7 +129,7 @@ const AdminDeshboard1 = () => {
                     <div className="flex flex-col justify-between w-full h-full absolute top-0 left-0 z-10 bg-[#DFF6E5] rounded-lg p-8">
                       <div className="flex justify-between items-center">
                         <button className="w-12 h-12 rounded-full bg-gray-200 text-center">
-                          Xx
+                          <FaCartArrowDown className="text-3xl text-red-400" />
                         </button>
                         <button className="bg-gray-200 h-7 px-2 rounded-full">
                           growth
@@ -311,7 +313,7 @@ const AdminDeshboard1 = () => {
       </section>
       <Outlet></Outlet>
     </main>
-  );
-};
+  )
+}
 
-export default AdminDeshboard1;
+export default AdminDeshboard1
