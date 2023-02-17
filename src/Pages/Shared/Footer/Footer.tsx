@@ -48,8 +48,11 @@ const Footer = () => {
             </div>
             <div className=" flex items-center ">
               <FaArrowRight />{" "}
-              <Link to="/" className=" pl-2 link link-hover text-white">
-                Work Gallery
+              <Link
+                to="/workingenvironment"
+                className=" pl-2 link link-hover text-white"
+              >
+                Our Working Environment
               </Link>
             </div>
             <div className=" flex items-center ">
@@ -63,23 +66,17 @@ const Footer = () => {
             </div>
             <div className=" flex items-center ">
               <FaArrowRight />{" "}
-              <Link to="/" className=" pl-2 link link-hover text-white">
-                Our Team
+              <Link
+                to="/popularservice"
+                className=" pl-2 link link-hover text-white"
+              >
+                Popular Services
               </Link>
             </div>
             <div className=" flex items-center ">
               <FaArrowRight />{" "}
               <Link to="/blog" className=" pl-2 link link-hover text-white">
                 Latest Blog
-              </Link>
-            </div>
-            <div className=" flex items-center ">
-              <FaArrowRight />{" "}
-              <Link
-                to="/contactform"
-                className=" pl-2 link link-hover text-white"
-              >
-                Contact Us
               </Link>
             </div>
           </div>

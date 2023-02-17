@@ -1,22 +1,22 @@
-import Lottie from "lottie-react"
-import React, { useContext } from "react"
-import { Link, useNavigate } from "react-router-dom"
-import { AuthContext } from "../../../Context/AuthProvider/AuthProvider"
-import "./Navbar.css"
-import navlogo from "./navlogo.json"
+import Lottie from "lottie-react";
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
+import "./Navbar.css";
+import navlogo from "./navlogo.json";
 
 const Navbar = () => {
-  const { user, logOut, accType, isAdmin } = useContext(AuthContext)
-  const navigate = useNavigate()
+  const { user, logOut, accType, isAdmin } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleLogOut = () => {
-    logOut(navigate)
-  }
+    logOut(navigate);
+  };
   const menuItems = (
     <React.Fragment>
-      <li className="font-semibold hover:text-[#E81C2E]">
+      {/* <li className="font-semibold hover:text-[#E81C2E]">
         <Link to="/">Home</Link>
-      </li>
+      </li> */}
       <li className="font-semibold hover:text-[#E81C2E]">
         <Link to="/blog">Blog</Link>
       </li>
@@ -68,11 +68,10 @@ const Navbar = () => {
               />
             )}
           </label>
-         
         </div>
       )}
     </React.Fragment>
-  )
+  );
 
   return (
     <div className="navbar flex justify-between px-4 md:px-8 lg:px-12">
@@ -120,7 +119,7 @@ const Navbar = () => {
         <ul className="menu menu-horizontal p-0">{menuItems}</ul>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

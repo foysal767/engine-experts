@@ -228,40 +228,42 @@ const ServiceDetails = () => {
                     required
                   ></textarea>
                   <div className="flex gap-3 mt-2">
-                    <h4 className="text-lg font-bold text-black">Please Rate Us:</h4>
-                  <div className="rating gap-2">
-                    <input
-                      type="radio"
-                      name="rating"
-                      value="1"
-                      className="mask mask-star-2 bg-orange-500"
-                      checked
-                    />
-                    <input
-                      type="radio"
-                      name="rating"
-                      value="2"
-                      className="mask mask-star-2 bg-orange-500"
-                    />
-                    <input
-                      type="radio"
-                      name="rating"
-                      value="3"
-                      className="mask mask-star-2 bg-orange-500"
-                    />
-                    <input
-                      type="radio"
-                      name="rating"
-                      value="4"
-                      className="mask mask-star-2 bg-orange-500"
-                    />
-                    <input
-                      type="radio"
-                      name="rating"
-                      value="5"
-                      className="mask mask-star-2 bg-orange-500"
-                    />
-                  </div>
+                    <h4 className="text-lg font-bold text-black">
+                      Please Rate Us:
+                    </h4>
+                    <div className="rating gap-2">
+                      <input
+                        type="radio"
+                        name="rating"
+                        value="1"
+                        className="mask mask-star-2 bg-orange-500"
+                        checked
+                      />
+                      <input
+                        type="radio"
+                        name="rating"
+                        value="2"
+                        className="mask mask-star-2 bg-orange-500"
+                      />
+                      <input
+                        type="radio"
+                        name="rating"
+                        value="3"
+                        className="mask mask-star-2 bg-orange-500"
+                      />
+                      <input
+                        type="radio"
+                        name="rating"
+                        value="4"
+                        className="mask mask-star-2 bg-orange-500"
+                      />
+                      <input
+                        type="radio"
+                        name="rating"
+                        value="5"
+                        className="mask mask-star-2 bg-orange-500"
+                      />
+                    </div>
                   </div>
                 </div>
                 <button
@@ -333,7 +335,7 @@ const ServiceDetails = () => {
             <h1 className="text-3xl">Address</h1>
             <div>
               <h2 className="text-xl">Sector-11, Uttara,</h2>
-              <h2 className="text-xl">Dhaka-1230,  </h2>
+              <h2 className="text-xl">Dhaka-1230, </h2>
               <h1 className="text-xl">Bangladesh</h1>
             </div>
           </div>
@@ -360,27 +362,42 @@ const ServiceDetails = () => {
                   key={i}
                   className="container flex flex-col gap-3 w-full p-6 rounded divide-gray-700 bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] dark:text-gray-100 h-56"
                 >
-                  <div className="w-full flex items-center gap-2">
-                    <img className="w-[40px] h-[40px] rounded-full" src={review?.image} alt="" />
-                    <h1 className="text-start w-[60%] break-words">
-                      {review?.email}
-                    </h1>
+                  <div className="w-full flex items-center justify-between gap-2">
+                    <div>
+                      <img
+                        className="w-[40px] h-[40px] rounded-full"
+                        src={review?.image}
+                        alt=""
+                      />
+                    </div>
+                    <div>
+                      <h1 className="text-start w-[60%] ">{review?.email}</h1>
+                    </div>
                   </div>
                   <div className="flex justify-between">
+                    <div className="flex items-center  space-x-2 dark:text-yellow-500"></div>
+                  </div>
+                  <div className="text-start space-y-2 mt-0 text-lg dark:text-gray-400">
+                    <h3>{review?.service}</h3>
+                  </div>
+                  <div className="text-start space-y-2 text-sm dark:text-gray-400">
+                    <p>{review?.feedback}</p>
+                  </div>
+                  <hr className="border-t-2 mt-3 " />
+                  <div className="flex justify-between items-center">
                     <div className="">
                       <span className="text-xs dark:text-gray-400">
                         {review?.date}
                       </span>
                     </div>
-                    <div className="flex items-center  space-x-2 dark:text-yellow-500"></div>
+                    <div>
+                      <span className="text-xl flex gap-1">
+                        {[...Array(review?.rating)].map((star, i) => (
+                          <AiFillStar className="text-orange-500"></AiFillStar>
+                        ))}
+                      </span>
+                    </div>
                   </div>
-
-                  <div className="text-start space-y-2 text-sm dark:text-gray-400">
-                    <p>{review?.feedback}</p>
-                  </div>
-                  <span className="text-xl flex gap-1">
-                      {[...Array(review?.rating)].map((star, i) => <AiFillStar className="text-orange-500"></AiFillStar>)}
-                    </span>
                 </div>
               </SwiperSlide>
             ))}
@@ -418,7 +435,7 @@ const ServiceDetails = () => {
                 defaultValue={
                   details?.discountPrice
                     ? details?.discountPrice
-                    : details?.price 
+                    : details?.price
                 }
                 name="price"
                 className="input-bordered w-full rounded-md px-2 py-3 text-black bg-white border border-black"

@@ -6,7 +6,7 @@ const EngineExperties = () => {
     <section className="w-full h-[115vh] md:h-[67vh] lg:h-[85vh]  blog  px-4 md:px-8 lg:px-12 mb-6 lg:mb-28">
       <div className="w-full lg:w-[90%] mx-auto h-full  relative ">
         <h1 className="cssStyle text-4xl font-bold text-left pt-6">
-          Our Experties
+          Engine Experties
         </h1>
 
         <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 absolute top-20 lg:top-28">

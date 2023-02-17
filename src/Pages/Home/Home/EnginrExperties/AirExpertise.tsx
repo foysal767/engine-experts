@@ -4,11 +4,11 @@ const AirExpertise = () => {
   return (
     <section className="my-8 px-10">
       <div className="flex flex-col md:flex-row text-gray-400 gap-8">
-        <div className="sideBar basis-3/12"></div>
-        <div className="middleBar basis-6/12">
+        <div className="sideBar basis-1/12"></div>
+        <div className="middleBar basis-10/12">
           <div className="mb-10">
             <h1 className="text-2xl text-center text-gray-800 font-bold ">
-              How Automotive Air Conditioning Works
+              Expertise Of Automotive Air Conditioning Works
             </h1>
             <p className="text-xl text-gray-600 text-justify mt-4">
               When asked how car air conditioning systems work, most people
@@ -142,6 +142,7 @@ const AirExpertise = () => {
             </p>
           </div>
         </div>
+        <div className="rightBar basis-1/12"></div>
       </div>
     </section>
   )

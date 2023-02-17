@@ -26,13 +26,13 @@
 .navBtn{
   color: #fff;
   background-color: initial;
-  padding: 12px 80px;
+  padding: 12px 40px;
   clip-path: polygon(0 0,100% 0,100% calc(100% - 20px),100% 100%,0 100%,0 20px);
   border: 2px solid #E81C2E;
 }
 .navBtn:hover{
   clip-path: polygon(0 0,100% 0,100% calc(100% - 20px),100% 100%,0 100%,0 20px);
-  padding: 12px 80px;
+  padding: 12px 40px;
   background-color: #E81C2E;
   border: 2px solid #E81C2E;
 }
