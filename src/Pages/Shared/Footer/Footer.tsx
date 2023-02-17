@@ -79,15 +79,6 @@ const Footer = () => {
                 Latest Blog
               </Link>
             </div>
-            <div className=" flex items-center ">
-              <FaArrowRight />{" "}
-              <Link
-                to="/contactform"
-                className=" pl-2 link link-hover text-white"
-              >
-                Contact Us
-              </Link>
-            </div>
           </div>
 
           {/* Newsletter */}
