@@ -75,19 +75,19 @@ const MyReview = () => {
   }
 
   return (
-    <section className="text-black mt-5 px-4 md:px-12 lg:px-12">
+    <section className="text-black mt-5 px-4 md:px-12 lg:px-12 pb-6">
       {reviews?.length >= 1 ? (
         <h2 className="text-4xl">Total reviews : {reviews?.length}</h2>
       ) : (
         <h2 className="text-4xl mb-8 text-red-600">No reviews added yet.</h2>
       )}
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5">
+      <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-5">
         {reviews?.map((review: any, i: any) => (
           <div key={i} className="shadow-xl mx-auto px-4 py-5 w-full">
             <h3 className="text-left text-xl font-bold">{review?.service}</h3>
             <div className="flex items-center">
               <img
-                className="w-[180px] h-[80px] my-2"
+                className="w-[180px] h-[120px] my-2"
                 src={review?.image}
                 alt=""
               />
