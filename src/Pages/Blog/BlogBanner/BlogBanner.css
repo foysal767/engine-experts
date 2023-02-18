@@ -66,15 +66,15 @@
     background: rgba(255,255,255,.25);
     background: linear-gradient(to right,rgba(255,255,255,.25) 0%,rgba(255,255,255,.13) 77%,rgba(255,255,255,.5) 92%,#fff 100%);
 } */
-.bannerCar:hover .bannerImg {
+/* .bannerCar:hover .bannerImg {
   display: none;
-}
-.bannerLightImg {
+} */
+/* .bannerLightImg {
   display: none;
-}
-.bannerCar:hover .bannerLightImg {
+} */
+/* .bannerCar:hover .bannerLightImg {
   display: block;
-}
+} */
 /* @media only screen and (max-width: 600px){
     .banner{
        height: 20vh;
