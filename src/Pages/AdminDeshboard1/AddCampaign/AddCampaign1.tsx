@@ -130,7 +130,7 @@ const AddCampaign1 = () => {
     );
   }
   return (
-    <section className="w-full lg:w-[90%] md:w-[80%] mx-auto px-4 md:px-8 lg:px-12 bg-[#EBF2F4] pb-10 lg:mt-2 md:mt-4 sm:mt-20">
+    <section className="w-full lg:w-[90%] md:w-[80%] mx-auto px-4 md:px-8 lg:px-12 bg-[#EBF2F4] py-20 lg:mt-2 md:mt-4 sm:mt-20">
       <div className="flex justify-between items-center px-4 mb-5">
         <h1 className="text-2xl  text-start">Campaigns are available here</h1>
         {/* <button className="w-[180px] lg:h-[50px] rounded bg-blue-500 text-xl">

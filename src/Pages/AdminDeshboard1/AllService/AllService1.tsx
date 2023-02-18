@@ -107,8 +107,8 @@ const AllService1 = () => {
     );
   }
   return (
-    <section className="w-full lg:w-[80%] md:w-[80%] mx-auto px-4 md:px-8 lg:px-12 bg-[#EBF2F4] pb-10">
-      <div className="w-full lg:flex justify-between lg:items-center mb-5 mt-16 text-start">
+    <section className="w-full lg:w-[80%] md:w-[80%] mx-auto px-4 md:px-8 lg:px-12 bg-[#EBF2F4] py-20">
+      <div className="w-full lg:flex justify-between lg:items-center mb-5  text-start">
         <h1 className="text-2xl  text-start mb-6">
           Total Available Services: {services?.length}
         </h1>
@@ -121,7 +121,10 @@ const AllService1 = () => {
       <div className="flex flex-col gap-4">
         {services?.map((service: any, i: any) => (
           // <div className="flex flex-col lg:flex-row gap-3 justify-between items-center px-4 py-3 text-xl bg-[#d9dee4] rounded border text-center">
-          <div key={i} className="grid lg:grid-cols-6 md:grid-cols-1 sm:grid-cols-1 gap-8 items-center bg-[#d9dee4] rounded border text-center px-4 py-3 text-xl">
+          <div
+            key={i}
+            className="grid lg:grid-cols-6 md:grid-cols-1 sm:grid-cols-1 gap-8 items-center bg-[#d9dee4] rounded border text-center px-4 py-3 text-xl"
+          >
             <h2>{i + 1}.</h2>
             <img
               className="w-[50px] hidden lg:block h-[50px] rounded-full bg-gray-300"

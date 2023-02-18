@@ -1,5 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
@@ -13,26 +12,29 @@ const AllOrders1 = () => {
   const { isAdmin } = useContext(AuthContext);
   const [sellers, setSellers] = useState<sellers>();
   const [specificSellers, setSpecificSellers] = useState([]);
+  const [page, setPage] = useState(0);
+  const [length, setLength] = useState(0);
+  const [loader, setLoader] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [orders, setOrders] = useState([]);
   const location = useLocation();
   if (!isAdmin) {
     <Navigate to="/" state={{ from: location }} replace></Navigate>;
   }
 
-  const {
-    data: orders = [],
-    isLoading,
-    refetch,
-  } = useQuery({
-    queryKey: ["orders"],
-    queryFn: async () => {
-      const res = await fetch(
-        `https://engine-experts-server-phi.vercel.app/allBookings`
-      );
-      const data = await res.json();
-      getSeller();
-      return data.data;
-    },
-  });
+  useEffect(() => {
+    setIsLoading(true);
+    fetch(`http://localhost:5000/allBookings?page=${page}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setLength(Math.ceil(data?.length / 10));
+          setOrders(data?.data);
+          getSeller();
+          setIsLoading(false);
+        }
+      });
+  }, [loader, page]);
   // console.log("all sellers", sellers);
   const handleOrderDelete = (id: any, name: any) => {
     const confirm = window.confirm(
@@ -48,13 +50,17 @@ const AllOrders1 = () => {
         .then((res) => res.json())
         .then((data) => {
           if (data.success) {
-            refetch();
+            setLoader(!loader);
             toast.success(data.message);
           }
         });
     }
   };
-
+  const handlePage = (i: any) => {
+    setPage(i);
+    setLoader(!loader);
+  };
+  console.log("page no findings", page);
   const getSeller = () => {
     fetch(`https://engine-experts-server-phi.vercel.app/getSeller`)
       .then((res) => res.json())
@@ -88,7 +94,7 @@ const AllOrders1 = () => {
           .then((res) => res.json())
           .then((data) => {
             if (data.success) {
-              refetch();
+              setLoader(!loader);
               toast.success(data?.message);
             }
           });
@@ -103,7 +109,7 @@ const AllOrders1 = () => {
     );
   }
   return (
-    <section className="w-full md:w-[80%] mx-auto px-4 md:px-8 lg:px-12 bg-[#EBF2F4] pb-10">
+    <section className="w-full md:w-[80%] mx-auto px-4 md:px-8 lg:px-12 bg-[#EBF2F4] py-20">
       <h1 className="text-2xl  text-start mb-6">All orders Available here</h1>
       <div className="w-full flex flex-col gap-4">
         <select
@@ -159,6 +165,36 @@ const AllOrders1 = () => {
             </button>
           </div>
         ))}
+      </div>
+      <div className="w-full flex h-[30px] mt-8 text-center items-center justify-center">
+        <ul className="flex gap-2">
+          <li
+            className={`bg-gray-400 px-2 rounded cursor-pointer ${
+              page === 0 ? "hidden" : "block"
+            }`}
+            onClick={() => setPage(page - 1)}
+          >
+            Prev
+          </li>
+          {[...Array(length)].map((order: any, i: any) => (
+            <li
+              className={`${
+                page === i ? "bg-red-400" : "bg-gray-400"
+              } px-2 rounded cursor-pointer`}
+              onClick={() => handlePage(i)}
+            >
+              {i + 1}
+            </li>
+          ))}
+          <li
+            className={`bg-gray-400 px-2 rounded cursor-pointer ${
+              length === page + 1 ? "hidden" : "block"
+            }`}
+            onClick={() => setPage(page + 1)}
+          >
+            Next
+          </li>
+        </ul>
       </div>
     </section>
   );

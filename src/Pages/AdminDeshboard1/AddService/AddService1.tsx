@@ -22,7 +22,7 @@ const AddService1 = () => {
       details,
       image,
       Totalreviews: 0,
-      discountPrice: ""
+      discountPrice: "",
     };
     fetch("https://engine-experts-server-phi.vercel.app/addservice", {
       method: "POST",
@@ -40,10 +40,8 @@ const AddService1 = () => {
       });
   };
   return (
-    <section className="w-full lg:w-[80%] md:w-[80%] mx-auto px-4 md:px-8 lg:px-12 bg-[#EBF2F4] pb-10">
-      <h1 className="text-2xl  text-start mb-6">
-        Add Your Desired service
-      </h1>
+    <section className="w-full lg:w-[80%] md:w-[80%] mx-auto px-4 md:px-8 lg:px-12 bg-[#EBF2F4] py-20">
+      <h1 className="text-2xl  text-start mb-6">Add Your Desired service</h1>
       <form className="flex flex-col gap-4 w-full" onSubmit={addService}>
         <div className="w-full grid lg:grid-cols-2 gap-4">
           <input
