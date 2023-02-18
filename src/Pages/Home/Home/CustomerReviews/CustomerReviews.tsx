@@ -1,9 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { SiTrustpilot } from "react-icons/si";
 import { Autoplay, Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { AiFillStar } from "react-icons/ai";
-
 
 // Import Swiper styles
 import "swiper/css";
@@ -57,16 +56,17 @@ const CustomerReviews = () => {
             >
               <div className="w-full flex items-center justify-between gap-2">
                 <div>
-                  <img className="w-[40px] h-[40px] rounded-full" src={review?.image} alt="" />
+                  <img
+                    className="w-[40px] h-[40px] rounded-full"
+                    src={review?.image}
+                    alt=""
+                  />
                 </div>
                 <div>
-                  <h1 className="text-start w-[60%] ">
-                    {review?.email}
-                  </h1>
+                  <h1 className="text-start w-[60%] ">{review?.email}</h1>
                 </div>
               </div>
               <div className="flex justify-between">
-
                 <div className="flex items-center  space-x-2 dark:text-yellow-500"></div>
               </div>
               <div className="text-start space-y-2 mt-0 text-lg dark:text-gray-400">
@@ -79,12 +79,14 @@ const CustomerReviews = () => {
               <div className="flex justify-between items-center">
                 <div className="">
                   <span className="text-xs dark:text-gray-400">
-                    {review?.date} 
+                    {review?.date}
                   </span>
                 </div>
                 <div>
                   <span className="text-xl flex gap-1">
-                    {[...Array(review?.rating)].map((star, i) => <AiFillStar className="text-orange-500"></AiFillStar>)}
+                    {[...Array(review?.rating)].map((star, i) => (
+                      <SiTrustpilot className="text-[#E81C2E]"></SiTrustpilot>
+                    ))}
                   </span>
                 </div>
               </div>

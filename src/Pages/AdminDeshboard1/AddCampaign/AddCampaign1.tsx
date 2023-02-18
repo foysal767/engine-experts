@@ -9,16 +9,7 @@ const AddCampaign1 = () => {
   if (!isAdmin) {
     <Navigate to="/" state={{ from: location }} replace></Navigate>;
   }
-  const { data: services = [], isLoading } = useQuery({
-    queryKey: ["services"],
-    queryFn: async () => {
-      const res = await fetch(
-        "https://engine-experts-server-phi.vercel.app/services"
-      );
-      const data = await res.json();
-      return data.data;
-    },
-  });
+
   const [selectedService, setSelectedService] = useState("");
   const [originalPrice, setOriginalPrice] = useState();
   // const [startDate, setStartDate] = useState();
@@ -35,6 +26,31 @@ const AddCampaign1 = () => {
         }
       });
   }, [selectedService, originalPrice]);
+
+  const { data: services = [], isLoading } = useQuery({
+    queryKey: ["services"],
+    queryFn: async () => {
+      const res = await fetch(
+        "https://engine-experts-server-phi.vercel.app/services"
+      );
+      const data = await res.json();
+      return data.data;
+    },
+  });
+
+  const { data: discount = [], refetch } = useQuery({
+    queryKey: ["discount"],
+    queryFn: async () => {
+      const res = await fetch(
+        "https://engine-experts-server-phi.vercel.app/campaign"
+      );
+      const data = await res.json();
+      setCampName(data.data[0].campaignName);
+      setEndedDate(data?.data[0]?.endDate);
+      // setStartDate(data?.data[0]?.startDate);
+      return data?.data[0];
+    },
+  });
 
   const handleStartCam = (e: any) => {
     e.preventDefault();
@@ -106,19 +122,6 @@ const AddCampaign1 = () => {
       });
   };
 
-  const { data: discount = [], refetch } = useQuery({
-    queryKey: ["discount"],
-    queryFn: async () => {
-      const res = await fetch(
-        "https://engine-experts-server-phi.vercel.app/campaign"
-      );
-      const data = await res.json();
-      setCampName(data.data[0].campaignName);
-      setEndedDate(data?.data[0]?.endDate);
-      // setStartDate(data?.data[0]?.startDate);
-      return data?.data[0];
-    },
-  });
   if (isLoading) {
     return (
       <div className="grid place-items-center w-full h-screen">
@@ -129,9 +132,7 @@ const AddCampaign1 = () => {
   return (
     <section className="w-full lg:w-[90%] md:w-[80%] mx-auto px-4 md:px-8 lg:px-12 bg-[#EBF2F4] pb-10 lg:mt-2 md:mt-4 sm:mt-20">
       <div className="flex justify-between items-center px-4 mb-5">
-        <h1 className="text-2xl  text-start">
-          Campaigns are available here
-        </h1>
+        <h1 className="text-2xl  text-start">Campaigns are available here</h1>
         {/* <button className="w-[180px] lg:h-[50px] rounded bg-blue-500 text-xl">
           Add New Campaign
         </button> */}
@@ -215,7 +216,9 @@ const AddCampaign1 = () => {
             onClick={(e: any) => setSelectedService(e.target.value)}
           >
             {services?.map((service: any, i: any) => (
-              <option key={i} value={service?.name}>{service?.name}</option>
+              <option key={i} value={service?.name}>
+                {service?.name}
+              </option>
             ))}
           </select>
           <input
@@ -223,7 +226,7 @@ const AddCampaign1 = () => {
             type="text"
             name="originalprice"
             placeholder="Original Price"
-            defaultValue={originalPrice } 
+            defaultValue={originalPrice}
           />
           <input
             className="bg-white w-[168%] lg:w-full h-[53px] rounded px-2"
@@ -251,7 +254,10 @@ const AddCampaign1 = () => {
         </div>
         {/* card starts from here */}
         {discount?.services?.map((service: any, i: any) => (
-          <div key={i} className=" grid lg:grid-cols-7 md:grid-cols-1 sm:grid-cols-1 gap-3 items-center px-4 py-2 text-xl bg-[#d9dee4] rounded border">
+          <div
+            key={i}
+            className=" grid lg:grid-cols-7 md:grid-cols-1 sm:grid-cols-1 gap-3 items-center px-4 py-2 text-xl bg-[#d9dee4] rounded border"
+          >
             <h2>{i + 1}</h2>
             <img
               className="w-[50px] h-[50px] hidden lg:block rounded-full bg-gray-300"

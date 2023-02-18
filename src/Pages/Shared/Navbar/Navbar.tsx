@@ -26,7 +26,7 @@ const Navbar = () => {
       <li className="font-semibold hover:text-[#E81C2E]">
         <Link to="/contactform">Contact Us</Link>
       </li>
-      {user?.uid &&
+      {user &&
         (accType === "Seller" ||
           accType === "User" ||
           isAdmin ||
