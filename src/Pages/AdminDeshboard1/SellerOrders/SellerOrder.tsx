@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
-import { Navigate, useLocation } from "react-router-dom";
+import { Link, Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 
 const SellerOrder = () => {
@@ -77,6 +77,7 @@ const SellerOrder = () => {
               <option value="In Progress">In Progress</option>
               <option value="Done">Done</option>
             </select> */}
+            <Link to={"/dashboard1/orderdetails"}><button className="bg-green-600 rounded-xl text-white px-3">See Details</button></Link>
             <button
               className="bg-blue-500 px-3 rounded-xl"
               onClick={() => handleCompleted(order?._id)}
