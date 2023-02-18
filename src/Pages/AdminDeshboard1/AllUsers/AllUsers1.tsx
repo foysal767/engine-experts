@@ -103,7 +103,7 @@ const AllUsers1 = () => {
     );
   }
   return (
-    <section className="w-full lg:w-[90%] md:w-[80%] mx-auto px-4 md:px-8 lg:px-12 bg-[#EBF2F4] pb-10">
+    <section className="w-full lg:w-[90%] md:w-[80%] mx-auto px-4 md:px-8 lg:px-12 bg-[#EBF2F4] py-20">
       <GoogleMaps></GoogleMaps>
       <h1 className="text-2xl  text-start mb-6">
         Total Active Users: {users?.length}
@@ -122,7 +122,10 @@ const AllUsers1 = () => {
       <div className="w-full grid lg:grid-cols-2 gap-4 lg:px-3">
         {/* Single card starts from here */}
         {users?.map((user: any, i: any) => (
-          <div key={i} className="border flex justify-between items-center gap-2 p-5 text-start ">
+          <div
+            key={i}
+            className="border flex justify-between items-center gap-2 p-5 text-start "
+          >
             <img
               src={user?.image}
               alt=""

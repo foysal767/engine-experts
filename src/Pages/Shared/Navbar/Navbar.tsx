@@ -74,7 +74,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar flex justify-between px-4 md:px-8 lg:px-12">
+    <div className="navbar bg-cover bg-center flex justify-between px-4 md:px-8 lg:px-12">
       <div className="navbar-start ">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
