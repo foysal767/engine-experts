@@ -66,13 +66,12 @@ const BlogService = () => {
           <div className="mb-10 flex flex-col-reverse md:flex-row lg:flex-row gap-4 justify-center items-center cursor-pointer hover:bg-black hover:bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] text-gray-600 hover:text-white p-4">
             <div className="">
               <h1 className="text-2xl text-center font-bold ">
-                How Automotive Air Conditioning Works
+                Blog Of How Automotive Air Conditioning Works ?
               </h1>
               <p className="text-xl text-justify mt-4">
                 When asked how car air conditioning systems work, most people
                 would respond, “I don’t care how they work, I just want them to
-                work!” While that may be a common response, it does not answer
-                the question.
+                work!” While that may be a common response
               </p>
             </div>
             <img
@@ -86,14 +85,13 @@ const BlogService = () => {
           <div className="mb-10 flex flex-col-reverse md:flex-row lg:flex-row gap-4 justify-center items-center cursor-pointer hover:bg-black hover:bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] text-gray-600 hover:text-white p-4">
             <div>
               <h1 className="text-2xl text-center font-bold ">
-                Expansion Valve System
+                Blog Expansion Valve System
               </h1>
               <p className="text-xl text-justify mt-4">
                 Expansion valves are devices used to control the refrigerant
                 flow in a refrigeration system. They help to facilitate the
                 change of higher pressure of liquid refrigerant in the
-                condensing unit to lower pressure gas refrigerant in the
-                evaporator.
+                condensing unit
               </p>
             </div>
             <img
@@ -107,15 +105,13 @@ const BlogService = () => {
           <div className="mb-10 flex flex-col-reverse md:flex-row lg:flex-row gap-4 justify-center items-center cursor-pointer hover:bg-black hover:bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] text-gray-600 hover:text-white p-4">
             <div>
               <h1 className="text-2xl text-center font-bold ">
-                Orifice Tube system
+                Blog Orifice Tube system
               </h1>
               <p className="text-xl text-justify mt-4">
                 An orifice tube is similar to an expansion valve, with both
                 performing an important function in a vehicle’s A/C system. The
                 valve helps control the flow of refrigerant through the
-                evaporator, which is the main cooling component of the system.
-                An expansion valve controls this flow directly through a
-                modulating rod,
+                evaporator
               </p>
             </div>
             <img
@@ -129,14 +125,12 @@ const BlogService = () => {
           <div className="mb-10 flex flex-col-reverse md:flex-row lg:flex-row gap-4 justify-center items-center cursor-pointer hover:bg-black hover:bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] text-gray-600 hover:text-white p-4">
             <div>
               <h1 className="text-2xl text-center font-bold ">
-                A/C Components Description
+                Blog A/C Components Description
               </h1>
               <p className="text-xl text-justify mt-4">
                 To keep our environment to our desired temperature, the air
                 conditioning system is the device that helps us achieve that.
-                The system is so common that one can experience its effect
-                anywhere we enter. It can be installed in our house, office,
-                cars, even a modern religious centre now have it.
+                The system is so common
               </p>
             </div>
             <img
