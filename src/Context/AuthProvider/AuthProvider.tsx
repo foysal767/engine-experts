@@ -179,9 +179,9 @@ const AuthProvider = ({ children }: childrenType) => {
                   if (data.success) {
                     updateUser(name, photoURL);
                     localStorage.setItem("access-token", data.token);
-                    toast.success("successfully crated user");
                     navigate("/");
                     setLoading(false);
+                    toast.success("successfully crated user");
                   }
                 });
             }
@@ -300,7 +300,7 @@ const AuthProvider = ({ children }: childrenType) => {
     });
 
     return () => unsubscribe();
-  }, [user]);
+  }, [user,userEmail]);
 
   const authInfo = {
     user,

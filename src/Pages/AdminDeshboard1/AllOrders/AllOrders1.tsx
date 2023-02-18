@@ -33,7 +33,7 @@ const AllOrders1 = () => {
       return data.data;
     },
   });
-  console.log("all sellers", sellers);
+  // console.log("all sellers", sellers);
   const handleOrderDelete = (id: any, name: any) => {
     const confirm = window.confirm(
       `Are you sure, want to delete this ${name}?`
@@ -48,8 +48,8 @@ const AllOrders1 = () => {
         .then((res) => res.json())
         .then((data) => {
           if (data.success) {
-            toast.success(data.message);
             refetch();
+            toast.success(data.message);
           }
         });
     }
@@ -73,22 +73,26 @@ const AllOrders1 = () => {
   };
 
   const sendOrders = (email: any, id: any) => {
-    const confirm = window.confirm(
-      `Are you sure you want to slect ${email} for this service ${id}`
-    );
-    if (confirm) {
-      fetch(
-        `https://engine-experts-server-phi.vercel.app/getSeller?email=${email}&id=${id}`,
-        {
-          method: "PATCH",
-        }
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.success) {
-            toast.success(data?.message);
+    const checkEmail = email.includes("@");
+    if (checkEmail) {
+      const confirm = window.confirm(
+        `Are you sure you want to slect ${email} for this service ${id}`
+      );
+      if (confirm) {
+        fetch(
+          `https://engine-experts-server-phi.vercel.app/getSeller?email=${email}&id=${id}`,
+          {
+            method: "PATCH",
           }
-        });
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.success) {
+              refetch();
+              toast.success(data?.message);
+            }
+          });
+      }
     }
   };
   if (isLoading) {
@@ -100,9 +104,7 @@ const AllOrders1 = () => {
   }
   return (
     <section className="w-full md:w-[80%] mx-auto px-4 md:px-8 lg:px-12 bg-[#EBF2F4] pb-10">
-      <h1 className="text-2xl  text-start mb-6">
-        All orders Available here
-      </h1>
+      <h1 className="text-2xl  text-start mb-6">All orders Available here</h1>
       <div className="w-full flex flex-col gap-4">
         <select
           className="w-[160px] h-[45px] bg-white rounded px-3"
