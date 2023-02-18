@@ -25,22 +25,6 @@
   background-color: #e81c2e;
   border: 2px solid #e81c2e;
 }
-/* .getbtn::after{
-    content: '';
-    position: absolute;
-    top: -110%;
-    left: -210%;
-    width: 400%;
-    height: 150%;
-    opacity: 0;
-    transform: rotate(30deg);
-    background: rgba(255,255,255,.25);
-    background: linear-gradient(to right,rgba(255,255,255,.25) 0%,rgba(255,255,255,.13) 77%,rgba(255,255,255,.5) 92%,#fff 100%);
-} */
-
-/* .banner-bg {
-    background-image: linear-gradient(to left, #000000, #ff0000);
-} */
 .bannerBtn:hover {
   color: #fff;
   background-color: initial;
@@ -54,29 +38,3 @@
   );
   border: 2px solid #e81c2e;
 }
-/* .getbtn:hover .getbtn::after{
-      content: '';
-    position: absolute;
-    top: -110%;
-    left: -210%;
-    width: 400%;
-    height: 150%;
-    opacity: 0;
-    transform: rotate(30deg);
-    background: rgba(255,255,255,.25);
-    background: linear-gradient(to right,rgba(255,255,255,.25) 0%,rgba(255,255,255,.13) 77%,rgba(255,255,255,.5) 92%,#fff 100%);
-} */
-/* .bannerCar:hover .bannerImg {
-  display: none;
-} */
-/* .bannerLightImg {
-  display: none;
-} */
-/* .bannerCar:hover .bannerLightImg {
-  display: block;
-} */
-/* @media only screen and (max-width: 600px){
-    .banner{
-       height: 20vh;
-    }
-} */

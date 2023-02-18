@@ -1,4 +1,3 @@
-import "./Blog.css"
 import BlogBanner from "./BlogBanner/BlogBanner"
 import BlogService from "./BlogService/BlogService"
 const Blog = () => {
