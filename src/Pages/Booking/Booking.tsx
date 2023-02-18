@@ -47,6 +47,7 @@ const Booking = () => {
           <div key={i}>
             <div className="grid grid-cols-5 gap-2 lg:gap-3 items-center my-5 bg-gray-200 rounded py-2 px-2 h-[80px]">
               <span>
+                <p className="inline mr-2">{i + 1}</p>
                 <img
                   className="lg:w-[80px] w-[50px] mx-auto"
                   src={booking?.image}

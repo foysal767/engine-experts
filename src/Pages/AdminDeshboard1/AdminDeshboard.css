@@ -1,6 +1,9 @@
 .adminbanner {
   clip-path: ellipse(88% 60% at 52% 30%);
   background-image: linear-gradient(90deg, #4d7084e7, #204458);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 .droping {
   display: none;
@@ -13,4 +16,18 @@
   display: flex;
   top: 32px;
   left: 0px;
+}
+.activedroping {
+  display: flex;
+  top: 32px;
+  left: 0px;
+}
+.activeBg {
+  background-image: linear-gradient(180deg,
+    #4d7084bb,
+    #204458d2), url('/public/assets/card-bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /* bg-gradient-to-r from-[#22465A] to-[#5C7B8E] 'bg-[url(' /public/assets/card-bg.png')]' */
 }
