@@ -122,6 +122,21 @@ const AddCampaign1 = () => {
       });
   };
 
+  const handleDelete = (name: any) => {
+    fetch(`http://localhost:5000/campaignService?name=${name}`, {
+      method: "PATCH",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data?.success) {
+          toast.success(data?.message);
+          refetch();
+        } else {
+          toast.error(data?.message);
+        }
+      });
+  };
+
   if (isLoading) {
     return (
       <div className="grid place-items-center w-full h-screen">
@@ -268,7 +283,12 @@ const AddCampaign1 = () => {
             <h2>${service?.price}</h2>
             <h2>${service?.discountPrice}</h2>
             <button className="bg-green-500 btn-sm rounded-xl">Edit</button>
-            <button className="bg-red-500 btn-sm rounded-xl">Delete</button>
+            <button
+              className="bg-red-500 btn-sm rounded-xl"
+              onClick={() => handleDelete(service?.name)}
+            >
+              Delete
+            </button>
           </div>
         ))}
       </div>
