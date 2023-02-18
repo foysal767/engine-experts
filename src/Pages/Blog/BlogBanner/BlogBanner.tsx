@@ -32,7 +32,7 @@ const BlogBanner = () => {
           </div>
           <div>
             <img
-              className="absolute top-[41.6%] right-[25.7%] rotation  z-10 hidden lg:block"
+              className="absolute top-[41%] right-[25.7%] rotation  z-10 hidden lg:block"
               src="assets/circle4[90].png"
               alt=""
             />

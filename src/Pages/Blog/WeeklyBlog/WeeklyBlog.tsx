@@ -13,20 +13,28 @@ const WeeklyBlog = () => {
         <div className="leftWeeklyBlog text-2xl text-black font-bold basis-8/12">
           <div className="weeklyCounter">
             <div>
-              <h1 className="text-2xl text-gray-700 font-bold text-left">
-                Diesel of the week
-              </h1>
-              <hr className="text-2xl border-red-400 border-b-2" />
-              <img
-                className="w-full"
-                src="assets/image-gallery/Engine-Service-&-Repair.jpg"
-                alt=""
-              />
+              <div className="flex justify-center items-center gap-4">
+                <img
+                  className="w-28 h-28 rounded-full"
+                  src="assets/users/users1.png"
+                  alt=""
+                />
+                <p className="text-lg text-gray-500 font-semibold text-center lg:text-justify">
+                  <span className="text-gray-700 font-bold">
+                    Name: James Cameroon
+                  </span>{" "}
+                  <br />
+                  Expansion valves are devices used to control the refrigerant
+                  flow in a refrigeration system. They help to facilitate the
+                  change of higher pressure
+                </p>
+              </div>
+              <hr className="text-2xl border-red-400 border-b-2 mt-2" />
             </div>
           </div>
         </div>
         <div className="rightWeeklyBlog text-2xl text-gray-700 font-bold basis-4/12">
-          Diesel of the month
+          Regular Blog
         </div>
       </div>
     </section>
