@@ -20,6 +20,7 @@ const useAccType = (data: any) => {
         });
     }
   }, [data]);
+
   return [accType, isAccLoading];
 };
 export default useAccType;

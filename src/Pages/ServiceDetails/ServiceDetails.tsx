@@ -6,7 +6,7 @@ import { Autoplay, Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import "./ServiceDetails.css";
-import { AiFillStar } from 'react-icons/ai';
+import { SiTrustpilot } from "react-icons/si";
 
 // Import Swiper styles
 import "swiper/css";
@@ -393,7 +393,7 @@ const ServiceDetails = () => {
                     <div>
                       <span className="text-xl flex gap-1">
                         {[...Array(review?.rating)].map((star, i) => (
-                          <AiFillStar className="text-orange-500"></AiFillStar>
+                          <SiTrustpilot className="text-[#E81C2E]"></SiTrustpilot>
                         ))}
                       </span>
                     </div>
