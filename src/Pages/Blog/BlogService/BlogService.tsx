@@ -49,8 +49,28 @@ const BlogService = () => {
               alt=""
             />
             <p className="text-gray-600 mb-4">
-              Expansion valves are devices used to control the refrigerant flow
-              in a refrigeration system. They help to facilitate....
+              <div className="collapse">
+                <input type="checkbox" />
+                <div className="collapse-title text-xl font-medium">
+                  Details Expansion
+                </div>
+                <div className="collapse-content">
+                  <p>
+                    These formidable engines, our six Best Engines evaluators
+                    believe, are — or, for repeat winners, remain — benchmark
+                    executions of engine design, innovation, manufacturing. They
+                    excel in a business that holds their "contribution" to the
+                    overall product in the highest regard and stand proud of the
+                    conventional For 2001’s installment, nothing about the Best
+                    Engines contest has changed. Each engine nominated by our
+                    six editors must stand up to every other nominated engine in
+                    a battle unsullied by the marketing-happy "category
+                    competition" that so devalues other industry awards. We
+                    don’t "sell" the Best Engines to anybody. These engines have
+                    to sell themselves to us.
+                  </p>
+                </div>
+              </div>
             </p>
           </div>
 
@@ -62,8 +82,28 @@ const BlogService = () => {
               alt=""
             />
             <p className="text-gray-600 mb-4">
-              An orifice tube is similar to an expansion valve, with both
-              performing an important function in a vehicle’s A/C system....
+              <div className="collapse">
+                <input type="checkbox" />
+                <div className="collapse-title text-xl font-medium">
+                  Details Orifice
+                </div>
+                <div className="collapse-content">
+                  <p>
+                    These formidable engines, our six Best Engines evaluators
+                    believe, are — or, for repeat winners, remain — benchmark
+                    executions of engine design, innovation, manufacturing. They
+                    excel in a business that holds their "contribution" to the
+                    overall product in the highest regard and stand proud of the
+                    conventional For 2001’s installment, nothing about the Best
+                    Engines contest has changed. Each engine nominated by our
+                    six editors must stand up to every other nominated engine in
+                    a battle unsullied by the marketing-happy "category
+                    competition" that so devalues other industry awards. We
+                    don’t "sell" the Best Engines to anybody. These engines have
+                    to sell themselves to us.
+                  </p>
+                </div>
+              </div>
             </p>
           </div>
 
@@ -75,8 +115,28 @@ const BlogService = () => {
               alt=""
             />
             <p className="text-gray-600 mb-4">
-              To keep our environment to our desired temperature, the air
-              conditioning system is the device that helps us achieve that....
+              <div className="collapse">
+                <input type="checkbox" />
+                <div className="collapse-title text-xl font-medium">
+                  Details A/C
+                </div>
+                <div className="collapse-content">
+                  <p>
+                    These formidable engines, our six Best Engines evaluators
+                    believe, are — or, for repeat winners, remain — benchmark
+                    executions of engine design, innovation, manufacturing. They
+                    excel in a business that holds their "contribution" to the
+                    overall product in the highest regard and stand proud of the
+                    conventional For 2001’s installment, nothing about the Best
+                    Engines contest has changed. Each engine nominated by our
+                    six editors must stand up to every other nominated engine in
+                    a battle unsullied by the marketing-happy "category
+                    competition" that so devalues other industry awards. We
+                    don’t "sell" the Best Engines to anybody. These engines have
+                    to sell themselves to us.
+                  </p>
+                </div>
+              </div>
             </p>
           </div>
         </div>

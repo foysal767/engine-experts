@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const LatestBlog = () => {
   return (
     <section className="my-16">
@@ -13,61 +15,69 @@ const LatestBlog = () => {
             </div>
             <hr className="text-2xl border-red-400 border-b-2 mb-4" />
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-              <div className="hover:bg-red-400 w-72 rounded-md p-4">
-                <img
-                  className="w-72 rounded-lg cursor-pointer"
-                  src="assets/image-gallery/Performance-upgrade.jpg"
-                  alt=""
-                />
-                <h2 className="text-xl text-white mt-2 font-semibold text-left cursor-pointer">
-                  Performance-upgrade <br /> Engine
-                </h2>
-                <p className="text-white bg-red-600 px-8 py-1 rounded-md w-48 mt-2">
-                  Feb 10, 2023
-                </p>
-              </div>
+              <Link to="/performance">
+                <div className="hover:bg-red-400 w-72 rounded-md p-4">
+                  <img
+                    className="w-72 rounded-lg cursor-pointer"
+                    src="assets/image-gallery/Performance-upgrade.jpg"
+                    alt=""
+                  />
+                  <h2 className="text-xl text-white mt-2 font-semibold text-left cursor-pointer">
+                    Performance-upgrade <br /> Engine
+                  </h2>
+                  <p className="text-white bg-red-600 px-8 py-1 rounded-md w-48 mt-2">
+                    Feb 10, 2023
+                  </p>
+                </div>
+              </Link>
 
-              <div className="hover:bg-red-400 w-72 rounded-md p-4">
-                <img
-                  className="w-72 rounded-lg cursor-pointer"
-                  src="assets/image-gallery/Denting-&-Painting.jpg"
-                  alt=""
-                />
-                <h2 className="text-xl text-white mt-2 font-semibold text-left cursor-pointer">
-                  Denting-&-Painting <br /> Engine
-                </h2>
-                <p className="text-white bg-red-600 px-8 py-1 rounded-md w-48 mt-2">
-                  Feb 10, 2023
-                </p>
-              </div>
+              <Link to="/paintingblog">
+                <div className="hover:bg-red-400 w-72 rounded-md p-4">
+                  <img
+                    className="w-72 rounded-lg cursor-pointer"
+                    src="assets/image-gallery/Denting-&-Painting.jpg"
+                    alt=""
+                  />
+                  <h2 className="text-xl text-white mt-2 font-semibold text-left cursor-pointer">
+                    Denting-&-Painting <br /> Engine
+                  </h2>
+                  <p className="text-white bg-red-600 px-8 py-1 rounded-md w-48 mt-2">
+                    Feb 10, 2023
+                  </p>
+                </div>
+              </Link>
 
-              <div className="hover:bg-red-400 w-72 rounded-md p-4">
-                <img
-                  className="w-72 rounded-lg cursor-pointer"
-                  src="assets/image-gallery/Tyre-&-Wheels.jpg"
-                  alt=""
-                />
-                <h2 className="text-xl mt-2 text-white font-semibold text-left cursor-pointer">
-                  Tyre-&-Wheels - 8567 <br /> Engine
-                </h2>
-                <p className="text-white bg-red-600 px-8 py-1 rounded-md w-48 mt-2">
-                  Feb 10, 2023
-                </p>
-              </div>
+              <Link to="/tyre">
+                <div className="hover:bg-red-400 w-72 rounded-md p-4">
+                  <img
+                    className="w-72 rounded-lg cursor-pointer"
+                    src="assets/image-gallery/Tyre-&-Wheels.jpg"
+                    alt=""
+                  />
+                  <h2 className="text-xl mt-2 text-white font-semibold text-left cursor-pointer">
+                    Tyre-&-Wheels - 8567 <br /> Engine
+                  </h2>
+                  <p className="text-white bg-red-600 px-8 py-1 rounded-md w-48 mt-2">
+                    Feb 10, 2023
+                  </p>
+                </div>
+              </Link>
 
-              <div className="hover:bg-red-400 w-72 rounded-md p-4">
-                <img
-                  className="w-72 rounded-lg cursor-pointer"
-                  src="assets/image-gallery/Engine-Service-&-Repair.jpg"
-                  alt=""
-                />
-                <h2 className="text-xl mt-2 text-white hover:text-white font-semibold text-left cursor-pointer">
-                  Engine-Service - 8567 <br /> Engine
-                </h2>
-                <p className="text-white bg-red-600 px-8 py-1 rounded-md w-48 mt-2">
-                  Feb 10, 2023
-                </p>
-              </div>
+              <Link to="/engineserviceblog">
+                <div className="hover:bg-red-400 w-72 rounded-md p-4">
+                  <img
+                    className="w-72 rounded-lg cursor-pointer"
+                    src="assets/image-gallery/Engine-Service-&-Repair.jpg"
+                    alt=""
+                  />
+                  <h2 className="text-xl mt-2 text-white hover:text-white font-semibold text-left cursor-pointer">
+                    Engine-Service - 8567 <br /> Engine
+                  </h2>
+                  <p className="text-white bg-red-600 px-8 py-1 rounded-md w-48 mt-2">
+                    Feb 10, 2023
+                  </p>
+                </div>
+              </Link>
             </div>
           </div>
         </div>
