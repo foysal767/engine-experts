@@ -18,13 +18,28 @@ const WeeklyBlog = () => {
               alt=""
             />
             <p className="text-lg text-gray-500 font-semibold text-center lg:text-justify">
-              <span className="text-gray-700 font-bold">
-                Ring Piston Servicing
-              </span>{" "}
-              <br />
-              Expansion valves are devices used to control the refrigerant flow
-              in a refrigeration system. They help to facilitate the change of
-              higher pressure
+              <div className="collapse">
+                <input type="checkbox" />
+                <div className="collapse-title text-xl font-medium">
+                  <span className="text-gray-600 font-bold">
+                    Ring Piston Servicing
+                  </span>
+                  <p>
+                    These formidable engines, our six Best Engines evaluators
+                    believe, are — or, for repeat winners, remain — benchmark
+                    executions of engine design
+                  </p>
+                </div>
+                <div className="collapse-content">
+                  <p>
+                    Expansion valves are devices used to control the refrigerant
+                    flow in a refrigeration system. They help to facilitate the
+                    change of higher pressure. These formidable engines, our six
+                    Best Engines evaluators believe, are — or, for repeat
+                    winners, remain — benchmark executions of engine design,
+                  </p>
+                </div>
+              </div>
             </p>
           </div>
           <hr className="text-2xl border-yellow-400 border-b-1 mt-2 mb-8" />
@@ -36,13 +51,28 @@ const WeeklyBlog = () => {
               alt=""
             />
             <p className="text-lg text-gray-500 font-semibold text-center lg:text-justify">
-              <span className="text-gray-700 font-bold">
-                Tube Line Servicing
-              </span>{" "}
-              <br />
-              Expansion valves are devices used to control the refrigerant flow
-              in a refrigeration system. They help to facilitate the change of
-              higher pressure
+              <div className="collapse">
+                <input type="checkbox" />
+                <div className="collapse-title text-xl font-medium">
+                  <span className="text-gray-600 font-bold">
+                    Tube Line Servicing
+                  </span>
+                  <p>
+                    Each engine nominated by our six editors must stand up to
+                    every other nominated engine in a battle unsullied by the
+                    marketing
+                  </p>
+                </div>
+                <div className="collapse-content">
+                  <p>
+                    innovation, manufacturing. They excel in a business that
+                    holds their "contribution" to the overall product in the
+                    highest regard and stand proud of the conventional For
+                    2001’s installment, nothing about the Best Engines contest
+                    has
+                  </p>
+                </div>
+              </div>
             </p>
           </div>
           <hr className="text-2xl border-yellow-400 border-b-1 mt-2 mb-8" />
@@ -54,13 +84,28 @@ const WeeklyBlog = () => {
               alt=""
             />
             <p className="text-lg text-gray-500 font-semibold text-center lg:text-justify">
-              <span className="text-gray-700 font-bold">
-                Engine Cube Servicing
-              </span>{" "}
-              <br />
-              Expansion valves are devices used to control the refrigerant flow
-              in a refrigeration system. They help to facilitate the change of
-              higher pressure
+              <div className="collapse">
+                <input type="checkbox" />
+                <div className="collapse-title text-xl font-medium">
+                  <span className="text-gray-600 font-bold">
+                    Engine Cube Servicing
+                  </span>
+                  <p>
+                    They excel in a business that holds their "contribution" to
+                    the overall product in the highest regard and stand proud of
+                    the conventional For 2001’s installment
+                  </p>
+                </div>
+                <div className="collapse-content">
+                  <p>
+                    innovation, manufacturing. They excel in a business that
+                    holds their "contribution" to the overall product in the
+                    highest regard and stand proud of the conventional For
+                    2001’s installment, nothing about the Best Engines contest
+                    has
+                  </p>
+                </div>
+              </div>
             </p>
           </div>
           <hr className="text-2xl border-yellow-400 border-b-1 mt-2 mb-8" />
@@ -72,13 +117,33 @@ const WeeklyBlog = () => {
               alt=""
             />
             <p className="text-lg text-gray-500 font-semibold text-center lg:text-justify">
-              <span className="text-gray-700 font-bold">
-                Mainfeast RAG Servicing
-              </span>{" "}
-              <br />
-              Expansion valves are devices used to control the refrigerant flow
-              in a refrigeration system. They help to facilitate the change of
-              higher pressure
+              <div className="collapse">
+                <input type="checkbox" />
+                <div className="collapse-title text-xl font-medium">
+                  <span className="text-gray-600 font-bold">
+                    Mainfeast RGA Servicing
+                  </span>
+                  <p>
+                    product in the highest regard and stand proud of the
+                    conventional For 2001’s installment, nothing about the Best
+                    Engines contest
+                  </p>
+                </div>
+                <div className="collapse-content">
+                  <p>
+                    innovation, manufacturing. They excel in a business that
+                    holds their "contribution" to the overall product in the
+                    highest regard and stand proud of the conventional For
+                    2001’s installment, nothing about the Best Engines contest
+                    has
+                    <br />
+                    <br />
+                    product in the highest regard and stand proud of the
+                    conventional For 2001’s installment, nothing about the Best
+                    Engines contest
+                  </p>
+                </div>
+              </div>
             </p>
           </div>
           <hr className="text-2xl border-yellow-400 border-b-1 mt-2 mb-8" />
@@ -90,13 +155,33 @@ const WeeklyBlog = () => {
               alt=""
             />
             <p className="text-lg text-gray-500 font-semibold text-center lg:text-justify">
-              <span className="text-gray-700 font-bold">
-                Backward Geear Servicing
-              </span>{" "}
-              <br />
-              Expansion valves are devices used to control the refrigerant flow
-              in a refrigeration system. They help to facilitate the change of
-              higher pressure
+              <div className="collapse">
+                <input type="checkbox" />
+                <div className="collapse-title text-xl font-medium">
+                  <span className="text-gray-600 font-bold">
+                    Backword Gear Servicing
+                  </span>
+                  <p>
+                    product in the highest regard and stand proud of the
+                    conventional For 2001’s installment, nothing about the Best
+                    Engines contest
+                  </p>
+                </div>
+                <div className="collapse-content">
+                  <p>
+                    innovation, manufacturing. They excel in a business that
+                    holds their "contribution" to the overall product in the
+                    highest regard and stand proud of the conventional For
+                    2001’s installment, nothing about the Best Engines contest
+                    has
+                    <br />
+                    <br />
+                    product in the highest regard and stand proud of the
+                    conventional For 2001’s installment, nothing about the Best
+                    Engines contest
+                  </p>
+                </div>
+              </div>
             </p>
           </div>
           <hr className="text-2xl border-yellow-400 border-b-1 mt-2 mb-8" />
