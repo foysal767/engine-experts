@@ -5,7 +5,7 @@ const LatestBlog = () => {
         <div className="latestLeftBlog basis-1/12"></div>
         <div className="latestMiddleBlog basis-10/12">
           <div className="text-white bg-black bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] p-4">
-            <div className="flex flex-col md:flex-row md:justify-between text-2xl text-gray-800 font-bold">
+            <div className="flex flex-col md:flex-row justify-center md:justify-between text-2xl text-gray-800 font-bold">
               <div className="leftContent text-white w-72">
                 ENGINE OF THE WEEK LATEST POSTS
               </div>

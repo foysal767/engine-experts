@@ -1,7 +1,7 @@
 const WeeklyBlog = () => {
   return (
     <section className="my-16 px-10">
-      <span className="text-6xl text-gray-800 font-bold">
+      <span className="text-2xl md:text-6xl text-gray-800 font-bold">
         1,000 Horsepower LB7 Duramax Engine
       </span>
       <p className="text-xl text-gray-600 mt-2">
@@ -10,106 +10,96 @@ const WeeklyBlog = () => {
         later, he has a 1,000-horsepower LB7 Duramax to show off!
       </p>
       <div className="flex flex-col md:flex-row lg:flex-row mt-16 gap-8">
-        <div className="leftWeeklyBlog flex flex-col md:flex-row lg:flex-row text-2xl text-black font-bold basis-8/12">
-          <div className="weeklyCounterWrapper hover:bg-gray-300 cursor-pointer p-4 rounded-lg">
-            <div className="flex justify-center items-center gap-4">
-              <img
-                className="w-28 h-28 rounded-full"
-                src="assets/car-parts/car-parts-2.png"
-                alt=""
-              />
-              <p className="text-lg text-gray-500 font-semibold text-center lg:text-justify">
-                <span className="text-gray-700 font-bold">
-                  Ring Piston Servicing
-                </span>{" "}
-                <br />
-                Expansion valves are devices used to control the refrigerant
-                flow in a refrigeration system. They help to facilitate the
-                change of higher pressure
-              </p>
-            </div>
-            <hr className="text-2xl border-yellow-400 border-b-1 mt-2 mb-8" />
+        <div className="leftWeeklyBlog basis-8/12">
+          <div className="weeklyCounterWrapper flex flex-col md:flex-row justify-center items-center gap-4 hover:bg-gray-300 cursor-pointer p-4 rounded-lg">
+            <img
+              className="w-28 h-28 rounded-full"
+              src="assets/car-parts/car-parts-2.png"
+              alt=""
+            />
+            <p className="text-lg text-gray-500 font-semibold text-center lg:text-justify">
+              <span className="text-gray-700 font-bold">
+                Ring Piston Servicing
+              </span>{" "}
+              <br />
+              Expansion valves are devices used to control the refrigerant flow
+              in a refrigeration system. They help to facilitate the change of
+              higher pressure
+            </p>
           </div>
+          <hr className="text-2xl border-yellow-400 border-b-1 mt-2 mb-8" />
 
-          <div className="weeklyCounterWrapper hover:bg-gray-300 cursor-pointer p-4 rounded-lg">
-            <div className="flex justify-center items-center gap-4">
-              <img
-                className="w-28 h-28 rounded-full"
-                src="assets/car-parts/car-parts-1.png"
-                alt=""
-              />
-              <p className="text-lg text-gray-500 font-semibold text-center lg:text-justify">
-                <span className="text-gray-700 font-bold">
-                  Tube Line Servicing
-                </span>{" "}
-                <br />
-                Expansion valves are devices used to control the refrigerant
-                flow in a refrigeration system. They help to facilitate the
-                change of higher pressure
-              </p>
-            </div>
-            <hr className="text-2xl border-yellow-400 border-b-1 mt-2 mb-8" />
+          <div className="weeklyCounterWrapper flex flex-col md:flex-row justify-center items-center gap-4 hover:bg-gray-300 cursor-pointer p-4 rounded-lg">
+            <img
+              className="w-28 h-28 rounded-full"
+              src="assets/car-parts/car-parts-1.png"
+              alt=""
+            />
+            <p className="text-lg text-gray-500 font-semibold text-center lg:text-justify">
+              <span className="text-gray-700 font-bold">
+                Tube Line Servicing
+              </span>{" "}
+              <br />
+              Expansion valves are devices used to control the refrigerant flow
+              in a refrigeration system. They help to facilitate the change of
+              higher pressure
+            </p>
           </div>
+          <hr className="text-2xl border-yellow-400 border-b-1 mt-2 mb-8" />
 
-          <div className="weeklyCounterWrapper hover:bg-gray-300 cursor-pointer p-4 rounded-lg">
-            <div className="flex justify-center items-center gap-4">
-              <img
-                className="w-28 h-28 rounded-full"
-                src="assets/car-parts/car-parts-3.png"
-                alt=""
-              />
-              <p className="text-lg text-gray-500 font-semibold text-center lg:text-justify">
-                <span className="text-gray-700 font-bold">
-                  Engine Cube Servicing
-                </span>{" "}
-                <br />
-                Expansion valves are devices used to control the refrigerant
-                flow in a refrigeration system. They help to facilitate the
-                change of higher pressure
-              </p>
-            </div>
-            <hr className="text-2xl border-yellow-400 border-b-1 mt-2 mb-8" />
+          <div className="weeklyCounterWrapper flex flex-col md:flex-row justify-center items-center gap-4 hover:bg-gray-300 cursor-pointer p-4 rounded-lg">
+            <img
+              className="w-28 h-28 rounded-full"
+              src="assets/car-parts/car-parts-3.png"
+              alt=""
+            />
+            <p className="text-lg text-gray-500 font-semibold text-center lg:text-justify">
+              <span className="text-gray-700 font-bold">
+                Engine Cube Servicing
+              </span>{" "}
+              <br />
+              Expansion valves are devices used to control the refrigerant flow
+              in a refrigeration system. They help to facilitate the change of
+              higher pressure
+            </p>
           </div>
+          <hr className="text-2xl border-yellow-400 border-b-1 mt-2 mb-8" />
 
-          <div className="weeklyCounterWrapper hover:bg-gray-300 cursor-pointer p-4 rounded-lg">
-            <div className="flex justify-center items-center gap-4">
-              <img
-                className="w-28 h-28 rounded-full"
-                src="assets/car-parts/car-parts-4.png"
-                alt=""
-              />
-              <p className="text-lg text-gray-500 font-semibold text-center lg:text-justify">
-                <span className="text-gray-700 font-bold">
-                  Mainfeast RAG Servicing
-                </span>{" "}
-                <br />
-                Expansion valves are devices used to control the refrigerant
-                flow in a refrigeration system. They help to facilitate the
-                change of higher pressure
-              </p>
-            </div>
-            <hr className="text-2xl border-yellow-400 border-b-1 mt-2 mb-8" />
+          <div className="weeklyCounterWrapper flex flex-col md:flex-row justify-center items-center gap-4 hover:bg-gray-300 cursor-pointer p-4 rounded-lg">
+            <img
+              className="w-28 h-28 rounded-full"
+              src="assets/car-parts/car-parts-4.png"
+              alt=""
+            />
+            <p className="text-lg text-gray-500 font-semibold text-center lg:text-justify">
+              <span className="text-gray-700 font-bold">
+                Mainfeast RAG Servicing
+              </span>{" "}
+              <br />
+              Expansion valves are devices used to control the refrigerant flow
+              in a refrigeration system. They help to facilitate the change of
+              higher pressure
+            </p>
           </div>
+          <hr className="text-2xl border-yellow-400 border-b-1 mt-2 mb-8" />
 
-          <div className="weeklyCounterWrapper hover:bg-gray-300 cursor-pointer p-4 rounded-lg">
-            <div className="flex justify-center items-center gap-4">
-              <img
-                className="w-28 h-28 rounded-full"
-                src="assets/car-parts/car-parts-5.png"
-                alt=""
-              />
-              <p className="text-lg text-gray-500 font-semibold text-center lg:text-justify">
-                <span className="text-gray-700 font-bold">
-                  Backward Geear Servicing
-                </span>{" "}
-                <br />
-                Expansion valves are devices used to control the refrigerant
-                flow in a refrigeration system. They help to facilitate the
-                change of higher pressure
-              </p>
-            </div>
-            <hr className="text-2xl border-yellow-400 border-b-1 mt-2 mb-8" />
+          <div className="weeklyCounterWrapper flex flex-col md:flex-row justify-center items-center gap-4 hover:bg-gray-300 cursor-pointer p-4 rounded-lg">
+            <img
+              className="w-28 h-28 rounded-full"
+              src="assets/car-parts/car-parts-5.png"
+              alt=""
+            />
+            <p className="text-lg text-gray-500 font-semibold text-center lg:text-justify">
+              <span className="text-gray-700 font-bold">
+                Backward Geear Servicing
+              </span>{" "}
+              <br />
+              Expansion valves are devices used to control the refrigerant flow
+              in a refrigeration system. They help to facilitate the change of
+              higher pressure
+            </p>
           </div>
+          <hr className="text-2xl border-yellow-400 border-b-1 mt-2 mb-8" />
         </div>
         <div className="rightWeeklyBlog text-lg text-gray-600 text-justify p-12 basis-4/12">
           <img
