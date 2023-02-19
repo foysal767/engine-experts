@@ -42,7 +42,7 @@ const WeeklyBlog = () => {
               </div>
             </p>
           </div>
-          <hr className="text-2xl border-yellow-400 border-b-1 mt-2 mb-8" />
+          <hr className="text-2xl border-red-400 border-b-1 mt-2 mb-8" />
 
           <div className="weeklyCounterWrapper flex flex-col md:flex-row justify-center items-center gap-4 hover:bg-gray-300 cursor-pointer p-4 rounded-lg">
             <img
@@ -75,7 +75,7 @@ const WeeklyBlog = () => {
               </div>
             </p>
           </div>
-          <hr className="text-2xl border-yellow-400 border-b-1 mt-2 mb-8" />
+          <hr className="text-2xl border-red-400 border-b-1 mt-2 mb-8" />
 
           <div className="weeklyCounterWrapper flex flex-col md:flex-row justify-center items-center gap-4 hover:bg-gray-300 cursor-pointer p-4 rounded-lg">
             <img
@@ -108,7 +108,7 @@ const WeeklyBlog = () => {
               </div>
             </p>
           </div>
-          <hr className="text-2xl border-yellow-400 border-b-1 mt-2 mb-8" />
+          <hr className="text-2xl border-red-400 border-b-1 mt-2 mb-8" />
 
           <div className="weeklyCounterWrapper flex flex-col md:flex-row justify-center items-center gap-4 hover:bg-gray-300 cursor-pointer p-4 rounded-lg">
             <img
@@ -146,7 +146,7 @@ const WeeklyBlog = () => {
               </div>
             </p>
           </div>
-          <hr className="text-2xl border-yellow-400 border-b-1 mt-2 mb-8" />
+          <hr className="text-2xl border-red-400 border-b-1 mt-2 mb-8" />
 
           <div className="weeklyCounterWrapper flex flex-col md:flex-row justify-center items-center gap-4 hover:bg-gray-300 cursor-pointer p-4 rounded-lg">
             <img
@@ -184,7 +184,6 @@ const WeeklyBlog = () => {
               </div>
             </p>
           </div>
-          <hr className="text-2xl border-yellow-400 border-b-1 mt-2 mb-8" />
         </div>
         <div className="rightWeeklyBlog text-lg text-gray-600 text-justify p-12 basis-4/12">
           <img

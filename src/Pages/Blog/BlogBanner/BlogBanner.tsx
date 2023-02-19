@@ -1,18 +1,25 @@
 const BlogBanner = () => {
   return (
-    <section className="bg-black bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] h-6/12">
+    <section className="bg-black bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] h-screen">
       <div className="bannerWrapper flex flex-col md:flex-row lg:flex-row p-16 gap-8">
-        <div className="leftBanner basis-6/12 justify-center items-center">
-          <div className="text-4xl font-extrabold md:mt-32 lg:mt-32 mb-4">
-            Engine Expertise Blog
+        <div className="leftBanner basis-1/12"></div>
+        <div className="middleBanner basis-10/12">
+          <div className="mt-40">
+            <h1 className="text-4xl font-extrabold mb-4">
+              Welcome to Engine Expertise Blog
+            </h1>
+            <p className="text-xs text-center text-slate-300">
+              These formidable engines, our six Best Engines evaluators believe,
+              are — or, for repeat winners, remain — benchmark executions of
+              engine design, innovation, manufacturing. They excel in a business
+              that holds their "contribution" to the overall product in the
+              highest regard and stand proud of the conventional For 2001’s
+              installment, nothing about the Best Engines contest has changed.
+              Each engine
+            </p>
           </div>
-
-          <hr className="text-2xl border-red-600 border-b-2 mb-4" />
-          <hr className="text-2xl border-red-600 border-b-2 mb-4" />
         </div>
-        <div className="leftBanner basis-6/12">
-          <img className="rounded-lg" src="assets/blog/title-logo.png" alt="" />
-        </div>
+        <div className="rightBanner basis-1/12"></div>
       </div>
     </section>
   )

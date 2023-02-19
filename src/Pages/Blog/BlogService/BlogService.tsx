@@ -118,7 +118,7 @@ const BlogService = () => {
               <div className="collapse">
                 <input type="checkbox" />
                 <div className="collapse-title text-xl font-medium">
-                  Details A/C
+                  Details Orifice
                 </div>
                 <div className="collapse-content">
                   <p>
@@ -196,7 +196,6 @@ const BlogService = () => {
               alt=""
             />
           </div>
-          <hr className="text-2xl border-red-400 border-b-2 mb-12" />
 
           <div className="mb-10 flex flex-col-reverse md:flex-row lg:flex-row gap-4 justify-center items-center cursor-pointer hover:bg-black hover:bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] text-gray-600 hover:text-white p-4 rounded-lg">
             <div className="">
@@ -253,7 +252,6 @@ const BlogService = () => {
               alt=""
             />
           </div>
-          <hr className="text-2xl border-red-400 border-b-2 mb-12" />
 
           <div className="mb-10 flex flex-col-reverse md:flex-row lg:flex-row gap-4 justify-center items-center cursor-pointer hover:bg-black hover:bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] text-gray-600 hover:text-white p-4 rounded-lg">
             <div className="">
@@ -314,7 +312,6 @@ const BlogService = () => {
               alt=""
             />
           </div>
-          <hr className="text-2xl border-red-400 border-b-2 mb-12" />
 
           <div className="mb-10 flex flex-col-reverse md:flex-row lg:flex-row gap-4 justify-center items-center cursor-pointer hover:bg-black hover:bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] text-gray-600 hover:text-white p-4 rounded-lg">
             <div className="">
