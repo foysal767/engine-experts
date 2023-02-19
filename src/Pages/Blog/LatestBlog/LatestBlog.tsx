@@ -5,14 +5,14 @@ const LatestBlog = () => {
         <div className="latestLeftBlog basis-1/12"></div>
         <div className="latestMiddleBlog basis-10/12">
           <div className="text-white bg-black bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] p-4">
-            <div className="flex flex-col md:flex-row justify-center md:justify-between text-2xl text-gray-800 font-bold">
-              <div className="leftContent text-white w-72">
+            <div className="flex flex-col md:flex-row justify-center md:justify-between text-2xl text-white font-bold">
+              <div className="leftContent w-72">
                 ENGINE OF THE WEEK LATEST POSTS
               </div>
-              <div className="rightContent text-white">SEE ALL POSTS</div>
+              <div className="rightContent -ml-8">SEE ALL POSTS</div>
             </div>
             <hr className="text-2xl border-red-400 border-b-2 mb-4" />
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
               <div className="hover:bg-red-400 w-72 rounded-md p-4">
                 <img
                   className="w-72 rounded-lg cursor-pointer"
