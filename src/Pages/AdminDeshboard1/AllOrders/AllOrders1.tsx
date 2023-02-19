@@ -24,7 +24,9 @@ const AllOrders1 = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(`http://localhost:5000/allBookings?page=${page}`)
+    fetch(
+      `https://engine-experts-server-phi.vercel.app/allBookings?page=${page}`
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {

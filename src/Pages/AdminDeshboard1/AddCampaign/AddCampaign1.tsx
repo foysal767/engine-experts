@@ -3,6 +3,10 @@ import { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
+
+interface discount {
+  services: any;
+}
 const AddCampaign1 = () => {
   const { isAdmin } = useContext(AuthContext);
   const location = useLocation();
@@ -12,7 +16,8 @@ const AddCampaign1 = () => {
 
   const [selectedService, setSelectedService] = useState("");
   const [originalPrice, setOriginalPrice] = useState();
-  // const [startDate, setStartDate] = useState();
+  const [discount, setDiscount] = useState<discount>();
+  const [loader, setLoader] = useState(false);
   const [endedDate, setEndedDate] = useState();
   const [campName, setCampName] = useState("");
   useEffect(() => {
@@ -38,19 +43,31 @@ const AddCampaign1 = () => {
     },
   });
 
-  const { data: discount = [], refetch } = useQuery({
-    queryKey: ["discount"],
-    queryFn: async () => {
-      const res = await fetch(
-        "https://engine-experts-server-phi.vercel.app/campaign"
-      );
-      const data = await res.json();
-      setCampName(data.data[0].campaignName);
-      setEndedDate(data?.data[0]?.endDate);
-      // setStartDate(data?.data[0]?.startDate);
-      return data?.data[0];
-    },
-  });
+  // const { data: discount = [], refetch } = useQuery({
+  //   queryKey: ["discount"],
+  //   queryFn: async () => {
+  //     const res = await fetch(
+  //       "https://engine-experts-server-phi.vercel.app/campaign"
+  //     );
+  //     const data = await res.json();
+  //     setCampName(data.data[0].campaignName);
+  //     setEndedDate(data?.data[0]?.endDate);
+  //     // setStartDate(data?.data[0]?.startDate);
+  //     return data?.data[0];
+  //   },
+  // });
+
+  useEffect(() => {
+    fetch("https://engine-experts-server-phi.vercel.app/campaign")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setCampName(data?.data?.campaignName);
+          setEndedDate(data?.data?.endDate);
+          setDiscount(data?.data);
+        }
+      });
+  }, [loader]);
 
   const handleStartCam = (e: any) => {
     e.preventDefault();
@@ -72,7 +89,7 @@ const AddCampaign1 = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          refetch();
+          setLoader(!loader);
           toast.success(data?.message);
         }
       });
@@ -100,7 +117,8 @@ const AddCampaign1 = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          refetch();
+          setLoader(!loader);
+          e.target.reset();
           toast.success(data.message);
         } else {
           toast.error(data.message);
@@ -116,21 +134,24 @@ const AddCampaign1 = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          refetch();
+          setLoader(!loader);
           toast.success(data?.message);
         }
       });
   };
 
   const handleDelete = (name: any) => {
-    fetch(`http://localhost:5000/campaignService?name=${name}`, {
-      method: "PATCH",
-    })
+    fetch(
+      `https://engine-experts-server-phi.vercel.app/campaignService?name=${name}&camp=${campName}`,
+      {
+        method: "PATCH",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data?.success) {
           toast.success(data?.message);
-          refetch();
+          setLoader(!loader);
         } else {
           toast.error(data?.message);
         }
@@ -157,7 +178,7 @@ const AddCampaign1 = () => {
         <div className="lg:flex justify-between items-center text-center">
           <div>
             <h2 className="text-start mb-4">
-              <span className="text-2xl">Campaign:</span>
+              <span className="text-2xl">Campaign: </span>
               <input
                 type="text"
                 className="bg-white w-[200px] h-[35px] rounded-md text-black px-4 py-2"
