@@ -1,5 +1,5 @@
-import { useQuery } from "@tanstack/react-query";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
 import { AiFillStar } from "react-icons/ai";
 
 const DiscountSection = () => {
@@ -31,6 +31,22 @@ const DiscountSection = () => {
 
   // const deadline = "February, 13, 2023"
   // const deadline = "2023-02-15"
+
+  const stopCampaign = () => {
+    fetch("https://engine-experts-server-phi.vercel.app/stopCampaign", {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          toast.success("Successfully stop");
+        }
+      });
+  };
+
+  if (days === 0 && hours === 0 && mins === 0 && secs === 0) {
+    stopCampaign();
+  }
 
   const getTime = () => {
     const time = Date.parse(deadline) - Date.now() - 6 * 60 * 60 * 1000;
