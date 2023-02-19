@@ -13,7 +13,7 @@ const LatestBlog = () => {
               </div>
               <div className="rightContent -ml-8">SEE ALL POSTS</div>
             </div>
-            <hr className="text-2xl border-red-400 border-b-2 mb-4" />
+            <hr className="text-2xl border-red-500 border-b-2 mb-4" />
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               <Link to="/performance">
                 <div className="hover:bg-red-400 w-72 rounded-md p-4">
