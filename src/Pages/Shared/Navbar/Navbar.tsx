@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 import "./Navbar.css";
 import navlogo from "./navlogo.json";
+import { BiPhoneCall } from 'react-icons/bi';
 
 const Navbar = () => {
   const { user, logOut, accType, isAdmin } = useContext(AuthContext);
@@ -23,9 +24,10 @@ const Navbar = () => {
       <li className="font-semibold hover:text-[#E81C2E]">
         <Link to="/servicesAll">Services</Link>
       </li>
+      { !user && 
       <li className="font-semibold hover:text-[#E81C2E]">
-        <Link to="/contactform">Contact Us</Link>
-      </li>
+        <Link to="/contactform">Contact</Link>
+      </li>}
       {user &&
         (accType === "Seller" ||
           accType === "User" ||
@@ -74,7 +76,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-cover bg-center flex justify-between px-4 md:px-8 lg:px-12">
+    <div className="navbar bg-cover bg-center flex justify-between px-4 md:px-8 lg:px-12 h-[65px]">
       <div className="navbar-start ">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -95,7 +97,7 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={1}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-black rounded-box w-52"
           >
             {menuItems}
           </ul>
@@ -112,7 +114,12 @@ const Navbar = () => {
       </div>
       <div className="navbar-end hidden lg:block md:navbar-end md:block">
         <a href="tel:+8801929921987">
-          <button className="navBtn uppercase font-bold">Make a call</button>
+          <button className="navBtn uppercase font-bold hover:scale-105 duration-700">Make a call</button>
+        </a>
+      </div>
+      <div className="block lg:hidden md:hidden">
+        <a href="tel:+8801929921987">
+          <button className="flex items-center justify-center text-2xl p-2 rounded-full bg-[#e81c2dea] text-white"><BiPhoneCall></BiPhoneCall></button>
         </a>
       </div>
       <div className="navbar-end hidden lg:flex">

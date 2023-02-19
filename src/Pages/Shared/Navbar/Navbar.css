@@ -9,7 +9,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   animation: color 15s linear infinite; */
-  background-image: linear-gradient(170deg, red 50%,black 50%);
+  background-image: linear-gradient(165deg, #e81c2dea 50%,rgba(0, 0, 0, 0.792) 50%);
 }
 @keyframes color {
   0% {
@@ -25,17 +25,17 @@
 }
 .navBtn{
   color: #fff;
-  background-color: initial;
-  padding: 12px 40px;
+  background-image: linear-gradient(165deg, #e81c2dea 50%, rgba(0, 0, 0, 0.792) 50%);
+  padding: 8px 60px;
   clip-path: polygon(0 0,100% 0,100% calc(100% - 20px),100% 100%,0 100%,0 20px);
-  border: 2px solid #E81C2E;
+  border: 2px solid gray;
 }
-.navBtn:hover{
+/* .navBtn:hover{
   clip-path: polygon(0 0,100% 0,100% calc(100% - 20px),100% 100%,0 100%,0 20px);
   padding: 12px 40px;
   background-color: #E81C2E;
   border: 2px solid #E81C2E;
-}
+} */
 
 /* .navbar{
   width: 100%;
