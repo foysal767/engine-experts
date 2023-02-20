@@ -61,7 +61,6 @@ const AllOrders1 = () => {
     setPage(i);
     setLoader(!loader);
   };
-  console.log("page no findings", page);
   const getSeller = () => {
     fetch(`https://engine-experts-server-phi.vercel.app/getSeller`)
       .then((res) => res.json())
@@ -120,7 +119,7 @@ const AllOrders1 = () => {
           <option value="Active Orders" selected>
             Active Orders
           </option>
-          <option value="Completed Orders">Completed Orders</option>
+          {/* <option value="Completed Orders">Completed Orders</option> */}
         </select>
         {/* card starts from here */}
         {orders?.map((order: any, i: any) => (
