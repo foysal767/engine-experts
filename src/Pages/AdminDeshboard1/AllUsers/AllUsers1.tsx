@@ -158,7 +158,7 @@ const AllUsers1 = () => {
                 {user?.name ? user?.name : "Name Not Found"}
               </h1>
               <h1 className="">
-                Email: {user?.email} <br /> Address: arif villa
+                Email: {user?.email} <br /> Address: {user?.address}
               </h1>
             </div>
             {type === "Seller" ? (

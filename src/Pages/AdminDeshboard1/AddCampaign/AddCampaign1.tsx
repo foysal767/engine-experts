@@ -169,9 +169,6 @@ const AddCampaign1 = () => {
     <section className="w-full lg:w-[90%] md:w-[80%] mx-auto px-4 md:px-8 lg:px-12 bg-[#EBF2F4] py-20 lg:mt-2 md:mt-4 sm:mt-20">
       <div className="flex justify-between items-center px-4 mb-5">
         <h1 className="text-2xl  text-start">Campaigns are available here</h1>
-        {/* <button className="w-[180px] lg:h-[50px] rounded bg-blue-500 text-xl">
-          Add New Campaign
-        </button> */}
       </div>
 
       <div className="border flex flex-col gap-3 p-3">
@@ -196,17 +193,6 @@ const AddCampaign1 = () => {
             onSubmit={handleStartCam}
             className="grid lg:grid-cols-2 grid-cols-1 gap-3 items-end justify-between"
           >
-            {/* <div className="flex flex-col items-start">
-              <label htmlFor="start-date">Start date</label>
-              <input
-                type="date"
-                name="startDate"
-                id="start-date"
-                defaultValue={startDate}
-                className="w-[200px] h-[40px] bg-white rounded-md px-2"
-                required
-              />
-            </div> */}
             <div className="flex flex-col items-start">
               <label htmlFor="end-date">End date</label>
               <input
@@ -279,20 +265,19 @@ const AddCampaign1 = () => {
             Add
           </button>
         </form>
-        <div className="w-full hidden lg:grid lg:grid-cols-7 ">
+        <div className="w-full hidden lg:grid lg:grid-cols-6 ">
           <h1>SL</h1>
           <h1>Image</h1>
           <h1>Service Name</h1>
           <h1>Original Price</h1>
           <h1>Discount Price</h1>
-          <h1>Edit</h1>
           <h1>Delete</h1>
         </div>
         {/* card starts from here */}
         {discount?.services?.map((service: any, i: any) => (
           <div
             key={i}
-            className=" grid lg:grid-cols-7 md:grid-cols-1 sm:grid-cols-1 gap-3 items-center px-4 py-2 text-xl bg-[#d9dee4] rounded border"
+            className=" grid lg:grid-cols-6 md:grid-cols-1 sm:grid-cols-1 gap-3 items-center px-4 py-2 text-xl bg-[#d9dee4] rounded border"
           >
             <h2>{i + 1}</h2>
             <img
@@ -303,7 +288,6 @@ const AddCampaign1 = () => {
             <h2 className="lg:text-start text-center">{service?.name}</h2>
             <h2>${service?.price}</h2>
             <h2>${service?.discountPrice}</h2>
-            <button className="bg-green-500 btn-sm rounded-xl">Edit</button>
             <button
               className="bg-red-500 btn-sm rounded-xl"
               onClick={() => handleDelete(service?.name)}

@@ -30,11 +30,12 @@ const Booking = () => {
       </div>
       <div className="py-10">
         {bookings?.length >= 1 ? (
-          <div className="grid grid-cols-5 mx-auto border-b-2 py-3 border-b-red-600 bg-gray-200 rounded">
-            <span>Image</span>
+          <div className="grid grid-cols-6 mx-auto border-b-2 py-3 border-b-red-600 bg-gray-200 rounded">
+            <span>Sl No.</span>
             <span>Service Name</span>
+            <span>Booking Date</span>
             <span>Price</span>
-            <span>Payment</span>
+            <span>Payment/Status</span>
           </div>
         ) : (
           <div>
@@ -45,18 +46,18 @@ const Booking = () => {
         )}
         {bookings?.map((booking: any, i: any) => (
           <div key={i}>
-            <div className="grid grid-cols-5 gap-2 lg:gap-3 items-center my-5 bg-gray-200 rounded py-2 px-2 h-[80px]">
+            <div className="grid grid-cols-6 gap-2 lg:gap-3 items-center my-5 bg-gray-200 rounded py-2 px-2 h-[80px]">
               <span>
                 <p className="inline mr-2">{i + 1}</p>
-                <img
-                  className="lg:w-[80px] w-[50px] mx-auto"
-                  src={booking?.image}
-                  alt=""
-                />
               </span>
               <span className="text-start">
                 <h2 className="lg:text-xl text-sm lg:font-bold break-words text-starts">
                   {booking?.serviceName}
+                </h2>
+              </span>
+              <span className="text-start">
+                <h2 className="lg:text-xl text-sm break-words text-starts">
+                  {booking?.date}
                 </h2>
               </span>
               <span>
@@ -67,7 +68,7 @@ const Booking = () => {
               {booking?.payment === "paid" ? (
                 <span>
                   <label className="btn btn-disabled bg-gray-500 text-white lg:btn-sm btn-xs">
-                    Paid
+                    {booking?.status || "Pending"}
                   </label>
                 </span>
               ) : (
@@ -85,9 +86,10 @@ const Booking = () => {
               <span>
                 <button
                   className={`btn ${
-                    booking?.payment === "paid" &&
-                    "btn-disabled bg-gray-500 text-white"
-                  } bg-red-600 lg:btn-sm btn-xs border-none text-white`}
+                    booking?.payment === "paid"
+                      ? "btn-disabled bg-gray-500 text-white"
+                      : "bg-red-600"
+                  }  lg:btn-sm btn-xs border-none text-white`}
                 >
                   Cancel
                 </button>
