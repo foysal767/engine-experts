@@ -12,7 +12,6 @@ const ContactForm = () => {
     const message = event.target.message.value
     const user = { name, email, phone, service, message }
     event.target.reset()
-    console.log(user)
 
     fetch("https://engine-experts-server-phi.vercel.app/contactform", {
       method: "POST",

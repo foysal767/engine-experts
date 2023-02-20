@@ -37,7 +37,6 @@ const AllOrders1 = () => {
         }
       });
   }, [loader, page]);
-  // console.log("all sellers", sellers);
   const handleOrderDelete = (id: any, name: any) => {
     const confirm = window.confirm(
       `Are you sure, want to delete this ${name}?`

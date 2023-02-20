@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { FaBullhorn, FaCartArrowDown, FaUsers } from "react-icons/fa";
-import { RiServiceFill } from "react-icons/ri";
+import { RiServiceFill, RiShoppingCart2Fill } from "react-icons/ri";
+import { MdRateReview } from "react-icons/md";
+import { BsFillBookmarkPlusFill } from "react-icons/bs";
 import { Link, Navigate, NavLink, Outlet, useLocation } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import Navbar from "../Shared/Navbar/Navbar";
@@ -53,7 +55,7 @@ const AdminDeshboard1 = () => {
     <main className=" bg-[#FFFFFF]  w-full">
       <section className="w-full h-[83vh] lg:h-[85vh] relative ">
         <div className="w-full h-[68vh] adminbanner absolute top-0"></div>
-        <div className="absolute top-0 w-full h-[7vh] lg:h-[13vh]">
+        <div className="absolute top-0 w-full h-[7vh] lg:h-[13vh] text-white">
           <Navbar></Navbar>
         </div>
         <div className="text-black w-full absolute top-24 lg:top-24">
@@ -267,7 +269,7 @@ const AdminDeshboard1 = () => {
                   <span className="text-2xl lg:text-3xl">900$</span>
                 </h1>
               </div>
-              <div className="grid grid-cols-2 gap-4 w-[80%] mx-auto mt-16 lg:mt-28">
+              <div className="grid grid-cols-2 lg:grid-cols-2 gap-4 w-[80%] mx-auto mt-16 lg:mt-14">
                 {/* Card one start from here */}
                 <div
                   className={`maincard h-[180px] rounded-lg hover:scale-105 relative transition duration-700`}
@@ -283,7 +285,7 @@ const AdminDeshboard1 = () => {
                     >
                       <div className="flex justify-between items-center">
                         <button className="w-12 h-12 rounded-full bg-gray-200 text-center">
-                          Xx
+                          <RiShoppingCart2Fill className="text-2xl mx-auto text-red-600"></RiShoppingCart2Fill>
                         </button>
                         <button className="bg-gray-200 h-7 px-2 rounded-full">
                           growth
@@ -318,7 +320,7 @@ const AdminDeshboard1 = () => {
                     >
                       <div className="flex justify-between items-center">
                         <button className="w-12 h-12 rounded-full bg-gray-200 text-center">
-                          Xx
+                        <RiShoppingCart2Fill className="text-2xl mx-auto text-red-600"></RiShoppingCart2Fill>
                         </button>
                         <button className="bg-gray-200 h-7 px-2 rounded-full">
                           growth
@@ -363,7 +365,7 @@ const AdminDeshboard1 = () => {
                   >
                     <div className="flex justify-between items-center">
                       <button className="w-12 h-12 rounded-full bg-gray-200 text-center">
-                        Xx
+                        <BsFillBookmarkPlusFill className="text-2xl mx-auto text-red-600"></BsFillBookmarkPlusFill>
                       </button>
                       <button className="bg-gray-200 h-7 px-2 rounded-full">
                         growth
@@ -398,7 +400,7 @@ const AdminDeshboard1 = () => {
                   >
                     <div className="flex justify-between items-center">
                       <button className="w-12 h-12 rounded-full bg-gray-200 text-center">
-                        Xx
+                        <MdRateReview className="text-2xl mx-auto text-green-600"></MdRateReview>
                       </button>
                       <button className="bg-gray-200 h-7 px-2 rounded-full">
                         growth

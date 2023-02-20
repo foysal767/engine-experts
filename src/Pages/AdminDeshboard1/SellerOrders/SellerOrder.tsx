@@ -38,7 +38,7 @@ const SellerOrder = () => {
   };
 
   return (
-    <section className="w-full lg:w-[80%] md:w-[80%] mx-auto px-4 md:px-8 lg:px-12 bg-[#EBF2F4] py-16 mt-14">
+    <section className="w-full lg:w-[80%] md:w-[80%] mx-auto px-4 md:px-8 lg:px-12 bg-[#EBF2F4] py-16">
       <h1 className="text-2xl text-start mb-6">
         {orders?.length <= 0
           ? "Orders Not Available"
