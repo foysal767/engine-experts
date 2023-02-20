@@ -14,14 +14,17 @@ const DiscountSection = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          setDiscount(data?.data[0]?.services);
-          setdeadLine(data.data[0]?.endDate);
-          setCampignName(data.data[0]?.campaignName);
+          console.log(data?.data, "discount data fetch");
+          setDiscount(data?.data?.services);
+          setdeadLine(data.data?.endDate);
+          setCampignName(data.data?.campaignName);
+          setIsLoading(false);
+        } else {
           setIsLoading(false);
         }
       });
   }, []);
-
+  console.log(discount, "discount");
   // CountDown timer added by jabed from here
 
   const [days, setDays] = useState<number>(0);
@@ -44,10 +47,6 @@ const DiscountSection = () => {
       });
   };
 
-  if (days === 0 && hours === 0 && mins === 0 && secs === 0) {
-    stopCampaign();
-  }
-
   const getTime = () => {
     const time = Date.parse(deadline) - Date.now() - 6 * 60 * 60 * 1000;
     setDays(Math.floor(time / (1000 * 60 * 60 * 24)));
@@ -69,10 +68,13 @@ const DiscountSection = () => {
     );
   }
 
+  console.log(deadline, "deadline");
   if (!deadline) {
     return <></>;
   }
-
+  if (days === 0 && hours === 0 && mins === 0 && secs === 10) {
+    stopCampaign();
+  }
   return (
     <section className="w-full mb-12 lg:mb-28">
       <h1 className="lg:text-5xl my-5 lg:my-5 md:my-6 md:text-3xl text-2xl font-bold text-[#383232] px-4 md:px-8 lg:px-12 text-center md:text-start lg:text-start">
