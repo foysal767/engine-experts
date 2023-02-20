@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
@@ -20,24 +20,16 @@ const AllUsers1 = () => {
   const [type, setType] = useState("Seller");
   const [openModal, setOpenModal] = useState(false);
   const [singleUser, setSingleUser] = useState<singleUsertype>();
+  const [page, setPage] = useState(0);
+  const [length, setLength] = useState(0);
+  const [loader, setLoader] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [allUsers, setAllUsers] = useState([]);
+  const [users, setUsers] = useState();
   const location = useLocation();
   if (!isAdmin) {
     <Navigate to="/" state={{ from: location }} replace></Navigate>;
   }
-  const {
-    data: users = [],
-    isLoading,
-    refetch,
-  } = useQuery({
-    queryKey: ["users", type],
-    queryFn: async () => {
-      const res = await fetch(
-        `https://engine-experts-server-phi.vercel.app/users?type=${type}`
-      );
-      const data = await res.json();
-      return data.data;
-    },
-  });
 
   const getSingleUser = (id: any) => {
     fetch(`https://engine-experts-server-phi.vercel.app/singleUser/${id}`)
@@ -69,7 +61,7 @@ const AllUsers1 = () => {
         if (data.success) {
           handleClose();
           toast.success(data.message);
-          refetch();
+          setLoader(!loader)
         }
       });
   };
@@ -89,13 +81,33 @@ const AllUsers1 = () => {
         .then((data) => {
           if (data.success) {
             toast.success(data.message);
-            refetch();
+            setLoader(!loader)
           }
         });
     }
   };
 
-  if (isLoading) {
+  useEffect(() => {
+    setLoading(true);
+    fetch(`http://localhost:5000/users?type=${type}&page=${page}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setLength(Math.ceil(data?.length / 10));
+          setAllUsers(data?.data);
+          setUsers(data?.length)
+          setLoading(false);
+        }
+      });
+  }, [loader, page, type]);
+  
+
+  const handlePage = (i: any) => {
+    setPage(i);
+    setLoader(!loader);
+  };
+
+  if (loading) {
     return (
       <div className="grid place-items-center w-full h-screen">
         <span className="loader"></span>
@@ -106,7 +118,7 @@ const AllUsers1 = () => {
     <section className="w-full lg:w-[90%] md:w-[80%] mx-auto px-4 md:px-8 lg:px-12 bg-[#EBF2F4] py-20">
       <GoogleMaps></GoogleMaps>
       <h1 className="text-2xl  text-start mb-6">
-        Total Active Users: {users?.length}
+        Total Active {type}: {users}
       </h1>
       <div className="w-full flex justify-start mb-4 px-4">
         <select
@@ -114,14 +126,14 @@ const AllUsers1 = () => {
           name="userType"
           className="w-full lg:w-[25%] h-[53px] rounded-md bg-white border text-xl"
         >
-          <option value="Seller">Seller</option>
-          <option value="User">User</option>
-          <option value="verifiedSeller">Verified</option>
+          <option value="Seller" selected={type === "Seller" ? true : false}>Seller</option>
+          <option value="User" selected={type === "User" ? true : false}>User</option>
+          <option value="verifiedSeller" selected={type === "verifiedSeller" ? true : false}>Verified</option>
         </select>
       </div>
       <div className="w-full grid lg:grid-cols-2 gap-4 lg:px-3">
         {/* Single card starts from here */}
-        {users?.map((user: any, i: any) => (
+        {allUsers?.map((user: any, i: any) => (
           <div
             key={i}
             className="border flex justify-between items-center gap-2 p-5 text-start "
@@ -258,6 +270,39 @@ const AllUsers1 = () => {
           </div>
         </div>
       )}
+
+         {/* pagination by jabes */}
+      <div className="w-full flex h-[30px] mt-8 text-center items-center justify-center">
+        <ul className="flex gap-2">
+          <li
+            className={`bg-gray-400 px-2 rounded cursor-pointer ${
+              page === 0 ? "hidden" : "block"
+            }`}
+            onClick={() => setPage(page - 1)}
+          >
+            Prev
+          </li>
+          {[...Array(length)].map((order: any, i: any) => (
+            <li
+              className={`${
+                page === i ? "bg-red-400" : "bg-gray-400"
+              } px-2 rounded cursor-pointer`}
+              onClick={() => handlePage(i)}
+            >
+              {i + 1}
+            </li>
+          ))}
+          <li
+            className={`bg-gray-400 px-2 rounded cursor-pointer ${
+              length === page + 1 ? "hidden" : "block"
+            }`}
+            onClick={() => setPage(page + 1)}
+          >
+            Next
+          </li>
+        </ul>
+      </div>
+
     </section>
   );
 };

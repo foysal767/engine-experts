@@ -81,30 +81,22 @@ const MyReview = () => {
       ) : (
         <h2 className="text-4xl mb-8 text-red-600">No reviews added yet.</h2>
       )}
-      <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-5">
+      <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-5">
         {reviews?.map((review: any, i: any) => (
           <div key={i} className="shadow-xl mx-auto px-4 py-5 w-full">
-            <h3 className="text-left text-xl font-bold">{review?.service}</h3>
-            <div className="flex items-center">
-              <img
-                className="w-[180px] h-[120px] my-2"
-                src={review?.image}
-                alt=""
-              />
-
-              <div className="ml-5">
-                <h3 className="text-left text-lg font-bold">
-                  Review: <span className="text-sm">{review?.feedback}</span>
+            <h3 className="text-xl font-bold mb-2">{review?.service}</h3>
+              <div className="">
+              <h3 className="text-left">
+                  <span className="text-md font-bold">Review:</span> {review?.feedback}
                 </h3>
-                <h3 className="text-left text-lg font-bold mb-2">
-                  Rating: {review?.rating}
+                <h3 className="text-left mb-2">
+                  <span className="text-md font-bold">Rating:</span> {review?.rating}
                 </h3>
               </div>
-            </div>
-            <div className="flex items-center space-x-3">
+            <div className="">
               <label
                 htmlFor="edit-modal"
-                className="btn bg-blue-600 lg:btn-sm btn-xs border-none text-white"
+                className="btn bg-blue-600 lg:btn-sm btn-xs border-none text-white w-full mb-2"
                 onClick={() => {
                   setSingleReview(review);
                   setOpenModal(true);
@@ -114,7 +106,7 @@ const MyReview = () => {
               </label>
               <label
                 htmlFor="delete-modal"
-                className="btn bg-red-600 lg:btn-sm btn-xs border-none text-white"
+                className="w-full btn bg-red-600 lg:btn-sm btn-xs border-none text-white"
                 onClick={() => {
                   setDeletedId(review?._id);
                   setOpenModal(true);
@@ -146,7 +138,7 @@ const MyReview = () => {
                 type="text"
                 name="feedback"
                 placeholder="Comment your feedback here..."
-                className="input input-bordered w-full text-white"
+                className="input input-bordered w-full"
                 defaultValue={singleReview?.feedback}
               />
               <button

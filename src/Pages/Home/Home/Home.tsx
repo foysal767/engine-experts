@@ -7,9 +7,6 @@ import CustomerReviews from "./CustomerReviews/CustomerReviews"
 import DiscountSection from "./DiscountSection/DiscountSection"
 import EngineExperties from "./EnginrExperties/EngineExperties"
 import GetInTouch from "./GetInTouch/GetInTouch"
-// import Gallery from './Gallery/Gallery';
-// import GetService from './GetService/GetService';
-// import OurTeam from './OurTeam/OurTeam';
 import PopularService from "./PopularService/PopularService"
 import Video from "./Video/Video"
 
@@ -22,14 +19,10 @@ const Home = () => {
       <Services></Services>
       <Video></Video>
       <WorkingEnvironment></WorkingEnvironment>
-      {/* <Gallery></Gallery> /}
-            <OurTeam></OurTeam>
-            {/ <GetService></GetService> */}
       <EngineExperties></EngineExperties>
       <GetInTouch></GetInTouch>
       <CustomerReviews></CustomerReviews>
       <Brand></Brand>
-      {/* <BrandSection></BrandSection> */}
     </main>
   )
 }
