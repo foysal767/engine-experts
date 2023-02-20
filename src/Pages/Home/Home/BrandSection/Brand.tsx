@@ -1,14 +1,13 @@
 import { toast } from "react-hot-toast";
 
 const Brand = () => {
-
   const handleSubscribe = (event: any) => {
     event.preventDefault();
     const subscribeEmail = event.target.email.value;
     const data = {
-      email: subscribeEmail
-    }
-    fetch("http://localhost:5000/subscriber", {
+      email: subscribeEmail,
+    };
+    fetch("https://engine-experts-server-phi.vercel.app/subscriber", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -17,15 +16,14 @@ const Brand = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if(data.success){
+        if (data.success) {
           toast.success(data?.message);
           event.target.reset();
-        }
-        else{
-          toast.error(data?.message)
+        } else {
+          toast.error(data?.message);
         }
       });
-  }
+  };
 
   return (
     <section className="px-4 md:px-8 lg:px-12 mb-12 lg:mb-28">
@@ -80,7 +78,10 @@ const Brand = () => {
                 className="input rounded-none input-bordered w-full max-w-xs my-2 bg-white text-black font-bold"
                 required
               />
-              <button type="submit" className="btn bg-black rounded-none border-none text-white">
+              <button
+                type="submit"
+                className="btn bg-black rounded-none border-none text-white"
+              >
                 Subscribe
               </button>
             </form>
