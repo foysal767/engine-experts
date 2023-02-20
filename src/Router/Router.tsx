@@ -10,6 +10,9 @@ import CompleltedOrders from "../Pages/AdminDeshboard1/CompletedOrders/Complelte
 import OrderDetails from "../Pages/AdminDeshboard1/SellerOrders/OrderDetails/OrderDetails"
 import SellerOrder from "../Pages/AdminDeshboard1/SellerOrders/SellerOrder"
 import Blog from "../Pages/Blog/Blog"
+import EngineServiceBlog from "../Pages/Blog/LatestBlog/EngineServiceBlog"
+import PaintingBlog from "../Pages/Blog/LatestBlog/PaintingBlog"
+import Tyre from "../Pages/Blog/LatestBlog/Tyre"
 // import SellerOrder from "../Pages/AdminDeshboard1/SellerOrder/SellerOrder";
 import Booking from "../Pages/Booking/Booking"
 import Payment from "../Pages/Booking/Payment"
@@ -30,6 +33,7 @@ import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails"
 import Services from "../Pages/Services/Services"
 import ServicesAll from "../Pages/ServicesAll/ServicesAll"
 import SignUp from "../Pages/SignUp/SignUp"
+import Performance from "./../Pages/Blog/LatestBlog/Performance"
 import PrivateRouter from "./PrivateRouter/PrivateRouter"
 
 const router = createBrowserRouter([
@@ -110,6 +114,22 @@ const router = createBrowserRouter([
         path: "/electriccar",
         element: <ElectricCar></ElectricCar>,
       },
+      {
+        path: "/performance",
+        element: <Performance></Performance>,
+      },
+      {
+        path: "/paintingblog",
+        element: <PaintingBlog></PaintingBlog>,
+      },
+      {
+        path: "/tyre",
+        element: <Tyre></Tyre>,
+      },
+      {
+        path: "/engineserviceblog",
+        element: <EngineServiceBlog></EngineServiceBlog>,
+      },
     ],
   },
   {
@@ -162,6 +182,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-]);
+])
 
 export default router

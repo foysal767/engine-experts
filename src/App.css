@@ -4,8 +4,8 @@
   /* font-family: serif; */
   font-family: "Poppins", sans-serif;
 
-  background-color: #F8F8F8;
-  color: #F8F8F8;
+  background-color: #f8f8f8;
+  color: #f8f8f8;
 }
 
 .App-logo {
@@ -19,14 +19,14 @@
   }
 }
 
-.loader {
+/* .loader {
   position: relative;
   width: 48px;
   height: 48px;
   background: #de3500;
   transform: rotateX(65deg) rotate(45deg);
-  /* remove bellows command for perspective change */
-  /* //transform: perspective(200px) rotateX(65deg) rotate(45deg);  */
+  remove bellows command for perspective change
+  //transform: perspective(200px) rotateX(65deg) rotate(45deg); 
   color: #fff;
   animation: layers1 1s linear infinite alternate;
 }
@@ -57,6 +57,50 @@
 
   100% {
     transform: translate(-25px, -25px) scale(1)
+  }
+} */
+
+.loader {
+  position: relative;
+  width: 85px;
+  height: 50px;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(#e74032 50px, transparent 0),
+    linear-gradient(#e74032 50px, transparent 0),
+    linear-gradient(#e74032 50px, transparent 0),
+    linear-gradient(#e74032 50px, transparent 0),
+    linear-gradient(#e74032 50px, transparent 0),
+    linear-gradient(#e74032 50px, transparent 0);
+  background-position: 0px center, 15px center, 30px center, 45px center,
+    60px center, 75px center, 90px center;
+  animation: rikSpikeRoll 0.65s linear infinite alternate;
+}
+@keyframes rikSpikeRoll {
+  0% {
+    background-size: 10px 3px;
+  }
+  16% {
+    background-size: 10px 50px, 10px 3px, 10px 3px, 10px 3px, 10px 3px, 10px 3px;
+  }
+  33% {
+    background-size: 10px 30px, 10px 50px, 10px 3px, 10px 3px, 10px 3px,
+      10px 3px;
+  }
+  50% {
+    background-size: 10px 10px, 10px 30px, 10px 50px, 10px 3px, 10px 3px,
+      10px 3px;
+  }
+  66% {
+    background-size: 10px 3px, 10px 10px, 10px 30px, 10px 50px, 10px 3px,
+      10px 3px;
+  }
+  83% {
+    background-size: 10px 3px, 10px 3px, 10px 10px, 10px 30px, 10px 50px,
+      10px 3px;
+  }
+  100% {
+    background-size: 10px 3px, 10px 3px, 10px 3px, 10px 10px, 10px 30px,
+      10px 50px;
   }
 }
 
