@@ -13,6 +13,9 @@ const AdminDeshboard1 = () => {
   const location = useLocation();
   const [payment, setPayment] = useState(0);
   const [payments, setPayments] = useState([]);
+  const [services, setServices] = useState(0);
+  const [users, setUsers] = useState(0);
+  const [orders, setOrders] = useState(0);
   const [active, setActive] = useState("");
   const sevenDaysAgo = new Date(
     new Date().getTime() - 7 * 24 * 60 * 60 * 1000
@@ -26,6 +29,9 @@ const AdminDeshboard1 = () => {
       .then((data) => {
         if (data.success) {
           setPayments(data?.data);
+          setOrders(data?.orders);
+          setUsers(data?.users);
+          setServices(data?.services);
           let taka = 0;
           let lastWeekPayment = 0;
           data?.data?.map((singlePrice: any) => {
@@ -46,13 +52,13 @@ const AdminDeshboard1 = () => {
   }
 
   return (
-    <main className=" bg-[#FFFFFF] text-black w-full">
+    <main className=" bg-[#FFFFFF]  w-full">
       <section className="w-full h-[83vh] lg:h-[85vh] relative ">
         <div className="w-full h-[68vh] adminbanner absolute top-0"></div>
         <div className="absolute top-0 w-full h-[7vh] lg:h-[13vh] text-white">
           <Navbar></Navbar>
         </div>
-        <div className="w-full absolute top-24 lg:top-24">
+        <div className="text-black w-full absolute top-24 lg:top-24">
           {isAdmin && (
             <>
               <div className="w-full lg:w-[80%] mx-auto flex justify-between items-center gap-4 lg:mt-8 px-3 lg:px-0">
@@ -99,7 +105,7 @@ const AdminDeshboard1 = () => {
                       </div>
                       <div className="">
                         <h2 className="text-sm text-start ">All Service</h2>
-                        <h1 className="text-2xl text-start ">15</h1>
+                        <h1 className="text-2xl text-start ">{services}</h1>
                       </div>
                     </div>
                   </NavLink>
@@ -136,7 +142,7 @@ const AdminDeshboard1 = () => {
                       </div>
                       <div className="">
                         <h2 className="text-sm text-start ">All Users</h2>
-                        <h1 className="text-2xl text-start ">190</h1>
+                        <h1 className="text-2xl text-start ">{users}</h1>
                       </div>
                     </div>
                   </NavLink>
@@ -210,7 +216,7 @@ const AdminDeshboard1 = () => {
                       </div>
                       <div className="">
                         <h2 className="text-sm text-start ">All Orders</h2>
-                        <h1 className="text-2xl text-start ">130</h1>
+                        <h1 className="text-2xl text-start ">{orders}</h1>
                       </div>
                     </div>
                   </NavLink>
@@ -418,7 +424,9 @@ const AdminDeshboard1 = () => {
           )}
         </div>
       </section>
-      <Outlet></Outlet>
+      <section className="text-black">
+        <Outlet></Outlet>
+      </section>
     </main>
   );
 };
