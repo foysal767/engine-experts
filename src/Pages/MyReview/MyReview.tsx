@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
+import { SiTrustpilot } from "react-icons/si";
+import { AiTwotoneEdit, AiTwotoneDelete } from "react-icons/ai";
 
 interface singleReview {
   feedback: any;
@@ -75,47 +77,51 @@ const MyReview = () => {
   }
 
   return (
-    <section className="text-black mt-5 px-4 md:px-12 lg:px-12 pb-6">
+    <section className="text-black mt-5 px-4 md:px-12 lg:px-12 pb-12">
       {reviews?.length >= 1 ? (
-        <h2 className="text-4xl">Total reviews : {reviews?.length}</h2>
+        <h2 className="text-4xl font-semibold mb-6 border-b-2 border-b-gray-600 pb-2">Total reviews : {reviews?.length}</h2>
       ) : (
-        <h2 className="text-4xl mb-8 text-red-600">No reviews added yet.</h2>
+        <h2 className="text-4xl font-semibold mb-8 text-red-600">No reviews added yet.</h2>
       )}
-      <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-5">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5">
         {reviews?.map((review: any, i: any) => (
-          <div key={i} className="shadow-xl mx-auto px-4 py-5 w-full">
-            <h3 className="text-xl font-bold mb-2">{review?.service}</h3>
-              <div className="">
+          <div key={i} className="shadow-xl px-4 py-5 w-full flex items-center justify-between bg-gray-200">
+            <div>
+            <h3 className="text-xl text-left font-bold mb-3">{review?.service}</h3>
+              <h3 className="text-left mb-2 flex gap-2 items-center">
+                  <span className="text-md font-bold">Rating:</span> <span className="text-xl flex gap-1">
+                        {[...Array(review?.rating)].map((star, i) => (
+                          <SiTrustpilot className="text-[#E81C2E]"></SiTrustpilot>
+                        ))}
+                      </span>
+                </h3>
               <h3 className="text-left">
                   <span className="text-md font-bold">Review:</span> {review?.feedback}
                 </h3>
-                <h3 className="text-left mb-2">
-                  <span className="text-md font-bold">Rating:</span> {review?.rating}
-                </h3>
-              </div>
-            <div className="">
+            </div>
+            <div className="flex flex-col gap-12 items-center">
               <label
                 htmlFor="edit-modal"
-                className="btn bg-blue-600 lg:btn-sm btn-xs border-none text-white w-full mb-2"
+                className="cursor-pointer text-green-600 text-2xl"
                 onClick={() => {
                   setSingleReview(review);
                   setOpenModal(true);
                 }}
               >
-                Edit
+                <AiTwotoneEdit></AiTwotoneEdit>
               </label>
               <label
                 htmlFor="delete-modal"
-                className="w-full btn bg-red-600 lg:btn-sm btn-xs border-none text-white"
+                className="cursor-pointer text-red-600 text-2xl"
                 onClick={() => {
                   setDeletedId(review?._id);
                   setOpenModal(true);
                 }}
               >
-                Delete
+                <AiTwotoneDelete></AiTwotoneDelete>
               </label>
             </div>
-          </div>
+            </div>
         ))}
       </div>
 

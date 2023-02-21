@@ -56,7 +56,7 @@ const Booking = () => {
                 </h2>
               </span>
               <span className="text-start">
-                <h2 className="lg:text-xl text-sm break-words text-starts">
+                <h2 className="lg:text-xl text-sm break-words text-center">
                   {booking?.date}
                 </h2>
               </span>

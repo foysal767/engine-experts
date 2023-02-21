@@ -171,7 +171,7 @@ const AllService1 = () => {
                 name="name"
                 type="text"
                 placeholder="Type your Service Name"
-                className="input input-bordered w-full text-white"
+                className="input input-bordered w-full text-black"
                 defaultValue={singleService?.name}
               />
               <label>
@@ -181,7 +181,7 @@ const AllService1 = () => {
                 name="price"
                 type="text"
                 placeholder="Type your Service Price"
-                className="input input-bordered w-full text-white"
+                className="input input-bordered w-full text-black"
                 defaultValue={singleService?.price}
               />
               <label>
@@ -191,7 +191,7 @@ const AllService1 = () => {
                 name="description"
                 type="text"
                 placeholder="Write your Service Details"
-                className="input input-bordered w-full text-white"
+                className="input input-bordered w-full text-black"
                 defaultValue={singleService?.details}
               />
               <label>
@@ -201,7 +201,7 @@ const AllService1 = () => {
                 name="image"
                 type="text"
                 placeholder="Put your Service Image URL"
-                className="input input-bordered w-full text-white"
+                className="input input-bordered w-full text-black"
                 defaultValue={singleService?.image}
               />
               <button

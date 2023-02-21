@@ -350,16 +350,16 @@ const AdminDeshboard1 = () => {
 
           {accType === "User" && (
             <>
-              <div className="w-full lg:w-[80%] mx-auto flex justify-between items-center gap-4 lg:mt-8 px-3 lg:px-0">
+              <div className="w-full lg:w-[80%] mx-auto lg:flex md:flex justify-between items-center gap-4 lg:mt-8 px-3 lg:px-0">
                 <div className="flex items-center gap-4">
                   <img
                     src={user?.photoURL}
                     alt=""
-                    className="w-[80px] h-[80px] rounded-full"
+                    className="w-[60px] h-[60px] lg:w-[80px] lg:h-[80px] rounded-full"
                   />
                   <div className="text-left flex flex-col gap-1 text-white">
                     <p className="font-bold text-xl">
-                      Welcome to Engine Experts
+                      Welcome <span className="text-green-600 uppercase"></span> to Engine Experts
                     </p>
                     <p>{user?.displayName}</p>
                   </div>
