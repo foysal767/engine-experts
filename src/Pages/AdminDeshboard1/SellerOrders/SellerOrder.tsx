@@ -42,7 +42,7 @@ const SellerOrder = () => {
       <h1 className="text-2xl text-start mb-6">
         {orders?.length <= 0
           ? "Orders Not Available"
-          : `Your Active orders${orders?.length}`}
+          : `Your Active orders ${orders?.length}`}
       </h1>
       <div className="w-full flex flex-col gap-4">
         {orders?.map((order: any, i: any) => (
@@ -54,13 +54,13 @@ const SellerOrder = () => {
             <h2>{order?.serviceName}</h2>
             <h2>{order?.userEmail}</h2>
             <h2>${order?.price}</h2>
-            <Link to={"/dashboard1/orderdetails"}>
-              <button className="bg-green-600 rounded-xl text-white px-3">
+            <Link to={`/dashboard1/orderdetails/${order?._id}`}>
+              <button className="btn btn-sm border-none bg-green-600 rounded-xl text-white px-3">
                 See Details
               </button>
             </Link>
             <button
-              className="bg-blue-500 px-3 rounded-xl"
+              className="btn btn-sm border-none text-white bg-blue-500 px-3 rounded-xl"
               onClick={() => handleCompleted(order?._id)}
             >
               Complete

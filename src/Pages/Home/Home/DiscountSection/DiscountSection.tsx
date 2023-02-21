@@ -14,7 +14,6 @@ const DiscountSection = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          console.log(data?.data, "discount data fetch");
           setDiscount(data?.data?.services);
           setdeadLine(data.data?.endDate);
           setCampignName(data.data?.campaignName);
@@ -24,7 +23,6 @@ const DiscountSection = () => {
         }
       });
   }, []);
-  console.log(discount, "discount");
   // CountDown timer added by jabed from here
 
   const [days, setDays] = useState<number>(0);
@@ -68,7 +66,6 @@ const DiscountSection = () => {
     );
   }
 
-  console.log(deadline, "deadline");
   if (!deadline) {
     return <></>;
   }

@@ -55,7 +55,6 @@ const CheckOutForm = ({ servicePayment }: pay) => {
       card,
     });
     if (error) {
-      console.log("[error]", error);
       const err = error.message;
       setCardError(err as string);
     } else {
