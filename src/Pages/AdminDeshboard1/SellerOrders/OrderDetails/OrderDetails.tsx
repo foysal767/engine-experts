@@ -23,7 +23,7 @@ const OrderDetails = () => {
   const [order, setOrder] = useState<order>();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/orderDetails?id=${id}`)
+    fetch(`https://engine-experts-server-phi.vercel.app/orderDetails?id=${id}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
@@ -31,7 +31,6 @@ const OrderDetails = () => {
         }
       });
   }, [id]);
-  
 
   return (
     <section className="w-full lg:w-[90%] md:w-[80%] mx-auto px-4 md:px-8 lg:px-12 bg-[#EBF2F4] pb-10">
@@ -41,7 +40,9 @@ const OrderDetails = () => {
           <h2 className="text-2xl font-bold border-b-2 border-green-600 mb-2 pb-1">
             {order?.serviceName}
           </h2>
-          <h4 className="text-xl font-bold mb-2 text-left">Price: {order?.price}$</h4>
+          <h4 className="text-xl font-bold mb-2 text-left">
+            Price: {order?.price}$
+          </h4>
           <p className="text-left">
             <span className="font-bold">Serice Details:</span> The accumulation
             of dust, debris, and general gunk in your transmission system can
@@ -73,23 +74,28 @@ const OrderDetails = () => {
             alt=""
           />
           <p className="text-left mb-1">
-            <span className="font-bold text-lg">Name: </span>{order?.userName}
+            <span className="font-bold text-lg">Name: </span>
+            {order?.userName}
           </p>
           <p className="text-left mb-1">
             <span className="font-bold text-lg">Email: </span>
             {order?.userEmail}
           </p>
           <p className="text-left mb-1">
-            <span className="font-bold text-lg">Payment type: </span>{order?.payment}
+            <span className="font-bold text-lg">Payment type: </span>
+            {order?.payment}
           </p>
           <p className="text-left mb-1">
-            <span className="font-bold text-lg">Model: </span>{order?.model}
+            <span className="font-bold text-lg">Model: </span>
+            {order?.model}
           </p>
           <p className="text-left mb-1">
-            <span className="font-bold text-lg">Phone No: </span>{order?.number}
+            <span className="font-bold text-lg">Phone No: </span>
+            {order?.number}
           </p>
           <p className="text-left mb-1">
-            <span className="font-bold text-lg">Booking Date: </span>{order?.date}
+            <span className="font-bold text-lg">Booking Date: </span>
+            {order?.date}
           </p>
           <div>
             <button className="w-full my-3 btn bg-green-600 border-none text-white font-semibold rounded-sm">
