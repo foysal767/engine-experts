@@ -11,14 +11,14 @@ const LatestBlog = () => {
               <div className="leftContent w-72">
                 ENGINE OF THE WEEK LATEST POSTS
               </div>
-              <div className="rightContent -ml-8">SEE ALL POSTS</div>
+              <div className="rightContent -ml-8 lg:mr-8">SEE ALL POSTS</div>
             </div>
             <hr className="text-2xl border-red-500 border-b-2 mb-4" />
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               <Link to="/performance">
-                <div className="hover:bg-[#E92E3D] w-72 rounded-md p-4">
+                <div className="hover:bg-[#E92E3D] w-full md:w-72 rounded-md p-2">
                   <img
-                    className="w-72 rounded-lg cursor-pointer"
+                    className="w-full md:w-72 rounded-lg cursor-pointer"
                     src="assets/image-gallery/Performance-upgrade.jpg"
                     alt=""
                   />
@@ -32,9 +32,9 @@ const LatestBlog = () => {
               </Link>
 
               <Link to="/paintingblog">
-                <div className="hover:bg-[#E92E3D] w-72 rounded-md p-4">
+                <div className="hover:bg-[#E92E3D] w-full md:w-72 rounded-md p-2">
                   <img
-                    className="w-72 rounded-lg cursor-pointer"
+                    className="w-full md:w-72 rounded-lg cursor-pointer"
                     src="assets/image-gallery/Denting-&-Painting.jpg"
                     alt=""
                   />
@@ -48,9 +48,9 @@ const LatestBlog = () => {
               </Link>
 
               <Link to="/tyre">
-                <div className="hover:bg-[#E92E3D] w-72 rounded-md p-4">
+                <div className="hover:bg-[#E92E3D] w-full md:w-72 rounded-md p-2">
                   <img
-                    className="w-72 rounded-lg cursor-pointer"
+                    className="w-full md:w-72 rounded-lg cursor-pointer"
                     src="assets/image-gallery/Tyre-&-Wheels.jpg"
                     alt=""
                   />
