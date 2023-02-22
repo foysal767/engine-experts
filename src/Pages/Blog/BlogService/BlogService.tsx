@@ -48,7 +48,7 @@ const BlogService = () => {
         </div>
 
         <div className="middleBar basis-7/12">
-          <div className="mb-10 flex flex-col-reverse md:flex-row lg:flex-row gap-4 justify-center items-center cursor-pointer text-gray-600 p-4 hover:border-2 border-red-500 rounded-lg">
+          <div className="mb-10 flex flex-col-reverse md:flex-row lg:flex-row gap-4 justify-center items-center cursor-pointer text-gray-600 p-4 hover:border-2 border-[#E92E3D] rounded-lg">
             <div className="">
               <h1 className="text-2xl text-left font-bold ">
                 Blog Of How Automotive Air Conditioning Works ?
