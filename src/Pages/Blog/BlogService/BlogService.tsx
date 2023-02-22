@@ -1,146 +1,53 @@
 import "./BlogService.css"
 const BlogService = () => {
   return (
-    <section className="my-16 px-10">
+    <section className="my-16 px-16">
       <div className="flex flex-col md:flex-row text-gray-400 gap-8">
-        <div className="sideBar basis-3/12">
-          <h1 className="text-2xl text-center text-gray-800 font-bold mb-4">
+        <div className="sideBar basis-3/12 bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] p-4 rounded-lg">
+          <h1 className="text-2xl text-center text-white font-bold mb-4">
             Popular Servicing
           </h1>
 
-          <div className="mb-10 border border-gray-500 p-4 rounded-lg cursor-pointer">
-            <h1 className="text-gray-600">How Evac Air Conditioning Works?</h1>
+          <div className="animated flex flex-col md:flex-row lg:flex-row gap-2 justify-center items-center mb-10 p-2 cursor-pointer rounded-lg hover:border hover:border-red-400 text-white hover:text-red-400">
+            <h1 className="w-full md:w-8/12">
+              How Evac Air Conditioning Works?
+            </h1>
             <img
               src="assets/engine-blog/air-engine/airEngine-5.jpg"
-              className="animated w-full my-4 rounded-lg"
+              className="w-full md:w-4/12 my-2 rounded-lg"
               alt=""
             />
-            <p className="text-gray-600 mb-4">
-              <div className="collapse">
-                <input type="checkbox" />
-                <div className="collapse-title text-xl font-medium">
-                  Details Evac
-                </div>
-                <div className="collapse-content">
-                  <p>
-                    These formidable engines, our six Best Engines evaluators
-                    believe, are — or, for repeat winners, remain — benchmark
-                    executions of engine design, innovation, manufacturing. They
-                    excel in a business that holds their "contribution" to the
-                    overall product in the highest regard and stand proud of the
-                    conventional For 2001’s installment, nothing about the Best
-                    Engines contest has changed. Each engine nominated by our
-                    six editors must stand up to every other nominated engine in
-                    a battle unsullied by the marketing-happy "category
-                    competition" that so devalues other industry awards. We
-                    don’t "sell" the Best Engines to anybody. These engines have
-                    to sell themselves to us.
-                  </p>
-                </div>
-              </div>
-            </p>
           </div>
 
-          <div className="mb-10 border border-gray-500 p-4 rounded-lg cursor-pointer">
-            <h1 className="text-gray-600">Expansion Valve System?</h1>
+          <div className="animated flex flex-col md:flex-row lg:flex-row gap-2 justify-center items-center mb-10 p-2 cursor-pointer rounded-lg hover:border hover:border-red-400 text-white hover:text-red-400">
+            <h1 className="w-full md:w-8/12">Expansion Valve System</h1>
             <img
               src="assets/engine-blog/air-engine/airEngine-6.jpg"
-              className="animated w-full my-4 rounded-lg"
+              className="w-full md:w-4/12 my-2 rounded-lg"
               alt=""
             />
-            <p className="text-gray-600 mb-4">
-              <div className="collapse">
-                <input type="checkbox" />
-                <div className="collapse-title text-xl font-medium">
-                  Details Expansion
-                </div>
-                <div className="collapse-content">
-                  <p>
-                    These formidable engines, our six Best Engines evaluators
-                    believe, are — or, for repeat winners, remain — benchmark
-                    executions of engine design, innovation, manufacturing. They
-                    excel in a business that holds their "contribution" to the
-                    overall product in the highest regard and stand proud of the
-                    conventional For 2001’s installment, nothing about the Best
-                    Engines contest has changed. Each engine nominated by our
-                    six editors must stand up to every other nominated engine in
-                    a battle unsullied by the marketing-happy "category
-                    competition" that so devalues other industry awards. We
-                    don’t "sell" the Best Engines to anybody. These engines have
-                    to sell themselves to us.
-                  </p>
-                </div>
-              </div>
-            </p>
           </div>
 
-          <div className="mb-10 border border-gray-500 p-4 rounded-lg cursor-pointer">
-            <h1 className="text-gray-600">Orifice Tube system</h1>
+          <div className="animated flex flex-col md:flex-row lg:flex-row gap-2 justify-center items-center mb-10 p-2 cursor-pointer rounded-lg hover:border hover:border-red-400 text-white hover:text-red-400 ">
+            <h1 className="w-full md:w-8/12">Orifice Tube system</h1>
             <img
               src="assets/engine-blog/air-engine/airEngine-7.jpg"
-              className="animated w-full my-4 rounded-lg"
+              className="w-full md:w-4/12 my-2 rounded-lg"
               alt=""
             />
-            <p className="text-gray-600 mb-4">
-              <div className="collapse">
-                <input type="checkbox" />
-                <div className="collapse-title text-xl font-medium">
-                  Details Orifice
-                </div>
-                <div className="collapse-content">
-                  <p>
-                    These formidable engines, our six Best Engines evaluators
-                    believe, are — or, for repeat winners, remain — benchmark
-                    executions of engine design, innovation, manufacturing. They
-                    excel in a business that holds their "contribution" to the
-                    overall product in the highest regard and stand proud of the
-                    conventional For 2001’s installment, nothing about the Best
-                    Engines contest has changed. Each engine nominated by our
-                    six editors must stand up to every other nominated engine in
-                    a battle unsullied by the marketing-happy "category
-                    competition" that so devalues other industry awards. We
-                    don’t "sell" the Best Engines to anybody. These engines have
-                    to sell themselves to us.
-                  </p>
-                </div>
-              </div>
-            </p>
           </div>
 
-          <div className="mb-10 border border-gray-500 p-4 rounded-lg cursor-pointer">
-            <h1 className="text-gray-600">A/C Components Description</h1>
+          <div className="animated flex flex-col md:flex-row lg:flex-row gap-2 justify-center items-center mb-10 p-2 cursor-pointer rounded-lg hover:border hover:border-red-400 text-white hover:text-red-400 ">
+            <h1 className="w-full md:w-8/12">A/C Components Description</h1>
             <img
               src="assets/engine-blog/air-engine/airEngine-8.jpg"
-              className="animated w-full my-4 rounded-lg"
+              className="w-full md:w-4/12 my-2 rounded-lg"
               alt=""
             />
-            <p className="text-gray-600 mb-4">
-              <div className="collapse">
-                <input type="checkbox" />
-                <div className="collapse-title text-xl font-medium">
-                  Details Orifice
-                </div>
-                <div className="collapse-content">
-                  <p>
-                    These formidable engines, our six Best Engines evaluators
-                    believe, are — or, for repeat winners, remain — benchmark
-                    executions of engine design, innovation, manufacturing. They
-                    excel in a business that holds their "contribution" to the
-                    overall product in the highest regard and stand proud of the
-                    conventional For 2001’s installment, nothing about the Best
-                    Engines contest has changed. Each engine nominated by our
-                    six editors must stand up to every other nominated engine in
-                    a battle unsullied by the marketing-happy "category
-                    competition" that so devalues other industry awards. We
-                    don’t "sell" the Best Engines to anybody. These engines have
-                    to sell themselves to us.
-                  </p>
-                </div>
-              </div>
-            </p>
           </div>
         </div>
-        <div className="middleBar basis-9/12">
+
+        <div className="middleBar basis-7/12">
           <div className="mb-10 flex flex-col-reverse md:flex-row lg:flex-row gap-4 justify-center items-center cursor-pointer hover:bg-black hover:bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] text-gray-600 hover:text-white p-4 rounded-lg">
             <div className="">
               <h1 className="text-2xl text-left font-bold ">
@@ -373,6 +280,7 @@ const BlogService = () => {
             />
           </div>
         </div>
+        <div className="rightBar basis-2/12"></div>
       </div>
     </section>
   )
