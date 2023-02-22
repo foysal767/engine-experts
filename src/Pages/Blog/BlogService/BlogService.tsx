@@ -146,7 +146,7 @@ const BlogService = () => {
               <h1 className="text-2xl text-left font-bold ">
                 Blog Of How Automotive Air Conditioning Works ?
               </h1>
-              <p className="text-xl text-justify mt-4">
+              <p className="text-xl md:text-justify mt-4">
                 <div className="collapse">
                   <input type="checkbox" />
                   <div className="collapse-title">
@@ -202,7 +202,7 @@ const BlogService = () => {
               <h1 className="text-2xl text-left font-bold ">
                 Blog Of Diagonstic teasting ?
               </h1>
-              <p className="text-xl text-justify mt-4">
+              <p className="text-xl md:text-justify mt-4">
                 <div className="collapse">
                   <input type="checkbox" />
                   <div className="collapse-title">
@@ -258,7 +258,7 @@ const BlogService = () => {
               <h1 className="text-2xl text-left font-bold ">
                 Blog of Engine reebuilding
               </h1>
-              <p className="text-xl text-justify mt-4">
+              <p className="text-xl md:text-justify mt-4">
                 <div className="collapse">
                   <input type="checkbox" />
                   <div className="collapse-title">
@@ -318,7 +318,7 @@ const BlogService = () => {
               <h1 className="text-2xl text-left font-bold ">
                 Blog of Filter replacement
               </h1>
-              <p className="text-xl text-justify mt-4">
+              <p className="text-xl md:text-justify mt-4">
                 <div className="collapse">
                   <input type="checkbox" />
                   <div className="collapse-title">

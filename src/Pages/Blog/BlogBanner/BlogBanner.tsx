@@ -1,3 +1,5 @@
+import "./BlogBanner.css"
+
 const BlogBanner = () => {
   return (
     <section className="bg-black bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] h-screen">
