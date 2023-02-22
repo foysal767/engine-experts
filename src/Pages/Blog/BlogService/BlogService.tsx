@@ -47,15 +47,15 @@ const BlogService = () => {
           </div>
         </div>
 
-        <div className="middleBar basis-7/12">
+        <div className="middleBar basis-9/12">
           <div className="mb-10 flex flex-col text-gray-600">
-            <h1 className="text-2xl text-center md:text-left font-bold ">
+            <h1 className="text-2xl text-center font-bold ">
               Blog Of How To Automotive Air Conditioning Works ?
             </h1>
 
             <img
               src="assets/engine-blog/air-engine/airEngine-1.jpg"
-              className="w-full my-2"
+              className="w-full my-4 lg:w-1/2 mx-auto"
               alt=""
             />
             <p className="text-xl md:text-justify mt-2">
@@ -67,14 +67,14 @@ const BlogService = () => {
               heat and humidity from the vehicle and allows the system to give
               off cool, dry <br />
             </p>
-            <div className="justify-end items-end">
-              <button className="border border-[#E92E3E] px-4 my-1 rounded-lg">
+            <div className="mt-2">
+              <button className="border border-[#E92E3E] hover:bg-[#E92E3D] hover:text-white px-4 my-1 rounded-lg">
                 Read More
               </button>
             </div>
           </div>
         </div>
-        <div className="rightBar basis-2/12"></div>
+        <div className="rightBar basis-0"></div>
       </div>
     </section>
   )
