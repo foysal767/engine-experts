@@ -51,7 +51,7 @@ const Payment = () => {
           {servicePayment?.price}
         </h1>
       </div>
-      <div className="w-96 mx-auto my-6 border p-7 ">
+      <div className="lg:w-[500px] md:w-[500px] w-full mx-auto my-6 border p-7 ">
         <Elements stripe={stripePromise}>
           <CheckOutForm servicePayment={servicePayment}></CheckOutForm>
         </Elements>

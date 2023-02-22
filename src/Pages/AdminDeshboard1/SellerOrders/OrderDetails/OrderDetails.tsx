@@ -1,14 +1,48 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import GoogleMaps from "../../../GoogleMaps/GoogleMaps";
 
+interface order {
+  location: any;
+  lat: string;
+  long: string;
+  userEmail: string;
+  date: string;
+  number: string;
+  model: string;
+  seller: string;
+  price: string;
+  userName: string;
+  serviceName: string;
+  userImage: any;
+  payment: any;
+}
+
 const OrderDetails = () => {
+  const { id } = useParams();
+  const [order, setOrder] = useState<order>();
+
+  useEffect(() => {
+    fetch(`https://engine-experts-server-phi.vercel.app/orderDetails?id=${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setOrder(data?.data);
+        }
+      });
+  }, [id]);
+
   return (
     <section className="w-full lg:w-[90%] md:w-[80%] mx-auto px-4 md:px-8 lg:px-12 bg-[#EBF2F4] pb-10">
       <GoogleMaps></GoogleMaps>
       <div className="grid grid-cols-3 gap-4">
         <div className="col-span-2 bg-gray-200 shadow-md w-full h-full py-10 px-4">
-          <h2 className="text-2xl font-bold border-b-2 border-green-600 mb-2 pb-1">Engine Lock</h2>
-          <h4 className="text-xl font-bold mb-2 text-left">Price: 500$</h4>
+          <h2 className="text-2xl font-bold border-b-2 border-green-600 mb-2 pb-1">
+            {order?.serviceName}
+          </h2>
+          <h4 className="text-xl font-bold mb-2 text-left">
+            Price: {order?.price}$
+          </h4>
           <p className="text-left">
             <span className="font-bold">Serice Details:</span> The accumulation
             of dust, debris, and general gunk in your transmission system can
@@ -34,29 +68,42 @@ const OrderDetails = () => {
           </p>
         </div>
         <div className="bg-gray-200 shadow-lg w-full h-full py-8 px-4">
-            <img className="w-[200px] mx-auto mb-2" src="/assets/service-1.1.jpg" alt="" />
+          <img
+            className="w-[150px] rounded-full mx-auto mb-4"
+            src={order?.userImage}
+            alt=""
+          />
           <p className="text-left mb-1">
-            <span className="font-bold text-lg">Name: </span>Sk Pipul
+            <span className="font-bold text-lg">Name: </span>
+            {order?.userName}
           </p>
           <p className="text-left mb-1">
             <span className="font-bold text-lg">Email: </span>
-            skpipul252@gmail.com
+            {order?.userEmail}
           </p>
           <p className="text-left mb-1">
-            <span className="font-bold text-lg">Address: </span>Chittagong
+            <span className="font-bold text-lg">Payment type: </span>
+            {order?.payment}
           </p>
           <p className="text-left mb-1">
             <span className="font-bold text-lg">Model: </span>
+            {order?.model}
           </p>
           <p className="text-left mb-1">
-            <span className="font-bold text-lg">Phone No: </span>01862087905
+            <span className="font-bold text-lg">Phone No: </span>
+            {order?.number}
           </p>
           <p className="text-left mb-1">
-            <span className="font-bold text-lg">Booking Date: </span>12/12/2023
+            <span className="font-bold text-lg">Booking Date: </span>
+            {order?.date}
           </p>
           <div>
-            <button className="w-full my-3 btn bg-green-600 border-none text-white font-semibold rounded-sm">Accept</button>
-            <button className="w-full btn bg-red-600 border-none text-white font-semibold rounded-sm">Deny</button>
+            <button className="w-full my-3 btn bg-green-600 border-none text-white font-semibold rounded-sm">
+              Accept
+            </button>
+            <button className="w-full btn bg-red-600 border-none text-white font-semibold rounded-sm">
+              Deny
+            </button>
           </div>
         </div>
       </div>

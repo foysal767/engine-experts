@@ -9,7 +9,7 @@ import Navbar from "../Shared/Navbar/Navbar";
 import "./AdminDeshboard.css";
 
 const AdminDeshboard1 = () => {
-  const { accType, isAdmin } = useContext(AuthContext);
+  const { accType, isAdmin, user } = useContext(AuthContext);
   const location = useLocation();
   const [payment, setPayment] = useState(0);
   const [payments, setPayments] = useState([]);
@@ -17,12 +17,19 @@ const AdminDeshboard1 = () => {
   const [users, setUsers] = useState(0);
   const [orders, setOrders] = useState(0);
   const [active, setActive] = useState("");
-  const sevenDaysAgo = new Date(
-    new Date().getTime() - 7 * 24 * 60 * 60 * 1000
-  ).toLocaleDateString();
-  const [lastWeek, setLastWeek] = useState();
+  const [lastWeek, setLastWeek] = useState(0);
+  const [lastMonth, setlastMonth] = useState(0);
+  const [daily, setDaily] = useState(0);
   // let taka = 0
 
+  const revinue = (price: any) => {
+    let taka = 0;
+    price?.map((singlePrice: any) => {
+      const price = parseFloat(singlePrice.price);
+      taka = taka + price;
+    });
+    return taka;
+  };
   useEffect(() => {
     fetch(`https://engine-experts-server-phi.vercel.app/payments`)
       .then((res) => res.json())
@@ -32,17 +39,10 @@ const AdminDeshboard1 = () => {
           setOrders(data?.orders);
           setUsers(data?.users);
           setServices(data?.services);
-          let taka = 0;
-          let lastWeekPayment = 0;
-          data?.data?.map((singlePrice: any) => {
-            const price = parseFloat(singlePrice.price);
-            taka = taka + price;
-
-            if (sevenDaysAgo > singlePrice.date) {
-              lastWeekPayment = lastWeekPayment + price;
-            }
-            return [setPayment(taka)];
-          });
+          setPayment(revinue(data?.data));
+          setLastWeek(revinue(data?.weeklyRevenue));
+          setlastMonth(revinue(data?.monthlyRevenue));
+          setDaily(revinue(data?.dailyRevenue));
         }
       });
   }, []);
@@ -67,16 +67,16 @@ const AdminDeshboard1 = () => {
                   <span className="text-2xl lg:text-3xl">{payment}$</span>
                 </h1>
                 <h1 className="text-start text-sm  text-slate-300">
-                  Total Revenue <br />
-                  <span className="text-2xl lg:text-3xl">210$</span>
+                  Last Week Revenue <br />
+                  <span className="text-2xl lg:text-3xl">{lastWeek}$</span>
                 </h1>
                 <h1 className="text-start text-sm  text-slate-300">
-                  Total Revenue <br />
-                  <span className="text-2xl lg:text-3xl">1500$</span>
+                  Last Month Revenue <br />
+                  <span className="text-2xl lg:text-3xl">{lastMonth}$</span>
                 </h1>
                 <h1 className="text-start text-sm  text-slate-300">
-                  Total Revenue <br />
-                  <span className="text-2xl lg:text-3xl">900$</span>
+                  Daily Revenue <br />
+                  <span className="text-2xl lg:text-3xl">{daily}$</span>
                 </h1>
               </div>
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 w-[80%] mx-auto mt-16 lg:mt-14">
@@ -320,7 +320,7 @@ const AdminDeshboard1 = () => {
                     >
                       <div className="flex justify-between items-center">
                         <button className="w-12 h-12 rounded-full bg-gray-200 text-center">
-                        <RiShoppingCart2Fill className="text-2xl mx-auto text-red-600"></RiShoppingCart2Fill>
+                          <RiShoppingCart2Fill className="text-2xl mx-auto text-red-600"></RiShoppingCart2Fill>
                         </button>
                         <button className="bg-gray-200 h-7 px-2 rounded-full">
                           growth
@@ -349,78 +349,103 @@ const AdminDeshboard1 = () => {
           )}
 
           {accType === "User" && (
-            <div className="grid grid-cols-2 gap-4 w-[80%] mx-auto mt-16 lg:mt-28">
-              {/* Card one start from here */}
-              <div
-                className={`maincard h-[180px] rounded-lg hover:scale-105  relative transition duration-700`}
-              >
-                <NavLink to={"/dashboard1/booking"}>
-                  <div
-                    className={`flex flex-col justify-between w-full h-full absolute top-0 left-0 z-10  ${
-                      active === "My Bookings"
-                        ? "bg-gradient-to-l from-[#4d7084e7] to-[#204458] text-white"
-                        : "bg-[#DFF6E5]"
-                    } bg-no-repeat bg-right bg-cover  rounded-lg p-8`}
-                    onClick={(e: any) => setActive("My Bookings")}
-                  >
-                    <div className="flex justify-between items-center">
-                      <button className="w-12 h-12 rounded-full bg-gray-200 text-center">
-                        <BsFillBookmarkPlusFill className="text-2xl mx-auto text-red-600"></BsFillBookmarkPlusFill>
-                      </button>
-                      <button className="bg-gray-200 h-7 px-2 rounded-full">
-                        growth
-                      </button>
-                    </div>
-                    <div className="">
-                      <h2 className="text-sm text-start ">My Bookings</h2>
-                      <h1 className="text-2xl text-start ">130</h1>
-                    </div>
+            <>
+              <div className="w-full lg:w-[80%] mx-auto lg:flex md:flex justify-between items-center gap-4 lg:mt-8 px-3 lg:px-0">
+                <div className="flex items-center gap-4">
+                  <img
+                    src={user?.photoURL}
+                    alt=""
+                    className="w-[60px] h-[60px] lg:w-[80px] lg:h-[80px] rounded-full"
+                  />
+                  <div className="text-left flex flex-col gap-1 text-white">
+                    <p className="font-bold text-xl">
+                      Welcome <span className="text-green-600 uppercase"></span> to Engine Experts
+                    </p>
+                    <p>{user?.displayName}</p>
                   </div>
-                </NavLink>
-                <div
-                  className={`droping ${
-                    active === "My Bookings" ? "activedroping" : undefined
-                  } w-full h-full absolute bg-[#7E9EAE] rounded-lg items-end justify-center p-1 transition duration-700`}
-                >
-                  <h1 className="text-sm  text-center">My Bookings</h1>
+                </div>
+                <div className="w-auto h-[48px] bg-[#3E6073] shadow-xl shadow-gray-700 rounded-full px-2 items-center flex gap-2 pr-6 text-white">
+                  <img
+                    src="/assets/enginedash.png"
+                    alt=""
+                    className="w-[30px] h-[30px] rounded-full"
+                  />
+                  <p>A genuine solution to vehicle problems</p>
                 </div>
               </div>
-              {/* Card one start from here */}
-              <div
-                className={`maincard h-[180px] rounded-lg hover:scale-105 relative transition duration-700`}
-              >
-                <NavLink to={"/dashboard1/myreview"}>
-                  <div
-                    className={`flex flex-col justify-between w-full h-full absolute top-0 left-0 z-10 ${
-                      active === "My Reviews"
-                        ? "bg-gradient-to-l from-[#4d7084e7] to-[#204458] text-white"
-                        : "bg-[#DFF6E5]"
-                    } bg-no-repeat bg-right bg-cover  rounded-lg p-8`}
-                    onClick={(e: any) => setActive("My Reviews")}
-                  >
-                    <div className="flex justify-between items-center">
-                      <button className="w-12 h-12 rounded-full bg-gray-200 text-center">
-                        <MdRateReview className="text-2xl mx-auto text-green-600"></MdRateReview>
-                      </button>
-                      <button className="bg-gray-200 h-7 px-2 rounded-full">
-                        growth
-                      </button>
-                    </div>
-                    <div className="">
-                      <h2 className="text-sm text-start ">My Reviews</h2>
-                      <h1 className="text-2xl text-start ">130</h1>
-                    </div>
-                  </div>
-                </NavLink>
+              <div className="grid grid-cols-2 gap-4 w-[80%] mx-auto mt-16 lg:mt-14">
+                {/* Card one start from here */}
                 <div
-                  className={`droping ${
-                    active === "My Reviews" ? "activedroping" : undefined
-                  } w-full h-full absolute bg-[#7E9EAE] rounded-lg items-end justify-center p-1 transition duration-700`}
+                  className={`maincard h-[180px] rounded-lg hover:scale-105  relative transition duration-700`}
                 >
-                  <h1 className="text-sm  text-center">My Reviews</h1>
+                  <NavLink to={"/dashboard1/booking"}>
+                    <div
+                      className={`flex flex-col justify-between w-full h-full absolute top-0 left-0 z-10  ${
+                        active === "My Bookings"
+                          ? "bg-gradient-to-l from-[#4d7084e7] to-[#204458] text-white"
+                          : "bg-[#DFF6E5]"
+                      } bg-no-repeat bg-right bg-cover  rounded-lg p-8`}
+                      onClick={(e: any) => setActive("My Bookings")}
+                    >
+                      <div className="flex justify-between items-center">
+                        <button className="w-12 h-12 rounded-full bg-gray-200 text-center">
+                          <BsFillBookmarkPlusFill className="text-2xl mx-auto text-red-600"></BsFillBookmarkPlusFill>
+                        </button>
+                        <button className="bg-gray-200 h-7 px-2 rounded-full">
+                          growth
+                        </button>
+                      </div>
+                      <div className="">
+                        <h2 className="text-sm text-start ">My Bookings</h2>
+                        <h1 className="text-2xl text-start ">130</h1>
+                      </div>
+                    </div>
+                  </NavLink>
+                  <div
+                    className={`droping ${
+                      active === "My Bookings" ? "activedroping" : undefined
+                    } w-full h-full absolute bg-[#7E9EAE] rounded-lg items-end justify-center p-1 transition duration-700`}
+                  >
+                    <h1 className="text-sm  text-center">My Bookings</h1>
+                  </div>
+                </div>
+                {/* Card one start from here */}
+                <div
+                  className={`maincard h-[180px] rounded-lg hover:scale-105 relative transition duration-700`}
+                >
+                  <NavLink to={"/dashboard1/myreview"}>
+                    <div
+                      className={`flex flex-col justify-between w-full h-full absolute top-0 left-0 z-10 ${
+                        active === "My Reviews"
+                          ? "bg-gradient-to-l from-[#4d7084e7] to-[#204458] text-white"
+                          : "bg-[#DFF6E5]"
+                      } bg-no-repeat bg-right bg-cover  rounded-lg p-8`}
+                      onClick={(e: any) => setActive("My Reviews")}
+                    >
+                      <div className="flex justify-between items-center">
+                        <button className="w-12 h-12 rounded-full bg-gray-200 text-center">
+                          <MdRateReview className="text-2xl mx-auto text-green-600"></MdRateReview>
+                        </button>
+                        <button className="bg-gray-200 h-7 px-2 rounded-full">
+                          growth
+                        </button>
+                      </div>
+                      <div className="">
+                        <h2 className="text-sm text-start ">My Reviews</h2>
+                        <h1 className="text-2xl text-start ">130</h1>
+                      </div>
+                    </div>
+                  </NavLink>
+                  <div
+                    className={`droping ${
+                      active === "My Reviews" ? "activedroping" : undefined
+                    } w-full h-full absolute bg-[#7E9EAE] rounded-lg items-end justify-center p-1 transition duration-700`}
+                  >
+                    <h1 className="text-sm  text-center">My Reviews</h1>
+                  </div>
                 </div>
               </div>
-            </div>
+            </>
           )}
         </div>
       </section>

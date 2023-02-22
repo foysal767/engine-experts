@@ -61,7 +61,7 @@ const AllUsers1 = () => {
         if (data.success) {
           handleClose();
           toast.success(data.message);
-          setLoader(!loader)
+          setLoader(!loader);
         }
       });
   };
@@ -81,7 +81,7 @@ const AllUsers1 = () => {
         .then((data) => {
           if (data.success) {
             toast.success(data.message);
-            setLoader(!loader)
+            setLoader(!loader);
           }
         });
     }
@@ -89,18 +89,19 @@ const AllUsers1 = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:5000/users?type=${type}&page=${page}`)
+    fetch(
+      `https://engine-experts-server-phi.vercel.app/users?type=${type}&page=${page}`
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
           setLength(Math.ceil(data?.length / 10));
           setAllUsers(data?.data);
-          setUsers(data?.length)
+          setUsers(data?.length);
           setLoading(false);
         }
       });
   }, [loader, page, type]);
-  
 
   const handlePage = (i: any) => {
     setPage(i);
@@ -126,9 +127,18 @@ const AllUsers1 = () => {
           name="userType"
           className="w-full lg:w-[25%] h-[53px] rounded-md bg-white border text-xl"
         >
-          <option value="Seller" selected={type === "Seller" ? true : false}>Seller</option>
-          <option value="User" selected={type === "User" ? true : false}>User</option>
-          <option value="verifiedSeller" selected={type === "verifiedSeller" ? true : false}>Verified</option>
+          <option value="Seller" selected={type === "Seller" ? true : false}>
+            Seller
+          </option>
+          <option value="User" selected={type === "User" ? true : false}>
+            User
+          </option>
+          <option
+            value="verifiedSeller"
+            selected={type === "verifiedSeller" ? true : false}
+          >
+            Verified
+          </option>
         </select>
       </div>
       <div className="w-full grid lg:grid-cols-2 gap-4 lg:px-3">
@@ -148,7 +158,7 @@ const AllUsers1 = () => {
                 {user?.name ? user?.name : "Name Not Found"}
               </h1>
               <h1 className="">
-                Email: {user?.email} <br /> Address: arif villa
+                Email: {user?.email} <br /> Address: {user?.address}
               </h1>
             </div>
             {type === "Seller" ? (
@@ -271,7 +281,7 @@ const AllUsers1 = () => {
         </div>
       )}
 
-         {/* pagination by jabes */}
+      {/* pagination by jabes */}
       <div className="w-full flex h-[30px] mt-8 text-center items-center justify-center">
         <ul className="flex gap-2">
           <li
@@ -302,7 +312,6 @@ const AllUsers1 = () => {
           </li>
         </ul>
       </div>
-
     </section>
   );
 };
