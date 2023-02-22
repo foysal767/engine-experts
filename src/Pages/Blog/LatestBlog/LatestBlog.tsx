@@ -16,7 +16,7 @@ const LatestBlog = () => {
             <hr className="text-2xl border-red-500 border-b-2 mb-4" />
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               <Link to="/performance">
-                <div className="hover:bg-red-400 w-72 rounded-md p-4">
+                <div className="hover:bg-[#E92E3D] w-72 rounded-md p-4">
                   <img
                     className="w-72 rounded-lg cursor-pointer"
                     src="assets/image-gallery/Performance-upgrade.jpg"
@@ -32,7 +32,7 @@ const LatestBlog = () => {
               </Link>
 
               <Link to="/paintingblog">
-                <div className="hover:bg-red-400 w-72 rounded-md p-4">
+                <div className="hover:bg-[#E92E3D] w-72 rounded-md p-4">
                   <img
                     className="w-72 rounded-lg cursor-pointer"
                     src="assets/image-gallery/Denting-&-Painting.jpg"
@@ -48,7 +48,7 @@ const LatestBlog = () => {
               </Link>
 
               <Link to="/tyre">
-                <div className="hover:bg-red-400 w-72 rounded-md p-4">
+                <div className="hover:bg-[#E92E3D] w-72 rounded-md p-4">
                   <img
                     className="w-72 rounded-lg cursor-pointer"
                     src="assets/image-gallery/Tyre-&-Wheels.jpg"
@@ -64,7 +64,7 @@ const LatestBlog = () => {
               </Link>
 
               <Link to="/engineserviceblog">
-                <div className="hover:bg-red-400 w-72 rounded-md p-4">
+                <div className="hover:bg-[#E92E3D] w-72 rounded-md p-4">
                   <img
                     className="w-72 rounded-lg cursor-pointer"
                     src="assets/image-gallery/Engine-Service-&-Repair.jpg"

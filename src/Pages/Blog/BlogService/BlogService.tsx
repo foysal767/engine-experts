@@ -3,12 +3,12 @@ const BlogService = () => {
   return (
     <section className="my-16 px-16">
       <div className="flex flex-col md:flex-row text-gray-400 gap-8">
-        <div className="sideBar basis-3/12 bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] p-4 rounded-lg">
+        <div className="background sideBar basis-3/12 p-4 rounded-lg">
           <h1 className="text-2xl text-center text-white font-bold mb-4">
             Popular Servicing
           </h1>
 
-          <div className="animated flex flex-col md:flex-row lg:flex-row gap-2 justify-center items-center mb-10 p-2 cursor-pointer rounded-lg hover:border hover:border-red-400 text-white hover:text-red-400">
+          <div className="animated flex flex-col md:flex-row lg:flex-row gap-2 justify-center items-center mb-10 p-2 cursor-pointer rounded-lg hover:border-2 hover:border-red-200 text-white hover:font-bold">
             <h1 className="w-full md:w-8/12">
               How Evac Air Conditioning Works?
             </h1>
@@ -19,7 +19,7 @@ const BlogService = () => {
             />
           </div>
 
-          <div className="animated flex flex-col md:flex-row lg:flex-row gap-2 justify-center items-center mb-10 p-2 cursor-pointer rounded-lg hover:border hover:border-red-400 text-white hover:text-red-400">
+          <div className="animated flex flex-col md:flex-row lg:flex-row gap-2 justify-center items-center mb-10 p-2 cursor-pointer rounded-lg hover:border-2 hover:border-red-200 text-white hover:font-bold">
             <h1 className="w-full md:w-8/12">Expansion Valve System</h1>
             <img
               src="assets/engine-blog/air-engine/airEngine-6.jpg"
@@ -28,7 +28,7 @@ const BlogService = () => {
             />
           </div>
 
-          <div className="animated flex flex-col md:flex-row lg:flex-row gap-2 justify-center items-center mb-10 p-2 cursor-pointer rounded-lg hover:border hover:border-red-400 text-white hover:text-red-400 ">
+          <div className="animated flex flex-col md:flex-row lg:flex-row gap-2 justify-center items-center mb-10 p-2 cursor-pointer rounded-lg hover:border-2 hover:border-red-200 text-white hover:font-bold ">
             <h1 className="w-full md:w-8/12">Orifice Tube system</h1>
             <img
               src="assets/engine-blog/air-engine/airEngine-7.jpg"
@@ -37,7 +37,7 @@ const BlogService = () => {
             />
           </div>
 
-          <div className="animated flex flex-col md:flex-row lg:flex-row gap-2 justify-center items-center mb-10 p-2 cursor-pointer rounded-lg hover:border hover:border-red-400 text-white hover:text-red-400 ">
+          <div className="animated flex flex-col md:flex-row lg:flex-row gap-2 justify-center items-center mb-10 p-2 cursor-pointer rounded-lg hover:border-2 hover:border-red-200 text-white hover:font-bold ">
             <h1 className="w-full md:w-8/12">A/C Components Description</h1>
             <img
               src="assets/engine-blog/air-engine/airEngine-8.jpg"
@@ -48,7 +48,7 @@ const BlogService = () => {
         </div>
 
         <div className="middleBar basis-7/12">
-          <div className="mb-10 flex flex-col-reverse md:flex-row lg:flex-row gap-4 justify-center items-center cursor-pointer hover:bg-black hover:bg-[url('/public/assets/image-gallery/carbon_BG-20.png')] text-gray-600 hover:text-white p-4 rounded-lg">
+          <div className="mb-10 flex flex-col-reverse md:flex-row lg:flex-row gap-4 justify-center items-center cursor-pointer text-gray-600 p-4 hover:border-2 border-red-500 rounded-lg">
             <div className="">
               <h1 className="text-2xl text-left font-bold ">
                 Blog Of How Automotive Air Conditioning Works ?
@@ -61,7 +61,6 @@ const BlogService = () => {
                     people would respond, “I don’t care how they work, I just
                     want them to work!” While that may be a common response{" "}
                     <br />
-                    <span className="text-red-500">Read More</span>
                   </div>
                   <div className="collapse-content">
                     <p>
@@ -99,7 +98,7 @@ const BlogService = () => {
             </div>
             <img
               src="assets/engine-blog/air-engine/airEngine-1.jpg"
-              className="w-full md:w-1/2 mt-4 mb-2 hover:border-2 border-red-600 rounded-lg"
+              className="w-full md:w-1/2 mt-4 mb-2"
               alt=""
             />
           </div>
