@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 const LatestBlog = () => {
   return (
-    <section className="my-16 px-16">
+    <section className="my-16 md:px-16">
       <div className="flex flex-col md:flex-row lg:flex-row">
         <div className="leftBar basis-0"></div>
         <div className="latestMiddleBlog basis-12/12">
@@ -19,7 +19,7 @@ const LatestBlog = () => {
                 <div className="hover:bg-[#E92E3D] w-full md:w-72 rounded-md p-2">
                   <img
                     className="w-full md:w-72 rounded-lg cursor-pointer"
-                    src="assets/image-gallery/Performance-upgrade.jpg"
+                    src="/assets/image-gallery/Performance-upgrade.jpg"
                     alt=""
                   />
                   <h2 className="text-xl text-white mt-2 font-semibold text-left cursor-pointer">

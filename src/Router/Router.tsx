@@ -10,6 +10,7 @@ import CompleltedOrders from "../Pages/AdminDeshboard1/CompletedOrders/Complelte
 import OrderDetails from "../Pages/AdminDeshboard1/SellerOrders/OrderDetails/OrderDetails"
 import SellerOrder from "../Pages/AdminDeshboard1/SellerOrders/SellerOrder"
 import Blog from "../Pages/Blog/Blog"
+import BlogServiceDetails from "../Pages/Blog/BlogService/BlogServiceDetails"
 import EngineServiceBlog from "../Pages/Blog/LatestBlog/EngineServiceBlog"
 import PaintingBlog from "../Pages/Blog/LatestBlog/PaintingBlog"
 import Tyre from "../Pages/Blog/LatestBlog/Tyre"
@@ -49,7 +50,14 @@ const router = createBrowserRouter([
       {
         path: "/blog",
         element: <Blog></Blog>,
+        children: [
+          {
+            path: "/blog/:id",
+            element: <BlogServiceDetails></BlogServiceDetails>,
+          },
+        ],
       },
+
       {
         path: "/maps",
         element: <GoogleMaps></GoogleMaps>,
