@@ -1,46 +1,44 @@
-import { useContext, useEffect, useState } from "react";
-import { toast } from "react-hot-toast";
-import { Navigate, useLocation } from "react-router-dom";
-import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
+import { useContext, useEffect, useState } from "react"
+import { toast } from "react-hot-toast"
+import { Navigate, useLocation } from "react-router-dom"
+import { AuthContext } from "../../../Context/AuthProvider/AuthProvider"
 
 type sellers = {
-  expert: any;
-  filter: any;
-  map: any;
-};
+  expert: any
+  filter: any
+  map: any
+}
 const AllOrders1 = () => {
-  const { isAdmin } = useContext(AuthContext);
-  const [sellers, setSellers] = useState<sellers>();
-  const [specificSellers, setSpecificSellers] = useState([]);
-  const [page, setPage] = useState(0);
-  const [length, setLength] = useState(0);
-  const [loader, setLoader] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [orders, setOrders] = useState([]);
-  const location = useLocation();
+  const { isAdmin } = useContext(AuthContext)
+  const [sellers, setSellers] = useState<sellers>()
+  const [specificSellers, setSpecificSellers] = useState([])
+  const [page, setPage] = useState(0)
+  const [length, setLength] = useState(0)
+  const [loader, setLoader] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [orders, setOrders] = useState([])
+  const location = useLocation()
   if (!isAdmin) {
-    <Navigate to="/" state={{ from: location }} replace></Navigate>;
+    ;<Navigate to="/" state={{ from: location }} replace></Navigate>
   }
 
   useEffect(() => {
-    setIsLoading(true);
+    setIsLoading(true)
     fetch(
       `https://engine-experts-server-phi.vercel.app/allBookings?page=${page}`
     )
-      .then((res) => res.json())
-      .then((data) => {
+      .then(res => res.json())
+      .then(data => {
         if (data.success) {
-          setLength(Math.ceil(data?.length / 10));
-          setOrders(data?.data);
-          getSeller();
-          setIsLoading(false);
+          setLength(Math.ceil(data?.length / 10))
+          setOrders(data?.data)
+          getSeller()
+          setIsLoading(false)
         }
-      });
-  }, [loader, page]);
+      })
+  }, [loader, page])
   const handleOrderDelete = (id: any, name: any) => {
-    const confirm = window.confirm(
-      `Are you sure, want to delete this ${name}?`
-    );
+    const confirm = window.confirm(`Are you sure, want to delete this ${name}?`)
     if (confirm) {
       fetch(`https://engine-experts-server-phi.vercel.app/deleteOrder/${id}`, {
         method: "DELETE",
@@ -48,42 +46,42 @@ const AllOrders1 = () => {
           "content-type": "application/json",
         },
       })
-        .then((res) => res.json())
-        .then((data) => {
+        .then(res => res.json())
+        .then(data => {
           if (data.success) {
-            setLoader(!loader);
-            toast.success(data.message);
+            setLoader(!loader)
+            toast.success(data.message)
           }
-        });
+        })
     }
-  };
+  }
   const handlePage = (i: any) => {
-    setPage(i);
-    setLoader(!loader);
-  };
+    setPage(i)
+    setLoader(!loader)
+  }
   const getSeller = () => {
     fetch(`https://engine-experts-server-phi.vercel.app/getSeller`)
-      .then((res) => res.json())
-      .then((data) => {
+      .then(res => res.json())
+      .then(data => {
         if (data.success) {
-          setSellers(data?.data);
+          setSellers(data?.data)
         }
-      });
-  };
+      })
+  }
 
   const filterSeller = (name: any) => {
     const specificSeller = sellers?.filter(
       (seller: any) => seller.expert === name
-    );
-    setSpecificSellers(specificSeller);
-  };
+    )
+    setSpecificSellers(specificSeller)
+  }
 
   const sendOrders = (email: any, id: any) => {
-    const checkEmail = email.includes("@");
+    const checkEmail = email.includes("@")
     if (checkEmail) {
       const confirm = window.confirm(
         `Are you sure you want to slect ${email} for this service ${id}`
-      );
+      )
       if (confirm) {
         fetch(
           `https://engine-experts-server-phi.vercel.app/getSeller?email=${email}&id=${id}`,
@@ -91,22 +89,22 @@ const AllOrders1 = () => {
             method: "PATCH",
           }
         )
-          .then((res) => res.json())
-          .then((data) => {
+          .then(res => res.json())
+          .then(data => {
             if (data.success) {
-              setLoader(!loader);
-              toast.success(data?.message);
+              setLoader(!loader)
+              toast.success(data?.message)
             }
-          });
+          })
       }
     }
-  };
+  }
   if (isLoading) {
     return (
       <div className="grid place-items-center w-full h-screen">
         <span className="loader"></span>
       </div>
-    );
+    )
   }
   return (
     <section className="w-full md:w-[80%] mx-auto px-4 md:px-8 lg:px-12 bg-[#EBF2F4] py-20">
@@ -197,7 +195,7 @@ const AllOrders1 = () => {
         </ul>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default AllOrders1;
+export default AllOrders1
