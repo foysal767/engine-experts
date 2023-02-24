@@ -53,7 +53,7 @@ const AdminDeshboard1 = () => {
 
   return (
     <main className=" bg-[#FFFFFF]  w-full">
-      <section className="w-full h-[83vh] lg:h-[85vh] relative ">
+      <section className="w-full h-[95vh] md:h-[70vh] lg:h-[85vh] relative ">
         <div className="w-full h-[68vh] adminbanner absolute top-0"></div>
         <div className="absolute top-0 w-full h-[7vh] lg:h-[13vh] text-white">
           <Navbar></Navbar>
@@ -99,7 +99,7 @@ const AdminDeshboard1 = () => {
                         <button className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center">
                           <RiServiceFill className="text-2xl text-blue-400" />
                         </button>
-                        <button className="bg-gray-200 h-7 px-2 rounded-full">
+                        <button className="bg-gray-200 h-7 px-2 rounded-full hidden lg:block md:block">
                           growth
                         </button>
                       </div>
@@ -136,7 +136,7 @@ const AdminDeshboard1 = () => {
                         <button className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center">
                           <FaUsers className="text-2xl text-green-400" />
                         </button>
-                        <button className="bg-gray-200 h-7 px-2 rounded-full">
+                        <button className="bg-gray-200 h-7 px-2 rounded-full hidden lg:block md:block">
                           growth
                         </button>
                       </div>
@@ -173,7 +173,7 @@ const AdminDeshboard1 = () => {
                         <button className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center">
                           <FaBullhorn className="text-2xl text-amber-400" />
                         </button>
-                        <button className="bg-gray-200 h-7 px-2 rounded-full">
+                        <button className="bg-gray-200 h-7 px-2 rounded-full hidden lg:block md:block">
                           growth
                         </button>
                       </div>
@@ -210,7 +210,7 @@ const AdminDeshboard1 = () => {
                         <button className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center">
                           <FaCartArrowDown className="text-2xl text-red-400" />
                         </button>
-                        <button className="bg-gray-200 h-7 px-2 rounded-full">
+                        <button className="bg-gray-200 h-7 px-2 rounded-full hidden lg:block md:block">
                           growth
                         </button>
                       </div>
@@ -287,7 +287,7 @@ const AdminDeshboard1 = () => {
                         <button className="w-12 h-12 rounded-full bg-gray-200 text-center">
                           <RiShoppingCart2Fill className="text-2xl mx-auto text-red-600"></RiShoppingCart2Fill>
                         </button>
-                        <button className="bg-gray-200 h-7 px-2 rounded-full">
+                        <button className="bg-gray-200 h-7 px-2 rounded-full hidden lg:block md:block">
                           growth
                         </button>
                       </div>
@@ -322,7 +322,7 @@ const AdminDeshboard1 = () => {
                         <button className="w-12 h-12 rounded-full bg-gray-200 text-center">
                           <RiShoppingCart2Fill className="text-2xl mx-auto text-red-600"></RiShoppingCart2Fill>
                         </button>
-                        <button className="bg-gray-200 h-7 px-2 rounded-full">
+                        <button className="bg-gray-200 h-7 px-2 rounded-full hidden lg:block md:block">
                           growth
                         </button>
                       </div>
@@ -391,7 +391,7 @@ const AdminDeshboard1 = () => {
                         <button className="w-12 h-12 rounded-full bg-gray-200 text-center">
                           <BsFillBookmarkPlusFill className="text-2xl mx-auto text-red-600"></BsFillBookmarkPlusFill>
                         </button>
-                        <button className="bg-gray-200 h-7 px-2 rounded-full">
+                        <button className="bg-gray-200 h-7 px-2 rounded-full hidden lg:block md:block">
                           growth
                         </button>
                       </div>
@@ -426,7 +426,7 @@ const AdminDeshboard1 = () => {
                         <button className="w-12 h-12 rounded-full bg-gray-200 text-center">
                           <MdRateReview className="text-2xl mx-auto text-green-600"></MdRateReview>
                         </button>
-                        <button className="bg-gray-200 h-7 px-2 rounded-full">
+                        <button className="bg-gray-200 h-7 px-2 rounded-full hidden lg:block md:block">
                           growth
                         </button>
                       </div>
