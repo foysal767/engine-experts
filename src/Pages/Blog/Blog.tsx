@@ -5,7 +5,7 @@ import WeeklyBlog from "./WeeklyBlog/WeeklyBlog"
 const Blog = () => {
   return (
     <main>
-      <section className="lg:flex w-full px-10 mt-4 gap-4">
+      <section className="lg:flex w-full md:px-16 mt-8 gap-4">
         <BlogService></BlogService>
         <div className="flex-1">
           <Outlet></Outlet>

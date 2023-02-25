@@ -14,7 +14,7 @@ const WeeklyBlog = () => {
           <div className="weeklyCounterWrapper flex flex-col md:flex-row justify-center items-center gap-4 hover:bg-gray-300 cursor-pointer p-4 rounded-lg">
             <img
               className="w-28 h-28 rounded-full"
-              src="assets/car-parts/car-parts-2.png"
+              src="/assets/car-parts/car-parts-2.png"
               alt=""
             />
             <p className="text-lg text-gray-500 font-semibold text-center lg:text-justify">
@@ -47,7 +47,7 @@ const WeeklyBlog = () => {
           <div className="weeklyCounterWrapper flex flex-col md:flex-row justify-center items-center gap-4 hover:bg-gray-300 cursor-pointer p-4 rounded-lg">
             <img
               className="w-28 h-28 rounded-full"
-              src="assets/car-parts/car-parts-1.png"
+              src="/assets/car-parts/car-parts-1.png"
               alt=""
             />
             <p className="text-lg text-gray-500 font-semibold text-center lg:text-justify">
@@ -80,7 +80,7 @@ const WeeklyBlog = () => {
           <div className="weeklyCounterWrapper flex flex-col md:flex-row justify-center items-center gap-4 hover:bg-gray-300 cursor-pointer p-4 rounded-lg">
             <img
               className="w-28 h-28 rounded-full"
-              src="assets/car-parts/car-parts-3.png"
+              src="/assets/car-parts/car-parts-3.png"
               alt=""
             />
             <p className="text-lg text-gray-500 font-semibold text-center lg:text-justify">
@@ -113,7 +113,7 @@ const WeeklyBlog = () => {
           <div className="weeklyCounterWrapper flex flex-col md:flex-row justify-center items-center gap-4 hover:bg-gray-300 cursor-pointer p-4 rounded-lg">
             <img
               className="w-28 h-28 rounded-full"
-              src="assets/car-parts/car-parts-4.png"
+              src="/assets/car-parts/car-parts-4.png"
               alt=""
             />
             <p className="text-lg text-gray-500 font-semibold text-center lg:text-justify">
@@ -151,7 +151,7 @@ const WeeklyBlog = () => {
           <div className="weeklyCounterWrapper flex flex-col md:flex-row justify-center items-center gap-4 hover:bg-gray-300 cursor-pointer p-4 rounded-lg">
             <img
               className="w-28 h-28 rounded-full"
-              src="assets/car-parts/car-parts-5.png"
+              src="/assets/car-parts/car-parts-5.png"
               alt=""
             />
             <p className="text-lg text-gray-500 font-semibold text-center lg:text-justify">
@@ -188,7 +188,7 @@ const WeeklyBlog = () => {
         <div className="rightWeeklyBlog text-lg text-gray-600 text-justify p-12 basis-4/12">
           <img
             className="w-full rounded-lg"
-            src="assets/image-gallery/Performance-upgrade.jpg"
+            src="/assets/image-gallery/Performance-upgrade.jpg"
             alt=""
           />
           <p className="mt-4">
