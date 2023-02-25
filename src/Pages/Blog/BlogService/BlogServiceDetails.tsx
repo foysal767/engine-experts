@@ -24,7 +24,9 @@ const BlogServiceDetails = () => {
       <h1 className="text-2xl text-center font-bold ">{blog?.name}</h1>
 
       <img src={blog?.img} className="w-full my-4 lg:w-1/2 mx-auto" alt="" />
-      <p className="text-xl md:text-justify mt-2">{blog?.description}</p>
+      <p className="text-xl md:text-justify mt-2 md:px-10">
+        {blog?.description}
+      </p>
       <div className="mt-2"></div>
     </div>
   )

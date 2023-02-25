@@ -35,7 +35,7 @@ const LatestBlog = () => {
                 <div className="hover:bg-[#E92E3D] w-full md:w-72 rounded-md p-2">
                   <img
                     className="w-full md:w-72 rounded-lg cursor-pointer"
-                    src="assets/image-gallery/Denting-&-Painting.jpg"
+                    src="/assets/image-gallery/Denting-&-Painting.jpg"
                     alt=""
                   />
                   <h2 className="text-xl text-white mt-2 font-semibold text-left cursor-pointer">
@@ -51,7 +51,7 @@ const LatestBlog = () => {
                 <div className="hover:bg-[#E92E3D] w-full md:w-72 rounded-md p-2">
                   <img
                     className="w-full md:w-72 rounded-lg cursor-pointer"
-                    src="assets/image-gallery/Tyre-&-Wheels.jpg"
+                    src="/assets/image-gallery/Tyre-&-Wheels.jpg"
                     alt=""
                   />
                   <h2 className="text-xl mt-2 text-white font-semibold text-left cursor-pointer">
@@ -67,7 +67,7 @@ const LatestBlog = () => {
                 <div className="hover:bg-[#E92E3D] w-full md:w-72 rounded-md p-2">
                   <img
                     className="w-full md:w-72 rounded-lg cursor-pointer"
-                    src="assets/image-gallery/Engine-Service-&-Repair.jpg"
+                    src="/assets/image-gallery/Engine-Service-&-Repair.jpg"
                     alt=""
                   />
                   <h2 className="text-xl mt-2 text-white hover:text-white font-semibold text-left cursor-pointer">
