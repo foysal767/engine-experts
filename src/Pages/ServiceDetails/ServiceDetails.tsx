@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { RiServiceFill } from "react-icons/ri";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Autoplay, Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
@@ -44,10 +44,11 @@ const ServiceDetails = () => {
   const [details, setDetails] = useState<usedata>();
   const [loading, setLoading] = useState<boolean>(true);
   const [reviews, setReviews] = useState<reviewtype>();
-  const { user, isAdmin, accType } = useContext(AuthContext);
+  const { user, isAdmin, accType, logOut } = useContext(AuthContext);
   const [checked, setChecked] = useState<boolean | undefined>();
   const [openModal, setOpenModal] = useState(false);
   const [errorStr, setErrorStr] = useState<string>("");
+  const navigate = useNavigate();
   // const [value, onChange] = useState(new Date());
   // const [location, setLocation] = useState<object>(userLocation);
   const getLocation = () => {
@@ -134,9 +135,19 @@ const ServiceDetails = () => {
 
   useEffect(() => {
     fetch(
-      `https://engine-experts-server-phi.vercel.app/servicedetails?id=${id}`
+      `${process.env.REACT_APP_API}/servicedetails?id=${id}&email=${user?.email}`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("access-token")}`,
+        },
+      }
     )
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.status === 401 || res.status === 403) {
+          logOut(navigate);
+        }
+        return res.json();
+      })
       .then((data) => {
         if (data.success) {
           setDetails(data?.data);

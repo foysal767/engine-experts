@@ -1,17 +1,25 @@
 import Lottie from "lottie-react";
 import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import hi from "./hi.json";
 
 const Booking = () => {
   const [bookings, setBookings] = useState([]);
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
   useEffect(() => {
-    fetch(
-      `https://engine-experts-server-phi.vercel.app/bookings?email=${user?.email}`
-    )
-      .then((res) => res.json())
+    fetch(`${process.env.REACT_APP_API}/bookings?email=${user?.email}`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("access-token")}`,
+      },
+    })
+      .then((res) => {
+        if (res.status === 401 || res.status === 403) {
+          logOut(navigate);
+        }
+        return res.json();
+      })
       .then((data) => {
         if (data.success) {
           setBookings(data.data);

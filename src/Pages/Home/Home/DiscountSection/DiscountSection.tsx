@@ -69,7 +69,8 @@ const DiscountSection = () => {
   if (!deadline) {
     return <></>;
   }
-  if (days === 0 && hours === 0 && mins === 0 && secs === 10) {
+  console.log(days, hours, "discount time check");
+  if (days <= 0 && hours <= 0 && mins <= 0 && secs <= 0) {
     stopCampaign();
   }
   return (
