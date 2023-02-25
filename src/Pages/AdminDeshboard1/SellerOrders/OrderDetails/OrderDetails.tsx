@@ -35,7 +35,7 @@ const OrderDetails = () => {
   return (
     <section className="w-full lg:w-[90%] md:w-[80%] mx-auto px-4 md:px-8 lg:px-12 bg-[#EBF2F4] pb-10">
       <GoogleMaps></GoogleMaps>
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid lg:grid-cols-3 grid-cols-1 gap-4">
         <div className="col-span-2 bg-gray-200 shadow-md w-full h-full py-10 px-4">
           <h2 className="text-2xl font-bold border-b-2 border-green-600 mb-2 pb-1">
             {order?.serviceName}
