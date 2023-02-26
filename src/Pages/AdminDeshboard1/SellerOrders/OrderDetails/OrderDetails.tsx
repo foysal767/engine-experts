@@ -1,11 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import GoogleMaps from "../../../GoogleMaps/GoogleMaps";
+// import GoogleMaps from "../../../GoogleMaps/GoogleMaps";
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+const markerIconUser = new L.Icon({
+  iconUrl: require("../../../../assets/images/marker.png"),
+  iconSize: [30, 40],
+});
+const markerIconSeller = new L.Icon({
+  iconUrl: require("../../../../assets/images/marker2.png"),
+  iconSize: [40, 40],
+});
 
 interface order {
-  location: any;
-  lat: string;
-  long: string;
+  // location: { lat: any; long: any };
+  // lat: any;
+  // long: any;
   userEmail: string;
   date: string;
   number: string;
@@ -17,24 +28,67 @@ interface order {
   userImage: any;
   payment: any;
 }
+// type location = {
+//   lat: any;
+//   long: any;
+// };
+
+let lat = 0;
+let long = 0;
 
 const OrderDetails = () => {
   const { id } = useParams();
   const [order, setOrder] = useState<order>();
+  // const [location, setLocation] = useState<location | any>();
 
   useEffect(() => {
-    fetch(`https://engine-experts-server-phi.vercel.app/orderDetails?id=${id}`)
+    fetch(`${process.env.REACT_APP_API}/orderDetails?id=${id}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
           setOrder(data?.data);
+          console.log(data?.data?.location, "location check in useEffect");
+          lat = data?.data?.location?.lat;
+          long = data?.data?.location?.long;
         }
       });
   }, [id]);
+  console.log(lat, long, "location");
 
   return (
     <section className="w-full lg:w-[90%] md:w-[80%] mx-auto px-4 md:px-8 lg:px-12 bg-[#EBF2F4] pb-10">
-      <GoogleMaps></GoogleMaps>
+      {/* <GoogleMaps></GoogleMaps> */}
+      <div className="mb-12 lg:mb-16">
+        <MapContainer
+          center={[23.777176, 90.399452]}
+          zoom={7}
+          scrollWheelZoom={false}
+          className="h-[400px] w-full"
+        >
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://api.maptiler.com/maps/basic-v2/256/{z}/{x}/{y}.png?key=DxUohVtzxrJHRdt35lzh"
+          />
+
+          <Marker position={[lat, long]} icon={markerIconUser}>
+            <Popup className="">
+              <div className="flex gap-2 items-center mr-4">
+                <img
+                  src={order?.userImage}
+                  alt=""
+                  className="w-[25px] h-[25px] rounded-full"
+                />
+                <h1 className="text-xl">{order?.userEmail}</h1>
+              </div>
+            </Popup>
+          </Marker>
+          <Marker position={[23.777176, 90.399452]} icon={markerIconSeller}>
+            <Popup>
+              <h1 className="text-xl">Your Location</h1>
+            </Popup>
+          </Marker>
+        </MapContainer>
+      </div>
       <div className="grid lg:grid-cols-3 grid-cols-1 gap-4">
         <div className="col-span-2 bg-gray-200 shadow-md w-full h-full py-10 px-4">
           <h2 className="text-2xl font-bold border-b-2 border-green-600 mb-2 pb-1">

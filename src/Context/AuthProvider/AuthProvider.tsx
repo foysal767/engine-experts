@@ -205,7 +205,7 @@ const AuthProvider = ({ children }: childrenType) => {
         const user = result.user;
         setUser(user);
         navigate(from, { replace: true });
-        fetch("https://engine-experts-server-phi.vercel.app/jwt", {
+        fetch(`${process.env.REACT_APP_API}/jwt`, {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -250,7 +250,7 @@ const AuthProvider = ({ children }: childrenType) => {
         .then((data) => {
           if (data?.success) {
             navigate(from, { replace: true });
-            fetch("https://engine-experts-server-phi.vercel.app/jwt", {
+            fetch("http://localhost:5000/jwt", {
               method: "POST",
               headers: {
                 "content-type": "application/json",
@@ -300,7 +300,7 @@ const AuthProvider = ({ children }: childrenType) => {
     });
 
     return () => unsubscribe();
-  }, [user,userEmail]);
+  }, [user, userEmail]);
 
   const authInfo = {
     user,

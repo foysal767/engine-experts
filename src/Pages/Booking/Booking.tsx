@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import Lottie from "lottie-react"
 import { useContext, useEffect, useState } from "react"
 import { Link } from "react-router-dom"
@@ -13,6 +14,31 @@ const Booking = () => {
     )
       .then(res => res.json())
       .then(data => {
+=======
+import Lottie from "lottie-react";
+import { useContext, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
+import hi from "./hi.json";
+
+const Booking = () => {
+  const [bookings, setBookings] = useState([]);
+  const { user, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
+  useEffect(() => {
+    fetch(`${process.env.REACT_APP_API}/bookings?email=${user?.email}`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("access-token")}`,
+      },
+    })
+      .then((res) => {
+        if (res.status === 401 || res.status === 403) {
+          logOut(navigate);
+        }
+        return res.json();
+      })
+      .then((data) => {
+>>>>>>> 4b377dab5c9664f0eccf70a2d97ec4e85f12292c
         if (data.success) {
           setBookings(data.data)
         }

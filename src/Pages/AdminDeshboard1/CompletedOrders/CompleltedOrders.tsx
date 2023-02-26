@@ -1,19 +1,27 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Navigate, useLocation } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 
 const CompleltedOrders = () => {
-  const { accType, user } = useContext(AuthContext);
+  const { accType, user, logOut } = useContext(AuthContext);
   const location = useLocation();
   const [orders, setOrders] = useState([]);
+  const navigate = useNavigate();
   if (accType !== "Seller") {
     <Navigate to="/" state={{ from: location }} replace></Navigate>;
   }
   useEffect(() => {
-    fetch(
-      `https://engine-experts-server-phi.vercel.app/completedOrder?email=${user?.email}`
-    )
-      .then((res) => res.json())
+    fetch(`${process.env.REACT_APP_API}/completedOrder?email=${user?.email}`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("access-token")}`,
+      },
+    })
+      .then((res) => {
+        if (res.status === 401 || res.status === 403) {
+          logOut(navigate);
+        }
+        return res.json();
+      })
       .then((data) => {
         if (data.success) {
           setOrders(data?.data);
