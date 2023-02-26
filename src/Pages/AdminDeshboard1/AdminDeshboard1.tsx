@@ -269,7 +269,7 @@ const AdminDeshboard1 = () => {
                   <span className="text-2xl lg:text-3xl">900$</span>
                 </h1>
               </div>
-              <div className="grid grid-cols-2 lg:grid-cols-2 gap-4 w-[80%] mx-auto mt-16 lg:mt-14">
+              <div className="grid grid-cols-2 lg:grid-cols-2 gap-4 w-[90%] lg:w-[80%] mx-auto mt-16 lg:mt-14">
                 {/* Card one start from here */}
                 <div
                   className={`maincard h-[180px] rounded-lg hover:scale-105 relative transition duration-700`}
