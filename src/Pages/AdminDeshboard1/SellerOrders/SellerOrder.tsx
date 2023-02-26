@@ -56,23 +56,25 @@ const SellerOrder = () => {
         {orders?.map((order: any, i: any) => (
           <div
             key={i}
-            className="flex flex-col lg:flex-row gap-3 justify-between items-center px-4 py-3 text-xl bg-[#d9dee4] rounded border"
+            className="grid grid-cols-1 lg:grid-cols-5 gap-3 justify-around items-center px-4 py-3 text-xl bg-[#d9dee4] rounded border"
           >
             <h2>{i + 1}</h2>
             <h2>{order?.serviceName}</h2>
             <h2>{order?.userEmail}</h2>
-            <h2>${order?.price}</h2>
+            <h2 className="ml-6">${order?.price}</h2>
+            <div className="lg:flex items-center gap-3">
             <Link to={`/dashboard1/orderdetails/${order?._id}`}>
-              <button className="btn btn-sm border-none bg-green-600 rounded-xl text-white px-3">
-                See Details
+              <button className="btn btn-sm border-none bg-green-600 rounded-xl mr-2 text-white">
+              Details
               </button>
             </Link>
             <button
-              className="btn btn-sm border-none text-white bg-blue-500 px-3 rounded-xl"
+              className="btn btn-sm border-none text-white bg-blue-500 rounded-xl"
               onClick={() => handleCompleted(order?._id)}
             >
               Complete
             </button>
+            </div>
           </div>
         ))}
       </div>

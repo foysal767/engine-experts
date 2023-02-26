@@ -35,13 +35,13 @@ const CompleltedOrders = () => {
         {orders?.map((order: any, i: any) => (
           <div
             key={i}
-            className="flex flex-col lg:flex-row gap-3 justify-between items-center px-4 py-3 text-xl bg-[#d9dee4] rounded border"
+            className="grid grid-cols-1 lg:grid-cols-5 gap-3 justify-between items-center py-3 text-xl bg-[#d9dee4] rounded border"
           >
             <h2>{i + 1}</h2>
             <h2>{order?.serviceName}</h2>
             <h2>{order?.userEmail}</h2>
-            <h2>${order?.price}</h2>
-            <button className="bg-blue-500 px-3 rounded-xl">Completed</button>
+            <h2 className="ml-6">${order?.price}</h2>
+            <button className="btn btn-sm w-[60%] border-none btn-disabled mx-auto text-white bg-blue-500 rounded-xl">Completed</button>
           </div>
         ))}
       </div>

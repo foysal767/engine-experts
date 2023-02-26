@@ -128,10 +128,6 @@ const OrderDetails = () => {
             alt=""
           />
           <p className="text-left mb-1">
-            <span className="font-bold text-lg">Name: </span>
-            {order?.userName}
-          </p>
-          <p className="text-left mb-1">
             <span className="font-bold text-lg">Email: </span>
             {order?.userEmail}
           </p>
