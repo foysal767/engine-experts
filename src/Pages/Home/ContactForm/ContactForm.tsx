@@ -121,30 +121,24 @@ const ContactForm = () => {
               </div>
 
               <div>
-                <button className="contactBtn font-bold  ">
-                  Submit
-                </button>
+                <button className="contactBtn font-bold  ">Submit</button>
               </div>
             </form>
           </div>
         </div>
         <div className="rightContactDetails p-4 rounded-lg py-10 px-8 lg:mr-4 md:mr-1 bg-[#19191B] bg-[url('/public/assets/image-gallery/carbon_BG-20.png')]">
           <div className="contactDetails text-left mb-8">
-            <h2 className="text-4xl font-semibold  mb-4  ">
-              Contact Details
-            </h2>
+            <h2 className="text-4xl font-semibold  mb-4  ">Contact Details</h2>
             <p className=" ">
-              <span className="font-bold  ">
-                Office Address -1:{" "}
-              </span>{" "}
-              Engine Experts Agency <br />
+              <span className="font-bold  ">Office Address -1: </span> Engine
+              Experts Agency <br />
               (Chottogram Baskhali) Co. Ltd Bridge 8. Room Chottgram Bangladesh
               - 9201
             </p>
             <br />
             <p className=" ">
-              <span className="font-bold  ">Office Address-2: </span>{" "}
-              Engine Expertice Agency <br />
+              <span className="font-bold  ">Office Address-2: </span> Engine
+              Expertice Agency <br />
               (Kamranggir Chor Vuter Goli) Co. Ltd Sheik Jamal Road- Dhaka,
               Bangladesh - 9876
             </p>
@@ -154,9 +148,7 @@ const ContactForm = () => {
               <FaPhoneVolume />
             </div>
             <div>
-              <h2 className="text-sm  text-left  ">
-                Emargency Call
-              </h2>
+              <h2 className="text-sm  text-left  ">Emargency Call</h2>
               <span className="font-bold  ">+88 017 22 262041</span>
             </div>
           </div>
@@ -165,12 +157,8 @@ const ContactForm = () => {
               <FaRegEnvelope />
             </div>
             <div>
-              <h2 className="text-sm  text-left  ">
-                General Communication
-              </h2>
-              <span className="font-bold  ">
-                engineexpertise24@gmail.com
-              </span>
+              <h2 className="text-sm  text-left  ">General Communication</h2>
+              <span className="font-bold  ">engineexpertise24@gmail.com</span>
             </div>
           </div>
         </div>

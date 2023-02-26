@@ -3,3 +3,11 @@
   /* box-shadow: 2px 6px 5px gray; */
   transition: 0.4s;
 }
+
+.background {
+  background-image: linear-gradient(
+    165deg,
+    #e81c2dea 50%,
+    rgba(0, 0, 0, 0.792) 50%
+  );
+}

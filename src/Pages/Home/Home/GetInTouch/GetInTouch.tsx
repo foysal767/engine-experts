@@ -1,6 +1,6 @@
 import { FaPhone, FaRegEdit } from "react-icons/fa"
-import { VscWorkspaceTrusted } from "react-icons/vsc"
 import { SiTrustpilot } from "react-icons/si"
+import { VscWorkspaceTrusted } from "react-icons/vsc"
 import "./GetInTouch.css"
 
 const GetInTouch = () => {
@@ -22,8 +22,10 @@ const GetInTouch = () => {
             </p>
           </div>
           <div>
-          <h5 className="ftext-xl text-[#E81C2E] font-bold">
-              <a href="mailto:engineexpertise24@gmail.com">engineexpertise24@gmail.com</a>
+            <h5 className="ftext-xl text-[#E81C2E] font-bold">
+              <a href="mailto:engineexpertise24@gmail.com">
+                engineexpertise24@gmail.com
+              </a>
             </h5>
           </div>
         </div>
@@ -53,7 +55,8 @@ const GetInTouch = () => {
           <div>
             <h2 className="text-2xl font-semibold">Trust</h2>
             <p>
-            We give our best service to our customer  and we are confident with our services.
+              We give our best service to our customer and we are confident with
+              our services.
             </p>
           </div>
           <div className="flex items-center text-[#E81C2E] gap-2 text-xl">

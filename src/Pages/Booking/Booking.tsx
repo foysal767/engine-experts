@@ -1,3 +1,20 @@
+<<<<<<< HEAD
+import Lottie from "lottie-react"
+import { useContext, useEffect, useState } from "react"
+import { Link } from "react-router-dom"
+import { AuthContext } from "../../Context/AuthProvider/AuthProvider"
+import hi from "./hi.json"
+
+const Booking = () => {
+  const [bookings, setBookings] = useState([])
+  const { user } = useContext(AuthContext)
+  useEffect(() => {
+    fetch(
+      `https://engine-experts-server-phi.vercel.app/bookings?email=${user?.email}`
+    )
+      .then(res => res.json())
+      .then(data => {
+=======
 import Lottie from "lottie-react";
 import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -21,11 +38,12 @@ const Booking = () => {
         return res.json();
       })
       .then((data) => {
+>>>>>>> 4b377dab5c9664f0eccf70a2d97ec4e85f12292c
         if (data.success) {
-          setBookings(data.data);
+          setBookings(data.data)
         }
-      });
-  }, [user?.email]);
+      })
+  }, [user?.email])
 
   return (
     <div className="text-[#383232] px-4 md:px-8 lg:px-12">
@@ -176,7 +194,7 @@ const Booking = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Booking;
+export default Booking
